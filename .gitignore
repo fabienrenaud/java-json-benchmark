@@ -1,0 +1,11 @@
+# Build
+target/
+*.csv
+
+# IDE
+.idea/
+*.iml
+/nbproject/
+
+# System
+.DS_Store

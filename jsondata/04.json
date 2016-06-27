@@ -1,0 +1,43 @@
+{
+    "_id": "5554b2010c688461ff5893e0",
+    "index": 0,
+    "guid": "24e5f19f-7e3b-46a0-8e4e-7b567b6aabb5",
+    "isActive": false,
+    "balance": "$2,618.39",
+    "picture": "http://placehold.it/32x32",
+    "age": 30,
+    "eyeColor": "green",
+    "name": "Irene Rollins",
+    "gender": "female",
+    "company": "GEEKOL",
+    "email": "irenerollins@geekol.com",
+    "phone": "+1 (869) 469-3670",
+    "address": "563 Wallabout Street, Summerfield, Guam, 6506",
+    "about": "Elit enim nisi labore mollit pariatur eu fugiat voluptate sit consequat. Elit ex labore fugiat nulla amet. Excepteur dolor id adipisicing in sunt.\r\n",
+    "registered": "2014-09-30T12:52:24 -07:00",
+    "latitude": -18.035727,
+    "longitude": -13.055177,
+    "tags": [
+        "sunt",
+        "officia",
+        "irure",
+        "labore",
+        "reprehenderit"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Chrystal Hubbard"
+        },
+        {
+            "id": 1,
+            "name": "Fisher Nieves"
+        },
+        {
+            "id": 2,
+            "name": "Yates Phillips"
+        }
+    ],
+    "greeting": "Hello, Irene Rollins! You have 9 unread messages.",
+    "favoriteFruit": "apple"
+}

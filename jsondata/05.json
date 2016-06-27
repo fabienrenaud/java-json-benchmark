@@ -1,0 +1,44 @@
+{
+    "_id": "5554b588a97f163a0fba44c4",
+    "index": 0,
+    "guid": "937f7e27-70e4-4ba9-948d-c6dc1a04be7f",
+    "isActive": false,
+    "balance": "$2,832.87",
+    "picture": "http://placehold.it/32x32",
+    "age": 27,
+    "eyeColor": "green",
+    "name": "Shawna Reese",
+    "gender": "female",
+    "company": "ORONOKO",
+    "email": "shawnareese@oronoko.com",
+    "phone": "+1 (995) 413-3077",
+    "address": "536 Woodhull Street, Rosburg, American Samoa, 5866",
+    "about": "Quis anim Lorem ex aute do. Cillum non duis adipisicing do esse occaecat. Aliquip amet anim enim labore do proident amet veniam minim ut Lorem eu. Amet deserunt labore irure dolore est veniam occaecat. Amet velit eu minim irure tempor mollit ex esse mollit labore exercitation.\r\n",
+    "registered": "2015-02-27T19:58:00 -07:00",
+    "latitude": 21.291546,
+    "longitude": 155.571475,
+    "tags": [
+        "nulla",
+        "aute",
+        "ex",
+        "eu",
+        "est",
+        "et"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Petersen Mccray"
+        },
+        {
+            "id": 1,
+            "name": "Cassie Webster"
+        },
+        {
+            "id": 2,
+            "name": "Brandie Adams"
+        }
+    ],
+    "greeting": "Hello, Shawna Reese! You have 6 unread messages.",
+    "favoriteFruit": "apple"
+}

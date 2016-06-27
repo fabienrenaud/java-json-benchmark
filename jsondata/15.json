@@ -1,0 +1,48 @@
+{
+    "_id": "5554b5f3578550b30d9e0649",
+    "index": 0,
+    "guid": "8fd91046-67b8-4b32-9509-efc16e7cf312",
+    "isActive": false,
+    "balance": "$3,098.88",
+    "picture": "http://placehold.it/32x32",
+    "age": 22,
+    "eyeColor": "blue",
+    "name": "Katie Booth",
+    "gender": "female",
+    "company": "AMTAP",
+    "email": "katiebooth@amtap.com",
+    "phone": "+1 (805) 481-2405",
+    "address": "191 Tech Place, Gambrills, West Virginia, 9056",
+    "about": "Excepteur elit officia laborum nulla nulla ad incididunt consectetur ex ut. Laboris culpa nostrud esse deserunt officia id nulla pariatur nulla pariatur. Sunt consectetur nostrud nisi ad Lorem. Velit cillum non laborum laboris voluptate qui amet excepteur esse eu in consectetur anim. In anim pariatur ullamco consectetur exercitation aute est esse non aliquip nostrud. Velit aliqua elit eu sunt laborum fugiat eu occaecat irure labore consectetur qui ut est.\r\n",
+    "registered": "2015-03-21T06:30:46 -07:00",
+    "latitude": -31.740895,
+    "longitude": 82.712688,
+    "tags": [
+        "consectetur",
+        "incididunt",
+        "reprehenderit",
+        "id",
+        "id",
+        "do"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Pamela Stark"
+        },
+        {
+            "id": 1,
+            "name": "Rhodes Mercado"
+        },
+        {
+            "id": 2,
+            "name": "Combs Stokes"
+        },
+        {
+            "id": 3,
+            "name": "Avis Hahn"
+        }
+    ],
+    "greeting": "Hello, Katie Booth! You have 2 unread messages.",
+    "favoriteFruit": "apple"
+}

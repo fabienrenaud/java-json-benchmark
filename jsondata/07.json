@@ -1,0 +1,48 @@
+{
+    "_id": "5554b5a06dd61c40967bd76c",
+    "index": 0,
+    "guid": "974fc301-59ed-4410-a57b-717ebfe4592c",
+    "isActive": true,
+    "balance": "$1,370.36",
+    "picture": "http://placehold.it/32x32",
+    "age": 39,
+    "eyeColor": "green",
+    "name": "Maribel Russo",
+    "gender": "female",
+    "company": "ZENTIA",
+    "email": "maribelrusso@zentia.com",
+    "phone": "+1 (918) 408-2294",
+    "address": "621 Pineapple Street, Laurelton, Illinois, 8980",
+    "about": "Ad aute sunt aliqua occaecat. Aliquip pariatur non sit aliqua nisi ipsum tempor dolor cupidatat in pariatur et id. Laborum veniam proident veniam Lorem consequat reprehenderit dolor dolore enim. Aliquip ad velit ad consequat officia id veniam reprehenderit ipsum ipsum duis incididunt dolor.\r\n",
+    "registered": "2014-04-09T05:30:47 -07:00",
+    "latitude": 70.249936,
+    "longitude": 70.289007,
+    "tags": [
+        "minim",
+        "minim",
+        "adipisicing",
+        "mollit",
+        "officia",
+        "adipisicing"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Velazquez Combs"
+        },
+        {
+            "id": 1,
+            "name": "Leona Kerr"
+        },
+        {
+            "id": 2,
+            "name": "Nichole Riggs"
+        },
+        {
+            "id": 3,
+            "name": "Chandler Roberts"
+        }
+    ],
+    "greeting": "Hello, Maribel Russo! You have 3 unread messages.",
+    "favoriteFruit": "banana"
+}

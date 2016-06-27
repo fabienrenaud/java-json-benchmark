@@ -1,0 +1,43 @@
+{
+    "_id": "5554b5b564216593788186c2",
+    "index": 0,
+    "guid": "c772e22d-fe89-4305-9703-77178edafb84",
+    "isActive": true,
+    "balance": "$3,021.69",
+    "picture": "http://placehold.it/32x32",
+    "age": 29,
+    "eyeColor": "brown",
+    "name": "Lana Merrill",
+    "gender": "female",
+    "company": "TECHTRIX",
+    "email": "lanamerrill@techtrix.com",
+    "phone": "+1 (970) 547-3901",
+    "address": "639 Quay Street, Deltaville, Puerto Rico, 4726",
+    "about": "Sunt pariatur adipisicing amet ex. Lorem reprehenderit officia sunt eiusmod in dolor aute laboris. Voluptate ea commodo non deserunt ex sit incididunt. Sunt adipisicing in ullamco occaecat magna consectetur minim voluptate. Eu consectetur exercitation cupidatat incididunt.\r\n",
+    "registered": "2014-11-11T21:45:36 -07:00",
+    "latitude": -32.98186,
+    "longitude": -69.83563,
+    "tags": [
+        "ea",
+        "incididunt",
+        "nisi",
+        "mollit",
+        "laboris"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Eloise Walls"
+        },
+        {
+            "id": 1,
+            "name": "Ayala Battle"
+        },
+        {
+            "id": 2,
+            "name": "Consuelo Barber"
+        }
+    ],
+    "greeting": "Hello, Lana Merrill! You have 7 unread messages.",
+    "favoriteFruit": "apple"
+}

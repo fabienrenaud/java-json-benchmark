@@ -1,0 +1,48 @@
+{
+    "_id": "5554b599b95417c7fdcc8af7",
+    "index": 0,
+    "guid": "8987089d-f0e9-4f02-b74c-20e92fd541de",
+    "isActive": true,
+    "balance": "$2,342.05",
+    "picture": "http://placehold.it/32x32",
+    "age": 36,
+    "eyeColor": "blue",
+    "name": "Concetta Hayes",
+    "gender": "female",
+    "company": "SKINSERVE",
+    "email": "concettahayes@skinserve.com",
+    "phone": "+1 (881) 476-3847",
+    "address": "253 Sheffield Avenue, Dixie, Vermont, 7042",
+    "about": "Sunt aliqua labore duis consectetur sit labore. Do ut minim sunt magna eu elit anim ad adipisicing cillum eu nostrud tempor quis. Tempor voluptate officia incididunt sit commodo est tempor ut est magna. Excepteur velit esse dolor consequat et esse in amet elit enim dolore nisi dolore. Est aliquip magna dolore officia Lorem excepteur qui.\r\n",
+    "registered": "2014-07-01T09:44:39 -07:00",
+    "latitude": 83.10134,
+    "longitude": -176.861451,
+    "tags": [
+        "sit",
+        "Lorem",
+        "consequat",
+        "exercitation",
+        "Lorem",
+        "anim"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Combs Massey"
+        },
+        {
+            "id": 1,
+            "name": "Keri Jacobson"
+        },
+        {
+            "id": 2,
+            "name": "Rosanna Shaffer"
+        },
+        {
+            "id": 3,
+            "name": "Wilda Hale"
+        }
+    ],
+    "greeting": "Hello, Concetta Hayes! You have 8 unread messages.",
+    "favoriteFruit": "apple"
+}

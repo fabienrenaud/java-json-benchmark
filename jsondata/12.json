@@ -1,0 +1,44 @@
+{
+    "_id": "5554b5e01dcdee925d3769e2",
+    "index": 0,
+    "guid": "c243e22e-7587-4328-bc2c-6750180916cf",
+    "isActive": true,
+    "balance": "$3,722.01",
+    "picture": "http://placehold.it/32x32",
+    "age": 29,
+    "eyeColor": "blue",
+    "name": "Phillips Shaw",
+    "gender": "male",
+    "company": "HOUSEDOWN",
+    "email": "phillipsshaw@housedown.com",
+    "phone": "+1 (929) 584-2835",
+    "address": "506 Saratoga Avenue, Stewartville, Connecticut, 853",
+    "about": "Quis eiusmod ad aliqua magna. Et aliqua nostrud Lorem et culpa ipsum exercitation minim. Occaecat cillum pariatur culpa velit aliqua ipsum fugiat mollit non eu. In proident reprehenderit irure reprehenderit do. Magna laborum qui aliquip laborum aliqua adipisicing nisi culpa.\r\n",
+    "registered": "2014-03-31T15:13:10 -07:00",
+    "latitude": -41.998929,
+    "longitude": 171.382509,
+    "tags": [
+        "tempor",
+        "tempor",
+        "excepteur",
+        "nostrud",
+        "esse",
+        "sunt"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Ava Malone"
+        },
+        {
+            "id": 1,
+            "name": "Lou Dennis"
+        },
+        {
+            "id": 2,
+            "name": "Bette Higgins"
+        }
+    ],
+    "greeting": "Hello, Phillips Shaw! You have 4 unread messages.",
+    "favoriteFruit": "apple"
+}

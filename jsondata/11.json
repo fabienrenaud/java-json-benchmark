@@ -1,0 +1,48 @@
+{
+    "_id": "5554b5d9eb24b7024dc5e275",
+    "index": 0,
+    "guid": "1654b239-eb9c-4c22-b3ea-1a851af74d9d",
+    "isActive": true,
+    "balance": "$1,941.50",
+    "picture": "http://placehold.it/32x32",
+    "age": 30,
+    "eyeColor": "brown",
+    "name": "Banks Harrell",
+    "gender": "male",
+    "company": "EXOSTREAM",
+    "email": "banksharrell@exostream.com",
+    "phone": "+1 (818) 557-2363",
+    "address": "142 Olive Street, Chestnut, Florida, 6167",
+    "about": "Aute sint occaecat proident fugiat amet culpa. Aliqua deserunt incididunt exercitation exercitation. Mollit anim laborum est excepteur culpa sint ad sit cillum. Eu qui in ad proident sunt.\r\n",
+    "registered": "2015-03-29T13:17:14 -07:00",
+    "latitude": 52.437907,
+    "longitude": 94.89329,
+    "tags": [
+        "mollit",
+        "occaecat",
+        "enim",
+        "sit",
+        "aute",
+        "ullamco"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Natalie Cline"
+        },
+        {
+            "id": 1,
+            "name": "Lynch Delaney"
+        },
+        {
+            "id": 2,
+            "name": "Kristi Sutton"
+        },
+        {
+            "id": 3,
+            "name": "Barrera Frank"
+        }
+    ],
+    "greeting": "Hello, Banks Harrell! You have 6 unread messages.",
+    "favoriteFruit": "banana"
+}

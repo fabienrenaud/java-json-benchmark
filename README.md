@@ -130,7 +130,7 @@ Read below for JMH, java and hardware info.
 
 ### JVM options
 
-    -server -XX:+AggressiveOpts -Xms2G -Xmx2G -jar
+    -server -XX:+AggressiveOpts -Xms2G -Xmx2G 
 
 ## Run
 

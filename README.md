@@ -38,7 +38,7 @@ Read below for JMH, java and hardware info.
 ![json deserialization performance chart](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1355965597&format=image)
 
 | Benchmark | Score | Normalized |
-|--------------------------------|
+|-----------|-------|------------|
 | stream/jsonp | 1798.703 | 11.68% |
 | stream/orgjson | 2777.25 | 18.03% |
 | databind/gson | 5826.899 | 37.82% |
@@ -56,6 +56,7 @@ Read below for JMH, java and hardware info.
 ![json serialization performance chart](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=363435330&format=image)
 
 | Benchmark | Score | Normalized |
+|-----------|-------|------------|
 | stream/jsonp | 2064.798 | 11.02% |
 | stream/orgjson | 3783.445 | 20.19% |
 | databind/gson | 6694.711 | 35.73% |

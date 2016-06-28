@@ -134,10 +134,20 @@ Read below for JMH, java and hardware info.
 
 ## Run
 
-Checkout the project and just run the `./run.sh` script.
-It will compile the project and start the benchmark.
+Use the `bench` script to run _all_ the benchmarks of all libraries and APIs:
 
-The benchmark took about 3 hours to complete on my machine.
+    ./bench
+
+The entire benchmark take several hours to complete, so be patient.
+
+You can also choose to run specific benchmarks. Here are a few examples:
+
+    ./bench --types stream --libraries genson,jackson deser
+    ./bench ser
+    ./bench --types databind,stream --with-use --libraries jackson deser
+
+
+Type `./bench help`, `./bench help deser`, `./bench help ser` for more information.
 
 ## Contribute
 

@@ -4,10 +4,10 @@ set -e
 declare -A categories
 categories=(
   [DatabindDeserialization]=deserialization-databind
-  [DatabindDeserializationAndUse]=deserialization-databind-use
+  [DatabindUseDeserialization]=deserialization-databind-use
   [DatabindSerialization]=serialization-databind
   [StreamDeserialization]=deserialization-stream
-  [StreamDeserializationAndUse]=deserialization-steam-use
+  [StreamUseDeserialization]=deserialization-steam-use
   [StreamSerialization]=serialization-stream
 )
 
@@ -22,9 +22,9 @@ done
 head -n1 tmp.txt > deserialization.csv
 cat tmp.txt \
   | grep "Deserialization" \
-  | sed 's/DatabindDeserializationAndUse./databind+use\//' \
+  | sed 's/DatabindUseDeserialization./databind+use\//' \
   | sed 's/DatabindDeserialization./databind\//' \
-  | sed 's/StreamDeserializationAndUse./stream+use\//' \
+  | sed 's/StreamUseDeserialization./stream+use\//' \
   | sed 's/StreamDeserialization./stream\//' \
   >> deserialization.csv
 

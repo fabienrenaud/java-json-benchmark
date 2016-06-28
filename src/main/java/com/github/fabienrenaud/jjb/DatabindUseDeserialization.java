@@ -9,7 +9,7 @@ import org.openjdk.jmh.annotations.Benchmark;
  *
  * @author Fabien Renaud
  */
-public class DatabindDeserializationAndUse extends JsonBase {
+public class DatabindUseDeserialization extends JsonBase {
 
     @Benchmark
     @Override

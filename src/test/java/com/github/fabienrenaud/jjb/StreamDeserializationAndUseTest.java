@@ -1,7 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.JsonBench;
-import com.github.fabienrenaud.jjb.StreamDeserializationAndUse;
+import com.github.fabienrenaud.jjb.StreamUseDeserialization;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -11,7 +11,7 @@ import org.junit.Ignore;
  */
 public class StreamDeserializationAndUseTest implements JsonBench {
 
-    private static final JsonBench BENCH = new StreamDeserializationAndUse();
+    private static final JsonBench BENCH = new StreamUseDeserialization();
 
     @Test
     @Override

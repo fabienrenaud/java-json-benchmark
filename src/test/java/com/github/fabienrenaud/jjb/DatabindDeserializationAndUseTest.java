@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class DatabindDeserializationAndUseTest implements JsonBench {
 
-    private static final JsonBench BENCH = new DatabindDeserializationAndUse();
+    private static final JsonBench BENCH = new DatabindUseDeserialization();
 
     @Test
     @Override

@@ -19,7 +19,7 @@ import org.openjdk.jmh.annotations.Benchmark;
  *
  * @author Fabien Renaud
  */
-public class StreamDeserializationAndUse extends JsonBase {
+public class StreamUseDeserialization extends JsonBase {
 
     @Benchmark
     @Override
@@ -57,7 +57,7 @@ public class StreamDeserializationAndUse extends JsonBase {
         try (JsonParser jParser = JACKSON_FACTORY.createParser(JsonSource.SMALL_JSON_TEXT.get("08.json"))) {
             node = JacksonStreamHelper.deserializeSmallPojo(jParser);
         }
-        DatabindDeserializationAndUse.validate(node);
+        DatabindUseDeserialization.validate(node);
     }
 
     @Benchmark
@@ -67,7 +67,7 @@ public class StreamDeserializationAndUse extends JsonBase {
         try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new StringReader(JsonSource.SMALL_JSON_TEXT.get("08.json")))) {
             node = GsonStreamHelper.deserializeSmallPojo(jr);
         }
-        DatabindDeserializationAndUse.validate(node);
+        DatabindUseDeserialization.validate(node);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class StreamDeserializationAndUse extends JsonBase {
         try (ObjectReader reader = GENSON.createReader(JsonSource.SMALL_JSON_BYTES.get("08.json"))) {
             node = GensonStreamHelper.deserializeSmallPojo(reader);
         }
-        DatabindDeserializationAndUse.validate(node);
+        DatabindUseDeserialization.validate(node);
     }
 
     @Override

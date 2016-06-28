@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+JVM_OPTIONS="-server -XX:+AggressiveOpts -Xms2G -Xmx2G"
+
+mvn -q clean package
+
+if [ -z $1 ]; then
+  java $JVM_OPTIONS -jar target/benchmarks.jar
+else
+  java $JVM_OPTIONS -cp target/benchmarks.jar com.github.fabienrenaud.jjb.Main $*
+fi
+

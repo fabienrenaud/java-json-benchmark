@@ -26,6 +26,13 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- CLI -->
+        <dependency>
+            <groupId>io.airlift</groupId>
+            <artifactId>airline</artifactId>
+            <version>0.7</version>
+        </dependency>
+        
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>

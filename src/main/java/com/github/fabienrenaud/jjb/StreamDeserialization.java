@@ -2,15 +2,13 @@ package com.github.fabienrenaud.jjb;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.owlike.genson.stream.ObjectReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.StringReader;
 
 /**
  *
@@ -31,8 +29,8 @@ public class StreamDeserialization extends JsonBase {
     @Override
     public void jsonp() throws IOException {
         for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            JsonReader reader = Json.createReader(new ByteArrayInputStream(jsonBytes));
-            JsonObject node = reader.readObject();
+            javax.json.JsonReader reader = javax.json.Json.createReader(new ByteArrayInputStream(jsonBytes));
+            javax.json.JsonObject node = reader.readObject();
             assertTrue(node != null);
         }
     }
@@ -83,5 +81,11 @@ public class StreamDeserialization extends JsonBase {
 
     @Override
     public void fastjson() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
+        for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
+        }
     }
 }

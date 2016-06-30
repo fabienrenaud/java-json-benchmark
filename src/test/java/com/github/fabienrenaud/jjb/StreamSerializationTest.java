@@ -1,65 +1,15 @@
 package com.github.fabienrenaud.jjb;
 
-import com.github.fabienrenaud.jjb.JsonBench;
-import com.github.fabienrenaud.jjb.StreamSerialization;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.BeforeClass;
 
 /**
  *
  * @author Fabien Renaud
  */
-public class StreamSerializationTest implements JsonBench {
+public class StreamSerializationTest extends JsonBenchTest {
 
-    private static final JsonBench BENCH = new StreamSerialization();
-
-    @Test
-    @Override
-    public void gson() throws Exception {
-        BENCH.gson();
+    @BeforeClass
+    public static void setUpClass() {
+        BENCH = new StreamSerialization();
     }
-
-    @Test
-    @Override
-    public void jackson() throws Exception {
-        BENCH.jackson();
-    }
-
-    @Test
-    @Override
-    public void jackson_afterburner() throws Exception {
-        BENCH.jackson_afterburner();
-    }
-
-    @Test
-    @Override
-    public void orgjson() throws Exception {
-        BENCH.orgjson();
-    }
-
-    @Test
-    @Override
-    public void genson() throws Exception {
-        BENCH.genson();
-    }
-
-    @Test
-    @Override
-    public void jsonp() throws Exception {
-        BENCH.jsonp();
-    }
-
-    @Test
-    @Ignore
-    @Override
-    public void flexjson() throws Exception {
-        BENCH.flexjson();
-    }
-
-    @Test
-    @Override
-    public void fastjson() throws Exception {
-        BENCH.fastjson();
-    }
-
 }

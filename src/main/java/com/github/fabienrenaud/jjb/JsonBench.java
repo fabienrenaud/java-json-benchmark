@@ -22,4 +22,6 @@ public interface JsonBench {
 
     void fastjson() throws Exception;
 
+    void jsonio() throws Exception;
+
 }

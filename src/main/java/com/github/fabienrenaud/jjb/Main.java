@@ -1,23 +1,14 @@
 package com.github.fabienrenaud.jjb;
 
-import io.airlift.airline.Cli;
+import io.airlift.airline.*;
 import io.airlift.airline.Cli.CliBuilder;
-import io.airlift.airline.Command;
-import io.airlift.airline.Help;
-import io.airlift.airline.Option;
-import io.airlift.airline.OptionType;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import org.apache.commons.math3.analysis.function.Add;
-import org.openjdk.jmh.profile.StackProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.ChainedOptionsBuilder;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+
+import java.util.*;
 
 /**
  *
@@ -52,7 +43,7 @@ public final class Main {
         @Override
         public void run() {
             ChainedOptionsBuilder b = new OptionsBuilder()
-                .forks(10);
+                .forks(1);
 //                .addProfiler(StackProfiler.class);
 
             for (String i : includes()) {

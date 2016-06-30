@@ -5,19 +5,15 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.owlike.genson.stream.ObjectReader;
 import com.owlike.genson.stream.ObjectWriter;
-import static com.github.fabienrenaud.jjb.JsonBase.JACKSON_FACTORY;
+import org.json.JSONObject;
+import org.openjdk.jmh.annotations.Benchmark;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.json.JsonWriter;
-import org.json.JSONObject;
-import org.openjdk.jmh.annotations.Benchmark;
 
 /**
  *
@@ -26,7 +22,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 public class StreamSerialization extends JsonBase {
 
     private static final Collection<JSONObject> ORGJSON_OBJS = new ArrayList<>(JsonSource.SIZE);
-    private static final Collection<JsonObject> JSONP_OBJS = new ArrayList<>(JsonSource.SIZE);
+    private static final Collection<javax.json.JsonObject> JSONP_OBJS = new ArrayList<>(JsonSource.SIZE);
     private static final Collection<SmallPojo> JACKSON_OBJS = new ArrayList<>(JsonSource.SIZE);
     private static final Collection<SmallPojo> GSON_OBJS = new ArrayList<>(JsonSource.SIZE);
     private static final Collection<SmallPojo> GENSON_OBJS = new ArrayList<>(JsonSource.SIZE);
@@ -50,8 +46,8 @@ public class StreamSerialization extends JsonBase {
             }
 
             for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-                JsonReader jsoReader = Json.createReader(new ByteArrayInputStream(jsonBytes));
-                JsonObject jso = jsoReader.readObject();
+                javax.json.JsonReader jsoReader = javax.json.Json.createReader(new ByteArrayInputStream(jsonBytes));
+                javax.json.JsonObject jso = jsoReader.readObject();
                 JSONP_OBJS.add(jso);
 
                 SmallPojo node;
@@ -77,9 +73,9 @@ public class StreamSerialization extends JsonBase {
     @Benchmark
     @Override
     public void jsonp() throws JsonProcessingException {
-        for (JsonObject o : JSONP_OBJS) {
+        for (javax.json.JsonObject o : JSONP_OBJS) {
             StringWriter sw = new StringWriter();
-            JsonWriter jw = Json.createWriter(sw);
+            javax.json.JsonWriter jw = javax.json.Json.createWriter(sw);
             jw.writeObject(o);
             String v = sw.toString();
             assertTrue(v != null);
@@ -135,5 +131,9 @@ public class StreamSerialization extends JsonBase {
 
     @Override
     public void fastjson() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
     }
 }

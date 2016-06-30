@@ -2,18 +2,14 @@ package com.github.fabienrenaud.jjb;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.owlike.genson.stream.ObjectReader;
-import static com.github.fabienrenaud.jjb.JsonBase.GENSON;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.StringReader;
 
 /**
  *
@@ -38,12 +34,12 @@ public class StreamUseDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void jsonp() throws IOException {
-        JsonReader reader = Json.createReader(new ByteArrayInputStream(JsonSource.SMALL_JSON_BYTES.get("08.json")));
-        JsonObject node = reader.readObject();
+        javax.json.JsonReader reader = javax.json.Json.createReader(new ByteArrayInputStream(JsonSource.SMALL_JSON_BYTES.get("08.json")));
+        javax.json.JsonObject node = reader.readObject();
         assertTrue(node.getInt("index") == 0);
         assertTrue(node.getInt("age") == 37);
         assertTrue(node.getString("balance").equals("$2,046.39"));
-        JsonArray jsa = node.getJsonArray("friends");
+        javax.json.JsonArray jsa = node.getJsonArray("friends");
         assertTrue(jsa.getJsonObject(0).getString("name").equals("Melva Harris"));
         assertTrue(jsa.getJsonObject(1).getString("name").equals("Hood Langley"));
         assertTrue(jsa.getJsonObject(2).getString("name").equals("Lorena Butler"));
@@ -90,5 +86,9 @@ public class StreamUseDeserialization extends JsonBase {
 
     @Override
     public void fastjson() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
     }
 }

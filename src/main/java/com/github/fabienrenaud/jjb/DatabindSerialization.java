@@ -3,10 +3,11 @@ package com.github.fabienrenaud.jjb;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonSyntaxException;
+import org.openjdk.jmh.annotations.Benchmark;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import org.openjdk.jmh.annotations.Benchmark;
 
 public class DatabindSerialization extends JsonBase {
 
@@ -98,5 +99,9 @@ public class DatabindSerialization extends JsonBase {
             String v = FLEXJSON_SER.serialize(o);
             assertTrue(v != null);
         }
+    }
+
+    @Override
+    public void jsonio() throws Exception {
     }
 }

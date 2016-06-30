@@ -2,8 +2,9 @@ package com.github.fabienrenaud.jjb;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonSyntaxException;
-import java.io.IOException;
 import org.openjdk.jmh.annotations.Benchmark;
+
+import java.io.IOException;
 
 /**
  *
@@ -71,5 +72,9 @@ public class DatabindDeserialization extends JsonBase {
 
     @Override
     public void jsonp() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
     }
 }

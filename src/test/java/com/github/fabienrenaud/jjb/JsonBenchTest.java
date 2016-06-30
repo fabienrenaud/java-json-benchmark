@@ -1,17 +1,14 @@
 package com.github.fabienrenaud.jjb;
 
-import com.github.fabienrenaud.jjb.JsonBench;
-import com.github.fabienrenaud.jjb.StreamUseDeserialization;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 
 /**
- *
- * @author Fabien Renaud
+ * Created by frenaud on 6/30/16.
  */
-public class StreamDeserializationAndUseTest implements JsonBench {
+public abstract class JsonBenchTest implements JsonBench {
 
-    private static final JsonBench BENCH = new StreamUseDeserialization();
+    static JsonBench BENCH;
 
     @Test
     @Override
@@ -62,4 +59,9 @@ public class StreamDeserializationAndUseTest implements JsonBench {
         BENCH.fastjson();
     }
 
+    @Test
+    @Override
+    public void jsonio() throws Exception {
+        BENCH.fastjson();
+    }
 }

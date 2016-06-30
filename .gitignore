@@ -1,6 +1,8 @@
 # Build
 target/
 *.csv
+build/
+.gradle/
 
 # IDE
 .idea/

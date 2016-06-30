@@ -151,5 +151,5 @@ Type `./bench help`, `./bench help deser`, `./bench help ser` for more informati
 
 ## Contribute
 
-Any help to improve the existing benchmarks or write ones for other libraries are welcome.
+Any help to improve the existing benchmarks or write ones for other libraries is welcome.
 Pull requests are welcome.

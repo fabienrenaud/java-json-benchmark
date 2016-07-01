@@ -2,16 +2,12 @@ package com.github.fabienrenaud.jjb;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.owlike.genson.stream.ObjectReader;
 import com.owlike.genson.stream.ObjectWriter;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -76,26 +72,23 @@ public class StreamSerialization extends JsonBase {
 
     @Benchmark
     @Override
-    public void jsonp() throws JsonProcessingException {
+    public void jsonp() throws Exception {
         for (javax.json.JsonObject o : JSONP_OBJS) {
-            StringWriter sw = new StringWriter();
-            javax.json.JsonWriter jw = javax.json.Json.createWriter(sw);
+            OutputStream os = new ByteArrayOutputStream();
+            javax.json.JsonWriter jw = javax.json.Json.createWriter(os);
             jw.writeObject(o);
-            String v = sw.toString();
-            assertTrue(v != null);
+            os.close();
         }
     }
 
     @Benchmark
     @Override
-    public void jackson() throws IOException {
+    public void jackson() throws Exception {
         for (SmallPojo o : JACKSON_OBJS) {
-            StringWriter sw = new StringWriter();
-            try (JsonGenerator jGenerator = JACKSON_FACTORY.createGenerator(sw)) {
+            OutputStream os = new ByteArrayOutputStream();
+            try (JsonGenerator jGenerator = JACKSON_FACTORY.createGenerator(os)) {
                 JacksonStreamHelper.serializeSmallPojo(jGenerator, o);
             }
-            String v = sw.toString();
-            assertTrue(v != null);
         }
     }
 
@@ -103,12 +96,12 @@ public class StreamSerialization extends JsonBase {
     @Override
     public void gson() throws Exception {
         for (SmallPojo o : GSON_OBJS) {
+            Writer w = new OutputStreamWriter(new ByteArrayOutputStream());
             StringWriter sw = new StringWriter();
-            try (com.google.gson.stream.JsonWriter jw = new com.google.gson.stream.JsonWriter(sw)) {
+            try (com.google.gson.stream.JsonWriter jw = new com.google.gson.stream.JsonWriter(w)) {
                 GsonStreamHelper.serializeSmallPojo(jw, o);
             }
-            String v = sw.toString();
-            assertTrue(v != null);
+            w.close();
         }
     }
 
@@ -120,12 +113,11 @@ public class StreamSerialization extends JsonBase {
     @Override
     public void genson() throws Exception {
         for (SmallPojo o : GENSON_OBJS) {
-            StringWriter sw = new StringWriter();
-            ObjectWriter ow = GENSON.createWriter(sw);
+            OutputStream os = new ByteArrayOutputStream();
+            ObjectWriter ow = GENSON.createWriter(os);
             GensonStreamHelper.serializeSmallPojo(ow, o);
             ow.close();
-            String v = sw.toString();
-            assertTrue(v != null);
+            os.close();
         }
     }
 

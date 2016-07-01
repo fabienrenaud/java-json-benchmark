@@ -8,7 +8,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.StringReader;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 /**
@@ -39,9 +39,9 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void jackson() throws IOException {
-        for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
+        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
             SmallPojo node;
-            try (JsonParser jParser = JACKSON_FACTORY.createParser(jsonText)) {
+            try (JsonParser jParser = JACKSON_FACTORY.createParser(jsonBytes)) {
                 node = JacksonStreamHelper.deserializeSmallPojo(jParser);
             }
             assertTrue(node != null);
@@ -51,9 +51,9 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void gson() throws Exception {
-        for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
+        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
             SmallPojo node;
-            try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new StringReader(jsonText))) {
+            try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new InputStreamReader(new ByteArrayInputStream(jsonBytes)))) {
                 node = GsonStreamHelper.deserializeSmallPojo(jr);
             }
             assertTrue(node != null);
@@ -87,8 +87,8 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void jsonio() throws Exception {
-        for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
-            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(jsonText, JSONIO_STREAM_OPTIONS);
+        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
+            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(new ByteArrayInputStream(jsonBytes), JSONIO_STREAM_OPTIONS);
             assertTrue(node != null);
         }
     }

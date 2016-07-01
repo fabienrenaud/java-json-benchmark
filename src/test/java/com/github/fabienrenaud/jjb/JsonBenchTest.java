@@ -62,6 +62,6 @@ public abstract class JsonBenchTest implements JsonBench {
     @Test
     @Override
     public void jsonio() throws Exception {
-        BENCH.fastjson();
+        BENCH.jsonio();
     }
 }

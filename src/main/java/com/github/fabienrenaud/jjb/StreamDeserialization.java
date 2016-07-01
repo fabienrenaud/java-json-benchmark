@@ -9,6 +9,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Map;
 
 /**
  *
@@ -83,9 +84,12 @@ public class StreamDeserialization extends JsonBase {
     public void fastjson() throws Exception {
     }
 
+    @Benchmark
     @Override
     public void jsonio() throws Exception {
         for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
+            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(jsonText, JSONIO_STREAM_OPTIONS);
+            assertTrue(node != null);
         }
     }
 }

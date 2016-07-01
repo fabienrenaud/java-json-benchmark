@@ -31,19 +31,19 @@ public final class Main {
 
     public static abstract class AbstractCommand implements Runnable {
 
-        private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp"));
+        private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp", "jsonio"));
 
-        @Option(type = OptionType.GLOBAL, name = "--libraries", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp")
+        @Option(type = OptionType.GLOBAL, name = "--libraries", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
         public String libraries;
         @Option(type = OptionType.GLOBAL, name = "--types", description = "Type of APIs to benchmark (csv). Available: stream, databind")
         public String types;
-        @Option(type = OptionType.GLOBAL, name = "--with-use", description = "Enables testing the *Use* benchmarks. Disabled by default.")
-        public boolean withUse;
 
         @Override
         public void run() {
             ChainedOptionsBuilder b = new OptionsBuilder()
-                .forks(1);
+                .forks(1)
+                .warmupIterations(5)
+                .measurementIterations(5);
 //                .addProfiler(StackProfiler.class);
 
             for (String i : includes()) {
@@ -92,15 +92,9 @@ public final class Main {
                 switch (t) {
                     case "stream":
                         l.add("Stream");
-                        if (withUse) {
-                            l.add("StreamUse");
-                        }
                         break;
                     case "databind":
                         l.add("Databind");
-                        if (withUse) {
-                            l.add("DatabindUse");
-                        }
                         break;
                     default:
                         throw new IllegalArgumentException("Invalid value: " + t);

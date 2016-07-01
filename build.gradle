@@ -40,6 +40,8 @@ dependencies {
     compile group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // FastJson
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.12'
+    // json-io
+    compile group: 'com.cedarsoftware', name: 'json-io', version: '4.4.0'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

@@ -26,6 +26,7 @@ public class StreamSerialization extends JsonBase {
     private static final Collection<SmallPojo> JACKSON_OBJS = new ArrayList<>(JsonSource.SIZE);
     private static final Collection<SmallPojo> GSON_OBJS = new ArrayList<>(JsonSource.SIZE);
     private static final Collection<SmallPojo> GENSON_OBJS = new ArrayList<>(JsonSource.SIZE);
+    private static final Collection<Object> JSONIO_OBJS = new ArrayList<>(JsonSource.SIZE);
 
     static {
         try {
@@ -43,6 +44,9 @@ public class StreamSerialization extends JsonBase {
                     node = GsonStreamHelper.deserializeSmallPojo(jr);
                 }
                 GSON_OBJS.add(node);
+
+                Object obj = com.cedarsoftware.util.io.JsonReader.jsonToJava(jsonText, JSONIO_STREAM_OPTIONS);
+                JSONIO_OBJS.add(obj);
             }
 
             for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
@@ -133,7 +137,12 @@ public class StreamSerialization extends JsonBase {
     public void fastjson() throws Exception {
     }
 
+    @Benchmark
     @Override
     public void jsonio() throws Exception {
+        for (Object o : JSONIO_OBJS) {
+            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o);
+            assertTrue(v != null);
+        }
     }
 }

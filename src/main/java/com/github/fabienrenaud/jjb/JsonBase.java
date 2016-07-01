@@ -1,5 +1,6 @@
 package com.github.fabienrenaud.jjb;
 
+import com.cedarsoftware.util.io.JsonReader;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
@@ -7,6 +8,9 @@ import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+
+import java.util.Collections;
+import java.util.Map;
 
 /**
  *
@@ -21,6 +25,8 @@ public abstract class JsonBase implements JsonBench {
     public static final Genson GENSON = new Genson();
     public static final JSONDeserializer<SmallPojo> FLEXJSON_DESER = new JSONDeserializer<>();
     public static final JSONSerializer FLEXJSON_SER = new JSONSerializer();
+
+    public static final Map<String, Object> JSONIO_STREAM_OPTIONS = Collections.singletonMap(JsonReader.USE_MAPS, true);
 
     static {
         JACKSON_AFTERBURNER.registerModule(new AfterburnerModule());

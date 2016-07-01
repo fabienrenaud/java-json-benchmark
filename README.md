@@ -142,9 +142,8 @@ The entire benchmark take several hours to complete, so be patient.
 
 You can also choose to run specific benchmarks. Here are a few examples:
 
-    ./bench --types stream --libraries genson,jackson deser
-    ./bench ser
-    ./bench --types databind,stream --with-use --libraries jackson deser
+    ./bench --apis stream --libraries genson,jackson deser
+    ./bench --api databind,stream --libraries jackson ser
 
 
 Type `./bench help`, `./bench help deser`, `./bench help ser` for more information.

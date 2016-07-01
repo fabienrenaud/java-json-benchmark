@@ -33,17 +33,30 @@ public final class Main {
 
         private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp", "jsonio"));
 
-        @Option(type = OptionType.GLOBAL, name = "--libraries", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
+        /*
+         * JMH options
+         */
+        @Option(type = OptionType.GLOBAL, name = "-f", description = "JMH: number of forks. Defaults to 1.")
+        public int numberOfForks = 1;
+        @Option(type = OptionType.GLOBAL, name = "-w", description = "JMH: number of warm up iterations. Defaults to 5.")
+        public int numberOfWarmupIterations = 5;
+        @Option(type = OptionType.GLOBAL, name = "-m", description = "JMH: number of measurement iterations. Defaults to 5.")
+        public int numberOfMeasurementIterations = 5;
+
+        /*
+         * JSON options
+         */
+        @Option(name = "--libraries", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
         public String libraries;
-        @Option(type = OptionType.GLOBAL, name = "--types", description = "Type of APIs to benchmark (csv). Available: stream, databind")
-        public String types;
+        @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind")
+        public String apis;
 
         @Override
         public void run() {
             ChainedOptionsBuilder b = new OptionsBuilder()
-                .forks(1)
-                .warmupIterations(5)
-                .measurementIterations(5);
+                .forks(numberOfForks)
+                .warmupIterations(numberOfWarmupIterations)
+                .measurementIterations(numberOfMeasurementIterations);
 //                .addProfiler(StackProfiler.class);
 
             for (String i : includes()) {
@@ -85,10 +98,10 @@ public final class Main {
 
         private List<String> prefixes() {
             List<String> l = new ArrayList<>();
-            if (types == null) {
-                types = "stream,databind";
+            if (apis == null) {
+                apis = "stream,databind";
             }
-            for (String t : types.split(",")) {
+            for (String t : apis.split(",")) {
                 switch (t) {
                     case "stream":
                         l.add("Stream");

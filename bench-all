@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for n in 1 10 50 100; do
+  for s in 1 10 100 1000; do
+    echo ./bench --forks 2 --measurement-time 5 deser --number $n --size $s 
+    ./bench --forks 2 --measurement-time 5 deser --number $n --size $s > output/deser-$n-$s.txt
+    echo ./bench --forks 2 --measurement-time 5   ser --number $n --size $s
+    ./bench --forks 2 --measurement-time 5   ser --number $n --size $s > output/ser-$n-$s.txt
+  done
+done
+

@@ -12,5 +12,4 @@ public class StreamDeserializationTest extends JsonBenchTest {
     public static void setUpClass() {
         BENCH = new StreamDeserialization();
     }
-
 }

@@ -1,5 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
+import com.github.fabienrenaud.jjb.model.User;
+import com.github.fabienrenaud.jjb.model.UserCollection;
 import com.owlike.genson.stream.ObjectReader;
 import com.owlike.genson.stream.ObjectWriter;
 import com.owlike.genson.stream.ValueType;
@@ -15,8 +17,28 @@ public final class GensonStreamHelper {
     private GensonStreamHelper() {
     }
 
-    public static SmallPojo deserializeSmallPojo(ObjectReader reader) throws IOException {
-        SmallPojo r = new SmallPojo();
+    public static UserCollection deserializeUserCollection(ObjectReader reader) throws IOException {
+        UserCollection uc = new UserCollection();
+        reader.beginObject();
+        while (reader.hasNext()) {
+            reader.next();
+            String fieldname = reader.name();
+            if ("users".equals(fieldname)) {
+                uc.users = new ArrayList<>();
+                reader.beginArray();
+                while (reader.hasNext()) {
+                    reader.next();
+                    uc.users.add(deserializeUser(reader));
+                }
+                reader.endArray();
+            }
+        }
+        reader.endObject();
+        return uc;
+    }
+
+    public static User deserializeUser(ObjectReader reader) throws IOException {
+        User r = new User();
 
         reader.beginObject();
         while (reader.hasNext()) {
@@ -104,7 +126,7 @@ public final class GensonStreamHelper {
                         while (reader.hasNext()) {
                             if (reader.next() == ValueType.OBJECT) {
                                 reader.beginObject();
-                                SmallPojo.Friend f = new SmallPojo.Friend();
+                                User.Friend f = new User.Friend();
                                 while (reader.hasNext()) {
                                     reader.next();
                                     String fn = reader.name();
@@ -134,64 +156,77 @@ public final class GensonStreamHelper {
         return r;
     }
 
-    public static void serializeSmallPojo(final ObjectWriter j, final SmallPojo o) throws IOException {
+    public static void serialize(final ObjectWriter j, final UserCollection uc) throws IOException {
         j.beginObject();
-        if (o._id != null) {
-            j.writeString("_id", o._id);
+        if (uc.users != null) {
+            j.writeName("users");
+            j.beginArray();
+            for (User u : uc.users) {
+                serialize(j, u);
+            }
+            j.endArray();
         }
-        j.writeNumber("index", o.index);
-        if (o.guid != null) {
-            j.writeString("guid", o.guid);
+        j.endObject();
+    }
+
+    private static void serialize(final ObjectWriter j, final User u) throws IOException {
+        j.beginObject();
+        if (u._id != null) {
+            j.writeString("_id", u._id);
         }
-        j.writeBoolean("isActive", o.isActive);
-        if (o.balance != null) {
-            j.writeString("balance", o.balance);
+        j.writeNumber("index", u.index);
+        if (u.guid != null) {
+            j.writeString("guid", u.guid);
         }
-        if (o.picture != null) {
-            j.writeString("picture", o.picture);
+        j.writeBoolean("isActive", u.isActive);
+        if (u.balance != null) {
+            j.writeString("balance", u.balance);
         }
-        j.writeNumber("age", o.age);
-        if (o.eyeColor != null) {
-            j.writeString("eyeColor", o.eyeColor);
+        if (u.picture != null) {
+            j.writeString("picture", u.picture);
         }
-        if (o.name != null) {
-            j.writeString("name", o.name);
+        j.writeNumber("age", u.age);
+        if (u.eyeColor != null) {
+            j.writeString("eyeColor", u.eyeColor);
         }
-        if (o.gender != null) {
-            j.writeString("gender", o.gender);
+        if (u.name != null) {
+            j.writeString("name", u.name);
         }
-        if (o.company != null) {
-            j.writeString("company", o.company);
+        if (u.gender != null) {
+            j.writeString("gender", u.gender);
         }
-        if (o.email != null) {
-            j.writeString("email", o.email);
+        if (u.company != null) {
+            j.writeString("company", u.company);
         }
-        if (o.phone != null) {
-            j.writeString("phone", o.phone);
+        if (u.email != null) {
+            j.writeString("email", u.email);
         }
-        if (o.address != null) {
-            j.writeString("address", o.address);
+        if (u.phone != null) {
+            j.writeString("phone", u.phone);
         }
-        if (o.about != null) {
-            j.writeString("about", o.about);
+        if (u.address != null) {
+            j.writeString("address", u.address);
         }
-        if (o.registered != null) {
-            j.writeString("registered", o.registered);
+        if (u.about != null) {
+            j.writeString("about", u.about);
         }
-        j.writeNumber("latitude", o.latitude);
-        j.writeNumber("longitude", o.longitude);
-        if (o.tags != null) {
+        if (u.registered != null) {
+            j.writeString("registered", u.registered);
+        }
+        j.writeNumber("latitude", u.latitude);
+        j.writeNumber("longitude", u.longitude);
+        if (u.tags != null) {
             j.writeName("tags");
             j.beginArray();
-            for (String t : o.tags) {
+            for (String t : u.tags) {
                 j.writeString(t);
             }
             j.endArray();
         }
-        if (o.friends != null) {
+        if (u.friends != null) {
             j.writeName("friends");
             j.beginArray();
-            for (SmallPojo.Friend f : o.friends) {
+            for (User.Friend f : u.friends) {
                 j.beginObject();
                 j.writeString("id", f.id);
                 j.writeString("name", f.name);
@@ -199,11 +234,11 @@ public final class GensonStreamHelper {
             }
             j.endArray();
         }
-        if (o.greeting != null) {
-            j.writeString("greeting", o.greeting);
+        if (u.greeting != null) {
+            j.writeString("greeting", u.greeting);
         }
-        if (o.favoriteFruit != null) {
-            j.writeString("favoriteFruit", o.favoriteFruit);
+        if (u.favoriteFruit != null) {
+            j.writeString("favoriteFruit", u.favoriteFruit);
         }
         j.endObject();
     }

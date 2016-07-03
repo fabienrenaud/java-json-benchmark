@@ -7,8 +7,10 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.ChainedOptionsBuilder;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -36,27 +38,39 @@ public final class Main {
         /*
          * JMH options
          */
-        @Option(type = OptionType.GLOBAL, name = "-f", description = "JMH: number of forks. Defaults to 1.")
-        public int numberOfForks = 1;
-        @Option(type = OptionType.GLOBAL, name = "-w", description = "JMH: number of warm up iterations. Defaults to 5.")
-        public int numberOfWarmupIterations = 5;
-        @Option(type = OptionType.GLOBAL, name = "-m", description = "JMH: number of measurement iterations. Defaults to 5.")
-        public int numberOfMeasurementIterations = 5;
+        @Option(type = OptionType.GLOBAL, name = "--forks", description = "JMH: forks. Defaults to 1.")
+        public int forks = 1;
+        @Option(type = OptionType.GLOBAL, name = "--warmup-iterations", description = "JMH: warmup iterations. Defaults to 5.")
+        public int warmupIterations = 5;
+        @Option(type = OptionType.GLOBAL, name = "--measurement-iterations", description = "JMH: measurement iterations. Defaults to 5.")
+        public int measurementIterations = 5;
+        @Option(type = OptionType.GLOBAL, name = "--measurement-time", description = "JMH: measurement time. Defaults to 1.")
+        public int measurementTime = 1;
 
         /*
          * JSON options
          */
-        @Option(name = "--libraries", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
+        @Option(name = "--libs", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
         public String libraries;
         @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind")
         public String apis;
+        @Option(name = "--number", description = "Number of payloads to test. Defaults to 1.")
+        public int numberOfPayloads = 1;
+        @Option(name = "--size", description = "Size of each payload in Kb. Defaults to 1.")
+        public int sizeOfEachPayloadInKb = 1;
 
         @Override
         public void run() {
+            JsonSource.saveParams(new JsonSource.InitParams(sizeOfEachPayloadInKb, numberOfPayloads));
+            if (libraries == null || libraries.contains("jsonp")) {
+                JsonHelp.printJsonpInfo();
+            }
+
             ChainedOptionsBuilder b = new OptionsBuilder()
-                .forks(numberOfForks)
-                .warmupIterations(numberOfWarmupIterations)
-                .measurementIterations(numberOfMeasurementIterations);
+                .forks(forks)
+                .warmupIterations(warmupIterations)
+                .measurementIterations(measurementIterations)
+                .measurementTime(new TimeValue(measurementTime, TimeUnit.SECONDS));
 //                .addProfiler(StackProfiler.class);
 
             for (String i : includes()) {
@@ -68,6 +82,8 @@ public final class Main {
                 new Runner(opt).run();
             } catch (RunnerException ex) {
                 throw new RuntimeException(ex);
+            } finally {
+                JsonSource.deleteParams();
             }
         }
 

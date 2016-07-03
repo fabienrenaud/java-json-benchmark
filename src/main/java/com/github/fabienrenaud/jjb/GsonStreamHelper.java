@@ -1,9 +1,12 @@
 package com.github.fabienrenaud.jjb;
 
+import com.github.fabienrenaud.jjb.model.User;
+import com.github.fabienrenaud.jjb.model.User.Friend;
+import com.github.fabienrenaud.jjb.model.UserCollection;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.github.fabienrenaud.jjb.SmallPojo.Friend;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,8 +19,30 @@ public final class GsonStreamHelper {
     private GsonStreamHelper() {
     }
 
-    public static SmallPojo deserializeSmallPojo(JsonReader reader) throws IOException {
-        SmallPojo r = new SmallPojo();
+    public static UserCollection deserializeUserCollection(JsonReader reader) throws IOException {
+        UserCollection uc = new UserCollection();
+        reader.beginObject();
+
+        JsonToken token;
+        while ((token = reader.peek()) != JsonToken.END_OBJECT) {
+            if (token == JsonToken.NAME) {
+                String fieldname = reader.nextName();
+                if ("users".equals(fieldname)) {
+                    uc.users = new ArrayList<>();
+                    reader.beginArray();
+                    while (reader.peek() != JsonToken.END_ARRAY) {
+                        uc.users.add(deserializeUser(reader));
+                    }
+                    reader.endArray();
+                }
+            }
+        }
+        reader.endObject();
+        return uc;
+    }
+
+    private static User deserializeUser(JsonReader reader) throws IOException {
+        User r = new User();
         while (true) {
             JsonToken token = reader.peek();
             switch (token) {
@@ -26,8 +51,6 @@ public final class GsonStreamHelper {
                     break;
                 case END_OBJECT:
                     reader.endObject();
-                    break;
-                case END_DOCUMENT:
                     return r;
                 case NAME:
                     String fieldname = reader.nextName();
@@ -152,82 +175,95 @@ public final class GsonStreamHelper {
         }
     }
 
-    public static void serializeSmallPojo(final JsonWriter j, final SmallPojo o) throws IOException {
+    public static void serialize(final JsonWriter j, final UserCollection uc) throws IOException {
         j.beginObject();
-        if (o._id != null) {
+        if (uc.users != null) {
+            j.name("users");
+            j.beginArray();
+            for (User u : uc.users) {
+                serialize(j, u);
+            }
+            j.endArray();
+        }
+        j.endObject();
+    }
+
+    private static void serialize(final JsonWriter j, final User u) throws IOException {
+        j.beginObject();
+        if (u._id != null) {
             j.name("_id");
-            j.value(o._id);
+            j.value(u._id);
         }
         j.name("index");
-        j.value(o.index);
-        if (o.guid != null) {
+        j.value(u.index);
+        if (u.guid != null) {
             j.name("guid");
-            j.value(o.guid);
+            j.value(u.guid);
         }
         j.name("isActive");
-        j.value(o.isActive);
-        if (o.balance != null) {
+        j.value(u.isActive);
+        if (u.balance != null) {
             j.name("balance");
-            j.value(o.balance);
+            j.value(u.balance);
         }
-        if (o.picture != null) {
+        if (u.picture != null) {
             j.name("picture");
-            j.value(o.picture);
+            j.value(u.picture);
         }
         j.name("age");
-        j.value(o.age);
-        if (o.eyeColor != null) {
+        j.value(u.age);
+        if (u.eyeColor != null) {
             j.name("eyeColor");
-            j.value(o.eyeColor);
+            j.value(u.eyeColor);
         }
-        if (o.name != null) {
+        if (u.name != null) {
             j.name("name");
-            j.value(o.name);
+            j.value(u.name);
         }
-        if (o.gender != null) {
+        if (u.gender != null) {
             j.name("gender");
-            j.value(o.gender);
+            j.value(u.gender);
         }
-        if (o.company != null) {
+        if (u.company != null) {
             j.name("company");
-            j.value(o.company);
+            j.value(u.company);
         }
-        if (o.email != null) {
+        if (u.email != null) {
             j.name("email");
-            j.value(o.email);
+            j.value(u.email);
         }
-        if (o.phone != null) {
+        if (u.phone != null) {
             j.name("phone");
-            j.value(o.phone);
+            j.value(u.phone);
         }
-        if (o.address != null) {
+        if (u.address != null) {
             j.name("address");
-            j.value(o.address);
+            j.value(u.address);
         }
-        if (o.about != null) {
+        if (u.about != null) {
             j.name("about");
-            j.value(o.about);
+            j.value(u.about);
         }
-        if (o.registered != null) {
+        if (u.registered != null) {
             j.name("registered");
-            j.value(o.registered);
+            j.value(u.registered);
         }
         j.name("latitude");
-        j.value(o.latitude);
+        j.value(u.latitude);
         j.name("longitude");
-        j.value(o.longitude);
-        if (o.tags != null) {
+        j.value(u.longitude);
+        if (u.tags != null) {
             j.name("tags");
             j.beginArray();
-            for (String t : o.tags) {
+            for (String t : u.tags) {
                 j.value(t);
             }
             j.endArray();
         }
-        if (o.friends != null) {
+        if (u.friends != null) {
             j.name("friends");
             j.beginArray();
-            for (SmallPojo.Friend f : o.friends) {
+            for (User.Friend f : u.friends) {
                 j.beginObject();
                 j.name("id");
                 j.value(f.id);
@@ -237,13 +273,13 @@ public final class GsonStreamHelper {
             }
             j.endArray();
         }
-        if (o.greeting != null) {
+        if (u.greeting != null) {
             j.name("greeting");
-            j.value(o.greeting);
+            j.value(u.greeting);
         }
-        if (o.favoriteFruit != null) {
+        if (u.favoriteFruit != null) {
             j.name("favoriteFruit");
-            j.value(o.favoriteFruit);
+            j.value(u.favoriteFruit);
         }
         j.endObject();
     }

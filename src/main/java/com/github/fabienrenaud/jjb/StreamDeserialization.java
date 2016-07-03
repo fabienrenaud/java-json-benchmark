@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.fasterxml.jackson.core.JsonParser;
+import com.github.fabienrenaud.jjb.model.UserCollection;
 import com.owlike.genson.stream.ObjectReader;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,43 +21,55 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void orgjson() throws JSONException {
-        for (String jsonText : JsonSource.SMALL_JSON_TEXT.values()) {
-            JSONObject jso = new JSONObject(jsonText);
-            assertTrue(jso != null);
+        String[] arr = JsonSource.jsonAsString;
+        for (int i = 0; i < arr.length; i++) {
+            JSONObject node = new JSONObject(arr[i]);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void jsonp() throws IOException {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            javax.json.JsonReader reader = javax.json.Json.createReader(new ByteArrayInputStream(jsonBytes));
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            javax.json.JsonReader reader = javax.json.Json.createReader(new ByteArrayInputStream(arr[i]));
             javax.json.JsonObject node = reader.readObject();
-            assertTrue(node != null);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void jackson() throws IOException {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node;
-            try (JsonParser jParser = JACKSON_FACTORY.createParser(jsonBytes)) {
-                node = JacksonStreamHelper.deserializeSmallPojo(jParser);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node;
+            try (JsonParser jParser = JACKSON_FACTORY.createParser(arr[i])) {
+                node = JacksonStreamHelper.deserializeUserCollection(jParser);
             }
-            assertTrue(node != null);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void gson() throws Exception {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node;
-            try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new InputStreamReader(new ByteArrayInputStream(jsonBytes)))) {
-                node = GsonStreamHelper.deserializeSmallPojo(jr);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node;
+            try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new InputStreamReader(new ByteArrayInputStream(arr[i])))) {
+                node = GsonStreamHelper.deserializeUserCollection(jr);
             }
-            assertTrue(node != null);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
@@ -67,12 +80,15 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void genson() throws Exception {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node;
-            try (ObjectReader reader = GENSON.createReader(jsonBytes)) {
-                node = GensonStreamHelper.deserializeSmallPojo(reader);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node;
+            try (ObjectReader reader = GENSON.createReader(arr[i])) {
+                node = GensonStreamHelper.deserializeUserCollection(reader);
             }
-            assertTrue(node != null);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
@@ -87,9 +103,12 @@ public class StreamDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void jsonio() throws Exception {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(new ByteArrayInputStream(jsonBytes), JSONIO_STREAM_OPTIONS);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(new ByteArrayInputStream(arr[i]), JSONIO_STREAM_OPTIONS);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 }

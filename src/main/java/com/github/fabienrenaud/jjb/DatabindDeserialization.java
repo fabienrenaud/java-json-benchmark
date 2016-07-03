@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.alibaba.fastjson.JSON;
+import com.github.fabienrenaud.jjb.model.UserCollection;
 import com.google.gson.JsonSyntaxException;
 import org.openjdk.jmh.annotations.Benchmark;
 
@@ -17,54 +18,72 @@ public class DatabindDeserialization extends JsonBase {
     @Benchmark
     @Override
     public void gson() throws Exception {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = GSON.fromJson(new InputStreamReader(new ByteArrayInputStream(jsonBytes)), SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = GSON.fromJson(new InputStreamReader(new ByteArrayInputStream(arr[i])), UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void jackson() throws Exception {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = JACKSON.readValue(jsonBytes, SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = JACKSON.readValue(arr[i], UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void jackson_afterburner() throws IOException {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = JACKSON_AFTERBURNER.readValue(jsonBytes, SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = JACKSON_AFTERBURNER.readValue(arr[i], UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void genson() throws JsonSyntaxException {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = GENSON.deserialize(jsonBytes, SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = GENSON.deserialize(arr[i], UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
     @Benchmark
     @Override
     public void fastjson() {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = JSON.parseObject(jsonBytes, SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = JSON.parseObject(arr[i], UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 
 //    @Benchmark
     @Override
     public void flexjson() throws JsonSyntaxException {
-        for (byte[] jsonBytes : JsonSource.SMALL_JSON_BYTES.values()) {
-            SmallPojo node = FLEXJSON_DESER.deserialize(new InputStreamReader(new ByteArrayInputStream(jsonBytes)), SmallPojo.class);
-            assertTrue(node != null);
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = FLEXJSON_DESER.deserialize(new InputStreamReader(new ByteArrayInputStream(arr[i])), UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
         }
     }
 

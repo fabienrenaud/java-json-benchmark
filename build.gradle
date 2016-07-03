@@ -19,8 +19,9 @@ dependencies {
     compile group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.12'
     compile group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.12'
 
-    // CLI
+    // CLI and misc
     compile group: 'io.airlift', name: 'airline', version: '0.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
     // org.json
     compile group: 'org.json', name: 'json', version: '20090211'
@@ -54,3 +55,9 @@ shadowJar {
     exclude 'META-INF/*.RSA'
 }
 
+test {
+    testLogging {
+        exceptionFormat = 'full'
+        // showStandardStreams = true
+    }
+}

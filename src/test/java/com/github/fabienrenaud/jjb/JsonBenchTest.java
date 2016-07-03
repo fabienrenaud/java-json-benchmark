@@ -1,7 +1,12 @@
 package com.github.fabienrenaud.jjb;
 
+import com.github.fabienrenaud.jjb.model.UserCollection;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.fail;
 
 /**
  * Created by frenaud on 6/30/16.
@@ -9,6 +14,41 @@ import org.junit.Test;
 public abstract class JsonBenchTest implements JsonBench {
 
     static JsonBench BENCH;
+
+    static {
+        JsonSource.init(2, 10);
+        JsonBase.consumer = JsonBenchTest::test;
+    }
+
+    private static void test(int i, Object o) {
+        if (o instanceof UserCollection) {
+            testUserCollection(i, (UserCollection) o);
+        } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
+            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, JsonBase.JSONIO_STREAM_OPTIONS);
+            testString(i, v);
+        } else {
+            testString(i, o.toString());
+        }
+    }
+
+    private static void testString(int i, String v) {
+        try {
+            UserCollection uc = JsonBase.JACKSON_AFTERBURNER.readValue(v, UserCollection.class);
+            testUserCollection(i, uc);
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
+    }
+
+    private static void testUserCollection(int i, UserCollection o) {
+        if (!o.equals(JsonSource.jsonAsObject[i])) {
+            System.out.println("Difference in UserCollection!");
+            System.out.println("   Original   : " + JsonSource.jsonAsObject[i]);
+            System.out.println("   Transformed: " + o);
+            System.out.println();
+            fail();
+        }
+    }
 
     @Test
     @Override

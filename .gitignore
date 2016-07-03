@@ -1,6 +1,7 @@
 # Build
 target/
 *.csv
+*.txt
 build/
 .gradle/
 
@@ -11,3 +12,6 @@ build/
 
 # System
 .DS_Store
+
+# Runtime
+.params.txt

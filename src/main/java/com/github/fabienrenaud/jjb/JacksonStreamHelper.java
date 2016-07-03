@@ -3,6 +3,9 @@ package com.github.fabienrenaud.jjb;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.github.fabienrenaud.jjb.model.User;
+import com.github.fabienrenaud.jjb.model.UserCollection;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,8 +18,22 @@ public final class JacksonStreamHelper {
     private JacksonStreamHelper() {
     }
 
-    public static SmallPojo deserializeSmallPojo(JsonParser jParser) throws IOException {
-        SmallPojo r = new SmallPojo();
+    public static UserCollection deserializeUserCollection(JsonParser jParser) throws IOException {
+        UserCollection uc = new UserCollection();
+        while (jParser.nextToken() != JsonToken.END_OBJECT) {
+            String fieldname = jParser.getCurrentName();
+            if ("users".equals(fieldname)) {
+                uc.users = new ArrayList<>();
+                while (jParser.nextToken() != JsonToken.END_ARRAY) {
+                    uc.users.add(deserializeUser(jParser));
+                }
+            }
+        }
+        return uc;
+    }
+
+    private static User deserializeUser(JsonParser jParser) throws IOException {
+        User r = new User();
         while (jParser.nextToken() != JsonToken.END_OBJECT) {
             String fieldname = jParser.getCurrentName();
             if (fieldname == null) {
@@ -114,7 +131,7 @@ public final class JacksonStreamHelper {
                     r.friends = new ArrayList<>();
                     jParser.nextToken(); // current token is "[", move next.
                     while (jParser.nextToken() != JsonToken.END_ARRAY) {
-                        SmallPojo.Friend f = new SmallPojo.Friend();
+                        User.Friend f = new User.Friend();
                         while (jParser.nextToken() != JsonToken.END_OBJECT) {
                             String fn = jParser.getCurrentName();
                             if (fn == null) {
@@ -139,82 +156,95 @@ public final class JacksonStreamHelper {
         return r;
     }
 
-    public static void serializeSmallPojo(final JsonGenerator j, final SmallPojo o) throws IOException {
+    public static void serialize(final JsonGenerator j, final UserCollection uc) throws IOException {
         j.writeStartObject();
-        if (o._id != null) {
+        if (uc.users != null) {
+            j.writeFieldName("users");
+            j.writeStartArray();
+            for (User u : uc.users) {
+                serialize(j, u);
+            }
+            j.writeEndArray();
+        }
+        j.writeEndObject();
+    }
+
+    private static void serialize(final JsonGenerator j, final User u) throws IOException {
+        j.writeStartObject();
+        if (u._id != null) {
             j.writeFieldName("_id");
-            j.writeString(o._id);
+            j.writeString(u._id);
         }
         j.writeFieldName("index");
-        j.writeNumber(o.index);
-        if (o.guid != null) {
+        j.writeNumber(u.index);
+        if (u.guid != null) {
             j.writeFieldName("guid");
-            j.writeString(o.guid);
+            j.writeString(u.guid);
         }
         j.writeFieldName("isActive");
-        j.writeBoolean(o.isActive);
-        if (o.balance != null) {
+        j.writeBoolean(u.isActive);
+        if (u.balance != null) {
             j.writeFieldName("balance");
-            j.writeString(o.balance);
+            j.writeString(u.balance);
         }
-        if (o.picture != null) {
+        if (u.picture != null) {
             j.writeFieldName("picture");
-            j.writeString(o.picture);
+            j.writeString(u.picture);
         }
         j.writeFieldName("age");
-        j.writeNumber(o.age);
-        if (o.eyeColor != null) {
+        j.writeNumber(u.age);
+        if (u.eyeColor != null) {
             j.writeFieldName("eyeColor");
-            j.writeString(o.eyeColor);
+            j.writeString(u.eyeColor);
         }
-        if (o.name != null) {
+        if (u.name != null) {
             j.writeFieldName("name");
-            j.writeString(o.name);
+            j.writeString(u.name);
         }
-        if (o.gender != null) {
+        if (u.gender != null) {
             j.writeFieldName("gender");
-            j.writeString(o.gender);
+            j.writeString(u.gender);
         }
-        if (o.company != null) {
+        if (u.company != null) {
             j.writeFieldName("company");
-            j.writeString(o.company);
+            j.writeString(u.company);
         }
-        if (o.email != null) {
+        if (u.email != null) {
             j.writeFieldName("email");
-            j.writeString(o.email);
+            j.writeString(u.email);
         }
-        if (o.phone != null) {
+        if (u.phone != null) {
             j.writeFieldName("phone");
-            j.writeString(o.phone);
+            j.writeString(u.phone);
         }
-        if (o.address != null) {
+        if (u.address != null) {
             j.writeFieldName("address");
-            j.writeString(o.address);
+            j.writeString(u.address);
         }
-        if (o.about != null) {
+        if (u.about != null) {
             j.writeFieldName("about");
-            j.writeString(o.about);
+            j.writeString(u.about);
         }
-        if (o.registered != null) {
+        if (u.registered != null) {
             j.writeFieldName("registered");
-            j.writeString(o.registered);
+            j.writeString(u.registered);
         }
         j.writeFieldName("latitude");
-        j.writeNumber(o.latitude);
+        j.writeNumber(u.latitude);
         j.writeFieldName("longitude");
-        j.writeNumber(o.longitude);
-        if (o.tags != null) {
+        j.writeNumber(u.longitude);
+        if (u.tags != null) {
             j.writeFieldName("tags");
             j.writeStartArray();
-            for (String t : o.tags) {
+            for (String t : u.tags) {
                 j.writeString(t);
             }
             j.writeEndArray();
         }
-        if (o.friends != null) {
+        if (u.friends != null) {
             j.writeFieldName("friends");
             j.writeStartArray();
-            for (SmallPojo.Friend f : o.friends) {
+            for (User.Friend f : u.friends) {
                 j.writeStartObject();
                 j.writeFieldName("id");
                 j.writeString(f.id);
@@ -224,13 +254,13 @@ public final class JacksonStreamHelper {
             }
             j.writeEndArray();
         }
-        if (o.greeting != null) {
+        if (u.greeting != null) {
             j.writeFieldName("greeting");
-            j.writeString(o.greeting);
+            j.writeString(u.greeting);
         }
-        if (o.favoriteFruit != null) {
+        if (u.favoriteFruit != null) {
             j.writeFieldName("favoriteFruit");
-            j.writeString(o.favoriteFruit);
+            j.writeString(u.favoriteFruit);
         }
         j.writeEndObject();
     }

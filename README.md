@@ -42,23 +42,37 @@ Read below for JMH and hardware info.
 
 ### 1 payload per iteration
 
-![json deserialization performance chart](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
+![json deserialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
 
-### 10 payload per iteration
+### 10 payloads per iteration
 
-### 50 payload per iteration
+![json deserialization performance chart 10 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1211021432&format=image)
 
-### 100 payload per iteration
+### 50 payloads per iteration
+
+![json deserialization performance chart 50 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1610214158&format=image)
+
+### 100 payloads per iteration
+
+![json deserialization performance chart 100 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1721420702&format=image)
 
 ## Serialization performance
 
 ### 1 payload per iteration
 
-### 10 payload per iteration
+![json serialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=69104817&format=image)
 
-### 50 payload per iteration
+### 10 payloads per iteration
 
-### 100 payload per iteration
+![json serialization performance chart 10 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=79452981&format=image)
+
+### 50 payloads per iteration
+
+![json serialization performance chart 50 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1102295969&format=image)
+
+### 100 payloads per iteration
+
+![json serialization performance chart 100 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=698016119&format=image)
 
 ## Benchmark configuration
 

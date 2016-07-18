@@ -29,6 +29,7 @@ public abstract class JsonBase implements JsonBench {
     public static final org.boon.json.ObjectMapper BOON = org.boon.json.JsonFactory.create();
     public static final JSONDeserializer<UserCollection> FLEXJSON_DESER = new JSONDeserializer<>();
     public static final JSONSerializer FLEXJSON_SER = new JSONSerializer();
+    public static final org.apache.johnzon.mapper.Mapper JOHNSON;
 
     public static final Map<String, Object> JSONIO_STREAM_OPTIONS = new HashMap<>();
 
@@ -39,6 +40,10 @@ public abstract class JsonBase implements JsonBench {
 
         JSONIO_STREAM_OPTIONS.put(JsonReader.USE_MAPS, true);
         JSONIO_STREAM_OPTIONS.put(JsonWriter.TYPE, false);
+
+        JOHNSON = new org.apache.johnzon.mapper.MapperBuilder()
+            .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
+            .build();
     }
 
     public static void assertTrue(boolean b) {

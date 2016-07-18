@@ -115,4 +115,8 @@ public class StreamDeserialization extends JsonBase {
     @Override
     public void boon() throws Exception {
     }
+
+    @Override
+    public void johnson() throws Exception {
+    }
 }

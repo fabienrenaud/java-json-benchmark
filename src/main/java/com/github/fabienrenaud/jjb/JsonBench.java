@@ -26,4 +26,6 @@ public interface JsonBench {
 
     void boon() throws Exception;
 
+    void johnson() throws Exception;
+
 }

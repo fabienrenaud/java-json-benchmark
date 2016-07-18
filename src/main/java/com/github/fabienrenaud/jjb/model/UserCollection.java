@@ -1,7 +1,5 @@
 package com.github.fabienrenaud.jjb.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
@@ -9,7 +7,6 @@ import java.util.List;
  */
 public class UserCollection {
 
-    @JsonProperty("users")
     public List<User> users;
 
     @Override

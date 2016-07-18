@@ -93,10 +93,22 @@ public class DatabindSerialization extends JsonBase {
 
     @Benchmark
     @Override
-    public void boon() throws JsonProcessingException {
+    public void boon() {
         UserCollection[] arr = JsonSource.jsonAsObject;
         for (int i = 0; i < arr.length; i++) {
             String v = BOON.writeValueAsString(arr[i]);
+            if (consumer != null) {
+                consumer.accept(i, v);
+            }
+        }
+    }
+
+    @Benchmark
+    @Override
+    public void johnson() {
+        UserCollection[] arr = JsonSource.jsonAsObject;
+        for (int i = 0; i < arr.length; i++) {
+            String v = JOHNSON.writeObjectAsString(arr[i]);
             if (consumer != null) {
                 consumer.accept(i, v);
             }

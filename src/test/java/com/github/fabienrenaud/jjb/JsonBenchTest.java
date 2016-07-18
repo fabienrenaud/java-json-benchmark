@@ -110,4 +110,10 @@ public abstract class JsonBenchTest implements JsonBench {
     public void boon() throws Exception {
         BENCH.boon();
     }
+
+    @Test
+    @Override
+    public void johnson() throws Exception {
+        BENCH.johnson();
+    }
 }

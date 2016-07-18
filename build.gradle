@@ -45,6 +45,9 @@ dependencies {
     compile group: 'com.cedarsoftware', name: 'json-io', version: '4.5.0'
     // boon
     compile group: 'io.fastjson', name: 'boon', version: '0.33'
+    // johnson
+    compile group: 'org.apache.johnzon', name: 'johnzon-core', version: '0.9.3-incubating'
+    compile group: 'org.apache.johnzon', name: 'johnzon-mapper', version: '0.9.3-incubating'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

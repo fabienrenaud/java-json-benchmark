@@ -110,4 +110,16 @@ public class DatabindDeserialization extends JsonBase {
             }
         }
     }
+
+    @Benchmark
+    @Override
+    public void johnson() throws Exception {
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = JOHNSON.readObject(new ByteArrayInputStream(arr[i]), UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
+        }
+    }
 }

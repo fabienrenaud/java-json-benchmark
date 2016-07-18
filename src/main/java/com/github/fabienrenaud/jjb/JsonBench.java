@@ -24,4 +24,6 @@ public interface JsonBench {
 
     void jsonio() throws Exception;
 
+    void boon() throws Exception;
+
 }

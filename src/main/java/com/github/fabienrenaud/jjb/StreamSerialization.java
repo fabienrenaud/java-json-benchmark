@@ -117,4 +117,8 @@ public class StreamSerialization extends JsonBase {
             }
         }
     }
+
+    @Override
+    public void boon() throws Exception {
+    }
 }

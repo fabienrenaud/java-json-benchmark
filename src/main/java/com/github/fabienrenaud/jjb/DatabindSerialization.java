@@ -90,4 +90,16 @@ public class DatabindSerialization extends JsonBase {
     @Override
     public void jsonio() throws Exception {
     }
+
+    @Benchmark
+    @Override
+    public void boon() throws JsonProcessingException {
+        UserCollection[] arr = JsonSource.jsonAsObject;
+        for (int i = 0; i < arr.length; i++) {
+            String v = BOON.writeValueAsString(arr[i]);
+            if (consumer != null) {
+                consumer.accept(i, v);
+            }
+        }
+    }
 }

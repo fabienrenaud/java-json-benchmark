@@ -26,6 +26,7 @@ public abstract class JsonBase implements JsonBench {
     public static final ObjectMapper JACKSON_AFTERBURNER = new ObjectMapper();
     public static final JsonFactory JACKSON_FACTORY = new JsonFactory();
     public static final Genson GENSON = new Genson();
+    public static final org.boon.json.ObjectMapper BOON = org.boon.json.JsonFactory.create();
     public static final JSONDeserializer<UserCollection> FLEXJSON_DESER = new JSONDeserializer<>();
     public static final JSONSerializer FLEXJSON_SER = new JSONSerializer();
 

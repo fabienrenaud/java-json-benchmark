@@ -16,7 +16,7 @@ public abstract class JsonBenchTest implements JsonBench {
     static JsonBench BENCH;
 
     static {
-        JsonSource.init(2, 10);
+        JsonSource.init(new JsonSource.InitParams(2, 10));
         JsonBase.consumer = JsonBenchTest::test;
     }
 
@@ -103,5 +103,11 @@ public abstract class JsonBenchTest implements JsonBench {
     @Override
     public void jsonio() throws Exception {
         BENCH.jsonio();
+    }
+
+    @Test
+    @Override
+    public void boon() throws Exception {
+        BENCH.boon();
     }
 }

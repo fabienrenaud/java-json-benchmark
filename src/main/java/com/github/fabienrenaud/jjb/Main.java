@@ -33,7 +33,7 @@ public final class Main {
 
     public static abstract class AbstractCommand implements Runnable {
 
-        private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp", "jsonio"));
+        private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp", "jsonio", "boon"));
 
         /*
          * JMH options
@@ -50,7 +50,7 @@ public final class Main {
         /*
          * JSON options
          */
-        @Option(name = "--libs", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio")
+        @Option(name = "--libs", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio, boon")
         public String libraries;
         @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind")
         public String apis;

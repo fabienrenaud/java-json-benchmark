@@ -119,4 +119,9 @@ public class StreamDeserialization extends JsonBase {
     @Override
     public void johnson() throws Exception {
     }
+
+    @Override
+    public void jsonsmart() throws Exception {
+    }
+
 }

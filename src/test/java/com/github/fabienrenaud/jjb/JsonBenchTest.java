@@ -116,4 +116,10 @@ public abstract class JsonBenchTest implements JsonBench {
     public void johnson() throws Exception {
         BENCH.johnson();
     }
+
+    @Test
+    @Override
+    public void jsonsmart() throws Exception {
+        BENCH.jsonsmart();
+    }
 }

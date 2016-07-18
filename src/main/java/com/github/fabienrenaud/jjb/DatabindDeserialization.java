@@ -122,4 +122,17 @@ public class DatabindDeserialization extends JsonBase {
             }
         }
     }
+
+    @Benchmark
+    @Override
+    public void jsonsmart() throws Exception {
+        byte[][] arr = JsonSource.jsonAsBytes;
+        for (int i = 0; i < arr.length; i++) {
+            UserCollection node = net.minidev.json.JSONValue.parse(arr[i], UserCollection.class);
+            if (consumer != null) {
+                consumer.accept(i, node);
+            }
+        }
+
+    }
 }

@@ -28,4 +28,6 @@ public interface JsonBench {
 
     void johnson() throws Exception;
 
+    void jsonsmart() throws Exception;
+
 }

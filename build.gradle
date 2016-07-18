@@ -48,6 +48,8 @@ dependencies {
     // johnson
     compile group: 'org.apache.johnzon', name: 'johnzon-core', version: '0.9.3-incubating'
     compile group: 'org.apache.johnzon', name: 'johnzon-mapper', version: '0.9.3-incubating'
+    // json-smart
+    compile group: 'net.minidev', name: 'json-smart', version: '2.2.1'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

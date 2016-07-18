@@ -114,4 +114,18 @@ public class DatabindSerialization extends JsonBase {
             }
         }
     }
+
+    @Benchmark
+    @Override
+    public void jsonsmart() throws Exception {
+        UserCollection[] arr = JsonSource.jsonAsObject;
+        for (int i = 0; i < arr.length; i++) {
+            StringBuilder b = new StringBuilder();
+            net.minidev.json.JSONValue.writeJSONString(arr[i], b);
+            String v = b.toString();
+            if (consumer != null) {
+                consumer.accept(i, v);
+            }
+        }
+    }
 }

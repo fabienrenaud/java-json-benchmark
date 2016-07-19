@@ -18,4 +18,15 @@ public class DatabindSerializationTest extends JsonBenchTest {
         // FIXME: boon turns empty list to null values which makes this test fail.
     }
 
+    @Override
+    public void orgjson() throws Exception {
+    }
+
+    @Override
+    public void jsonp() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
+    }
 }

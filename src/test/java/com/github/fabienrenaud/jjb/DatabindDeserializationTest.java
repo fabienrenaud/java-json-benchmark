@@ -12,4 +12,15 @@ public class DatabindDeserializationTest extends JsonBenchTest {
         BENCH = new DatabindDeserialization();
     }
 
+    @Override
+    public void orgjson() throws Exception {
+    }
+
+    @Override
+    public void jsonp() throws Exception {
+    }
+
+    @Override
+    public void jsonio() throws Exception {
+    }
 }

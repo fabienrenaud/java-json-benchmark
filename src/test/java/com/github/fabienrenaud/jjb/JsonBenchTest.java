@@ -11,39 +11,39 @@ import static org.junit.Assert.fail;
 /**
  * Created by frenaud on 6/30/16.
  */
-public abstract class JsonBenchTest implements JsonBench {
+public abstract class JsonBenchTest {
 
     static JsonBench BENCH;
 
     static {
-        JsonSource.init(new JsonSource.InitParams(2, 10));
-        JsonBase.consumer = JsonBenchTest::test;
+        JsonSource.init(new JsonSource.InitParams(2, 1));
     }
 
-    private static void test(int i, Object o) {
+    private static void test(Object o) {
         if (o instanceof UserCollection) {
-            testUserCollection(i, (UserCollection) o);
+            testUserCollection((UserCollection) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
             String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, JsonBase.JSONIO_STREAM_OPTIONS);
-            testString(i, v);
+            testString(v);
         } else {
-            testString(i, o.toString());
+            testString(o.toString());
         }
     }
 
-    private static void testString(int i, String v) {
+    private static void testString(String v) {
         try {
             UserCollection uc = JsonBase.JACKSON_AFTERBURNER.readValue(v, UserCollection.class);
-            testUserCollection(i, uc);
+            testUserCollection(uc);
         } catch (IOException ex) {
             fail(ex.getMessage());
         }
     }
 
-    private static void testUserCollection(int i, UserCollection o) {
-        if (!o.equals(JsonSource.jsonAsObject[i])) {
+    private static void testUserCollection(UserCollection o) {
+        UserCollection original = JsonSource.nextPojo();
+        if (!o.equals(original)) {
             System.out.println("Difference in UserCollection!");
-            System.out.println("   Original   : " + JsonSource.jsonAsObject[i]);
+            System.out.println("   Original   : " + original);
             System.out.println("   Transformed: " + o);
             System.out.println();
             fail();
@@ -51,75 +51,63 @@ public abstract class JsonBenchTest implements JsonBench {
     }
 
     @Test
-    @Override
     public void gson() throws Exception {
-        BENCH.gson();
+        test(BENCH.gson());
     }
 
     @Test
-    @Override
     public void jackson() throws Exception {
-        BENCH.jackson();
+        test(BENCH.jackson());
     }
 
     @Test
-    @Override
     public void jackson_afterburner() throws Exception {
-        BENCH.jackson_afterburner();
+        test(BENCH.jackson_afterburner());
     }
 
     @Test
-    @Override
     public void orgjson() throws Exception {
-        BENCH.orgjson();
+        test(BENCH.orgjson());
     }
 
     @Test
-    @Override
     public void genson() throws Exception {
-        BENCH.genson();
+        test(BENCH.genson());
     }
 
     @Test
-    @Override
     public void jsonp() throws Exception {
-        BENCH.jsonp();
+        test(BENCH.jsonp());
     }
 
     @Test
     @Ignore
-    @Override
     public void flexjson() throws Exception {
-        BENCH.flexjson();
+        test(BENCH.flexjson());
     }
 
     @Test
-    @Override
     public void fastjson() throws Exception {
-        BENCH.fastjson();
+        test(BENCH.fastjson());
     }
 
     @Test
-    @Override
     public void jsonio() throws Exception {
-        BENCH.jsonio();
+        test(BENCH.jsonio());
     }
 
     @Test
-    @Override
     public void boon() throws Exception {
-        BENCH.boon();
+        test(BENCH.boon());
     }
 
     @Test
-    @Override
     public void johnson() throws Exception {
-        BENCH.johnson();
+        test(BENCH.johnson());
     }
 
     @Test
-    @Override
     public void jsonsmart() throws Exception {
-        BENCH.jsonsmart();
+        test(BENCH.jsonsmart());
     }
 }

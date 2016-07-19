@@ -8,29 +8,57 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 public final class JsonSource {
 
     private static final Path PARAMS_PATH = Paths.get(".params.txt");
 
-    public static UserCollection[] jsonAsObject;
-    public static String[] jsonAsString;
-    public static byte[][] jsonAsBytes;
-    private static JSONObject[] jsonAsOrgJsonObject;
-    private static javax.json.JsonObject[] jsonAsJavaxJsonObject;
+    private static UserCollection[] jsonAsObject;
+    private static String[] jsonAsString;
+    private static byte[][] jsonAsBytes;
+    private static final Random RNG = new Random();
 
     static {
         init();
     }
 
     private JsonSource() {
+    }
+
+    public static String nextString() {
+        return jsonAsString[RNG.nextInt(jsonAsString.length)];
+    }
+
+    public static InputStream nextInputStream() {
+        return new ByteArrayInputStream(nextByteArray());
+    }
+
+    public static byte[] nextByteArray() {
+        return jsonAsBytes[RNG.nextInt(jsonAsBytes.length)];
+    }
+
+    public static Reader nextReader() {
+        return new InputStreamReader(nextInputStream());
+    }
+
+    public static UserCollection nextPojo() {
+        return jsonAsObject[RNG.nextInt(jsonAsObject.length)];
+    }
+
+    public static JSONObject nextJsonAsOrgJsonObject() {
+        return LazyOrgJson.JSON_AS_ORG_JSON_OBJECT[RNG.nextInt(LazyOrgJson.JSON_AS_ORG_JSON_OBJECT.length)];
+    }
+
+    public static javax.json.JsonObject nextJsonAsJavaxJsonObject() {
+        return LazyJavaxJson.JSON_AS_JAVAX_JSON_OBJECT[RNG.nextInt(LazyJavaxJson.JSON_AS_JAVAX_JSON_OBJECT.length)];
     }
 
     private static void init() {
@@ -70,34 +98,38 @@ public final class JsonSource {
         }
     }
 
-    public static JSONObject[] jsonAsOrgJsonObject() {
-        if (jsonAsOrgJsonObject == null) {
+    private static final class LazyOrgJson {
+
+        private static final JSONObject[] JSON_AS_ORG_JSON_OBJECT;
+
+        static {
             try {
                 int len = jsonAsString.length;
-                jsonAsOrgJsonObject = new JSONObject[len];
+                JSON_AS_ORG_JSON_OBJECT = new JSONObject[len];
                 for (int i = 0; i < len; i++) {
-                    jsonAsOrgJsonObject[i] = new JSONObject(jsonAsString[i]);
+                    JSON_AS_ORG_JSON_OBJECT[i] = new JSONObject(jsonAsString[i]);
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         }
-        return jsonAsOrgJsonObject;
     }
 
-    public static javax.json.JsonObject[] jsonAsJavaxJsonObject() {
-        if (jsonAsJavaxJsonObject == null) {
+    private static final class LazyJavaxJson {
+
+        private static final javax.json.JsonObject[] JSON_AS_JAVAX_JSON_OBJECT;
+
+        static {
             try {
                 int len = jsonAsBytes.length;
-                jsonAsJavaxJsonObject = new javax.json.JsonObject[len];
+                JSON_AS_JAVAX_JSON_OBJECT = new javax.json.JsonObject[len];
                 for (int i = 0; i < len; i++) {
-                    jsonAsJavaxJsonObject[i] = javax.json.Json.createReader(new ByteArrayInputStream(jsonAsBytes[i])).readObject();
+                    JSON_AS_JAVAX_JSON_OBJECT[i] = javax.json.Json.createReader(new ByteArrayInputStream(jsonAsBytes[i])).readObject();
                 }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         }
-        return jsonAsJavaxJsonObject;
     }
 
     static int populateUserCollection(final UserCollection uc, final int sizeInB) throws IOException {

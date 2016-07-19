@@ -6,28 +6,28 @@ package com.github.fabienrenaud.jjb;
  */
 public interface JsonBench {
 
-    void gson() throws Exception;
+    Object gson() throws Exception;
 
-    void jackson() throws Exception;
+    Object jackson() throws Exception;
 
-    void jackson_afterburner() throws Exception;
+    Object jackson_afterburner() throws Exception;
 
-    void orgjson() throws Exception;
+    Object orgjson() throws Exception;
 
-    void genson() throws Exception;
+    Object genson() throws Exception;
 
-    void jsonp() throws Exception;
+    Object jsonp() throws Exception;
 
-    void flexjson() throws Exception;
+    Object flexjson() throws Exception;
 
-    void fastjson() throws Exception;
+    Object fastjson() throws Exception;
 
-    void jsonio() throws Exception;
+    Object jsonio() throws Exception;
 
-    void boon() throws Exception;
+    Object boon() throws Exception;
 
-    void johnson() throws Exception;
+    Object johnson() throws Exception;
 
-    void jsonsmart() throws Exception;
+    Object jsonsmart() throws Exception;
 
 }

@@ -38,14 +38,16 @@ public final class Main {
         /*
          * JMH options
          */
-        @Option(type = OptionType.GLOBAL, name = "--forks", description = "JMH: forks. Defaults to 1.")
+        @Option(type = OptionType.GLOBAL, name = "-f", description = "JMH: forks. Defaults to 1.")
         public int forks = 1;
-        @Option(type = OptionType.GLOBAL, name = "--warmup-iterations", description = "JMH: warmup iterations. Defaults to 5.")
+        @Option(type = OptionType.GLOBAL, name = "-wi", description = "JMH: warmup iterations. Defaults to 5.")
         public int warmupIterations = 5;
-        @Option(type = OptionType.GLOBAL, name = "--measurement-iterations", description = "JMH: measurement iterations. Defaults to 5.")
+        @Option(type = OptionType.GLOBAL, name = "-i", description = "JMH: measurement iterations. Defaults to 5.")
         public int measurementIterations = 5;
-        @Option(type = OptionType.GLOBAL, name = "--measurement-time", description = "JMH: measurement time. Defaults to 1.")
+        @Option(type = OptionType.GLOBAL, name = "-m", description = "JMH: measurement time. Defaults to 1.")
         public int measurementTime = 1;
+        @Option(type = OptionType.GLOBAL, name = "-t", description = "JMH: number of threads. Defaults to 1.")
+        public int threads = 1;
 
         /*
          * JSON options
@@ -54,7 +56,7 @@ public final class Main {
         public String libraries;
         @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind")
         public String apis;
-        @Option(name = "--number", description = "Number of payloads to test. Defaults to 1.")
+        @Option(name = "--number", description = "Number of random payloads to generate. One is randomly picked for each benchmark iteration. Defaults to 1.")
         public int numberOfPayloads = 1;
         @Option(name = "--size", description = "Size of each payload in Kb. Defaults to 1.")
         public int sizeOfEachPayloadInKb = 1;
@@ -70,7 +72,8 @@ public final class Main {
                 .forks(forks)
                 .warmupIterations(warmupIterations)
                 .measurementIterations(measurementIterations)
-                .measurementTime(new TimeValue(measurementTime, TimeUnit.SECONDS));
+                .measurementTime(new TimeValue(measurementTime, TimeUnit.SECONDS))
+                .threads(threads);
 //                .addProfiler(StackProfiler.class);
 
             for (String i : includes()) {

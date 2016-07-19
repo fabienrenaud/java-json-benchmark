@@ -7,121 +7,94 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
 
 /**
- *
  * @author Fabien Renaud
  */
 public class StreamDeserialization extends JsonBase {
 
     @Benchmark
     @Override
-    public void orgjson() throws JSONException {
-        String[] arr = JsonSource.jsonAsString;
-        for (int i = 0; i < arr.length; i++) {
-            JSONObject node = new JSONObject(arr[i]);
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
-        }
+    public Object orgjson() throws JSONException {
+        JSONObject node = new JSONObject(JsonSource.nextString());
+        return node;
     }
 
     @Benchmark
     @Override
-    public void jsonp() throws IOException {
-        byte[][] arr = JsonSource.jsonAsBytes;
-        for (int i = 0; i < arr.length; i++) {
-            javax.json.JsonReader reader = javax.json.Json.createReader(new ByteArrayInputStream(arr[i]));
-            javax.json.JsonObject node = reader.readObject();
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
-        }
+    public Object jsonp() throws IOException {
+        javax.json.JsonReader reader = javax.json.Json.createReader(JsonSource.nextInputStream());
+        javax.json.JsonObject node = reader.readObject();
+        return node;
     }
 
     @Benchmark
     @Override
-    public void jackson() throws IOException {
-        byte[][] arr = JsonSource.jsonAsBytes;
-        for (int i = 0; i < arr.length; i++) {
-            UserCollection node;
-            try (JsonParser jParser = JACKSON_FACTORY.createParser(arr[i])) {
-                node = JacksonStreamHelper.deserializeUserCollection(jParser);
-            }
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
+    public Object jackson() throws IOException {
+        UserCollection node;
+        try (JsonParser jParser = JACKSON_FACTORY.createParser(JsonSource.nextByteArray())) {
+            node = JacksonStreamHelper.deserializeUserCollection(jParser);
         }
+        return node;
     }
 
     @Benchmark
     @Override
-    public void gson() throws Exception {
-        byte[][] arr = JsonSource.jsonAsBytes;
-        for (int i = 0; i < arr.length; i++) {
-            UserCollection node;
-            try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(new InputStreamReader(new ByteArrayInputStream(arr[i])))) {
-                node = GsonStreamHelper.deserializeUserCollection(jr);
-            }
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
+    public Object gson() throws Exception {
+        UserCollection node;
+        try (com.google.gson.stream.JsonReader jr = new com.google.gson.stream.JsonReader(JsonSource.nextReader())) {
+            node = GsonStreamHelper.deserializeUserCollection(jr);
         }
+        return node;
     }
 
     @Override
-    public void jackson_afterburner() throws Exception {
+    public Object jackson_afterburner() throws Exception {
+        return null;
     }
 
     @Benchmark
     @Override
-    public void genson() throws Exception {
-        byte[][] arr = JsonSource.jsonAsBytes;
-        for (int i = 0; i < arr.length; i++) {
-            UserCollection node;
-            try (ObjectReader reader = GENSON.createReader(arr[i])) {
-                node = GensonStreamHelper.deserializeUserCollection(reader);
-            }
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
+    public Object genson() throws Exception {
+        UserCollection node;
+        try (ObjectReader reader = GENSON.createReader(JsonSource.nextByteArray())) {
+            node = GensonStreamHelper.deserializeUserCollection(reader);
         }
+        return node;
     }
 
     @Override
-    public void flexjson() throws Exception {
+    public Object flexjson() throws Exception {
+        return null;
     }
 
     @Override
-    public void fastjson() throws Exception {
+    public Object fastjson() throws Exception {
+        return null;
     }
 
     @Benchmark
     @Override
-    public void jsonio() throws Exception {
-        byte[][] arr = JsonSource.jsonAsBytes;
-        for (int i = 0; i < arr.length; i++) {
-            Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(new ByteArrayInputStream(arr[i]), JSONIO_STREAM_OPTIONS);
-            if (consumer != null) {
-                consumer.accept(i, node);
-            }
-        }
+    public Object jsonio() throws Exception {
+        Map<String, Object> node = (Map) com.cedarsoftware.util.io.JsonReader.jsonToJava(JsonSource.nextInputStream(), JSONIO_STREAM_OPTIONS);
+        return node;
     }
 
     @Override
-    public void boon() throws Exception {
+    public Object boon() throws Exception {
+        return null;
     }
 
     @Override
-    public void johnson() throws Exception {
+    public Object johnson() throws Exception {
+        return null;
     }
 
     @Override
-    public void jsonsmart() throws Exception {
+    public Object jsonsmart() throws Exception {
+        return null;
     }
 
 }

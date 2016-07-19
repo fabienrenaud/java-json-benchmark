@@ -13,7 +13,6 @@ import flexjson.JSONSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiConsumer;
 
 /**
  *
@@ -32,8 +31,6 @@ public abstract class JsonBase implements JsonBench {
     public static final org.apache.johnzon.mapper.Mapper JOHNSON;
 
     public static final Map<String, Object> JSONIO_STREAM_OPTIONS = new HashMap<>();
-
-    static BiConsumer<Integer, Object> consumer;
 
     static {
         JACKSON_AFTERBURNER.registerModule(new AfterburnerModule());

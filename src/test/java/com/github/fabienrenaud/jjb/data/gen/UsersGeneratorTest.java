@@ -1,8 +1,7 @@
-package com.github.fabienrenaud.jjb;
+package com.github.fabienrenaud.jjb.data.gen;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
-import com.github.fabienrenaud.jjb.model.UserCollection;
+import com.github.fabienrenaud.jjb.model.Users;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,14 +11,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by frenaud on 7/3/16.
  */
-public class JsonSourceTest {
+public class UsersGeneratorTest {
 
-    private static final int MARGIN_ERROR = 10; // in percent
+    private static final int MARGIN_ERROR = 10; // %
     private static final ObjectMapper JACKSON = new ObjectMapper();
 
-    static {
-        JACKSON.registerModule(new AfterburnerModule());
-    }
+    private static final UsersGenerator USERS_GENERATOR = new UsersGenerator();
 
     @Test
     public void populateUserCollection_1k() throws IOException {
@@ -42,8 +39,8 @@ public class JsonSourceTest {
     }
 
     private void populateUserCollection(int size) throws IOException {
-        UserCollection uc = new UserCollection();
-        int approxSize = JsonSource.populateUserCollection(uc, size);
+        Users uc = new Users();
+        int approxSize = USERS_GENERATOR.populate(uc, size);
         String v = JACKSON.writeValueAsString(uc);
         int realSize = v.getBytes().length;
         int maxAllowedSIze = realSize + (realSize / MARGIN_ERROR);

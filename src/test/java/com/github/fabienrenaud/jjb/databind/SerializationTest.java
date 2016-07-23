@@ -1,16 +1,14 @@
-package com.github.fabienrenaud.jjb;
+package com.github.fabienrenaud.jjb.databind;
 
-import org.junit.BeforeClass;
+import com.github.fabienrenaud.jjb.JsonBenchTest;
 
 /**
- *
  * @author Fabien Renaud
  */
-public class DatabindSerializationTest extends JsonBenchTest {
+public class SerializationTest extends JsonBenchTest {
 
-    @BeforeClass
-    public static void setUpClass() {
-        BENCH = new DatabindSerialization();
+    static {
+        BENCH = new Serialization();
     }
 
     @Override

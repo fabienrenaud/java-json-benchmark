@@ -14,4 +14,4 @@ build/
 .DS_Store
 
 # Runtime
-.params.txt
+*.json

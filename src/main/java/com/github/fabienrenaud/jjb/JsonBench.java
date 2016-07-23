@@ -1,33 +1,56 @@
 package com.github.fabienrenaud.jjb;
 
 /**
- *
  * @author Fabien Renaud
  */
-public interface JsonBench {
+public abstract class JsonBench {
 
-    Object gson() throws Exception;
+    public Object gson() throws Exception {
+        return null;
+    }
 
-    Object jackson() throws Exception;
+    public Object jackson() throws Exception {
+        return null;
+    }
 
-    Object jackson_afterburner() throws Exception;
+    public Object jackson_afterburner() throws Exception {
+        return null;
+    }
 
-    Object orgjson() throws Exception;
+    public Object orgjson() throws Exception {
+        return null;
+    }
 
-    Object genson() throws Exception;
+    public Object genson() throws Exception {
+        return null;
+    }
 
-    Object jsonp() throws Exception;
+    public Object jsonp() throws Exception {
+        return null;
+    }
 
-    Object flexjson() throws Exception;
+    public Object flexjson() throws Exception {
+        return null;
+    }
 
-    Object fastjson() throws Exception;
+    public Object fastjson() throws Exception {
+        return null;
+    }
 
-    Object jsonio() throws Exception;
+    public Object jsonio() throws Exception {
+        return null;
+    }
 
-    Object boon() throws Exception;
+    public Object boon() throws Exception {
+        return null;
+    }
 
-    Object johnson() throws Exception;
+    public Object johnson() throws Exception {
+        return null;
+    }
 
-    Object jsonsmart() throws Exception;
+    public Object jsonsmart() throws Exception {
+        return null;
+    }
 
 }

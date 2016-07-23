@@ -6,4 +6,4 @@ if [ -z $JVM_OPTIONS ]; then
 fi
 
 gradle -q shadowJar
-java $JVM_OPTIONS -cp build/libs/benchmarks*.jar com.github.fabienrenaud.jjb.Main $*
+java $JVM_OPTIONS -cp build/libs/benchmarks*.jar com.github.fabienrenaud.jjb.Cli $*

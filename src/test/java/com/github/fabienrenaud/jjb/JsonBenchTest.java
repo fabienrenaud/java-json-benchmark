@@ -1,9 +1,12 @@
 package com.github.fabienrenaud.jjb;
 
-import com.github.fabienrenaud.jjb.model.UserCollection;
+import com.github.fabienrenaud.jjb.model.Users;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.fail;
@@ -13,17 +16,28 @@ import static org.junit.Assert.fail;
  */
 public abstract class JsonBenchTest {
 
-    static JsonBench BENCH;
+    public static JsonBench BENCH;
+    private static File configFile;
 
-    static {
-        JsonSource.init(new JsonSource.InitParams(2, 1));
+    @BeforeClass
+    public static void setUpClass() {
+        Cli.AbstractCommand ser = new Cli.SerializationCommand();
+        ser.dataType = "Users";
+        ser.numberOfPayloads = 1;
+        ser.sizeOfEachPayloadInKb = 2;
+        configFile = Config.save(ser);
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+        configFile.delete();
     }
 
     private static void test(Object o) {
-        if (o instanceof UserCollection) {
-            testUserCollection((UserCollection) o);
+        if (o instanceof Users) {
+            testUserCollection((Users) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
-            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, JsonBase.JSONIO_STREAM_OPTIONS);
+            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, JsonUtils.JSONIO_STREAM_OPTIONS);
             testString(v);
         } else {
             testString(o.toString());
@@ -32,17 +46,17 @@ public abstract class JsonBenchTest {
 
     private static void testString(String v) {
         try {
-            UserCollection uc = JsonBase.JACKSON_AFTERBURNER.readValue(v, UserCollection.class);
+            Users uc = JsonUtils.JACKSON_AFTERBURNER.readValue(v, Users.class);
             testUserCollection(uc);
         } catch (IOException ex) {
             fail(ex.getMessage());
         }
     }
 
-    private static void testUserCollection(UserCollection o) {
-        UserCollection original = JsonSource.nextPojo();
+    private static void testUserCollection(Users o) {
+        Object original = JsonUtils.JSON_SOURCE.nextPojo();
         if (!o.equals(original)) {
-            System.out.println("Difference in UserCollection!");
+            System.out.println("Difference in Users!");
             System.out.println("   Original   : " + original);
             System.out.println("   Transformed: " + o);
             System.out.println();

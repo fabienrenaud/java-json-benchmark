@@ -1,15 +1,14 @@
-package com.github.fabienrenaud.jjb;
+package com.github.fabienrenaud.jjb.stream;
 
-import org.junit.BeforeClass;
+import com.github.fabienrenaud.jjb.JsonBenchTest;
 
 /**
  * @author Fabien Renaud
  */
-public class StreamDeserializationTest extends JsonBenchTest {
+public class DeserializationTest extends JsonBenchTest {
 
-    @BeforeClass
-    public static void setUpClass() {
-        BENCH = new StreamDeserialization();
+    static {
+        BENCH = new Deserialization();
     }
 
     @Override

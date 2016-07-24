@@ -37,6 +37,7 @@ public class Serialization extends JsonBench {
     public Object jackson() throws Exception {
         OutputStream os = new ByteArrayOutputStream();
         try (JsonGenerator jGenerator = JSON_SOURCE.provider().jacksonFactory().createGenerator(os)) {
+            Object obj = null;
             JSON_SOURCE.streamSerializer().jackson(jGenerator, JSON_SOURCE.nextPojo());
         }
         os.close();

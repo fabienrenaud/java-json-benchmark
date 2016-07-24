@@ -2,9 +2,11 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
+import com.dslplatform.json.DslJson;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
+import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import flexjson.JSONDeserializer;
@@ -17,21 +19,27 @@ import java.util.Map;
 /**
  * Created by frenaud on 7/24/16.
  */
-public class DefaultJsonProvider implements JsonProvider {
+public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();
     private final ObjectMapper jackson = new ObjectMapper();
     private final ObjectMapper jacksonAfterburner = new ObjectMapper();
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
-    private final JSONDeserializer<?> flexjsonDeser = new JSONDeserializer<>();
+    private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final JSONSerializer flexjsonSer = new JSONSerializer();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnson;
 
+    /*
+     * DSL-json
+     */
+    private final DslJson<Users> dsljson = new DslJson<>();
+    private final ThreadLocal<com.dslplatform.json.JsonWriter> dsljsonwriter = new ThreadLocal<>();
+
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
-    public DefaultJsonProvider() {
+    public UsersJsonProvider() {
         jacksonAfterburner.registerModule(new AfterburnerModule());
 
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
@@ -67,7 +75,7 @@ public class DefaultJsonProvider implements JsonProvider {
         return genson;
     }
 
-    public JSONDeserializer<?> flexjsonDeser() {
+    public JSONDeserializer<Users> flexjsonDeser() {
         return flexjsonDeser;
     }
 
@@ -88,5 +96,20 @@ public class DefaultJsonProvider implements JsonProvider {
     @Override
     public Map<String, Object> jsonioStreamOptions() {
         return jsonioStreamOptions;
+    }
+
+    @Override
+    public DslJson<Users> dsljson() {
+        return dsljson;
+    }
+
+    @Override
+    public com.dslplatform.json.JsonWriter dsljsonWriter() {
+        com.dslplatform.json.JsonWriter w = dsljsonwriter.get();
+        if (w == null) {
+            w = new com.dslplatform.json.JsonWriter();
+            dsljsonwriter.set(w);
+        }
+        return w;
     }
 }

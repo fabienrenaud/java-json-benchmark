@@ -18,7 +18,9 @@ public enum Library {
     JSONIO,
     BOON,
     JOHNSON,
-    JSONSMART;
+    JSONSMART,
+    DSLJSON,
+    LOGANSQUARE;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

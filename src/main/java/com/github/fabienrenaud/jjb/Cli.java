@@ -3,7 +3,7 @@ package com.github.fabienrenaud.jjb;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.github.fabienrenaud.jjb.support.Api;
-import com.github.fabienrenaud.jjb.support.BenchSuport;
+import com.github.fabienrenaud.jjb.support.BenchSupport;
 import com.github.fabienrenaud.jjb.support.Libapi;
 import com.github.fabienrenaud.jjb.support.Library;
 import io.airlift.airline.Cli.CliBuilder;
@@ -112,16 +112,16 @@ public final class Cli {
             }
         }
 
-        private BenchSuport validateBenchSupport() {
+        private BenchSupport validateBenchSupport() {
             try {
-                return BenchSuport.valueOf(dataType.toUpperCase());
+                return BenchSupport.valueOf(dataType.toUpperCase());
             } catch (Exception ex) {
                 exit("Datatype: '" + dataType + "' does not exist.");
                 throw new RuntimeException(ex);
             }
         }
 
-        private Set<Library> validateLibraries(BenchSuport bs) {
+        private Set<Library> validateLibraries(BenchSupport bs) {
             Set<Library> libs = Library.fromCsv(libraries);
             Set<Library> supportedLibs = bs.supportedLibs();
             if (libs.isEmpty()) {
@@ -143,7 +143,7 @@ public final class Cli {
         private List<String> includes() {
             List<String> includes = new ArrayList<>();
 
-            BenchSuport bs = validateBenchSupport();
+            BenchSupport bs = validateBenchSupport();
             Set<Library> libs = validateLibraries(bs);
             Set<Api> lApis = Api.fromCsv(apis);
             for (Libapi la : bs.libapis()) {
@@ -192,7 +192,7 @@ public final class Cli {
         public void run() {
             System.out.println();
             System.out.println("Datatypes:");
-            for (BenchSuport bs : BenchSuport.values()) {
+            for (BenchSupport bs : BenchSupport.values()) {
                 System.out.println("  + " + bs.name().toLowerCase());
                 for (Libapi la : bs.libapis()) {
                     System.out.println(String.format("      Lib: %-20s | Api: %s", la.lib(), la.api()));

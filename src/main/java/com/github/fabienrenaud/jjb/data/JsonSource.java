@@ -19,7 +19,7 @@ public abstract class JsonSource<T> {
 
     private static final Random RNG = new Random();
 
-    private final JsonProvider provider;
+    private final JsonProvider<T> provider;
 
     private final T[] jsonAsObject;
     private final String[] jsonAsString;
@@ -65,7 +65,7 @@ public abstract class JsonSource<T> {
         }
     }
 
-    public JsonProvider provider() {
+    public JsonProvider<T> provider() {
         return provider;
     }
 

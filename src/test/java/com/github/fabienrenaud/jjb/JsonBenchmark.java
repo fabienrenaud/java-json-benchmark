@@ -16,6 +16,10 @@ public abstract class JsonBenchmark<T> {
     public static JsonBench BENCH;
 
     protected void test(Object o) {
+        if (o == null) { // no computation
+            return;
+        }
+
         if (o instanceof Users) {
             testPojo((T) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
@@ -97,5 +101,15 @@ public abstract class JsonBenchmark<T> {
     @Test
     public void jsonsmart() throws Exception {
         test(BENCH.jsonsmart());
+    }
+
+    @Test
+    public void dsljson() throws Exception {
+        test(BENCH.dsljson());
+    }
+
+    @Test
+    public void logansquare() throws Exception {
+        test(BENCH.logansquare());
     }
 }

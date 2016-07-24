@@ -58,4 +58,12 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object dsljson() throws Exception {
+        return null;
+    }
+
+    public Object logansquare() throws Exception {
+        return null;
+    }
+
 }

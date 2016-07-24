@@ -1,5 +1,6 @@
 package com.github.fabienrenaud.jjb.provider;
 
+import com.dslplatform.json.DslJson;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -13,7 +14,7 @@ import java.util.Map;
 /**
  * Created by frenaud on 7/24/16.
  */
-public interface JsonProvider {
+public interface JsonProvider<T> {
 
     Gson gson();
 
@@ -25,7 +26,7 @@ public interface JsonProvider {
 
     Genson genson();
 
-    JSONDeserializer<?> flexjsonDeser();
+    JSONDeserializer<T> flexjsonDeser();
 
     JSONSerializer flexjsonSer();
 
@@ -34,4 +35,8 @@ public interface JsonProvider {
     Mapper johnson();
 
     Map<String, Object> jsonioStreamOptions();
+
+    DslJson<T> dsljson();
+
+    com.dslplatform.json.JsonWriter dsljsonWriter();
 }

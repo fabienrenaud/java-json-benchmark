@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb.databind;
 
 import com.alibaba.fastjson.JSON;
+import com.bluelinelabs.logansquare.LoganSquare;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fabienrenaud.jjb.JsonBench;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -61,5 +62,19 @@ public class Serialization extends JsonBench {
         StringBuilder b = new StringBuilder();
         net.minidev.json.JSONValue.writeJSONString(JSON_SOURCE.nextPojo(), b);
         return b.toString();
+    }
+
+    @Benchmark
+    @Override
+    public Object dsljson() throws Exception {
+        com.dslplatform.json.JsonWriter jw = JSON_SOURCE.provider().dsljsonWriter();
+        JSON_SOURCE.provider().dsljson().serialize(jw, JSON_SOURCE.nextPojo());
+        return new String(jw.getByteBuffer());
+    }
+
+    @Benchmark
+    @Override
+    public Object logansquare() throws Exception {
+        return LoganSquare.serialize(JSON_SOURCE.nextPojo());
     }
 }

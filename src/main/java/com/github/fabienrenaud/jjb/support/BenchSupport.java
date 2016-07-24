@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Created by frenaud on 7/24/16.
  */
-public enum BenchSuport {
+public enum BenchSupport {
     USERS(
         new Libapi(Library.GSON, Api.DATABIND, Api.STREAM),
         new Libapi(Library.JACKSON, Api.DATABIND, Api.STREAM),
@@ -21,12 +21,14 @@ public enum BenchSuport {
         new Libapi(Library.JSONIO, Api.STREAM),
         new Libapi(Library.BOON, Api.DATABIND),
         new Libapi(Library.JOHNSON, Api.DATABIND),
-        new Libapi(Library.JSONSMART, Api.DATABIND)
+        new Libapi(Library.JSONSMART, Api.DATABIND),
+        new Libapi(Library.DSLJSON, Api.DATABIND),
+        new Libapi(Library.LOGANSQUARE, Api.DATABIND)
     );
 
     private final List<Libapi> libapis;
 
-    BenchSuport(Libapi... libapis) {
+    BenchSupport(Libapi... libapis) {
         this.libapis = Arrays.asList(libapis);
     }
 

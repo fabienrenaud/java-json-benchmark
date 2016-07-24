@@ -2,7 +2,7 @@ package com.github.fabienrenaud.jjb.data;
 
 import com.github.fabienrenaud.jjb.data.gen.UsersGenerator;
 import com.github.fabienrenaud.jjb.model.Users;
-import com.github.fabienrenaud.jjb.provider.DefaultJsonProvider;
+import com.github.fabienrenaud.jjb.provider.UsersJsonProvider;
 import com.github.fabienrenaud.jjb.stream.UsersStreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.UsersStreamSerializer;
 
@@ -12,7 +12,7 @@ import com.github.fabienrenaud.jjb.stream.UsersStreamSerializer;
 public class UsersSource extends JsonSource<Users> {
 
     public UsersSource(int quantity, int individualSize) {
-        super(quantity, individualSize, new DefaultJsonProvider(), new UsersGenerator(), new UsersStreamSerializer(), new UsersStreamDeserializer());
+        super(quantity, individualSize, new UsersJsonProvider(), new UsersGenerator(), new UsersStreamSerializer(), new UsersStreamDeserializer());
     }
 
     @Override

@@ -7,8 +7,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
 
-import static com.github.fabienrenaud.jjb.JsonUtils.*;
-
 
 /**
  * @author Fabien Renaud
@@ -18,25 +16,25 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object gson() throws Exception {
-        return GSON.fromJson(JSON_SOURCE.nextReader(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().gson().fromJson(JSON_SOURCE.nextReader(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
     @Override
     public Object jackson() throws Exception {
-        return JACKSON.readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().jackson().readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
     @Override
     public Object jackson_afterburner() throws IOException {
-        return JACKSON_AFTERBURNER.readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().jacksonAfterburner().readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
     @Override
     public Object genson() throws JsonSyntaxException {
-        return GENSON.deserialize(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().genson().deserialize(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
@@ -45,22 +43,22 @@ public class Deserialization extends JsonBench {
         return JSON.parseObject(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 
-    //    @Benchmark
+    @Benchmark
     @Override
     public Object flexjson() throws JsonSyntaxException {
-        return FLEXJSON_DESER.deserialize(JSON_SOURCE.nextReader(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().flexjsonDeser().deserialize(JSON_SOURCE.nextReader(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
     @Override
     public Object boon() throws Exception {
-        return BOON.readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().boon().readValue(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark
     @Override
     public Object johnson() throws Exception {
-        return JOHNSON.readObject(JSON_SOURCE.nextInputStream(), JSON_SOURCE.pojoType());
+        return JSON_SOURCE.provider().johnson().readObject(JSON_SOURCE.nextInputStream(), JSON_SOURCE.pojoType());
     }
 
     @Benchmark

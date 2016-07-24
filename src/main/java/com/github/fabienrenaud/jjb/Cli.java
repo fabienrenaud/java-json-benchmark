@@ -2,6 +2,10 @@ package com.github.fabienrenaud.jjb;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.github.fabienrenaud.jjb.support.Api;
+import com.github.fabienrenaud.jjb.support.BenchSuport;
+import com.github.fabienrenaud.jjb.support.Libapi;
+import com.github.fabienrenaud.jjb.support.Library;
 import io.airlift.airline.Cli.CliBuilder;
 import io.airlift.airline.Command;
 import io.airlift.airline.Help;
@@ -19,7 +23,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
  * @author Fabien Renaud
  */
 public final class Cli {
@@ -28,26 +31,15 @@ public final class Cli {
     }
 
     public static void main(String[] args) throws RunnerException {
-        CliBuilder<Runnable> builder = io.airlift.airline.Cli.<Runnable>builder("bench")
-            .withDescription("Benchmark JSON libraries")
-            .withDefaultCommand(Help.class)
-            .withCommands(Help.class, SerializationCommand.class, DeserializationCommand.class);
+        CliBuilder<Runnable> builder = io.airlift.airline.Cli.<Runnable>builder("bench").withDescription("Benchmark JSON libraries").withDefaultCommand(Help.class).withCommands(Help.class, InfoCommand.class, SerializationCommand.class, DeserializationCommand.class);
 
         io.airlift.airline.Cli<Runnable> gitParser = builder.build();
         gitParser.parse(args).run();
     }
 
-    @JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        property = "mode"
-    )
-    @JsonSubTypes({
-        @JsonSubTypes.Type(value = DeserializationCommand.class, name = "Deserialization"),
-        @JsonSubTypes.Type(value = SerializationCommand.class, name = "Serialization")
-    })
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "mode")
+    @JsonSubTypes({@JsonSubTypes.Type(value = DeserializationCommand.class, name = "Deserialization"), @JsonSubTypes.Type(value = SerializationCommand.class, name = "Serialization")})
     public static abstract class AbstractCommand implements Runnable {
-
-        private static final Set<String> LIBRARIES = new HashSet<>(Arrays.asList("jackson", "jackson_afterburner", "genson", "fastjson", "gson", "orgjson", "jsonp", "jsonio", "boon", "johnson", "jsonsmart"));
 
         /*
          * JMH options
@@ -66,15 +58,15 @@ public final class Cli {
         /*
          * JSON options
          */
-        @Option(name = "--libs", description = "Libraries to test (csv). Defaults to all. Available: jackson, jackson_afterburner, genson, fastjson, gson, orgjson, jsonp, jsonio, boon, johnson, jsonsmart")
-        public String libraries;
-        @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind. Defaults to 'stream,databind'")
-        public String apis = "stream,databind";
+        @Option(name = "--libs", description = "Libraries to test (csv). Defaults to all supported. See 'info' to know more.")
+        public String libraries = "";
+        @Option(name = "--apis", description = "APIs to benchmark (csv). Available: stream, databind. Defaults to all supported. See 'info' to know more.")
+        public String apis = "";
         @Option(name = "--number", description = "Number of random payloads to generate. One is randomly picked for each benchmark iteration. Defaults to 1.")
         public int numberOfPayloads = 1;
         @Option(name = "--size", description = "Size of each payload in Kb. Defaults to 1.")
         public int sizeOfEachPayloadInKb = 1;
-        @Option(name = "--datatype", description = "Type of data to test. Available: users. Defaults to 'users'")
+        @Option(name = "--datatype", description = "Type of data to test. Defaults to 'users'. See 'info' to know more.")
         public String dataType = "users";
 
         private String mode;
@@ -88,8 +80,7 @@ public final class Cli {
 
         @Override
         public void run() {
-            File config = Config.save(this);
-            if (libraries == null || libraries.contains("jsonp")) {
+            if (libraries == null || libraries.contains("javaxjson")) {
                 JsonUtils.printJavaxJsonProvider();
             }
 
@@ -101,9 +92,15 @@ public final class Cli {
                 .threads(threads);
 //                .addProfiler(StackProfiler.class);
 
-            for (String i : includes()) {
+            List<String> includes = includes();
+            if (includes.isEmpty()) {
+                exit("No tests to run. Check 'info' to see what you can do.");
+            }
+            for (String i : includes) {
                 b.include(i);
             }
+
+            File config = Config.save(this);
 
             Options opt = b.build();
             try {
@@ -115,33 +112,59 @@ public final class Cli {
             }
         }
 
+        private BenchSuport validateBenchSupport() {
+            try {
+                return BenchSuport.valueOf(dataType.toUpperCase());
+            } catch (Exception ex) {
+                exit("Datatype: '" + dataType + "' does not exist.");
+                throw new RuntimeException(ex);
+            }
+        }
+
+        private Set<Library> validateLibraries(BenchSuport bs) {
+            Set<Library> libs = Library.fromCsv(libraries);
+            Set<Library> supportedLibs = bs.supportedLibs();
+            if (libs.isEmpty()) {
+                return supportedLibs;
+            }
+
+            StringBuilder errorMsg = new StringBuilder();
+            for (Library l : libs) {
+                if (!supportedLibs.contains(l)) {
+                    errorMsg.append("Datatype: '").append(dataType).append("' does not support library '").append(l).append("'").append(System.getProperty("line.separator"));
+                }
+            }
+            if (errorMsg.length() > 0) {
+                exit(errorMsg.toString());
+            }
+            return libs;
+        }
+
         private List<String> includes() {
-            List<String> l = new ArrayList<>();
+            List<String> includes = new ArrayList<>();
 
-            String[] packageNames = apis.split(",");
-            for (String p : packageNames) {
-                for (String s : suffixes()) {
-                    // e.g: .*.databind.Serialization.*
-                    l.add(".*." + p + "." + mode + "." + s);
+            BenchSuport bs = validateBenchSupport();
+            Set<Library> libs = validateLibraries(bs);
+            Set<Api> lApis = Api.fromCsv(apis);
+            for (Libapi la : bs.libapis()) {
+                if (libs.contains(la.lib())) {
+                    for (Api a : la.api()) {
+                        if (lApis.isEmpty() || lApis.contains(a)) {
+                            includes.add(".*\\." + a + "\\." + mode + "\\." + la.lib() + ".*");
+                        }
+                    }
                 }
             }
-            return l;
+
+            return includes;
         }
 
-        private List<String> suffixes() {
-            if (libraries == null) {
-                return Arrays.asList("*");
-            }
-
-            List<String> list = new ArrayList<>();
-            for (String l : libraries.split(",")) {
-                if (!LIBRARIES.contains(l)) {
-                    throw new IllegalArgumentException("Invalid value: " + l);
-                }
-                list.add(l + "*");
-            }
-            return list;
+        private void exit(final String msg) {
+            System.err.print(msg);
+            System.err.println();
+            System.exit(2);
         }
+
     }
 
     @Command(name = "deser", description = "Runs the deserialization benchmarks")
@@ -160,5 +183,22 @@ public final class Cli {
             super("Serialization");
         }
 
+    }
+
+    @Command(name = "info")
+    public static final class InfoCommand implements Runnable {
+
+        @Override
+        public void run() {
+            System.out.println();
+            System.out.println("Datatypes:");
+            for (BenchSuport bs : BenchSuport.values()) {
+                System.out.println("  + " + bs.name().toLowerCase());
+                for (Libapi la : bs.libapis()) {
+                    System.out.println(String.format("      Lib: %-20s | Api: %s", la.lib(), la.api()));
+                }
+                System.out.println();
+            }
+        }
     }
 }

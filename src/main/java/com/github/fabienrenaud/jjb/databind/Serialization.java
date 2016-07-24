@@ -5,32 +5,30 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fabienrenaud.jjb.JsonBench;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import static com.github.fabienrenaud.jjb.JsonUtils.*;
-
 public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
     public Object gson() {
-        return GSON.toJson(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().gson().toJson(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
     @Override
     public Object jackson() throws JsonProcessingException {
-        return JACKSON.writeValueAsString(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().jackson().writeValueAsString(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
     @Override
     public Object jackson_afterburner() throws JsonProcessingException {
-        return JACKSON.writeValueAsString(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().jacksonAfterburner().writeValueAsString(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
     @Override
     public Object genson() {
-        return GENSON.serialize(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().genson().serialize(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
@@ -39,22 +37,22 @@ public class Serialization extends JsonBench {
         return JSON.toJSONString(JSON_SOURCE.nextPojo());
     }
 
-    //    @Benchmark
+    @Benchmark
     @Override
     public Object flexjson() {
-        return FLEXJSON_SER.serialize(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().flexjsonSer().serialize(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
     @Override
     public Object boon() {
-        return BOON.writeValueAsString(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().boon().writeValueAsString(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark
     @Override
     public Object johnson() {
-        return JOHNSON.writeObjectAsString(JSON_SOURCE.nextPojo());
+        return JSON_SOURCE.provider().johnson().writeObjectAsString(JSON_SOURCE.nextPojo());
     }
 
     @Benchmark

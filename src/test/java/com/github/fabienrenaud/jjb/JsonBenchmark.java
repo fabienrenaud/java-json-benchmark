@@ -1,68 +1,42 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.model.Users;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.fail;
 
 /**
- * Created by frenaud on 6/30/16.
+ * Created by frenaud on 7/23/16.
  */
-public abstract class JsonBenchTest {
+public abstract class JsonBenchmark<T> {
 
     public static JsonBench BENCH;
-    private static File configFile;
 
-    @BeforeClass
-    public static void setUpClass() {
-        Cli.AbstractCommand ser = new Cli.SerializationCommand();
-        ser.dataType = "Users";
-        ser.numberOfPayloads = 1;
-        ser.sizeOfEachPayloadInKb = 2;
-        configFile = Config.save(ser);
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-        configFile.delete();
-    }
-
-    private static void test(Object o) {
+    protected void test(Object o) {
         if (o instanceof Users) {
-            testUserCollection((Users) o);
+            testPojo((T) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
-            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, JsonUtils.JSONIO_STREAM_OPTIONS);
+            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE.provider().jsonioStreamOptions());
             testString(v);
         } else {
             testString(o.toString());
         }
     }
 
-    private static void testString(String v) {
+    private void testString(String v) {
         try {
-            Users uc = JsonUtils.JACKSON_AFTERBURNER.readValue(v, Users.class);
-            testUserCollection(uc);
+            testPojo(BENCH.JSON_SOURCE.provider().jackson().readValue(v, pojoType()));
         } catch (IOException ex) {
             fail(ex.getMessage());
         }
     }
 
-    private static void testUserCollection(Users o) {
-        Object original = JsonUtils.JSON_SOURCE.nextPojo();
-        if (!o.equals(original)) {
-            System.out.println("Difference in Users!");
-            System.out.println("   Original   : " + original);
-            System.out.println("   Transformed: " + o);
-            System.out.println();
-            fail();
-        }
-    }
+    protected abstract void testPojo(T obj);
+
+    protected abstract Class<T> pojoType();
 
     @Test
     public void gson() throws Exception {
@@ -91,7 +65,7 @@ public abstract class JsonBenchTest {
 
     @Test
     public void jsonp() throws Exception {
-        test(BENCH.jsonp());
+        test(BENCH.javaxjson());
     }
 
     @Test

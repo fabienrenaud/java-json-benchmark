@@ -1,7 +1,7 @@
 package com.github.fabienrenaud.jjb.data;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
+import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
 import org.json.JSONObject;
@@ -19,6 +19,8 @@ public abstract class JsonSource<T> {
 
     private static final Random RNG = new Random();
 
+    private final JsonProvider provider;
+
     private final T[] jsonAsObject;
     private final String[] jsonAsString;
     private final byte[][] jsonAsBytes;
@@ -29,7 +31,9 @@ public abstract class JsonSource<T> {
     private final StreamSerializer<T> streamSerializer;
     private final StreamDeserializer<T> streamDeserializer;
 
-    JsonSource(final int quantity, final int individualSize, final DataGenerator<T> dataGenerator, final StreamSerializer<T> streamSerializer, final StreamDeserializer<T> streamDeserializer) {
+    JsonSource(final int quantity, final int individualSize, final JsonProvider provider, final DataGenerator<T> dataGenerator, final StreamSerializer<T> streamSerializer, final StreamDeserializer<T> streamDeserializer) {
+        this.provider = provider;
+
         this.jsonAsObject = newPojoArray(quantity);
         this.jsonAsString = new String[quantity];
         this.jsonAsBytes = new byte[quantity][];
@@ -43,22 +47,26 @@ public abstract class JsonSource<T> {
     }
 
     private final void populateFields(final int quantity, final int individualSize) {
-        final ObjectMapper jackson = new ObjectMapper();
         try {
             for (int i = 0; i < quantity; i++) {
                 T obj = pojoType().newInstance();
                 dataGenerator.populate(obj, individualSize);
                 jsonAsObject[i] = obj;
 
-                String json = jackson.writeValueAsString(obj);
+                String json = provider.jackson().writeValueAsString(obj);
                 jsonAsString[i] = json;
                 jsonAsBytes[i] = json.getBytes();
                 jsonAsOrgJsonObject[i] = new JSONObject(json);
                 jsonAsJavaxJsonObject[i] = javax.json.Json.createReader(new ByteArrayInputStream(jsonAsBytes[i])).readObject();
             }
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            ex.printStackTrace();
+            System.exit(1);
         }
+    }
+
+    public JsonProvider provider() {
+        return provider;
     }
 
     public String nextString() {
@@ -100,4 +108,5 @@ public abstract class JsonSource<T> {
     abstract T[] newPojoArray(int quantity);
 
     public abstract Class<T> pojoType();
+
 }

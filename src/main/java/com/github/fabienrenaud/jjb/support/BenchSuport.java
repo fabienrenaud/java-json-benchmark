@@ -1,0 +1,42 @@
+package com.github.fabienrenaud.jjb.support;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/**
+ * Created by frenaud on 7/24/16.
+ */
+public enum BenchSuport {
+    USERS(
+        new Libapi(Library.GSON, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.JACKSON, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.JACKSON_AFTERBURNER, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.ORGJSON, Api.STREAM),
+        new Libapi(Library.GENSON, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.JAVAXJSON, Api.STREAM),
+//        new Libapi(Library.FLEXJSON, Api.DATABIND),
+        new Libapi(Library.FASTJSON, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.JSONIO, Api.STREAM),
+        new Libapi(Library.BOON, Api.DATABIND),
+        new Libapi(Library.JOHNSON, Api.DATABIND),
+        new Libapi(Library.JSONSMART, Api.DATABIND)
+    );
+
+    private final List<Libapi> libapis;
+
+    BenchSuport(Libapi... libapis) {
+        this.libapis = Arrays.asList(libapis);
+    }
+
+    public List<Libapi> libapis() {
+        return libapis;
+    }
+
+    public Set<Library> supportedLibs() {
+         return libapis.stream()
+            .map(Libapi::lib)
+            .collect(Collectors.toSet());
+    }
+}

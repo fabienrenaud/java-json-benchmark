@@ -9,8 +9,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
 
-import static com.github.fabienrenaud.jjb.JsonUtils.*;
-
 /**
  * @author Fabien Renaud
  */
@@ -25,14 +23,14 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object jsonp() throws IOException {
+    public Object javaxjson() throws IOException {
         return javax.json.Json.createReader(JSON_SOURCE.nextInputStream()).readObject();
     }
 
     @Benchmark
     @Override
     public Object jackson() throws IOException {
-        try (JsonParser jParser = JACKSON_FACTORY.createParser(JSON_SOURCE.nextByteArray())) {
+        try (JsonParser jParser = JSON_SOURCE.provider().jacksonFactory().createParser(JSON_SOURCE.nextByteArray())) {
             return JSON_SOURCE.streamDeserializer().jackson(jParser);
         }
     }
@@ -48,7 +46,7 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object genson() throws Exception {
-        try (ObjectReader reader = GENSON.createReader(JSON_SOURCE.nextByteArray())) {
+        try (ObjectReader reader = JSON_SOURCE.provider().genson().createReader(JSON_SOURCE.nextByteArray())) {
             return JSON_SOURCE.streamDeserializer().genson(reader);
         }
     }
@@ -56,7 +54,7 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object jsonio() throws Exception {
-        return com.cedarsoftware.util.io.JsonReader.jsonToJava(JSON_SOURCE.nextInputStream(), JSONIO_STREAM_OPTIONS);
+        return com.cedarsoftware.util.io.JsonReader.jsonToJava(JSON_SOURCE.nextInputStream(), JSON_SOURCE.provider().jsonioStreamOptions());
     }
 
 }

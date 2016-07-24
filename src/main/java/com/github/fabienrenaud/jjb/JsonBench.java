@@ -1,9 +1,14 @@
 package com.github.fabienrenaud.jjb;
 
+import com.github.fabienrenaud.jjb.data.JsonSource;
+import com.github.fabienrenaud.jjb.data.JsonSourceFactory;
+
 /**
  * @author Fabien Renaud
  */
 public abstract class JsonBench {
+
+    public static final JsonSource JSON_SOURCE = JsonSourceFactory.create();
 
     public Object gson() throws Exception {
         return null;
@@ -25,7 +30,7 @@ public abstract class JsonBench {
         return null;
     }
 
-    public Object jsonp() throws Exception {
+    public Object javaxjson() throws Exception {
         return null;
     }
 

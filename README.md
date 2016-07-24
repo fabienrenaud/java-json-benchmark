@@ -12,6 +12,9 @@ The following libraries are evaluated:
 * [org.json](https://github.com/stleary/JSON-java)
 * [jsonp](https://jsonp.java.net/) (from Oracle)
 * [json-io](https://github.com/jdereg/json-io)
+* [boon](https://github.com/boonproject/boon)
+* [json-smart](http://netplex.github.io/json-smart/)
+* [johnzon](http://johnzon.apache.org/)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each bench. Current results present 4x4 configurations sets:
@@ -19,7 +22,7 @@ Random payloads of various sizes are generated at runtime before each bench. Cur
  * iterations: benchmarks that serialize/deserialize 1, 10, 50 or 100 payloads at once (via a loop). Each payload is different.
  * payload size: each iteration group serializes/deserializes various sizes of payloads. 4 are currently evaluated: 1 KB, 10 KB, 100 KB and 1 MB.
 
-Each benchmark has been written to read bytes from RAM and write to output streams in RAM when possible. All data is randomly generated upon static loading of each fork before any bench is invoked and have therefore no impact on the results.
+Each benchmark has been written to read bytes from RAM and write to output streams in RAM when possible. All data is randomly generated 
 
 This benchmark does NOT evaluate:
 
@@ -36,54 +39,13 @@ Read below for JMH and hardware info.
 
 ## Deserialization performance
 
-### 1 payload per iteration
-
 ![json deserialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
-
-[Raw JMH results here][jmh-results]
-
-### 10 payloads per iteration
-
-![json deserialization performance chart 10 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1211021432&format=image)
-
-[Raw JMH results here][jmh-results]
-
-### 50 payloads per iteration
-
-![json deserialization performance chart 50 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1610214158&format=image)
-
-
-[Raw JMH results here][jmh-results]
-
-### 100 payloads per iteration
-
-![json deserialization performance chart 100 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1721420702&format=image)
 
 [Raw JMH results here][jmh-results]
 
 ## Serialization performance
 
-### 1 payload per iteration
-
 ![json serialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=69104817&format=image)
-
-[Raw JMH results here][jmh-results]
-
-### 10 payloads per iteration
-
-![json serialization performance chart 10 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=79452981&format=image)
-
-[Raw JMH results here][jmh-results]
-
-### 50 payloads per iteration
-
-![json serialization performance chart 50 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=1102295969&format=image)
-
-[Raw JMH results here][jmh-results]
-
-### 100 payloads per iteration
-
-![json serialization performance chart 100 payloads per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=698016119&format=image)
 
 [Raw JMH results here][jmh-results]
 
@@ -91,14 +53,14 @@ Read below for JMH and hardware info.
 
 ### JMH
 
-    # JMH 1.12 (released 94 days ago, please consider updating!)
+    # JMH 1.12 (released 113 days ago, please consider updating!)
     # VM version: JDK 1.8.0_45, VM 25.45-b02
     # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
-    # Warmup: 5 iterations, 1 s each
-    # Measurement: 5 iterations, 5 s each
+    # Warmup: 3 iterations, 1 s each
+    # Measurement: 5 iterations, 2 s each
     # Timeout: 10 min per iteration
-    # Threads: 1 thread, will synchronize iterations
+    # Threads: 16 threads, will synchronize iterations
     # Benchmark mode: Throughput, ops/time
 
 ### Hardware
@@ -116,14 +78,14 @@ Read below for JMH and hardware info.
 
 By default, running `./bench ser` (`./bench deser` respectively) will run 
 all -- stream and databind -- serialization (deserialization respectively)
-benchmarks with 1 iteration and 1 KB payloads.
+benchmarks with 1 KB payloads of _Users_.
 
 You can also specificy which libs, apis, payload-sizes and number of 
 iterations (and more) you want to run. For example:
 
     ./bench deser --apis stream --libs genson,jackson 
     ./bench ser --apis databind,stream --libs jackson 
-    ./bench deser --apis stream --libs genson,jackson --size 10 --number 50
+    ./bench deser --apis stream --libs genson,jackson --size 10 --datatype users
  
 Type `./bench help ser` or `./bench help deser` to print help for those
 commands.

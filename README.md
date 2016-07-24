@@ -17,10 +17,9 @@ The following libraries are evaluated:
 * [johnzon](http://johnzon.apache.org/)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
-Random payloads of various sizes are generated at runtime before each bench. Current results present 4x4 configurations sets:
+Random payloads of various sizes are generated at runtime before each benchmark.
 
- * iterations: benchmarks that serialize/deserialize 1, 10, 50 or 100 payloads at once (via a loop). Each payload is different.
- * payload size: each iteration group serializes/deserializes various sizes of payloads. 4 are currently evaluated: 1 KB, 10 KB, 100 KB and 1 MB.
+Four different sizes of payloads are evaluated in the chars below: 1 KB, 10 KB, 100 KB and 1 MB. And it is possible to generate on the fly any size of payloads.
 
 Each benchmark has been written to read bytes from RAM and write to output streams in RAM when possible. All data is randomly generated 
 
@@ -28,7 +27,7 @@ This benchmark does NOT evaluate:
 
 * compression performance or efficiency
 * payloads bigger than 1.1 MB (would be easy to do though)
-
+* RAM utilization
 
 ## Results
 

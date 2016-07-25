@@ -2,150 +2,171 @@
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 361921.082 | ±34799.532 | ops/s |
-| fastjson/databind | thrpt | 10 | 496610.372 | ±26608.753 | ops/s |
-| genson/databind | thrpt | 10 | 543840.290 | ±11822.815 | ops/s |
-| gson/databind | thrpt | 10 | 357115.307 | ±78080.155 | ops/s |
-| jackson/databind | thrpt | 10 | 746389.273 | ±61063.461 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 881456.723 | ±40557.692 | ops/s |
-| johnson/databind | thrpt | 10 | 214499.058 | ±2724.699 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 547742.154 | ±30637.949 | ops/s |
-| genson/stream | thrpt | 10 | 621691.639 | ±15412.858 | ops/s |
-| gson/stream | thrpt | 10 | 428427.515 | ±12803.192 | ops/s |
-| jackson/stream | thrpt | 10 | 762702.976 | ±28738.087 | ops/s |
-| jsonio/stream | thrpt | 10 | 209495.899 | ±15189.994 | ops/s |
-| jsonp/stream | thrpt | 10 | 48856.318 | ±6114.735 | ops/s |
-| orgjson/stream | thrpt | 10 | 151289.585 | ±75235.598 | ops/s |
+| boon/databind | thrpt | 10 | 365935.299 | ±29993.333 | ops/s |
+| dsljson/databind | thrpt | 10 | 1499222.034 | ±110891.897 | ops/s |
+| fastjson/databind | thrpt | 10 | 502281.404 | ±24257.122 | ops/s |
+| flexjson/databind | thrpt | 10 | 125002.253 | ±32954.465 | ops/s |
+| genson/databind | thrpt | 10 | 526814.742 | ±19703.651 | ops/s |
+| gson/databind | thrpt | 10 | 413723.633 | ±14420.326 | ops/s |
+| jackson/databind | thrpt | 10 | 645418.932 | ±178613.758 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 847124.787 | ±57316.166 | ops/s |
+| johnzon/databind | thrpt | 10 | 180979.013 | ±51387.333 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 537814.123 | ±14037.796 | ops/s |
+| logansquare/databind | thrpt | 10 | 467241.374 | ±10749.187 | ops/s |
+| genson/stream | thrpt | 10 | 616835.245 | ±22258.970 | ops/s |
+| gson/stream | thrpt | 10 | 396220.912 | ±13826.426 | ops/s |
+| jackson/stream | thrpt | 10 | 764767.806 | ±96771.339 | ops/s |
+| javaxjson/stream | thrpt | 10 | 48052.883 | ±5126.524 | ops/s |
+| jsonio/stream | thrpt | 10 | 202874.258 | ±9713.584 | ops/s |
+| orgjson/stream | thrpt | 10 | 178016.663 | ±6166.596 | ops/s |
 
 # JMH: Deserialization - 10 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 57293.581 | ±3501.684 | ops/s |
-| fastjson/databind | thrpt | 10 | 68746.745 | ±2238.063 | ops/s |
-| genson/databind | thrpt | 10 | 72191.363 | ±2841.870 | ops/s |
-| gson/databind | thrpt | 10 | 49583.895 | ±1663.195 | ops/s |
-| jackson/databind | thrpt | 10 | 90039.238 | ±2378.644 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 99590.145 | ±3059.530 | ops/s |
-| johnson/databind | thrpt | 10 | 24713.813 | ±1595.683 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 62271.998 | ±1810.577 | ops/s |
-| genson/stream | thrpt | 10 | 81106.670 | ±5175.211 | ops/s |
-| gson/stream | thrpt | 10 | 51142.558 | ±1254.852 | ops/s |
-| jackson/stream | thrpt | 10 | 100605.523 | ±2449.370 | ops/s |
-| jsonio/stream | thrpt | 10 | 25320.326 | ±2098.461 | ops/s |
-| jsonp/stream | thrpt | 10 | 30204.572 | ±2045.188 | ops/s |
-| orgjson/stream | thrpt | 10 | 22651.424 | ±874.750 | ops/s |
+| boon/databind | thrpt | 10 | 57766.012 | ±2948.605 | ops/s |
+| dsljson/databind | thrpt | 10 | 159942.924 | ±14220.954 | ops/s |
+| fastjson/databind | thrpt | 10 | 71651.892 | ±7247.588 | ops/s |
+| flexjson/databind | thrpt | 10 | 16411.057 | ±3345.560 | ops/s |
+| genson/databind | thrpt | 10 | 71786.269 | ±2191.815 | ops/s |
+| gson/databind | thrpt | 10 | 50603.511 | ±3237.279 | ops/s |
+| jackson/databind | thrpt | 10 | 90577.487 | ±2507.246 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 100094.146 | ±3128.569 | ops/s |
+| johnzon/databind | thrpt | 10 | 24260.992 | ±1157.278 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 61065.310 | ±1967.508 | ops/s |
+| logansquare/databind | thrpt | 10 | 88870.408 | ±2365.668 | ops/s |
+| genson/stream | thrpt | 10 | 80802.324 | ±3464.691 | ops/s |
+| gson/stream | thrpt | 10 | 52694.169 | ±1082.187 | ops/s |
+| jackson/stream | thrpt | 10 | 95031.136 | ±2597.616 | ops/s |
+| javaxjson/stream | thrpt | 10 | 29674.777 | ±1799.048 | ops/s |
+| jsonio/stream | thrpt | 10 | 25331.007 | ±2193.726 | ops/s |
+| orgjson/stream | thrpt | 10 | 24951.936 | ±787.037 | ops/s |
 
 # JMH: Deserialization - 100 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 6186.060 | ±254.361 | ops/s |
-| fastjson/databind | thrpt | 10 | 7264.617 | ±179.062 | ops/s |
-| genson/databind | thrpt | 10 | 7304.277 | ±217.408 | ops/s |
-| gson/databind | thrpt | 10 | 5076.828 | ±166.020 | ops/s |
-| jackson/databind | thrpt | 10 | 9071.446 | ±394.225 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 9938.985 | ±300.790 | ops/s |
-| johnson/databind | thrpt | 10 | 2188.174 | ±58.012 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 6327.540 | ±122.053 | ops/s |
-| genson/stream | thrpt | 10 | 8375.164 | ±496.955 | ops/s |
-| gson/stream | thrpt | 10 | 5128.634 | ±179.654 | ops/s |
-| jackson/stream | thrpt | 10 | 10043.145 | ±385.261 | ops/s |
-| jsonio/stream | thrpt | 10 | 2436.913 | ±508.779 | ops/s |
-| jsonp/stream | thrpt | 10 | 4014.051 | ±232.878 | ops/s |
-| orgjson/stream | thrpt | 10 | 2433.115 | ±37.423 | ops/s |
+| boon/databind | thrpt | 10 | 6255.245 | ±281.013 | ops/s |
+| dsljson/databind | thrpt | 10 | 16277.446 | ±1124.082 | ops/s |
+| fastjson/databind | thrpt | 10 | 7229.762 | ±279.110 | ops/s |
+| flexjson/databind | thrpt | 10 | 1644.747 | ±573.026 | ops/s |
+| genson/databind | thrpt | 10 | 7379.806 | ±230.683 | ops/s |
+| gson/databind | thrpt | 10 | 5051.407 | ±197.050 | ops/s |
+| jackson/databind | thrpt | 10 | 9245.082 | ±261.037 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 9980.910 | ±201.980 | ops/s |
+| johnzon/databind | thrpt | 10 | 2308.363 | ±190.264 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 6300.582 | ±142.203 | ops/s |
+| logansquare/databind | thrpt | 10 | 9750.065 | ±267.203 | ops/s |
+| genson/stream | thrpt | 10 | 8305.660 | ±1146.444 | ops/s |
+| gson/stream | thrpt | 10 | 5172.826 | ±269.600 | ops/s |
+| jackson/stream | thrpt | 10 | 10046.419 | ±342.253 | ops/s |
+| javaxjson/stream | thrpt | 10 | 4075.082 | ±166.847 | ops/s |
+| jsonio/stream | thrpt | 10 | 2487.842 | ±168.550 | ops/s |
+| orgjson/stream | thrpt | 10 | 2153.749 | ±366.752 | ops/s |
 
 # JMH: Deserialization - 1000 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 333.354 | ±55.692 | ops/s |
-| fastjson/databind | thrpt | 10 | 618.556 | ±9.157 | ops/s |
-| genson/databind | thrpt | 10 | 707.243 | ±35.235 | ops/s |
-| gson/databind | thrpt | 10 | 457.418 | ±13.535 | ops/s |
-| jackson/databind | thrpt | 10 | 817.198 | ±22.203 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 915.574 | ±19.949 | ops/s |
-| johnson/databind | thrpt | 10 | 161.588 | ±12.866 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 591.729 | ±8.173 | ops/s |
-| genson/stream | thrpt | 10 | 760.979 | ±103.207 | ops/s |
-| gson/stream | thrpt | 10 | 458.069 | ±112.621 | ops/s |
-| jackson/stream | thrpt | 10 | 946.506 | ±16.566 | ops/s |
-| jsonio/stream | thrpt | 10 | 198.342 | ±31.573 | ops/s |
-| jsonp/stream | thrpt | 10 | 305.595 | ±42.461 | ops/s |
-| orgjson/stream | thrpt | 10 | 202.801 | ±5.345 | ops/s |
+| boon/databind | thrpt | 10 | 286.291 | ±34.571 | ops/s |
+| dsljson/databind | thrpt | 10 | 1330.484 | ±41.935 | ops/s |
+| fastjson/databind | thrpt | 10 | 514.202 | ±17.838 | ops/s |
+| flexjson/databind | thrpt | 10 | 104.883 | ±6.828 | ops/s |
+| genson/databind | thrpt | 10 | 581.132 | ±19.876 | ops/s |
+| gson/databind | thrpt | 10 | 383.560 | ±9.265 | ops/s |
+| jackson/databind | thrpt | 10 | 700.404 | ±21.836 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 803.689 | ±25.368 | ops/s |
+| johnzon/databind | thrpt | 10 | 133.882 | ±13.918 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 496.355 | ±26.857 | ops/s |
+| logansquare/databind | thrpt | 10 | 717.715 | ±27.097 | ops/s |
+| genson/stream | thrpt | 10 | 677.024 | ±104.875 | ops/s |
+| gson/stream | thrpt | 10 | 398.111 | ±55.397 | ops/s |
+| jackson/stream | thrpt | 10 | 788.796 | ±23.115 | ops/s |
+| javaxjson/stream | thrpt | 10 | 251.545 | ±44.190 | ops/s |
+| jsonio/stream | thrpt | 10 | 161.883 | ±18.155 | ops/s |
+| orgjson/stream | thrpt | 10 | 170.508 | ±8.492 | ops/s |
 
 # JMH: Serialization - 1 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 376627.139 | ±54734.327 | ops/s |
-| fastjson/databind | thrpt | 10 | 1514031.298 | ±51238.605 | ops/s |
-| genson/databind | thrpt | 10 | 707066.293 | ±103354.723 | ops/s |
-| gson/databind | thrpt | 10 | 405207.877 | ±131256.589 | ops/s |
-| jackson/databind | thrpt | 10 | 1158824.829 | ±28766.508 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 1190846.491 | ±31285.620 | ops/s |
-| johnson/databind | thrpt | 10 | 544115.708 | ±53812.504 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 627404.704 | ±29446.412 | ops/s |
-| genson/stream | thrpt | 10 | 545809.927 | ±145773.460 | ops/s |
-| gson/stream | thrpt | 10 | 267632.342 | ±17305.012 | ops/s |
-| jackson/stream | thrpt | 10 | 1411085.059 | ±61890.560 | ops/s |
-| jsonio/stream | thrpt | 10 | 213972.948 | ±27824.763 | ops/s |
-| jsonp/stream | thrpt | 10 | 58503.388 | ±2612.543 | ops/s |
-| orgjson/stream | thrpt | 10 | 203326.596 | ±4491.244 | ops/s |
+| boon/databind | thrpt | 10 | 353915.945 | ±18743.979 | ops/s |
+| dsljson/databind | thrpt | 10 | 1908129.134 | ±112666.553 | ops/s |
+| fastjson/databind | thrpt | 10 | 1443254.258 | ±42169.384 | ops/s |
+| genson/databind | thrpt | 10 | 702057.290 | ±42624.143 | ops/s |
+| gson/databind | thrpt | 10 | 445635.170 | ±17550.998 | ops/s |
+| jackson/databind | thrpt | 10 | 1467374.337 | ±43114.738 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 1540789.414 | ±36561.786 | ops/s |
+| johnzon/databind | thrpt | 10 | 523765.588 | ±24556.469 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 655903.689 | ±69044.058 | ops/s |
+| logansquare/databind | thrpt | 10 | 1475516.212 | ±156572.156 | ops/s |
+| genson/stream | thrpt | 10 | 627174.950 | ±25053.945 | ops/s |
+| gson/stream | thrpt | 10 | 269539.739 | ±9863.347 | ops/s |
+| jackson/stream | thrpt | 10 | 1270963.805 | ±395136.536 | ops/s |
+| javaxjson/stream | thrpt | 10 | 57372.210 | ±3115.094 | ops/s |
+| jsonio/stream | thrpt | 10 | 233858.160 | ±15611.362 | ops/s |
+| orgjson/stream | thrpt | 10 | 196817.075 | ±8845.561 | ops/s |
 
 # JMH: Serialization - 10 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 56411.144 | ±2324.522 | ops/s |
-| fastjson/databind | thrpt | 10 | 127488.328 | ±5231.688 | ops/s |
-| genson/databind | thrpt | 10 | 85137.278 | ±4686.938 | ops/s |
-| gson/databind | thrpt | 10 | 54524.518 | ±1449.440 | ops/s |
-| jackson/databind | thrpt | 10 | 144064.895 | ±3693.250 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 144144.023 | ±3317.662 | ops/s |
-| johnson/databind | thrpt | 10 | 59875.452 | ±1515.355 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 66181.109 | ±1822.938 | ops/s |
-| genson/stream | thrpt | 10 | 79798.347 | ±3277.979 | ops/s |
-| gson/stream | thrpt | 10 | 26841.924 | ±894.477 | ops/s |
-| jackson/stream | thrpt | 10 | 149523.072 | ±5844.975 | ops/s |
-| jsonio/stream | thrpt | 10 | 32683.449 | ±1263.866 | ops/s |
-| jsonp/stream | thrpt | 10 | 37061.409 | ±1205.367 | ops/s |
-| orgjson/stream | thrpt | 10 | 18781.162 | ±372.791 | ops/s |
+| boon/databind | thrpt | 10 | 47227.756 | ±3211.266 | ops/s |
+| dsljson/databind | thrpt | 10 | 246305.844 | ±15235.101 | ops/s |
+| fastjson/databind | thrpt | 10 | 112743.984 | ±4117.466 | ops/s |
+| genson/databind | thrpt | 10 | 105539.188 | ±6473.911 | ops/s |
+| gson/databind | thrpt | 10 | 49298.522 | ±2080.579 | ops/s |
+| jackson/databind | thrpt | 10 | 169103.191 | ±18166.768 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 168651.026 | ±3699.399 | ops/s |
+| johnzon/databind | thrpt | 10 | 62193.267 | ±3593.481 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 85345.392 | ±4749.284 | ops/s |
+| logansquare/databind | thrpt | 10 | 180727.802 | ±6646.481 | ops/s |
+| genson/stream | thrpt | 10 | 82936.585 | ±11060.826 | ops/s |
+| gson/stream | thrpt | 10 | 26656.463 | ±989.538 | ops/s |
+| jackson/stream | thrpt | 10 | 164320.409 | ±4836.932 | ops/s |
+| javaxjson/stream | thrpt | 10 | 37591.977 | ±1696.119 | ops/s |
+| jsonio/stream | thrpt | 10 | 32583.230 | ±6404.627 | ops/s |
+| orgjson/stream | thrpt | 10 | 17454.780 | ±755.247 | ops/s |
 
 # JMH: Serialization - 100 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 5025.270 | ±169.107 | ops/s |
-| fastjson/databind | thrpt | 10 | 8486.165 | ±174.760 | ops/s |
-| genson/databind | thrpt | 10 | 8788.253 | ±430.527 | ops/s |
-| gson/databind | thrpt | 10 | 5684.327 | ±311.027 | ops/s |
-| jackson/databind | thrpt | 10 | 14024.253 | ±384.809 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 13970.684 | ±381.212 | ops/s |
-| johnson/databind | thrpt | 10 | 5690.799 | ±133.462 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 6946.741 | ±319.762 | ops/s |
-| genson/stream | thrpt | 10 | 7966.133 | ±418.390 | ops/s |
-| gson/stream | thrpt | 10 | 2837.802 | ±95.156 | ops/s |
-| jackson/stream | thrpt | 10 | 15009.614 | ±785.988 | ops/s |
-| jsonio/stream | thrpt | 10 | 3267.933 | ±669.465 | ops/s |
-| jsonp/stream | thrpt | 10 | 5720.971 | ±179.956 | ops/s |
-| orgjson/stream | thrpt | 10 | 1867.128 | ±18.179 | ops/s |
+| boon/databind | thrpt | 10 | 4501.031 | ±539.885 | ops/s |
+| dsljson/databind | thrpt | 10 | 25484.051 | ±891.238 | ops/s |
+| fastjson/databind | thrpt | 10 | 7734.816 | ±175.426 | ops/s |
+| genson/databind | thrpt | 10 | 10068.962 | ±487.687 | ops/s |
+| gson/databind | thrpt | 10 | 4757.505 | ±819.291 | ops/s |
+| jackson/databind | thrpt | 10 | 13803.379 | ±546.224 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 14052.412 | ±2037.438 | ops/s |
+| johnzon/databind | thrpt | 10 | 5052.006 | ±405.092 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 6326.723 | ±833.636 | ops/s |
+| logansquare/databind | thrpt | 10 | 14006.108 | ±1411.234 | ops/s |
+| genson/stream | thrpt | 10 | 6633.257 | ±806.823 | ops/s |
+| gson/stream | thrpt | 10 | 2147.315 | ±255.058 | ops/s |
+| jackson/stream | thrpt | 10 | 15026.124 | ±940.179 | ops/s |
+| javaxjson/stream | thrpt | 10 | 5002.800 | ±371.140 | ops/s |
+| jsonio/stream | thrpt | 10 | 2861.422 | ±239.639 | ops/s |
+| orgjson/stream | thrpt | 10 | 1614.784 | ±81.501 | ops/s |
 
 # JMH: Serialization - 1000 KB
 
 | Benchmark | Mode | Cnt | Score | Error | Units |
 |-----------|------|-----|-------|-------|-------|
-| boon/databind | thrpt | 10 | 392.718 | ±14.964 | ops/s |
-| fastjson/databind | thrpt | 10 | 617.140 | ±10.204 | ops/s |
-| genson/databind | thrpt | 10 | 772.418 | ±24.674 | ops/s |
-| gson/databind | thrpt | 10 | 498.987 | ±14.568 | ops/s |
-| jackson/databind | thrpt | 10 | 1007.832 | ±36.469 | ops/s |
-| jackson_afterburner/databind | thrpt | 10 | 1032.826 | ±24.445 | ops/s |
-| johnson/databind | thrpt | 10 | 518.376 | ±13.643 | ops/s |
-| jsonsmart/databind | thrpt | 10 | 632.229 | ±21.996 | ops/s |
-| genson/stream | thrpt | 10 | 744.616 | ±71.033 | ops/s |
-| gson/stream | thrpt | 10 | 264.617 | ±19.946 | ops/s |
-| jackson/stream | thrpt | 10 | 1396.622 | ±188.465 | ops/s |
-| jsonio/stream | thrpt | 10 | 324.872 | ±8.303 | ops/s |
-| jsonp/stream | thrpt | 10 | 601.688 | ±37.602 | ops/s |
-| orgjson/stream | thrpt | 10 | 166.483 | ±6.439 | ops/s |
+| boon/databind | thrpt | 10 | 301.166 | ±12.807 | ops/s |
+| dsljson/databind | thrpt | 10 | 2031.557 | ±41.939 | ops/s |
+| fastjson/databind | thrpt | 10 | 475.193 | ±17.448 | ops/s |
+| flexjson/databind | thrpt | 10 | 10.370 | ±3.925 | ops/s |
+| genson/databind | thrpt | 10 | 784.641 | ±28.945 | ops/s |
+| gson/databind | thrpt | 10 | 391.866 | ±42.721 | ops/s |
+| jackson/databind | thrpt | 10 | 1149.960 | ±157.659 | ops/s |
+| jackson_afterburner/databind | thrpt | 10 | 1264.821 | ±66.934 | ops/s |
+| johnzon/databind | thrpt | 10 | 507.867 | ±32.474 | ops/s |
+| jsonsmart/databind | thrpt | 10 | 627.340 | ±59.028 | ops/s |
+| logansquare/databind | thrpt | 10 | 1331.641 | ±135.132 | ops/s |
+| genson/stream | thrpt | 10 | 711.966 | ±96.180 | ops/s |
+| gson/stream | thrpt | 10 | 227.419 | ±29.328 | ops/s |
+| jackson/stream | thrpt | 10 | 1275.145 | ±37.414 | ops/s |
+| javaxjson/stream | thrpt | 10 | 547.037 | ±31.667 | ops/s |
+| jsonio/stream | thrpt | 10 | 286.147 | ±20.690 | ops/s |
+| orgjson/stream | thrpt | 10 | 147.345 | ±2.537 | ops/s |

@@ -5,23 +5,26 @@
 The purpose of this project is to evaluate serialization and deserialization performance of JSON libraries in Java.
 The following libraries are evaluated:
 
-* [Jackson](https://github.com/FasterXML/jackson)
-* [Genson](https://owlike.github.io/genson/)
+* [jackson](https://github.com/FasterXML/jackson)
+* [genson](https://owlike.github.io/genson/)
 * [fastjson](https://github.com/alibaba/fastjson)
-* [GSON](https://github.com/google/gson)
+* [gson](https://github.com/google/gson)
 * [org.json](https://github.com/stleary/JSON-java)
-* [jsonp](https://jsonp.java.net/) (from Oracle)
+* [javax-json](https://jsonp.java.net/) (from Oracle)
 * [json-io](https://github.com/jdereg/json-io)
+* [flexjson](http://flexjson.sourceforge.net/)
 * [boon](https://github.com/boonproject/boon)
 * [json-smart](http://netplex.github.io/json-smart/)
 * [johnzon](http://johnzon.apache.org/)
+* [logansquare](https://github.com/bluelinelabs/LoganSquare)
+* [dsl-json](https://github.com/ngs-doo/dsl-json)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each benchmark.
 
 Four different sizes of payloads are evaluated in the chars below: 1 KB, 10 KB, 100 KB and 1 MB. And it is possible to generate on the fly any size of payloads.
 
-Each benchmark has been written to read bytes from RAM and write to output streams in RAM when possible. All data is randomly generated 
+Each benchmark has been written to read bytes from RAM and write to reusable output streams in RAM when possible, strings are rarely generated. All data is randomly generated upon static loading.
 
 This benchmark does NOT evaluate:
 
@@ -84,7 +87,7 @@ iterations (and more) you want to run. For example:
 
     ./bench deser --apis stream --libs genson,jackson 
     ./bench ser --apis databind,stream --libs jackson 
-    ./bench deser --apis stream --libs genson,jackson --size 10 --datatype users
+    ./bench deser --apis stream --libs dsljson,jackson --size 10 --datatype users
  
 Type `./bench help ser` or `./bench help deser` to print help for those
 commands.

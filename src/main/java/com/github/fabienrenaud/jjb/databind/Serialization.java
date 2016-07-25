@@ -54,7 +54,9 @@ public class Serialization extends JsonBench {
     @Benchmark
     @Override
     public Object flexjson() {
-        return JSON_SOURCE.provider().flexjsonSer().serialize(JSON_SOURCE.nextPojo());
+        StringBuilder b = JsonUtils.stringBuilder();
+        JSON_SOURCE.provider().flexjsonSer().exclude("*.class").deepSerialize(JSON_SOURCE.nextPojo(), b);
+        return b;
     }
 
     @Benchmark

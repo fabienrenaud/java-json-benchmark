@@ -4,7 +4,6 @@ import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.support.Api;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
 import com.github.fabienrenaud.jjb.support.Library;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -99,7 +98,6 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
-    @Ignore
     public void flexjson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.FLEXJSON, BENCH.flexjson());

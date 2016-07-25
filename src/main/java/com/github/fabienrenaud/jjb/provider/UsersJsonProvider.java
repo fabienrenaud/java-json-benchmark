@@ -102,14 +102,4 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     public DslJson<Users> dsljson() {
         return dsljson;
     }
-
-    @Override
-    public com.dslplatform.json.JsonWriter dsljsonWriter() {
-        com.dslplatform.json.JsonWriter w = dsljsonwriter.get();
-        if (w == null) {
-            w = new com.dslplatform.json.JsonWriter();
-            dsljsonwriter.set(w);
-        }
-        return w;
-    }
 }

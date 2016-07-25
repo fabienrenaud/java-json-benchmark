@@ -37,6 +37,4 @@ public interface JsonProvider<T> {
     Map<String, Object> jsonioStreamOptions();
 
     DslJson<T> dsljson();
-
-    com.dslplatform.json.JsonWriter dsljsonWriter();
 }

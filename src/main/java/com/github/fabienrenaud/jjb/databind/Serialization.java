@@ -1,41 +1,54 @@
 package com.github.fabienrenaud.jjb.databind;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.bluelinelabs.logansquare.LoganSquare;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fabienrenaud.jjb.JsonBench;
+import com.github.fabienrenaud.jjb.JsonUtils;
 import org.openjdk.jmh.annotations.Benchmark;
+
+import java.io.ByteArrayOutputStream;
 
 public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
     public Object gson() {
-        return JSON_SOURCE.provider().gson().toJson(JSON_SOURCE.nextPojo());
+        StringBuilder b = JsonUtils.stringBuilder();
+        JSON_SOURCE.provider().gson().toJson(JSON_SOURCE.nextPojo(), b);
+        return b;
     }
 
     @Benchmark
     @Override
-    public Object jackson() throws JsonProcessingException {
-        return JSON_SOURCE.provider().jackson().writeValueAsString(JSON_SOURCE.nextPojo());
+    public Object jackson() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().jackson().writeValue(baos, JSON_SOURCE.nextPojo());
+        return baos;
     }
 
     @Benchmark
     @Override
-    public Object jackson_afterburner() throws JsonProcessingException {
-        return JSON_SOURCE.provider().jacksonAfterburner().writeValueAsString(JSON_SOURCE.nextPojo());
+    public Object jackson_afterburner() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().jacksonAfterburner().writeValue(baos, JSON_SOURCE.nextPojo());
+        return baos;
     }
 
     @Benchmark
     @Override
     public Object genson() {
-        return JSON_SOURCE.provider().genson().serialize(JSON_SOURCE.nextPojo());
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().genson().serialize(JSON_SOURCE.nextPojo(), baos);
+        return baos;
     }
 
     @Benchmark
     @Override
-    public Object fastjson() {
-        return JSON.toJSONString(JSON_SOURCE.nextPojo());
+    public Object fastjson() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON.writeJSONString(baos, JSON_SOURCE.nextPojo(), SerializerFeature.EMPTY);
+        return baos;
     }
 
     @Benchmark
@@ -47,34 +60,42 @@ public class Serialization extends JsonBench {
     @Benchmark
     @Override
     public Object boon() {
-        return JSON_SOURCE.provider().boon().writeValueAsString(JSON_SOURCE.nextPojo());
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().boon().writeValue(baos, JSON_SOURCE.nextPojo());
+        return baos;
     }
 
     @Benchmark
     @Override
     public Object johnson() {
-        return JSON_SOURCE.provider().johnson().writeObjectAsString(JSON_SOURCE.nextPojo());
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().johnson().writeObject(JSON_SOURCE.nextPojo(), baos);
+        return baos;
     }
 
     @Benchmark
     @Override
     public Object jsonsmart() throws Exception {
-        StringBuilder b = new StringBuilder();
+        StringBuilder b = JsonUtils.stringBuilder();
         net.minidev.json.JSONValue.writeJSONString(JSON_SOURCE.nextPojo(), b);
-        return b.toString();
+        return b;
     }
 
     @Benchmark
     @Override
     public Object dsljson() throws Exception {
-        com.dslplatform.json.JsonWriter jw = JSON_SOURCE.provider().dsljsonWriter();
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        com.dslplatform.json.JsonWriter jw = JsonUtils.dslJsonWriter();
         JSON_SOURCE.provider().dsljson().serialize(jw, JSON_SOURCE.nextPojo());
-        return new String(jw.getByteBuffer());
+        jw.toStream(baos);
+        return baos;
     }
 
     @Benchmark
     @Override
     public Object logansquare() throws Exception {
-        return LoganSquare.serialize(JSON_SOURCE.nextPojo());
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        LoganSquare.serialize(JSON_SOURCE.nextPojo(), baos);
+        return baos;
     }
 }

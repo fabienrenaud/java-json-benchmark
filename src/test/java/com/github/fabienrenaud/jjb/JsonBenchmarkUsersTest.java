@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.support.BenchSupport;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -14,6 +15,10 @@ import static org.junit.Assert.fail;
 public abstract class JsonBenchmarkUsersTest extends JsonBenchmark<Users> {
 
     private static File configFile;
+
+    static {
+        BENCH_SUPPORT = BenchSupport.USERS;
+    }
 
     @BeforeClass
     public static void setUpClass() {

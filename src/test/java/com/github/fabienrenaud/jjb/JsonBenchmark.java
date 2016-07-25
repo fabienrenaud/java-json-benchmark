@@ -1,11 +1,15 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.support.Api;
+import com.github.fabienrenaud.jjb.support.BenchSupport;
+import com.github.fabienrenaud.jjb.support.Library;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 /**
@@ -14,9 +18,12 @@ import static org.junit.Assert.fail;
 public abstract class JsonBenchmark<T> {
 
     public static JsonBench BENCH;
+    public static BenchSupport BENCH_SUPPORT;
+    public static Api BENCH_API;
 
-    protected void test(Object o) {
-        if (o == null) { // no computation
+    protected void test(final Library lib, final Object o) {
+        if (o == null) { // means it shouldn't be supported.
+            assertFalse("Library '" + lib + "' for api '" + BENCH_API + " returned null", supports(lib));
             return;
         }
 
@@ -38,78 +45,83 @@ public abstract class JsonBenchmark<T> {
         }
     }
 
+    private boolean supports(final Library lib) {
+        return BENCH_SUPPORT.libapis().stream()
+            .anyMatch((l) -> l.lib() == lib && l.api().contains(BENCH_API));
+    }
+
     protected abstract void testPojo(T obj);
 
     protected abstract Class<T> pojoType();
 
     @Test
     public void gson() throws Exception {
-        test(BENCH.gson());
+        test(Library.GSON, BENCH.gson());
     }
 
     @Test
     public void jackson() throws Exception {
-        test(BENCH.jackson());
+        test(Library.JACKSON, BENCH.jackson());
     }
 
     @Test
     public void jackson_afterburner() throws Exception {
-        test(BENCH.jackson_afterburner());
+        test(Library.JACKSON_AFTERBURNER, BENCH.jackson_afterburner());
     }
 
     @Test
     public void orgjson() throws Exception {
-        test(BENCH.orgjson());
+        test(Library.ORGJSON, BENCH.orgjson());
     }
 
     @Test
     public void genson() throws Exception {
-        test(BENCH.genson());
+        test(Library.GENSON, BENCH.genson());
     }
 
     @Test
-    public void jsonp() throws Exception {
-        test(BENCH.javaxjson());
+    public void javaxjson() throws Exception {
+        test(Library.JAVAXJSON, BENCH.javaxjson());
     }
 
     @Test
     @Ignore
     public void flexjson() throws Exception {
-        test(BENCH.flexjson());
+        test(Library.FLEXJSON, BENCH.flexjson());
     }
 
     @Test
     public void fastjson() throws Exception {
-        test(BENCH.fastjson());
+        test(Library.FASTJSON, BENCH.fastjson());
     }
 
     @Test
     public void jsonio() throws Exception {
-        test(BENCH.jsonio());
+        test(Library.JSONIO, BENCH.jsonio());
     }
 
     @Test
     public void boon() throws Exception {
-        test(BENCH.boon());
+        test(Library.BOON, BENCH.boon());
     }
 
     @Test
     public void johnson() throws Exception {
-        test(BENCH.johnson());
+        test(Library.JOHNSON, BENCH.johnson());
     }
 
     @Test
     public void jsonsmart() throws Exception {
-        test(BENCH.jsonsmart());
+        test(Library.JSONSMART, BENCH.jsonsmart());
     }
 
     @Test
     public void dsljson() throws Exception {
-        test(BENCH.dsljson());
+        test(Library.DSLJSON, BENCH.dsljson());
     }
 
     @Test
     public void logansquare() throws Exception {
-        test(BENCH.logansquare());
+        test(Library.LOGANSQUARE, BENCH.logansquare());
     }
 }

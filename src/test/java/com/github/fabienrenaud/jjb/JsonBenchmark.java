@@ -21,6 +21,8 @@ public abstract class JsonBenchmark<T> {
     public static BenchSupport BENCH_SUPPORT;
     public static Api BENCH_API;
 
+    private static final int ITERATIONS = 3;
+
     protected void test(final Library lib, final Object o) {
         if (o == null) { // means it shouldn't be supported.
             assertFalse("Library '" + lib + "' for api '" + BENCH_API + " returned null", supports(lib));
@@ -56,72 +58,100 @@ public abstract class JsonBenchmark<T> {
 
     @Test
     public void gson() throws Exception {
-        test(Library.GSON, BENCH.gson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.GSON, BENCH.gson());
+        }
     }
 
     @Test
     public void jackson() throws Exception {
-        test(Library.JACKSON, BENCH.jackson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JACKSON, BENCH.jackson());
+        }
     }
 
     @Test
     public void jackson_afterburner() throws Exception {
-        test(Library.JACKSON_AFTERBURNER, BENCH.jackson_afterburner());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JACKSON_AFTERBURNER, BENCH.jackson_afterburner());
+        }
     }
 
     @Test
     public void orgjson() throws Exception {
-        test(Library.ORGJSON, BENCH.orgjson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.ORGJSON, BENCH.orgjson());
+        }
     }
 
     @Test
     public void genson() throws Exception {
-        test(Library.GENSON, BENCH.genson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.GENSON, BENCH.genson());
+        }
     }
 
     @Test
     public void javaxjson() throws Exception {
-        test(Library.JAVAXJSON, BENCH.javaxjson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JAVAXJSON, BENCH.javaxjson());
+        }
     }
 
     @Test
     @Ignore
     public void flexjson() throws Exception {
-        test(Library.FLEXJSON, BENCH.flexjson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.FLEXJSON, BENCH.flexjson());
+        }
     }
 
     @Test
     public void fastjson() throws Exception {
-        test(Library.FASTJSON, BENCH.fastjson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.FASTJSON, BENCH.fastjson());
+        }
     }
 
     @Test
     public void jsonio() throws Exception {
-        test(Library.JSONIO, BENCH.jsonio());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JSONIO, BENCH.jsonio());
+        }
     }
 
     @Test
     public void boon() throws Exception {
-        test(Library.BOON, BENCH.boon());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.BOON, BENCH.boon());
+        }
     }
 
     @Test
     public void johnson() throws Exception {
-        test(Library.JOHNZON, BENCH.johnzon());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JOHNZON, BENCH.johnzon());
+        }
     }
 
     @Test
     public void jsonsmart() throws Exception {
-        test(Library.JSONSMART, BENCH.jsonsmart());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JSONSMART, BENCH.jsonsmart());
+        }
     }
 
     @Test
     public void dsljson() throws Exception {
-        test(Library.DSLJSON, BENCH.dsljson());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.DSLJSON, BENCH.dsljson());
+        }
     }
 
     @Test
     public void logansquare() throws Exception {
-        test(Library.LOGANSQUARE, BENCH.logansquare());
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.LOGANSQUARE, BENCH.logansquare());
+        }
     }
 }

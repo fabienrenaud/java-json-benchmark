@@ -107,7 +107,7 @@ public abstract class JsonBenchmark<T> {
 
     @Test
     public void johnson() throws Exception {
-        test(Library.JOHNSON, BENCH.johnson());
+        test(Library.JOHNZON, BENCH.johnzon());
     }
 
     @Test

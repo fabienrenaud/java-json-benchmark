@@ -6,10 +6,7 @@ import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -26,6 +23,7 @@ public abstract class JsonSource<T> {
     private final byte[][] jsonAsBytes;
     private final JSONObject[] jsonAsOrgJsonObject;
     private final javax.json.JsonObject[] jsonAsJavaxJsonObject;
+    private final ThreadLocal<ByteArrayInputStream[]> jsonAsByteArrayInputStream;
 
     private final DataGenerator<T> dataGenerator;
     private final StreamSerializer<T> streamSerializer;
@@ -44,6 +42,18 @@ public abstract class JsonSource<T> {
         this.streamSerializer = streamSerializer;
         this.streamDeserializer = streamDeserializer;
         populateFields(quantity, individualSize);
+
+        this.jsonAsByteArrayInputStream = new ThreadLocal<ByteArrayInputStream[]>() {
+
+            @Override
+            protected ByteArrayInputStream[] initialValue() {
+                ByteArrayInputStream[] arr = new ByteArrayInputStream[quantity];
+                for (int i = 0; i < arr.length; i++) {
+                    arr[i] = new ByteArrayInputStream(jsonAsBytes[i]);
+                }
+                return arr;
+            }
+        };
     }
 
     private final void populateFields(final int quantity, final int individualSize) {
@@ -70,15 +80,18 @@ public abstract class JsonSource<T> {
     }
 
     public String nextString() {
-        return jsonAsString[RNG.nextInt(jsonAsString.length)];
+        return jsonAsString[index(jsonAsString.length)];
     }
 
     public InputStream nextInputStream() {
-        return new ByteArrayInputStream(nextByteArray());
+        ByteArrayInputStream[] arr = jsonAsByteArrayInputStream.get();
+        ByteArrayInputStream bais = arr[index(arr.length)];
+        bais.reset();
+        return bais;
     }
 
     public byte[] nextByteArray() {
-        return jsonAsBytes[RNG.nextInt(jsonAsBytes.length)];
+        return jsonAsBytes[index(jsonAsBytes.length)];
     }
 
     public Reader nextReader() {
@@ -86,15 +99,15 @@ public abstract class JsonSource<T> {
     }
 
     public T nextPojo() {
-        return jsonAsObject[RNG.nextInt(jsonAsObject.length)];
+        return jsonAsObject[index(jsonAsObject.length)];
     }
 
     public JSONObject nextJsonAsOrgJsonObject() {
-        return jsonAsOrgJsonObject[RNG.nextInt(jsonAsOrgJsonObject.length)];
+        return jsonAsOrgJsonObject[index(jsonAsOrgJsonObject.length)];
     }
 
     public javax.json.JsonObject nextJsonAsJavaxJsonObject() {
-        return jsonAsJavaxJsonObject[RNG.nextInt(jsonAsJavaxJsonObject.length)];
+        return jsonAsJavaxJsonObject[index(jsonAsJavaxJsonObject.length)];
     }
 
     public StreamSerializer<T> streamSerializer() {
@@ -109,4 +122,7 @@ public abstract class JsonSource<T> {
 
     public abstract Class<T> pojoType();
 
+    private int index(final int bound) {
+        return bound == 1 ? 0 : RNG.nextInt(bound);
+    }
 }

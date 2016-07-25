@@ -50,7 +50,7 @@ public abstract class JsonBench {
         return null;
     }
 
-    public Object johnson() throws Exception {
+    public Object johnzon() throws Exception {
         return null;
     }
 

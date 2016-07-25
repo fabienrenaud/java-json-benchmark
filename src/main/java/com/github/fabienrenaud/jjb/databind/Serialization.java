@@ -67,7 +67,7 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object johnson() {
+    public Object johnzon() {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         JSON_SOURCE.provider().johnson().writeObject(JSON_SOURCE.nextPojo(), baos);
         return baos;

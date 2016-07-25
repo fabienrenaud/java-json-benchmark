@@ -58,7 +58,7 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object johnson() throws Exception {
+    public Object johnzon() throws Exception {
         return JSON_SOURCE.provider().johnson().readObject(JSON_SOURCE.nextInputStream(), JSON_SOURCE.pojoType());
     }
 

@@ -77,3 +77,23 @@ test {
         showStandardStreams = true
     }
 }
+
+task (depsize) << {
+    def size = 0;
+    def formatStr = "%,10.2f"
+    configurations.default.collect { it.length() / (1024 * 1024) }.each { size += it }
+
+    def out = new StringBuffer()
+    out << 'Total dependencies size:'.padRight(45)
+    out << "${String.format(formatStr, size)} MiB\n\n"
+
+    configurations
+        .default
+        .sort { -it.length() }
+        .each {
+            out << "${it.name}".padRight(45)
+            out << "${String.format(formatStr, (it.length() / 1024))} KiB\n"
+        }
+        println(out)
+}
+

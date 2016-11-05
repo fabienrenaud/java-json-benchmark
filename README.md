@@ -34,26 +34,43 @@ This benchmark does NOT evaluate:
 
 ## Results
 
-This benchmark was performed using [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and Java 8.
-Read below for JMH and hardware info.
+The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
+
+The results here-below were computed on July the 25th, 2016 with the following libraries and versions:
+
+| Library     | Version |
+|-------------|---------|
+| jackson     | 2.7.5   |
+| genson      | 1.4     |
+| fastjson    | 1.2.12  |
+| gson        | 2.7     |
+| org.json    | 20090211   |
+| javax-json  | 1.0, 1.0.4 |
+| json-io     | 4.5.0   |
+| flexjson    | 3.3     |
+| boon        | 0.33    |
+| json-smart  | 2.2.1   |
+| johnzon     | 0.9.3-incubating |
+| logansquare | 1.3.7   |
+| dsl-json    | 1.1.1   |
 
 [All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/edit?usp=sharing)
 
-## Deserialization performance
+### Deserialization performance
 
 ![json deserialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
 
 [Raw JMH results here][jmh-results]
 
-## Serialization performance
+### Serialization performance
 
 ![json serialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=69104817&format=image)
 
 [Raw JMH results here][jmh-results]
 
-## Benchmark configuration
+### Benchmark configuration
 
-### JMH
+#### JMH
 
     # JMH 1.12 (released 113 days ago, please consider updating!)
     # VM version: JDK 1.8.0_45, VM 25.45-b02
@@ -65,7 +82,7 @@ Read below for JMH and hardware info.
     # Threads: 16 threads, will synchronize iterations
     # Benchmark mode: Throughput, ops/time
 
-### Hardware
+#### Hardware
 
     Model Name: MacBook Pro
     Processor Name: Intel Core i7

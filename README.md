@@ -38,35 +38,38 @@ This benchmark does NOT evaluate:
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-The results here-below were computed on July the 25th, 2016 with the following libraries and versions:
+The results here-below were computed on November the 13th, 2016 with the following libraries and versions:
 
 | Library     | Version |
 |-------------|---------|
-| jackson     | 2.7.5   |
+| jackson     | 2.8.4   |
 | genson      | 1.4     |
-| fastjson    | 1.2.12  |
-| gson        | 2.7     |
+| fastjson    | 1.2.20  |
+| gson        | 2.8.0   |
 | org.json    | 20090211   |
 | javax-json  | 1.0, 1.0.4 |
-| json-io     | 4.5.0   |
+| json-io     | 4.9.0   |
 | flexjson    | 3.3     |
-| boon        | 0.33    |
+| boon        | 0.34    |
 | json-smart  | 2.2.1   |
-| johnzon     | 0.9.3-incubating |
+| johnzon     | 0.9.5   |
 | logansquare | 1.3.7   |
-| dsl-json    | 1.1.1   |
+| dsl-json    | 1.1.2   |
+| simplejson  | 1.1.1   |
+| nanojson    | 1.1     |
+| jodd json   | 3.8.0   |
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/edit?usp=sharing)
+[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)
 
 ### Deserialization performance
 
-![json deserialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
+![json deserialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=746064058&format=image)
 
 [Raw JMH results here][jmh-results]
 
 ### Serialization performance
 
-![json serialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=69104817&format=image)
+![json serialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=1130150523&format=image)
 
 [Raw JMH results here][jmh-results]
 
@@ -74,7 +77,7 @@ The results here-below were computed on July the 25th, 2016 with the following l
 
 #### JMH
 
-    # JMH 1.12 (released 113 days ago, please consider updating!)
+    # JMH 1.15 (released 44 days ago)
     # VM version: JDK 1.8.0_45, VM 25.45-b02
     # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
@@ -122,4 +125,4 @@ libraries is welcome.
 
 Pull requests are welcome.
 
-[jmh-results]: /archive/raw-results-2016-07-25.md
+[jmh-results]: /archive/raw-results-2016-11-13.md

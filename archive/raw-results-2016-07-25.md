@@ -172,3 +172,28 @@ _**July the 25th, 2016**_
 | javaxjson/stream | thrpt | 10 | 547.037 | ±31.667 | ops/s |
 | jsonio/stream | thrpt | 10 | 286.147 | ±20.690 | ops/s |
 | orgjson/stream | thrpt | 10 | 147.345 | ±2.537 | ops/s |
+
+# Environment
+ 
+## JMH configuration
+
+    # JMH 1.12
+    # VM version: JDK 1.8.0_45, VM 25.45-b02
+    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
+    # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
+    # Warmup: 3 iterations, 1 s each
+    # Measurement: 5 iterations, 2 s each
+    # Timeout: 10 min per iteration
+    # Threads: 16 threads, will synchronize iterations
+    # Benchmark mode: Throughput, ops/time
+
+## Hardware
+
+    Model Name: MacBook Pro
+    Processor Name: Intel Core i7
+    Processor Speed: 2.6 GHz
+    Number of Processors: 1
+    Total Number of Cores: 4
+    L2 Cache (per Core): 256 KB
+    L3 Cache: 6 MB
+    Memory: 16 GB

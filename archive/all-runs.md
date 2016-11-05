@@ -1,5 +1,40 @@
 Benchmark runs by date
 
+## 2016-11-13
+
+| Library     | Version |
+|-------------|---------|
+| jackson     | 2.8.4   |
+| genson      | 1.4     |
+| fastjson    | 1.2.20  |
+| gson        | 2.8.0   |
+| org.json    | 20090211   |
+| javax-json  | 1.0, 1.0.4 |
+| json-io     | 4.9.0   |
+| flexjson    | 3.3     |
+| boon        | 0.34    |
+| json-smart  | 2.2.1   |
+| johnzon     | 0.9.5   |
+| logansquare | 1.3.7   |
+| dsl-json    | 1.1.2   |
+| simplejson  | 1.1.1   |
+| nanojson    | 1.1     |
+| jodd json   | 3.8.0   |
+
+![json deserialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=746064058&format=image)
+
+![json serialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=1130150523&format=image)
+
+**JMH configuration and hardware**
+
+Same as below, JMH 1.15.
+
+**Links**
+
+ * [google spreadsheet](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)
+ * [raw-results-2016-11-05.md](/archive/raw-results-2016-11-13.md)
+ * [Special run on an Amazon EC2 c3.2xlarge instance](/archive/raw-results-2016-11-13-ec2_c3_2xlarge.md)
+
 ## 2016-07-25
 
 | Library     | Version |

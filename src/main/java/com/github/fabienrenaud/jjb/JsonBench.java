@@ -66,4 +66,8 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object jsonsimple() throws Exception {
+        return null;
+    }
+
 }

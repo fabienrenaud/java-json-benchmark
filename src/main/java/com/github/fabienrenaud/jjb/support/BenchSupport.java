@@ -23,7 +23,8 @@ public enum BenchSupport {
         new Libapi(Library.JOHNZON, Api.DATABIND),
         new Libapi(Library.JSONSMART, Api.DATABIND),
         new Libapi(Library.DSLJSON, Api.DATABIND),
-        new Libapi(Library.LOGANSQUARE, Api.DATABIND)
+        new Libapi(Library.LOGANSQUARE, Api.DATABIND),
+        new Libapi(Library.JSONSIMPLE, Api.STREAM)
     );
 
     private final List<Libapi> libapis;

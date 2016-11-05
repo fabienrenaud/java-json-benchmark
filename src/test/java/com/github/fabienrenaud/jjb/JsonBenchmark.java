@@ -152,4 +152,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.LOGANSQUARE, BENCH.logansquare());
         }
     }
+
+    @Test
+    public void jsonsimple() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JSONSIMPLE, BENCH.jsonsimple());
+        }
+    }
 }

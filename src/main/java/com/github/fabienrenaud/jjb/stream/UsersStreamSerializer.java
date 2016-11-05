@@ -2,8 +2,8 @@ package com.github.fabienrenaud.jjb.stream;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.model.Users;
-import com.github.fabienrenaud.jjb.model.Users.User;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
+import com.github.fabienrenaud.jjb.model.Users.User;
 import com.google.gson.stream.JsonWriter;
 import com.owlike.genson.stream.ObjectWriter;
 
@@ -320,5 +320,90 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             j.writeString(u.favoriteFruit);
         }
         j.writeEndObject();
+    }
+
+    @Override
+    public org.json.simple.JSONObject jsonsimple(final Users obj) throws IOException {
+        org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
+        if (obj.users != null) {
+            org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
+            for (User u : obj.users) {
+                jsarr.add(jsonsimple(u));
+            }
+            jso.put("users", jsarr);
+        }
+        return jso;
+    }
+
+    private org.json.simple.JSONObject jsonsimple(final User u) throws IOException {
+        org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
+        if (u._id != null) {
+            jso.put("_id", u._id);
+        }
+        jso.put("index", u.index);
+        if (u.guid != null) {
+            jso.put("guid", u.guid);
+        }
+        jso.put("isActive", u.isActive);
+        if (u.balance != null) {
+            jso.put("balance", u.balance);
+        }
+        if (u.picture != null) {
+            jso.put("picture", u.picture);
+        }
+        jso.put("age", u.age);
+        if (u.eyeColor != null) {
+            jso.put("eyeColor", u.eyeColor);
+        }
+        if (u.name != null) {
+            jso.put("name", u.name);
+        }
+        if (u.gender != null) {
+            jso.put("gender", u.gender);
+        }
+        if (u.company != null) {
+            jso.put("company", u.company);
+        }
+        if (u.email != null) {
+            jso.put("email", u.email);
+        }
+        if (u.phone != null) {
+            jso.put("phone", u.phone);
+        }
+        if (u.address != null) {
+            jso.put("address", u.address);
+        }
+        if (u.about != null) {
+            jso.put("about", u.about);
+        }
+        if (u.registered != null) {
+            jso.put("registered", u.registered);
+        }
+        jso.put("latitude", u.latitude);
+        jso.put("longitude", u.longitude);
+        if (u.tags != null) {
+            org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
+            for (String t : u.tags) {
+                jsarr.add(t);
+            }
+            jso.put("tags", jsarr);
+        }
+        if (u.friends != null) {
+            org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
+            for (Friend f : u.friends) {
+                org.json.simple.JSONObject jso0 = new org.json.simple.JSONObject();
+                jso0.put("id", f.id);
+                jso0.put("name", f.name);
+                jsarr.add(jso0);
+            }
+            jso.put("friends", jsarr);
+        }
+        if (u.greeting != null) {
+            jso.put("greeting", u.greeting);
+        }
+        if (u.favoriteFruit != null) {
+            jso.put("favoriteFruit", u.favoriteFruit);
+        }
+        return jso;
     }
 }

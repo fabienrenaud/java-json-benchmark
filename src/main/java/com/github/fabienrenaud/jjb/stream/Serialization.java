@@ -68,4 +68,16 @@ public class Serialization extends JsonBench {
     public Object jsonio() throws Exception {
         return com.cedarsoftware.util.io.JsonWriter.objectToJson(JSON_SOURCE.nextPojo(), JSON_SOURCE.provider().jsonioStreamOptions());
     }
+
+    @Benchmark
+    @Override
+    public Object jsonsimple() throws Exception {
+        org.json.simple.JSONObject jso = JSON_SOURCE.streamSerializer().jsonsimple(JSON_SOURCE.nextPojo());
+
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Writer w = new OutputStreamWriter(baos);
+        org.json.simple.JSONValue.writeJSONString(jso, w);
+        w.close();
+        return baos;
+    }
 }

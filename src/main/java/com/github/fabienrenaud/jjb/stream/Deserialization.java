@@ -62,4 +62,10 @@ public class Deserialization extends JsonBench {
     public Object jsonsimple() throws Exception {
         return org.json.simple.JSONValue.parse(JSON_SOURCE.nextReader());
     }
+
+    @Benchmark
+    @Override
+    public Object nanojson() throws Exception {
+        return com.grack.nanojson.JsonParser.object().from(JSON_SOURCE.nextInputStream());
+    }
 }

@@ -2,14 +2,12 @@ package com.github.fabienrenaud.jjb.stream;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.gson.stream.JsonWriter;
+import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
 import org.json.JSONException;
 
 import java.io.IOException;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public interface StreamSerializer<T> {
 
     org.json.JSONObject orgjson(final T obj) throws JSONException;
@@ -23,4 +21,6 @@ public interface StreamSerializer<T> {
     void jackson(final JsonGenerator j, final T obj) throws IOException;
 
     org.json.simple.JSONObject jsonsimple(final T obj) throws IOException;
+
+    void nanojson(final JsonAppendableWriter writer, final T obj) throws IOException;
 }

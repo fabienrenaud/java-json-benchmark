@@ -19,6 +19,7 @@ The following libraries are evaluated:
 * [logansquare](https://github.com/bluelinelabs/LoganSquare)
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [json-simple](https://code.google.com/archive/p/json-simple/)
+* [nanojson](https://github.com/mmastrac/nanojson)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each benchmark.

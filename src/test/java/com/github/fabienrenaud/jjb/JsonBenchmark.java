@@ -33,6 +33,9 @@ public abstract class JsonBenchmark<T> {
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
             String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE.provider().jsonioStreamOptions());
             testString(v);
+        } else if (o instanceof com.grack.nanojson.JsonObject) {
+            String v = com.grack.nanojson.JsonWriter.string(o);
+            testString(v);
         } else {
             testString(o.toString());
         }
@@ -157,6 +160,13 @@ public abstract class JsonBenchmark<T> {
     public void jsonsimple() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JSONSIMPLE, BENCH.jsonsimple());
+        }
+    }
+
+    @Test
+    public void nanojson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.NANOJSON, BENCH.nanojson());
         }
     }
 }

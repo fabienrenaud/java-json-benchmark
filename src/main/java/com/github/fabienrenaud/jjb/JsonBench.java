@@ -70,4 +70,8 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object nanojson() throws Exception {
+        return null;
+    }
+
 }

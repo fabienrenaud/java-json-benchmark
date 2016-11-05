@@ -56,6 +56,8 @@ dependencies {
     apt group: 'com.bluelinelabs', name: 'logansquare-compiler', version: '1.3.7'
     // json-simple
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    // nanojson
+    compile group: 'com.grack', name: 'nanojson', version: '1.2'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

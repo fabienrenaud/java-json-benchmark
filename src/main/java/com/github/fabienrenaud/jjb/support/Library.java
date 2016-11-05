@@ -21,7 +21,8 @@ public enum Library {
     JSONSMART,
     DSLJSON,
     LOGANSQUARE,
-    JSONSIMPLE;
+    JSONSIMPLE,
+    NANOJSON;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

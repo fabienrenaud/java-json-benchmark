@@ -4,9 +4,11 @@ import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
-import org.json.JSONObject;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Random;
 
 /**
@@ -21,7 +23,6 @@ public abstract class JsonSource<T> {
     private final T[] jsonAsObject;
     private final String[] jsonAsString;
     private final byte[][] jsonAsBytes;
-    private final JSONObject[] jsonAsOrgJsonObject;
     private final javax.json.JsonObject[] jsonAsJavaxJsonObject;
     private final ThreadLocal<ByteArrayInputStream[]> jsonAsByteArrayInputStream;
 
@@ -35,7 +36,6 @@ public abstract class JsonSource<T> {
         this.jsonAsObject = newPojoArray(quantity);
         this.jsonAsString = new String[quantity];
         this.jsonAsBytes = new byte[quantity][];
-        this.jsonAsOrgJsonObject = new JSONObject[quantity];
         this.jsonAsJavaxJsonObject = new javax.json.JsonObject[quantity];
 
         this.dataGenerator = dataGenerator;
@@ -66,7 +66,6 @@ public abstract class JsonSource<T> {
                 String json = provider.jackson().writeValueAsString(obj);
                 jsonAsString[i] = json;
                 jsonAsBytes[i] = json.getBytes();
-                jsonAsOrgJsonObject[i] = new JSONObject(json);
                 jsonAsJavaxJsonObject[i] = javax.json.Json.createReader(new ByteArrayInputStream(jsonAsBytes[i])).readObject();
             }
         } catch (Exception ex) {
@@ -100,10 +99,6 @@ public abstract class JsonSource<T> {
 
     public T nextPojo() {
         return jsonAsObject[index(jsonAsObject.length)];
-    }
-
-    public JSONObject nextJsonAsOrgJsonObject() {
-        return jsonAsOrgJsonObject[index(jsonAsOrgJsonObject.length)];
     }
 
     public javax.json.JsonObject nextJsonAsJavaxJsonObject() {

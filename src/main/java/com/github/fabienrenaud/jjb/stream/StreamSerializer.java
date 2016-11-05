@@ -3,6 +3,7 @@ package com.github.fabienrenaud.jjb.stream;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.gson.stream.JsonWriter;
 import com.owlike.genson.stream.ObjectWriter;
+import org.json.JSONException;
 
 import java.io.IOException;
 
@@ -10,6 +11,8 @@ import java.io.IOException;
  * Created by frenaud on 7/23/16.
  */
 public interface StreamSerializer<T> {
+
+    org.json.JSONObject orgjson(final T obj) throws JSONException;
 
     void genson(final ObjectWriter j, final T obj) throws IOException;
 

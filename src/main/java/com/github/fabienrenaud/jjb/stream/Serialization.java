@@ -17,8 +17,8 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object orgjson() {
-        return JSON_SOURCE.nextJsonAsOrgJsonObject().toString();
+    public Object orgjson() throws Exception {
+        return JSON_SOURCE.streamSerializer().orgjson(JSON_SOURCE.nextPojo()).toString();
     }
 
     @Benchmark

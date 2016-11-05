@@ -14,6 +14,8 @@ public interface StreamSerializer<T> {
 
     org.json.JSONObject orgjson(final T obj) throws JSONException;
 
+    javax.json.JsonObject javaxjson(final T obj) throws IOException;
+
     void genson(final ObjectWriter j, final T obj) throws IOException;
 
     void gson(final JsonWriter j, final T obj) throws IOException;

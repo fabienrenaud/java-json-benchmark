@@ -24,9 +24,11 @@ public class Serialization extends JsonBench {
     @Benchmark
     @Override
     public Object javaxjson() throws Exception {
+        javax.json.JsonObject jso = JSON_SOURCE.streamSerializer().javaxjson(JSON_SOURCE.nextPojo());
+
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         javax.json.JsonWriter jw = javax.json.Json.createWriter(baos);
-        jw.writeObject(JSON_SOURCE.nextJsonAsJavaxJsonObject());
+        jw.writeObject(jso);
         jw.close();
         return baos;
     }

@@ -101,6 +101,91 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
+    public javax.json.JsonObject javaxjson(final Users obj) throws IOException {
+        javax.json.JsonObjectBuilder jso = javax.json.Json.createObjectBuilder();
+        if (obj.users != null) {
+            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            for (User u : obj.users) {
+                jsarr.add(javaxjson(u));
+            }
+            jso.add("users", jsarr);
+        }
+        return jso.build();
+    }
+
+    private javax.json.JsonObjectBuilder javaxjson(final User u) throws IOException {
+        javax.json.JsonObjectBuilder jso = javax.json.Json.createObjectBuilder();
+        if (u._id != null) {
+            jso.add("_id", u._id);
+        }
+        jso.add("index", u.index);
+        if (u.guid != null) {
+            jso.add("guid", u.guid);
+        }
+        jso.add("isActive", u.isActive);
+        if (u.balance != null) {
+            jso.add("balance", u.balance);
+        }
+        if (u.picture != null) {
+            jso.add("picture", u.picture);
+        }
+        jso.add("age", u.age);
+        if (u.eyeColor != null) {
+            jso.add("eyeColor", u.eyeColor);
+        }
+        if (u.name != null) {
+            jso.add("name", u.name);
+        }
+        if (u.gender != null) {
+            jso.add("gender", u.gender);
+        }
+        if (u.company != null) {
+            jso.add("company", u.company);
+        }
+        if (u.email != null) {
+            jso.add("email", u.email);
+        }
+        if (u.phone != null) {
+            jso.add("phone", u.phone);
+        }
+        if (u.address != null) {
+            jso.add("address", u.address);
+        }
+        if (u.about != null) {
+            jso.add("about", u.about);
+        }
+        if (u.registered != null) {
+            jso.add("registered", u.registered);
+        }
+        jso.add("latitude", u.latitude);
+        jso.add("longitude", u.longitude);
+        if (u.tags != null) {
+            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            for (String t : u.tags) {
+                jsarr.add(t);
+            }
+            jso.add("tags", jsarr);
+        }
+        if (u.friends != null) {
+            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            for (Friend f : u.friends) {
+                javax.json.JsonObjectBuilder jso0 = javax.json.Json.createObjectBuilder();
+                jso0.add("id", f.id);
+                jso0.add("name", f.name);
+                jsarr.add(jso0);
+            }
+            jso.add("friends", jsarr);
+        }
+        if (u.greeting != null) {
+            jso.add("greeting", u.greeting);
+        }
+        if (u.favoriteFruit != null) {
+            jso.add("favoriteFruit", u.favoriteFruit);
+        }
+        return jso;
+    }
+
+    @Override
     public void genson(ObjectWriter j, Users obj) throws IOException {
         j.beginObject();
         if (obj.users != null) {

@@ -1,6 +1,6 @@
 plugins {
-    id 'com.github.johnrengelman.shadow' version '1.2.3'
-    id 'net.ltgt.apt' version '0.6'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+    id 'net.ltgt.apt' version '0.9'
 }
 
 apply plugin: 'java'

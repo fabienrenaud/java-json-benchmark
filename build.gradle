@@ -58,11 +58,13 @@ dependencies {
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     // nanojson
     compile group: 'com.grack', name: 'nanojson', version: '1.2'
+    // jodd
+    compile group: 'org.jodd', name: 'jodd-json', version: '3.8.0'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    // IMPORANT: Leave JMH at the end!
+    // IMPORTANT: Leave JMH at the end!
     // JMH
     compile group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.15'
     apt group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.15'

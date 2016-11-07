@@ -169,4 +169,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.NANOJSON, BENCH.nanojson());
         }
     }
+
+    @Test
+    public void jodd() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JODD, BENCH.jodd());
+        }
+    }
 }

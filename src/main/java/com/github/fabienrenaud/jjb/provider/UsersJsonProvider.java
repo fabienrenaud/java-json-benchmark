@@ -102,4 +102,28 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     public DslJson<Users> dsljson() {
         return dsljson;
     }
+
+    @Override
+    public jodd.json.JsonParser joddDeser() {
+        return JODD_DESER.get();
+    }
+
+    @Override
+    public jodd.json.JsonSerializer joddSer() {
+        return JODD_SER.get();
+    }
+
+    private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = new ThreadLocal<jodd.json.JsonParser>() {
+        @Override
+        protected jodd.json.JsonParser initialValue() {
+            return new jodd.json.JsonParser();
+        }
+    };
+
+    private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = new ThreadLocal<jodd.json.JsonSerializer>() {
+        @Override
+        protected jodd.json.JsonSerializer initialValue() {
+            return new jodd.json.JsonSerializer();
+        }
+    };
 }

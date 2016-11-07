@@ -22,7 +22,8 @@ public enum Library {
     DSLJSON,
     LOGANSQUARE,
     JSONSIMPLE,
-    NANOJSON;
+    NANOJSON,
+    JODD;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

@@ -37,4 +37,8 @@ public interface JsonProvider<T> {
     Map<String, Object> jsonioStreamOptions();
 
     DslJson<T> dsljson();
+
+    jodd.json.JsonParser joddDeser();
+
+    jodd.json.JsonSerializer joddSer();
 }

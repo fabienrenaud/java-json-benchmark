@@ -12,9 +12,11 @@ import java.util.List;
  */
 @JsonObject
 @CompiledJson
+@jodd.json.meta.JSON
 public class Users {
 
     @JsonField
+    @jodd.json.meta.JSON
     public List<User> users;
 
     @Override
@@ -79,9 +81,11 @@ public class Users {
         public double longitude;
         @JsonField
         @JsonAttribute(nullable = false)
+        @jodd.json.meta.JSON
         public List<String> tags;
         @JsonField
         @JsonAttribute(nullable = false)
+        @jodd.json.meta.JSON
         public List<Friend> friends;
         @JsonField
         public String greeting;

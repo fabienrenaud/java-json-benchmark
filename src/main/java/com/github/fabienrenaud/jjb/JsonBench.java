@@ -74,4 +74,8 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object jodd() throws Exception {
+        return null;
+    }
+
 }

@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
 
-tail -n30 deser-1-1.txt | grep -A30 "Benchmark" | grep -v Benchmark | awk '{ print $1 }' | sed -E \
+N=30
+
+tail -n${N} deser-1-1.txt | grep -A${N} "Benchmark" | grep -v Benchmark | awk '{ print $1 }' | sed -E \
   -e 's/^.*databind\.Deserialization\.([a-zA-Z_]+)/\1\/databind/g' \
   -e 's/^.*stream\.Deserialization\.([a-zA-Z_]+)/\1\/stream/g' > deser-names.tmp
-tail -n30 ser-1-1.txt | grep -A30 "Benchmark" | grep -v Benchmark | awk '{ print $1 }' | sed -E \
+tail -n${N} ser-1-1.txt | grep -A${N} "Benchmark" | grep -v Benchmark | awk '{ print $1 }' | sed -E \
   -e 's/^.*databind\.Serialization\.([a-zA-Z_]+)/\1\/databind/g' \
   -e 's/^.*stream\.Serialization\.([a-zA-Z_]+)/\1\/stream/g' > ser-names.tmp
 
 for f in $(ls *.txt); do
-  tail -n30 "$f" | grep -A30 "Benchmark" | grep -v Benchmark | awk '{ print $4 }' > ${f/txt/tmp}
+  tail -n${N} "$f" | grep -A${N} "Benchmark" | grep -v Benchmark | awk '{ print $4 }' > ${f/txt/tmp}
 done
 
 [[ ! -d csv ]] && mkdir csv

@@ -27,7 +27,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
-    private final JSONSerializer flexjsonSer = new JSONSerializer();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnson;
 
@@ -80,7 +79,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     public JSONSerializer flexjsonSer() {
-        return flexjsonSer;
+        return FLEXJSON_SER.get();
     }
 
     @Override
@@ -112,6 +111,13 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     public jodd.json.JsonSerializer joddSer() {
         return JODD_SER.get();
     }
+
+    private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = new ThreadLocal<flexjson.JSONSerializer>() {
+        @Override
+        protected JSONSerializer initialValue() {
+            return new JSONSerializer();
+        }
+    };
 
     private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = new ThreadLocal<jodd.json.JsonParser>() {
         @Override

@@ -18,7 +18,7 @@ Benchmark runs by date
 | logansquare | 1.3.7   |
 | dsl-json    | 1.1.2   |
 | simplejson  | 1.1.1   |
-| nanojson    | 1.1     |
+| nanojson    | 1.2     |
 | jodd json   | 3.8.0   |
 
 ![json deserialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=746064058&format=image)

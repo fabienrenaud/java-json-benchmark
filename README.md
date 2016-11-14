@@ -56,7 +56,7 @@ The results here-below were computed on November the 13th, 2016 with the followi
 | logansquare | 1.3.7   |
 | dsl-json    | 1.1.2   |
 | simplejson  | 1.1.1   |
-| nanojson    | 1.1     |
+| nanojson    | 1.2     |
 | jodd json   | 3.8.0   |
 
 [All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)

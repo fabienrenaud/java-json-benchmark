@@ -20,7 +20,10 @@ public enum Library {
     JOHNZON,
     JSONSMART,
     DSLJSON,
-    LOGANSQUARE;
+    LOGANSQUARE,
+    JSONSIMPLE,
+    NANOJSON,
+    JODD;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

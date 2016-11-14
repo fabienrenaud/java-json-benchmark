@@ -57,4 +57,15 @@ public class Deserialization extends JsonBench {
         return com.cedarsoftware.util.io.JsonReader.jsonToJava(JSON_SOURCE.nextInputStream(), JSON_SOURCE.provider().jsonioStreamOptions());
     }
 
+    @Benchmark
+    @Override
+    public Object jsonsimple() throws Exception {
+        return org.json.simple.JSONValue.parse(JSON_SOURCE.nextReader());
+    }
+
+    @Benchmark
+    @Override
+    public Object nanojson() throws Exception {
+        return com.grack.nanojson.JsonParser.object().from(JSON_SOURCE.nextInputStream());
+    }
 }

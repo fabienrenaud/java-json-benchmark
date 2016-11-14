@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo $(date +%Y-%m-%d)
+echo
+
 for f in $(ls *.txt); do
   fnoxt=${f/.txt/}
   name=$(echo $fnoxt | cut -d- -f1)

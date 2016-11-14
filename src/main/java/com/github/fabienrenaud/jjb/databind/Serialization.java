@@ -100,4 +100,10 @@ public class Serialization extends JsonBench {
         LoganSquare.serialize(JSON_SOURCE.nextPojo(), baos);
         return baos;
     }
+
+    @Benchmark
+    @Override
+    public Object jodd() throws Exception {
+        return JSON_SOURCE.provider().joddSer().serialize(JSON_SOURCE.nextPojo());
+    }
 }

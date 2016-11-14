@@ -3,6 +3,7 @@ package com.github.fabienrenaud.jjb.stream;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
+import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
 import org.openjdk.jmh.annotations.Benchmark;
 
@@ -17,16 +18,18 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object orgjson() {
-        return JSON_SOURCE.nextJsonAsOrgJsonObject().toString();
+    public Object orgjson() throws Exception {
+        return JSON_SOURCE.streamSerializer().orgjson(JSON_SOURCE.nextPojo()).toString();
     }
 
     @Benchmark
     @Override
     public Object javaxjson() throws Exception {
+        javax.json.JsonObject jso = JSON_SOURCE.streamSerializer().javaxjson(JSON_SOURCE.nextPojo());
+
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         javax.json.JsonWriter jw = javax.json.Json.createWriter(baos);
-        jw.writeObject(JSON_SOURCE.nextJsonAsJavaxJsonObject());
+        jw.writeObject(jso);
         jw.close();
         return baos;
     }
@@ -67,5 +70,27 @@ public class Serialization extends JsonBench {
     @Override
     public Object jsonio() throws Exception {
         return com.cedarsoftware.util.io.JsonWriter.objectToJson(JSON_SOURCE.nextPojo(), JSON_SOURCE.provider().jsonioStreamOptions());
+    }
+
+    @Benchmark
+    @Override
+    public Object jsonsimple() throws Exception {
+        org.json.simple.JSONObject jso = JSON_SOURCE.streamSerializer().jsonsimple(JSON_SOURCE.nextPojo());
+
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Writer w = new OutputStreamWriter(baos);
+        org.json.simple.JSONValue.writeJSONString(jso, w);
+        w.close();
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object nanojson() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JsonAppendableWriter writer = com.grack.nanojson.JsonWriter.on(baos);
+        JSON_SOURCE.streamSerializer().nanojson(writer, JSON_SOURCE.nextPojo());
+        writer.done();
+        return baos;
     }
 }

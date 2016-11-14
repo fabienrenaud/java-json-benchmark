@@ -18,6 +18,8 @@ The following libraries are evaluated:
 * [johnzon](http://johnzon.apache.org/)
 * [logansquare](https://github.com/bluelinelabs/LoganSquare)
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
+* [json-simple](https://code.google.com/archive/p/json-simple/)
+* [nanojson](https://github.com/mmastrac/nanojson)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each benchmark.
@@ -34,28 +36,48 @@ This benchmark does NOT evaluate:
 
 ## Results
 
-This benchmark was performed using [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and Java 8.
-Read below for JMH and hardware info.
+The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/edit?usp=sharing)
+The results here-below were computed on November the 13th, 2016 with the following libraries and versions:
 
-## Deserialization performance
+| Library     | Version |
+|-------------|---------|
+| jackson     | 2.8.4   |
+| genson      | 1.4     |
+| fastjson    | 1.2.20  |
+| gson        | 2.8.0   |
+| org.json    | 20090211   |
+| javax-json  | 1.0, 1.0.4 |
+| json-io     | 4.9.0   |
+| flexjson    | 3.3     |
+| boon        | 0.34    |
+| json-smart  | 2.2.1   |
+| johnzon     | 0.9.5   |
+| logansquare | 1.3.7   |
+| dsl-json    | 1.1.2   |
+| simplejson  | 1.1.1   |
+| nanojson    | 1.1     |
+| jodd json   | 3.8.0   |
 
-![json deserialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=782651865&format=image)
+[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)
+
+### Deserialization performance
+
+![json deserialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=746064058&format=image)
 
 [Raw JMH results here][jmh-results]
 
-## Serialization performance
+### Serialization performance
 
-![json serialization performance chart 1 payload per iteration](https://docs.google.com/spreadsheets/d/1QJ8vwMXTHidMX4jo6aldGRt7d7DzPqvQJ4ETaevKT-c/pubchart?oid=69104817&format=image)
+![json serialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=1130150523&format=image)
 
 [Raw JMH results here][jmh-results]
 
-## Benchmark configuration
+### Benchmark configuration
 
-### JMH
+#### JMH
 
-    # JMH 1.12 (released 113 days ago, please consider updating!)
+    # JMH 1.15 (released 44 days ago)
     # VM version: JDK 1.8.0_45, VM 25.45-b02
     # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
@@ -65,7 +87,7 @@ Read below for JMH and hardware info.
     # Threads: 16 threads, will synchronize iterations
     # Benchmark mode: Throughput, ops/time
 
-### Hardware
+#### Hardware
 
     Model Name: MacBook Pro
     Processor Name: Intel Core i7
@@ -103,4 +125,4 @@ libraries is welcome.
 
 Pull requests are welcome.
 
-[jmh-results]: /JMH-results.md
+[jmh-results]: /archive/raw-results-2016-11-13.md

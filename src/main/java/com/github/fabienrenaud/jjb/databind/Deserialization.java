@@ -80,4 +80,10 @@ public class Deserialization extends JsonBench {
     public Object logansquare() throws Exception {
         return LoganSquare.parse(JSON_SOURCE.nextInputStream(), JSON_SOURCE.pojoType());
     }
+
+    @Benchmark
+    @Override
+    public Object jodd() throws Exception {
+        return JSON_SOURCE.provider().joddDeser().parse(JSON_SOURCE.nextString(), JSON_SOURCE.pojoType());
+    }
 }

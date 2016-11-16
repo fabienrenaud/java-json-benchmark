@@ -9,6 +9,7 @@ import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
+import com.squareup.moshi.Moshi;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import org.apache.johnzon.mapper.Mapper;
@@ -29,6 +30,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnson;
+    private final com.squareup.moshi.JsonAdapter<Users> moshi = new Moshi.Builder().build().adapter(Users.class);
 
     /*
      * DSL-json
@@ -110,6 +112,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public jodd.json.JsonSerializer joddSer() {
         return JODD_SER.get();
+    }
+
+    @Override
+    public com.squareup.moshi.JsonAdapter<Users> moshi() {
+        return moshi;
     }
 
     private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = new ThreadLocal<flexjson.JSONSerializer>() {

@@ -176,4 +176,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.JODD, BENCH.jodd());
         }
     }
+
+    @Test
+    public void moshi() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.MOSHI, BENCH.moshi());
+        }
+    }
 }

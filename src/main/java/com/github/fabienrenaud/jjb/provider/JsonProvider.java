@@ -41,4 +41,6 @@ public interface JsonProvider<T> {
     jodd.json.JsonParser joddDeser();
 
     jodd.json.JsonSerializer joddSer();
+
+    com.squareup.moshi.JsonAdapter<T> moshi();
 }

@@ -4,11 +4,9 @@ import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
+import okio.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -92,6 +90,14 @@ public abstract class JsonSource<T> {
 
     public Reader nextReader() {
         return new InputStreamReader(nextInputStream());
+    }
+
+    public BufferedSource nextOkioBufferedSource() {
+        return Okio.buffer(new ForwardingSource(Okio.source(nextInputStream())) {
+            @Override
+            public void close() throws IOException {
+            }
+        });
     }
 
     public T nextPojo() {

@@ -86,4 +86,10 @@ public class Deserialization extends JsonBench {
     public Object jodd() throws Exception {
         return JSON_SOURCE.provider().joddDeser().parse(JSON_SOURCE.nextString(), JSON_SOURCE.pojoType());
     }
+
+    @Benchmark
+    @Override
+    public Object moshi() throws Exception {
+        return JSON_SOURCE.provider().moshi().fromJson(JSON_SOURCE.nextOkioBufferedSource());
+    }
 }

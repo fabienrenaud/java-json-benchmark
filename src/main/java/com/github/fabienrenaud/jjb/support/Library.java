@@ -23,7 +23,8 @@ public enum Library {
     LOGANSQUARE,
     JSONSIMPLE,
     NANOJSON,
-    JODD;
+    JODD,
+    MOSHI;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

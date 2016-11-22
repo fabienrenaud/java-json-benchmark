@@ -31,7 +31,10 @@ public final class Cli {
     }
 
     public static void main(String[] args) throws RunnerException {
-        CliBuilder<Runnable> builder = io.airlift.airline.Cli.<Runnable>builder("bench").withDescription("Benchmark JSON libraries").withDefaultCommand(Help.class).withCommands(Help.class, InfoCommand.class, SerializationCommand.class, DeserializationCommand.class);
+        CliBuilder<Runnable> builder = io.airlift.airline.Cli.<Runnable>builder("bench")
+            .withDescription("Benchmark JSON libraries")
+            .withDefaultCommand(Help.class)
+            .withCommands(Help.class, InfoCommand.class, SerializationCommand.class, DeserializationCommand.class);
 
         io.airlift.airline.Cli<Runnable> gitParser = builder.build();
         gitParser.parse(args).run();

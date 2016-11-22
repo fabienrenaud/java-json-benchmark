@@ -1,5 +1,41 @@
 Benchmark runs by date
 
+## 2016-11-21
+
+| Library     | Version |
+|-------------|---------|
+| jackson     | 2.8.4   |
+| genson      | 1.4     |
+| fastjson    | 1.2.20  |
+| gson        | 2.8.0   |
+| org.json    | 20090211   |
+| javax-json  | 1.0, 1.0.4 |
+| json-io     | 4.9.0   |
+| flexjson    | 3.3     |
+| boon        | 0.34    |
+| json-smart  | 2.2.1   |
+| johnzon     | 0.9.5   |
+| logansquare | 1.3.7   |
+| dsl-json    | 1.1.2   |
+| simplejson  | 1.1.1   |
+| nanojson    | 1.2     |
+| jodd json   | 3.8.0   |
+| moshi       | 1.3.1   |
+
+![json deserialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=746064058&format=image)
+
+![json serialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=1130150523&format=image)
+
+**JMH configuration and hardware**
+
+Same as below, JMH 1.15.
+
+**Links**
+
+ * [google spreadsheet](https://docs.google.com/spreadsheets/d/1NUPQP7MlNkTam165Rc1SoUpcw_YdpLQp29Eg4eSfqbM/edit?usp=sharing)
+ * [raw-results-2016-11-21.md](/archive/raw-results-2016-11-21.md)
+
+
 ## 2016-11-13
 
 | Library     | Version |
@@ -32,7 +68,7 @@ Same as below, JMH 1.15.
 **Links**
 
  * [google spreadsheet](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)
- * [raw-results-2016-11-05.md](/archive/raw-results-2016-11-13.md)
+ * [raw-results-2016-11-13.md](/archive/raw-results-2016-11-13.md)
  * [Special run on an Amazon EC2 c3.2xlarge instance](/archive/raw-results-2016-11-13-ec2_c3_2xlarge.md)
 
 ## 2016-07-25

@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'java'
 
 group = 'com.github.fabienrenaud'
-version = '2'
+version = '3'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8

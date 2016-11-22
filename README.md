@@ -20,6 +20,7 @@ The following libraries are evaluated:
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [json-simple](https://code.google.com/archive/p/json-simple/)
 * [nanojson](https://github.com/mmastrac/nanojson)
+* [moshi](https://github.com/square/moshi)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each benchmark.
@@ -38,7 +39,7 @@ This benchmark does NOT evaluate:
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-The results here-below were computed on November the 13th, 2016 with the following libraries and versions:
+The results here-below were computed on November the 21st, 2016 with the following libraries and versions:
 
 | Library     | Version |
 |-------------|---------|
@@ -58,18 +59,19 @@ The results here-below were computed on November the 13th, 2016 with the followi
 | simplejson  | 1.1.1   |
 | nanojson    | 1.2     |
 | jodd json   | 3.8.0   |
+| moshi       | 1.3.1   |
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/edit?usp=sharing)
+[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1NUPQP7MlNkTam165Rc1SoUpcw_YdpLQp29Eg4eSfqbM/edit?usp=sharing)
 
 ### Deserialization performance
 
-![json deserialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=746064058&format=image)
+![json deserialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=746064058&format=image)
 
 [Raw JMH results here][jmh-results]
 
 ### Serialization performance
 
-![json serialization performance](https://docs.google.com/spreadsheets/d/1a2fbeSP2OBnULNOZ5koAi6EtS0cTvywPOTDyrlPJ8ek/pubchart?oid=1130150523&format=image)
+![json serialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=1130150523&format=image)
 
 [Raw JMH results here][jmh-results]
 
@@ -77,7 +79,7 @@ The results here-below were computed on November the 13th, 2016 with the followi
 
 #### JMH
 
-    # JMH 1.15 (released 44 days ago)
+    # JMH 1.15 (released 52 days ago)
     # VM version: JDK 1.8.0_45, VM 25.45-b02
     # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
@@ -125,4 +127,4 @@ libraries is welcome.
 
 Pull requests are welcome.
 
-[jmh-results]: /archive/raw-results-2016-11-13.md
+[jmh-results]: /archive/raw-results-2016-11-21.md

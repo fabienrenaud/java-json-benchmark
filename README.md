@@ -125,6 +125,14 @@ be patient.
 Any help to improve the existing benchmarks or write ones for other
 libraries is welcome.
 
+Adding a JSON library to the benchmark requires little work and you can
+find numerous examples in the commit history. For instance:
+
+ * Addition of moshi: https://github.com/fabienrenaud/java-json-benchmark/commit/6af2c0a7091b12a9dc768e49499682b97ea57ff6
+ * Addition of jodd: https://github.com/fabienrenaud/java-json-benchmark/commit/288a4e61496588ed4c0a80e1f107f34f9a2c985c
+ * Addition of json-simple: https://github.com/fabienrenaud/java-json-benchmark/commit/1e1e559c39a6eddc3dd7d7cea777fc7861415469
+ 
+
 Pull requests are welcome.
 
 [jmh-results]: /archive/raw-results-2016-11-21.md

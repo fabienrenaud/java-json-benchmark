@@ -5,5 +5,5 @@ if [ -z $JVM_OPTIONS ]; then
   JVM_OPTIONS="-server -XX:+AggressiveOpts -Xms2G -Xmx2G"
 fi
 
-gradle -q shadowJar
+./gradlew -q shadowJar
 java $JVM_OPTIONS -cp build/libs/benchmarks*.jar com.github.fabienrenaud.jjb.Cli $*

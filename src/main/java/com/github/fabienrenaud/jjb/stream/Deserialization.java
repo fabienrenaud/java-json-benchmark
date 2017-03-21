@@ -68,4 +68,11 @@ public class Deserialization extends JsonBench {
     public Object nanojson() throws Exception {
         return com.grack.nanojson.JsonParser.object().from(JSON_SOURCE.nextInputStream());
     }
+
+    @Benchmark
+    @Override
+    public Object tapestry() throws Exception {
+        org.apache.tapestry5.json.JSONObject node = new org.apache.tapestry5.json.JSONObject(JSON_SOURCE.nextString());
+        return node;
+    }
 }

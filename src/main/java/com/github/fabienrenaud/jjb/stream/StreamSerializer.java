@@ -23,4 +23,6 @@ public interface StreamSerializer<T> {
     org.json.simple.JSONObject jsonsimple(final T obj) throws IOException;
 
     void nanojson(final JsonAppendableWriter writer, final T obj) throws IOException;
+
+    org.apache.tapestry5.json.JSONObject tapestry(final T obj) throws IOException;
 }

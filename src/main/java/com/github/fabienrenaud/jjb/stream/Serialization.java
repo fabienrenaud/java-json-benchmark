@@ -93,4 +93,10 @@ public class Serialization extends JsonBench {
         writer.done();
         return baos;
     }
+
+    @Benchmark
+    @Override
+    public Object tapestry() throws Exception {
+        return JSON_SOURCE.streamSerializer().tapestry(JSON_SOURCE.nextPojo()).toString();
+    }
 }

@@ -661,4 +661,89 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         cw.end();
         return cw;
     }
+
+    @Override
+    public org.apache.tapestry5.json.JSONObject tapestry(final Users obj) throws IOException {
+        org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
+        if (obj.users != null) {
+            org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
+            for (User u : obj.users) {
+                jsarr.put(tapestry(u));
+            }
+            jso.put("users", jsarr);
+        }
+        return jso;
+    }
+
+    private org.apache.tapestry5.json.JSONObject tapestry(final User u) throws IOException {
+        org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
+        if (u._id != null) {
+            jso.put("_id", u._id);
+        }
+        jso.put("index", u.index);
+        if (u.guid != null) {
+            jso.put("guid", u.guid);
+        }
+        jso.put("isActive", u.isActive);
+        if (u.balance != null) {
+            jso.put("balance", u.balance);
+        }
+        if (u.picture != null) {
+            jso.put("picture", u.picture);
+        }
+        jso.put("age", u.age);
+        if (u.eyeColor != null) {
+            jso.put("eyeColor", u.eyeColor);
+        }
+        if (u.name != null) {
+            jso.put("name", u.name);
+        }
+        if (u.gender != null) {
+            jso.put("gender", u.gender);
+        }
+        if (u.company != null) {
+            jso.put("company", u.company);
+        }
+        if (u.email != null) {
+            jso.put("email", u.email);
+        }
+        if (u.phone != null) {
+            jso.put("phone", u.phone);
+        }
+        if (u.address != null) {
+            jso.put("address", u.address);
+        }
+        if (u.about != null) {
+            jso.put("about", u.about);
+        }
+        if (u.registered != null) {
+            jso.put("registered", u.registered);
+        }
+        jso.put("latitude", u.latitude);
+        jso.put("longitude", u.longitude);
+        if (u.tags != null) {
+            org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
+            for (String t : u.tags) {
+                jsarr.put(t);
+            }
+            jso.put("tags", jsarr);
+        }
+        if (u.friends != null) {
+            org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
+            for (Friend f : u.friends) {
+                org.apache.tapestry5.json.JSONObject jso0 = new org.apache.tapestry5.json.JSONObject();
+                jso0.put("id", f.id);
+                jso0.put("name", f.name);
+                jsarr.put(jso0);
+            }
+            jso.put("friends", jsarr);
+        }
+        if (u.greeting != null) {
+            jso.put("greeting", u.greeting);
+        }
+        if (u.favoriteFruit != null) {
+            jso.put("favoriteFruit", u.favoriteFruit);
+        }
+        return jso;
+    }
 }

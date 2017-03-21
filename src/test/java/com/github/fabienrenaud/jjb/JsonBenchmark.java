@@ -183,4 +183,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.MOSHI, BENCH.moshi());
         }
     }
+
+    @Test
+    public void tapestry() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.TAPESTRY, BENCH.tapestry());
+        }
+    }
 }

@@ -52,7 +52,7 @@ The results here-below were computed on November the 21st, 2016 with the followi
 | json-io     | 4.9.0   |
 | flexjson    | 3.3     |
 | boon        | 0.34    |
-| json-smart  | 2.2.1   |
+| json-smart  | 2.3     |
 | johnzon     | 0.9.5   |
 | logansquare | 1.3.7   |
 | dsl-json    | 1.1.2   |

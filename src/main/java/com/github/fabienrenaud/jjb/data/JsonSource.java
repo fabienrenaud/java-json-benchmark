@@ -4,6 +4,11 @@ import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
+import com.jsoniter.DecodingMode;
+import com.jsoniter.JsonIterator;
+import com.jsoniter.annotation.JsoniterAnnotationSupport;
+import com.jsoniter.output.EncodingMode;
+import com.jsoniter.output.JsonStream;
 import okio.*;
 
 import java.io.*;
@@ -13,6 +18,12 @@ import java.util.Random;
  * Created by frenaud on 7/23/16.
  */
 public abstract class JsonSource<T> {
+
+    static {
+        JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_STRICTLY);
+        JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
+        JsoniterAnnotationSupport.enable();
+    }
 
     private static final Random RNG = new Random();
 

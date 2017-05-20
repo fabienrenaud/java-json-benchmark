@@ -86,4 +86,7 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object jsoniter() throws Exception {
+        return null;
+    }
 }

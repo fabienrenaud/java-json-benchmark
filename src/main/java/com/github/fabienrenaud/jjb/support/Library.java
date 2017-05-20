@@ -25,7 +25,8 @@ public enum Library {
     NANOJSON,
     JODD,
     MOSHI,
-    TAPESTRY;
+    TAPESTRY,
+    JSONITER;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

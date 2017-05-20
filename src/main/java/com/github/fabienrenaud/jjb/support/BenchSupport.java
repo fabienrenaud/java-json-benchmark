@@ -28,7 +28,8 @@ public enum BenchSupport {
         new Libapi(Library.NANOJSON, Api.STREAM),
         new Libapi(Library.JODD, Api.DATABIND),
         new Libapi(Library.MOSHI, Api.DATABIND),
-        new Libapi(Library.TAPESTRY, Api.STREAM)
+        new Libapi(Library.TAPESTRY, Api.STREAM),
+        new Libapi(Library.JSONITER, Api.DATABIND)
     );
 
     private final List<Libapi> libapis;

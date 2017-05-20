@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.google.gson.JsonSyntaxException;
+import com.jsoniter.JsonIterator;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
@@ -91,5 +92,11 @@ public class Deserialization extends JsonBench {
     @Override
     public Object moshi() throws Exception {
         return JSON_SOURCE.provider().moshi().fromJson(JSON_SOURCE.nextOkioBufferedSource());
+    }
+
+    @Benchmark
+    @Override
+    public Object jsoniter() throws Exception {
+        return JsonIterator.deserialize(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }
 }

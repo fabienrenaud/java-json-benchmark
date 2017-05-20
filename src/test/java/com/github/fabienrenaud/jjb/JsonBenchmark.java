@@ -190,4 +190,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.TAPESTRY, BENCH.tapestry());
         }
     }
+
+    @Test
+    public void jsoniter() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JSONITER, BENCH.jsoniter());
+        }
+    }
 }

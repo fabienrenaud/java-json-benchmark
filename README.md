@@ -21,6 +21,8 @@ The following libraries are evaluated:
 * [json-simple](https://code.google.com/archive/p/json-simple/)
 * [nanojson](https://github.com/mmastrac/nanojson)
 * [moshi](https://github.com/square/moshi)
+* [tapestry](https://tapestry.apache.org/json.html)
+* [jsoniter](http://jsoniter.com)
 
 This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
 Random payloads of various sizes are generated at runtime before each benchmark.
@@ -43,23 +45,25 @@ The results here-below were computed on November the 21st, 2016 with the followi
 
 | Library     | Version |
 |-------------|---------|
-| jackson     | 2.8.4   |
+| jackson     | 2.8.8   |
 | genson      | 1.4     |
-| fastjson    | 1.2.20  |
+| fastjson    | 1.2.32  |
 | gson        | 2.8.0   |
 | org.json    | 20090211   |
 | javax-json  | 1.0, 1.0.4 |
-| json-io     | 4.9.0   |
+| json-io     | 4.9.12  |
 | flexjson    | 3.3     |
 | boon        | 0.34    |
-| json-smart  | 2.2.1   |
-| johnzon     | 0.9.5   |
+| json-smart  | 2.3     |
+| johnzon     | 1.1.0   |
 | logansquare | 1.3.7   |
-| dsl-json    | 1.1.2   |
+| dsl-json    | 1.4.1   |
 | simplejson  | 1.1.1   |
 | nanojson    | 1.2     |
-| jodd json   | 3.8.0   |
-| moshi       | 1.3.1   |
+| jodd json   | 3.8.5   |
+| moshi       | 1.5.0   |
+| tapestry    | 5.4.3   |
+| jsoniter    | 0.9.11  |
 
 [All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1NUPQP7MlNkTam165Rc1SoUpcw_YdpLQp29Eg4eSfqbM/edit?usp=sharing)
 

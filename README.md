@@ -29,7 +29,7 @@ Random payloads of various sizes are generated at runtime before each benchmark.
 
 Four different sizes of payloads are evaluated in the charts below: 1 KB, 10 KB, 100 KB and 1 MB. And it is possible to generate on the fly any size of payloads.
 
-Each benchmark has been written to read bytes from RAM and write to reusable output streams in RAM when possible, strings are rarely generated. All data is randomly generated upon static loading.
+Each benchmark is written to read bytes from RAM and write to reusable output streams in RAM when possible, strings are rarely generated. All data is randomly generated upon static loading.
 
 This benchmark does NOT evaluate:
 
@@ -41,7 +41,7 @@ This benchmark does NOT evaluate:
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-The results here-below were computed on November the 21st, 2016 with the following libraries and versions:
+The results here-below were computed on May the 21st, 2017 with the following libraries and versions:
 
 | Library     | Version |
 |-------------|---------|
@@ -65,17 +65,17 @@ The results here-below were computed on November the 21st, 2016 with the followi
 | tapestry    | 5.4.3   |
 | jsoniter    | 0.9.11  |
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1NUPQP7MlNkTam165Rc1SoUpcw_YdpLQp29Eg4eSfqbM/edit?usp=sharing)
+[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/edit?usp=sharing)
 
 ### Deserialization performance
 
-![json deserialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=746064058&format=image)
+![json deserialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=746064058&format=image)
 
 [Raw JMH results here][jmh-results]
 
 ### Serialization performance
 
-![json serialization performance](https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4k5AtnQ7TN08y94UAZdx5YS_HyEKdhHteqS-xw9WRyluGiVYPIjryBx1JYtC2MOAAYQjU4wWajhH/pubchart?oid=1130150523&format=image)
+![json serialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=1130150523&format=image)
 
 [Raw JMH results here][jmh-results]
 
@@ -83,12 +83,12 @@ The results here-below were computed on November the 21st, 2016 with the followi
 
 #### JMH
 
-    # JMH 1.15 (released 52 days ago)
-    # VM version: JDK 1.8.0_45, VM 25.45-b02
-    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/bin/java
+    # JMH version: 1.19
+    # VM version: JDK 1.8.0_121, VM 25.121-b13
+    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
-    # Warmup: 3 iterations, 1 s each
-    # Measurement: 5 iterations, 2 s each
+    # Warmup: 5 iterations, 1 s each
+    # Measurement: 10 iterations, 3 s each
     # Timeout: 10 min per iteration
     # Threads: 16 threads, will synchronize iterations
     # Benchmark mode: Throughput, ops/time
@@ -139,4 +139,4 @@ find numerous examples in the commit history. For instance:
 
 Pull requests are welcome.
 
-[jmh-results]: /archive/raw-results-2016-11-21.md
+[jmh-results]: /archive/raw-results-2017-05-21.md

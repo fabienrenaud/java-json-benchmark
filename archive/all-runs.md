@@ -1,5 +1,42 @@
 Benchmark runs by date
 
+## 2017-05-21
+
+| Library     | Version |
+|-------------|---------|
+| jackson     | 2.8.8   |
+| genson      | 1.4     |
+| fastjson    | 1.2.32  |
+| gson        | 2.8.0   |
+| org.json    | 20090211   |
+| javax-json  | 1.0, 1.0.4 |
+| json-io     | 4.9.12  |
+| flexjson    | 3.3     |
+| boon        | 0.34    |
+| json-smart  | 2.3     |
+| johnzon     | 1.1.0   |
+| logansquare | 1.3.7   |
+| dsl-json    | 1.4.1   |
+| simplejson  | 1.1.1   |
+| nanojson    | 1.2     |
+| jodd json   | 3.8.5   |
+| moshi       | 1.5.0   |
+| tapestry    | 5.4.3   |
+| jsoniter    | 0.9.11  |
+
+![json deserialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=746064058&format=image)
+
+![json serialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=1130150523&format=image)
+
+**JMH configuration and hardware**
+
+Same as below, JMH 1.19.
+
+**Links**
+
+ * [google spreadsheet](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/edit?usp=sharing)
+ * [raw-results-2016-11-21.md](/archive/raw-results-2017-05-21.md)
+
 ## 2016-11-21
 
 | Library     | Version |

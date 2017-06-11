@@ -25,4 +25,6 @@ public interface StreamSerializer<T> {
     void nanojson(final JsonAppendableWriter writer, final T obj) throws IOException;
 
     org.apache.tapestry5.json.JSONObject tapestry(final T obj) throws IOException;
+
+    com.eclipsesource.json.JsonValue minimaljson(final T obj) throws IOException;
 }

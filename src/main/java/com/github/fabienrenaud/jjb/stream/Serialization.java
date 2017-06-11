@@ -99,4 +99,14 @@ public class Serialization extends JsonBench {
     public Object tapestry() throws Exception {
         return JSON_SOURCE.streamSerializer().tapestry(JSON_SOURCE.nextPojo()).toString();
     }
+
+    @Benchmark
+    @Override
+    public Object minimaljson() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        OutputStreamWriter writer = new OutputStreamWriter(baos);
+        JSON_SOURCE.streamSerializer().minimaljson(JSON_SOURCE.nextPojo()).writeTo(writer);
+        writer.close();
+        return baos;
+    }
 }

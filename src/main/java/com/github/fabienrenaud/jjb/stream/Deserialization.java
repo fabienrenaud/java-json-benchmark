@@ -75,4 +75,10 @@ public class Deserialization extends JsonBench {
         org.apache.tapestry5.json.JSONObject node = new org.apache.tapestry5.json.JSONObject(JSON_SOURCE.nextString());
         return node;
     }
+
+    @Benchmark
+    @Override
+    public Object minimaljson() throws Exception {
+        return JSON_SOURCE.streamDeserializer().minimaljson(JSON_SOURCE.nextReader());
+    }
 }

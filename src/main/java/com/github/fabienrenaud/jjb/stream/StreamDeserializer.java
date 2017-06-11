@@ -5,6 +5,7 @@ import com.google.gson.stream.JsonReader;
 import com.owlike.genson.stream.ObjectReader;
 
 import java.io.IOException;
+import java.io.Reader;
 
 /**
  * Created by frenaud on 7/23/16.
@@ -16,4 +17,6 @@ public interface StreamDeserializer<T> {
     T gson(JsonReader reader) throws IOException;
 
     T jackson(JsonParser jParser) throws IOException;
+
+    T minimaljson(Reader reader) throws IOException;
 }

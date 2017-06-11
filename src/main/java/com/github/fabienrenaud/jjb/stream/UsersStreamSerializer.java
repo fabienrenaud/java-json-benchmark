@@ -746,4 +746,89 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         }
         return jso;
     }
+
+    @Override
+    public com.eclipsesource.json.JsonValue minimaljson(Users obj) throws IOException {
+        com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
+        if (obj.users != null) {
+            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            for (User u : obj.users) {
+                jsarr.add(minimaljson(u));
+            }
+            jso.add("users", jsarr);
+        }
+        return jso;
+    }
+
+    private com.eclipsesource.json.JsonValue minimaljson(final User u) throws IOException {
+        com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
+        if (u._id != null) {
+            jso.add("_id", u._id);
+        }
+        jso.add("index", u.index);
+        if (u.guid != null) {
+            jso.add("guid", u.guid);
+        }
+        jso.add("isActive", u.isActive);
+        if (u.balance != null) {
+            jso.add("balance", u.balance);
+        }
+        if (u.picture != null) {
+            jso.add("picture", u.picture);
+        }
+        jso.add("age", u.age);
+        if (u.eyeColor != null) {
+            jso.add("eyeColor", u.eyeColor);
+        }
+        if (u.name != null) {
+            jso.add("name", u.name);
+        }
+        if (u.gender != null) {
+            jso.add("gender", u.gender);
+        }
+        if (u.company != null) {
+            jso.add("company", u.company);
+        }
+        if (u.email != null) {
+            jso.add("email", u.email);
+        }
+        if (u.phone != null) {
+            jso.add("phone", u.phone);
+        }
+        if (u.address != null) {
+            jso.add("address", u.address);
+        }
+        if (u.about != null) {
+            jso.add("about", u.about);
+        }
+        if (u.registered != null) {
+            jso.add("registered", u.registered);
+        }
+        jso.add("latitude", u.latitude);
+        jso.add("longitude", u.longitude);
+        if (u.tags != null) {
+            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            for (String t : u.tags) {
+                jsarr.add(t);
+            }
+            jso.add("tags", jsarr);
+        }
+        if (u.friends != null) {
+            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            for (Friend f : u.friends) {
+                com.eclipsesource.json.JsonObject jso0 = com.eclipsesource.json.Json.object();
+                jso0.add("id", f.id);
+                jso0.add("name", f.name);
+                jsarr.add(jso0);
+            }
+            jso.add("friends", jsarr);
+        }
+        if (u.greeting != null) {
+            jso.add("greeting", u.greeting);
+        }
+        if (u.favoriteFruit != null) {
+            jso.add("favoriteFruit", u.favoriteFruit);
+        }
+        return jso;
+    }
 }

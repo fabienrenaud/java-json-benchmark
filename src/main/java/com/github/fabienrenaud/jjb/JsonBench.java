@@ -89,4 +89,8 @@ public abstract class JsonBench {
     public Object jsoniter() throws Exception {
         return null;
     }
+
+    public Object minimaljson() throws Exception {
+        return null;
+    }
 }

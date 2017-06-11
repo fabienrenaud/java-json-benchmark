@@ -2,14 +2,15 @@ package com.github.fabienrenaud.jjb.stream;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.github.fabienrenaud.jjb.model.Users;
-import com.github.fabienrenaud.jjb.model.Users.User;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
+import com.github.fabienrenaud.jjb.model.Users.User;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.owlike.genson.stream.ObjectReader;
 import com.owlike.genson.stream.ValueType;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 
 /**
@@ -455,5 +456,107 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             }
         }
         return r;
+    }
+
+    @Override
+    public Users minimaljson(Reader reader) throws IOException {
+        com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.parse(reader).asObject();
+        com.eclipsesource.json.JsonValue v;
+        Users uc = new Users();
+
+        if ((v = jso.get("users")) != null) {
+            com.eclipsesource.json.JsonArray jsarr = v.asArray();
+            uc.users = new ArrayList<>();
+            for (com.eclipsesource.json.JsonValue vi : jsarr) {
+                uc.users.add(minimaljsonUser(vi.asObject()));
+            }
+        }
+        return uc;
+    }
+
+    private User minimaljsonUser(com.eclipsesource.json.JsonObject jso) {
+        com.eclipsesource.json.JsonValue v;
+        User u = new User();
+
+        if ((v = jso.get("_id")) != null) {
+            u._id = v.asString();
+        }
+        if ((v = jso.get("index")) != null) {
+            u.index = v.asInt();
+        }
+        if ((v = jso.get("guid")) != null) {
+            u.guid = v.asString();
+        }
+        if ((v = jso.get("isActive")) != null) {
+            u.isActive = v.asBoolean();
+        }
+        if ((v = jso.get("balance")) != null) {
+            u.balance = v.asString();
+        }
+        if ((v = jso.get("picture")) != null) {
+            u.picture = v.asString();
+        }
+        if ((v = jso.get("age")) != null) {
+            u.age = v.asInt();
+        }
+        if ((v = jso.get("eyeColor")) != null) {
+            u.eyeColor = v.asString();
+        }
+        if ((v = jso.get("name")) != null) {
+            u.name = v.asString();
+        }
+        if ((v = jso.get("gender")) != null) {
+            u.gender = v.asString();
+        }
+        if ((v = jso.get("company")) != null) {
+            u.company = v.asString();
+        }
+        if ((v = jso.get("email")) != null) {
+            u.email = v.asString();
+        }
+        if ((v = jso.get("phone")) != null) {
+            u.phone = v.asString();
+        }
+        if ((v = jso.get("address")) != null) {
+            u.address = v.asString();
+        }
+        if ((v = jso.get("about")) != null) {
+            u.about = v.asString();
+        }
+        if ((v = jso.get("registered")) != null) {
+            u.registered = v.asString();
+        }
+        if ((v = jso.get("latitude")) != null) {
+            u.latitude = v.asDouble();
+        }
+        if ((v = jso.get("longitude")) != null) {
+            u.longitude = v.asDouble();
+        }
+        if ((v = jso.get("greeting")) != null) {
+            u.greeting = v.asString();
+        }
+        if ((v = jso.get("favoriteFruit")) != null) {
+            u.favoriteFruit = v.asString();
+        }
+        if ((v = jso.get("tags")) != null) {
+            com.eclipsesource.json.JsonArray jsonarr = v.asArray();
+            u.tags = new ArrayList<>();
+            for (com.eclipsesource.json.JsonValue vi : jsonarr) {
+                u.tags.add(vi.asString());
+            }
+        }
+        if ((v = jso.get("friends")) != null) {
+            com.eclipsesource.json.JsonArray jsonarr = v.asArray();
+            u.friends = new ArrayList<>();
+            for (com.eclipsesource.json.JsonValue vi : jsonarr) {
+                com.eclipsesource.json.JsonObject jso0 = vi.asObject();
+                Friend f = new Friend();
+                f.id = jso0.get("id").asString();
+                f.name = jso0.get("name").asString();
+                u.friends.add(f);
+            }
+        }
+
+        return u;
     }
 }

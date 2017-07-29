@@ -4,15 +4,21 @@ import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
+import com.github.fabienrenaud.jjb.RandomUtils;
 import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.annotation.JsoniterAnnotationSupport;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
-import okio.*;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
 
-import java.io.*;
-import java.util.Random;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  * Created by frenaud on 7/23/16.
@@ -24,8 +30,6 @@ public abstract class JsonSource<T> {
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsoniterAnnotationSupport.enable();
     }
-
-    private static final Random RNG = new Random();
 
     private final JsonProvider<T> provider;
 
@@ -128,6 +132,6 @@ public abstract class JsonSource<T> {
     public abstract Class<T> pojoType();
 
     private int index(final int bound) {
-        return bound == 1 ? 0 : RNG.nextInt(bound);
+        return bound == 1 ? 0 : RandomUtils.nextInt(bound);
     }
 }

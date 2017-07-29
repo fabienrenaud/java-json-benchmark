@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-if [ -z $JVM_OPTIONS ]; then
+if [ -z ${JVM_OPTIONS} ]; then
   JVM_OPTIONS="-server -XX:+AggressiveOpts -Xms2G -Xmx2G"
+fi
+if [ -z ${SEED} ]; then
+  export SEED=${RANDOM}
 fi
 
 ./gradlew -q shadowJar
-java $JVM_OPTIONS -cp build/libs/benchmarks*.jar com.github.fabienrenaud.jjb.Cli $*
+java ${JVM_OPTIONS} -cp build/libs/benchmarks*.jar com.github.fabienrenaud.jjb.Cli $*

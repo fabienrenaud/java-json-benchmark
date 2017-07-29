@@ -3,8 +3,7 @@ package com.github.fabienrenaud.jjb.data.gen;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.Users.User;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
+import com.github.fabienrenaud.jjb.RandomUtils;
 
 import java.util.ArrayList;
 
@@ -31,37 +30,37 @@ public class UsersGenerator implements DataGenerator<Users> {
         int expectedSize = 2; // {}
 
         User u = new User();
-        u._id = RandomStringUtils.randomNumeric(20);
+        u._id = RandomUtils.randomNumeric(20);
         expectedSize += 9 + u._id.length(); // ,'_id':''
         u.index = RandomUtils.nextInt(0, Integer.MAX_VALUE);
         expectedSize += 11 + Integer.toString(u.index).length(); // ,'index':''
-        u.guid = RandomStringUtils.randomAlphanumeric(20);
+        u.guid = RandomUtils.randomAlphanumeric(20);
         expectedSize += 10 + u.guid.length(); // ,'guid':''
         u.isActive = RandomUtils.nextInt(0, 2) == 1;
         expectedSize += 17 + (u.isActive ? 4 : 5); // ,'isActive':''
-        u.balance = RandomStringUtils.randomAlphanumeric(20);
+        u.balance = RandomUtils.randomAlphanumeric(20);
         expectedSize += 16 + u.balance.length(); // ,'balance':''
-        u.picture = RandomStringUtils.randomAlphanumeric(100);
+        u.picture = RandomUtils.randomAlphanumeric(100);
         expectedSize += 16 + u.picture.length(); // ,'picture':''
         u.age = RandomUtils.nextInt(0, 100);
         expectedSize += 9 + Integer.toString(u.age).length(); // ,'age':''
-        u.eyeColor = RandomStringUtils.randomAlphanumeric(20);
+        u.eyeColor = RandomUtils.randomAlphanumeric(20);
         expectedSize += 17 + u.eyeColor.length(); // ,'eyeColor':''
-        u.name = RandomStringUtils.randomAlphanumeric(20);
+        u.name = RandomUtils.randomAlphanumeric(20);
         expectedSize += 10 + u.name.length(); // ,'name':''
-        u.gender = RandomStringUtils.randomAlphanumeric(20);
+        u.gender = RandomUtils.randomAlphanumeric(20);
         expectedSize += 12 + u.gender.length(); // ,'gender':''
-        u.company = RandomStringUtils.randomAlphanumeric(20);
+        u.company = RandomUtils.randomAlphanumeric(20);
         expectedSize += 13 + u.company.length(); // ,'company':''
-        u.email = RandomStringUtils.randomAlphanumeric(20);
+        u.email = RandomUtils.randomAlphanumeric(20);
         expectedSize += 11 + u.email.length(); // ,'email':''
-        u.phone = RandomStringUtils.randomAlphanumeric(20);
+        u.phone = RandomUtils.randomAlphanumeric(20);
         expectedSize += 11 + u.phone.length(); // ,'phone':''
-        u.address = RandomStringUtils.randomAlphanumeric(20);
+        u.address = RandomUtils.randomAlphanumeric(20);
         expectedSize += 13 + u.address.length(); // ,'address':''
-        u.about = RandomStringUtils.randomAlphanumeric(20);
+        u.about = RandomUtils.randomAlphanumeric(20);
         expectedSize += 11 + u.about.length(); // ,'about':''
-        u.registered = RandomStringUtils.randomAlphanumeric(20);
+        u.registered = RandomUtils.randomAlphanumeric(20);
         expectedSize += 16 + u.registered.length(); // ,'registered':''
         u.latitude = RandomUtils.nextDouble(0, 90);
         expectedSize += 14 + Double.toString(u.latitude).length(); // ,'latitude':''
@@ -75,7 +74,7 @@ public class UsersGenerator implements DataGenerator<Users> {
             if (expectedSize > sizeAvailable) {
                 break;
             }
-            String t = RandomStringUtils.randomAlphanumeric(10);
+            String t = RandomUtils.randomAlphanumeric(10);
             u.tags.add(t);
             expectedSize += t.length(); // '',
         }
@@ -90,14 +89,14 @@ public class UsersGenerator implements DataGenerator<Users> {
 
             int id = RandomUtils.nextInt(0, 10000);
             String idStr = Integer.toString(id);
-            String name = RandomStringUtils.randomAlphabetic(30);
+            String name = RandomUtils.randomAlphabetic(30);
             u.friends.add(new Friend(idStr, name));
             expectedSize += idStr.length() + name.length() + 20; // {'_id':'','name':''},
         }
 
-        u.greeting = RandomStringUtils.randomAlphanumeric(20);
+        u.greeting = RandomUtils.randomAlphanumeric(20);
         expectedSize += 14 + u.greeting.length(); // ,'greeting':''
-        u.favoriteFruit = RandomStringUtils.randomAlphanumeric(20);
+        u.favoriteFruit = RandomUtils.randomAlphanumeric(20);
         expectedSize += 19 + u.favoriteFruit.length(); // ,'favoriteFruit':''
 
         uc.users.add(u);

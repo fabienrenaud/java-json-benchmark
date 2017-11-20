@@ -14,9 +14,13 @@ import com.squareup.moshi.Moshi;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import org.apache.johnzon.mapper.Mapper;
+import org.eclipse.yasson.JsonBindingProvider;
+import org.glassfish.json.JsonProviderImpl;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.json.bind.Jsonb;
 
 /**
  * Created by frenaud on 7/24/16.
@@ -28,6 +32,9 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final ObjectMapper jacksonAfterburner = new ObjectMapper();
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
+    private final Jsonb yasson = new JsonBindingProvider().create()
+            .withProvider(new JsonProviderImpl())
+            .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnzon;
@@ -77,6 +84,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public Genson genson() {
         return genson;
+    }
+
+    @Override
+    public Jsonb yasson() {
+        return yasson;
     }
 
     public JSONDeserializer<Users> flexjsonDeser() {

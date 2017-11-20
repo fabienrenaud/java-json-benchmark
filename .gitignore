@@ -9,6 +9,7 @@ build/
 .idea/
 *.iml
 /nbproject/
+out/
 
 # System
 .DS_Store

@@ -9,8 +9,6 @@ import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import org.apache.johnzon.mapper.Mapper;
 
-import javax.json.bind.Jsonb;
-
 import java.util.Map;
 
 /**
@@ -27,8 +25,6 @@ public interface JsonProvider<T> {
     JsonFactory jacksonFactory();
 
     Genson genson();
-
-    Jsonb yasson();
 
     JSONDeserializer<T> flexjsonDeser();
 

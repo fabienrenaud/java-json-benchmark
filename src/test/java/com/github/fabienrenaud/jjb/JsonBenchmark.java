@@ -94,13 +94,6 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
-    public void yasson() throws Exception {
-        for (int i = 0; i < ITERATIONS; i++) {
-            test(Library.YASSON, BENCH.yasson());
-        }
-    }
-
-    @Test
     public void javaxjson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JAVAXJSON, BENCH.javaxjson());

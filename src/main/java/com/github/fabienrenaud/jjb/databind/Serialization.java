@@ -52,14 +52,6 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object yasson() {
-        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        JSON_SOURCE.provider().yasson().toJson(JSON_SOURCE.nextPojo(), baos);
-        return baos;
-    }
-
-    @Benchmark
-    @Override
     public Object fastjson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         JSON.writeJSONString(baos, JSON_SOURCE.nextPojo(), SerializerFeature.EMPTY);

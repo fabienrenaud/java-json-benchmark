@@ -41,6 +41,12 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object yasson() throws JsonSyntaxException {
+        return JSON_SOURCE.provider().yasson().fromJson(JSON_SOURCE.nextReader(), JSON_SOURCE.pojoType());
+    }
+
+    @Benchmark
+    @Override
     public Object fastjson() {
         return JSON.parseObject(JSON_SOURCE.nextByteArray(), JSON_SOURCE.pojoType());
     }

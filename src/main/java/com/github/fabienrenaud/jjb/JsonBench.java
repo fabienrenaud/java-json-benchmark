@@ -30,6 +30,10 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object yasson() throws Exception {
+        return null;
+    }
+
     public Object javaxjson() throws Exception {
         return null;
     }

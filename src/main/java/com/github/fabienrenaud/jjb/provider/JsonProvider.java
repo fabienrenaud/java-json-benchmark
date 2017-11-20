@@ -32,7 +32,7 @@ public interface JsonProvider<T> {
 
     org.boon.json.ObjectMapper boon();
 
-    Mapper johnson();
+    Mapper johnzon();
 
     Map<String, Object> jsonioStreamOptions();
 

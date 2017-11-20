@@ -43,7 +43,7 @@ dependencies {
     compile group: 'com.cedarsoftware', name: 'json-io', version: '4.9.12'
     // boon
     compile group: 'io.fastjson', name: 'boon', version: '0.34'
-    // johnson
+    // johnzon
     compile group: 'org.apache.johnzon', name: 'johnzon-core', version: '1.1.0'
     compile group: 'org.apache.johnzon', name: 'johnzon-mapper', version: '1.1.0'
     // json-smart

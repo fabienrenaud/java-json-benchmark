@@ -129,7 +129,7 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
-    public void johnson() throws Exception {
+    public void johnzon() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JOHNZON, BENCH.johnzon());
         }

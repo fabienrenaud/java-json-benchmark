@@ -30,7 +30,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final Genson genson = new Genson();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
-    private final org.apache.johnzon.mapper.Mapper johnson;
+    private final org.apache.johnzon.mapper.Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Users> moshi = new Moshi.Builder().build().adapter(Users.class);
 
     /*
@@ -47,7 +47,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
-        johnson = new org.apache.johnzon.mapper.MapperBuilder()
+        johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 
@@ -93,8 +93,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
-    public Mapper johnson() {
-        return johnson;
+    public Mapper johnzon() {
+        return johnzon;
     }
 
     @Override

@@ -11,10 +11,13 @@ import com.google.gson.Gson;
 import com.jsoniter.extra.PreciseFloatSupport;
 import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,7 +50,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
+        // set johnson JsonReader (default is `JsonProvider.provider()`)
+        javax.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
+            .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
+            .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 

@@ -1,0 +1,3 @@
+org.glassfish.json.JsonProviderImpl
+# org.apache.johnzon.core.JsonProviderImpl
+# com.owlike.genson.ext.jsr353.GensonJsonProvider # jsr-353 only

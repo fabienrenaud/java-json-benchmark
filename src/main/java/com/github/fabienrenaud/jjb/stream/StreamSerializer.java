@@ -27,4 +27,6 @@ public interface StreamSerializer<T> {
     org.apache.tapestry5.json.JSONObject tapestry(final T obj) throws IOException;
 
     com.eclipsesource.json.JsonValue minimaljson(final T obj) throws IOException;
+
+    void moshi(com.squareup.moshi.JsonWriter writer, T obj) throws IOException;
 }

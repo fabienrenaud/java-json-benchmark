@@ -10,6 +10,7 @@ import com.owlike.genson.stream.ObjectWriter;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.List;
 
 public class UsersStreamSerializer implements StreamSerializer<Users> {
 
@@ -830,5 +831,152 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             jso.add("favoriteFruit", u.favoriteFruit);
         }
         return jso;
+    }
+
+    @Override
+    public void moshi(com.squareup.moshi.JsonWriter writer, Users obj) throws IOException {
+        writer.beginObject();
+
+        if (obj.users != null) {
+            writer.name("users");
+            writer.beginArray();
+            for (User user : obj.users) {
+                moshiUser(writer, user);
+            }
+            writer.endArray();
+        }
+
+        writer.endObject();
+    }
+    
+    private void moshiUser(com.squareup.moshi.JsonWriter writer, User user) throws IOException {
+        writer.beginObject();
+        
+        if (user._id != null) {
+            writer.name("_id");
+            writer.value(user._id);
+        }
+
+        writer.name("index");
+        writer.value(user.index);
+
+
+        if (user.guid != null) {
+            writer.name("guid");
+            writer.value(user.guid);
+        }
+
+        writer.name("isActive");
+        writer.value(user.isActive);
+
+        if (user.balance != null) {
+            writer.name("balance");
+            writer.value(user.balance);
+        }
+
+        if (user.picture != null) {
+            writer.name("picture");
+            writer.value(user.picture);
+        }
+
+        writer.name("age");
+        writer.value(user.age);
+
+        if (user.eyeColor != null) {
+            writer.name("eyeColor");
+            writer.value(user.eyeColor);
+        }
+
+        if (user.name != null) {
+            writer.name("name");
+            writer.value(user.name);
+        }
+
+        if (user.gender != null) {
+            writer.name("gender");
+            writer.value(user.gender);
+        }
+
+        if (user.company != null) {
+            writer.name("company");
+            writer.value(user.company);
+        }
+
+        if (user.email != null) {
+            writer.name("email");
+            writer.value(user.email);
+        }
+
+        if (user.phone != null) {
+            writer.name("phone");
+            writer.value(user.phone);
+        }
+
+        if (user.address != null) {
+            writer.name("address");
+            writer.value(user.address);
+        }
+
+        if (user.about != null) {
+            writer.name("about");
+            writer.value(user.about);
+        }
+
+        if (user.registered != null) {
+            writer.name("registered");
+            writer.value(user.registered);
+        }
+
+        writer.name("latitude");
+        writer.value(user.latitude);
+
+        writer.name("longitude");
+        writer.value(user.longitude);
+
+        if (user.tags != null) {
+            writer.name("tags");
+            writer.beginArray();
+            for (String tag : user.tags) {
+                writer.value(tag);
+            }
+            writer.endArray();
+        }
+
+        if (user.friends != null) {
+            writer.name("friends");
+            writer.beginArray();
+            for (Friend friend : user.friends) {
+                moshiFriend(writer, friend);
+            }
+            writer.endArray();
+        }
+
+        if (user.greeting != null) {
+            writer.name("greeting");
+            writer.value(user.greeting);
+        }
+
+        if (user.favoriteFruit != null) {
+            writer.name("favoriteFruit");
+            writer.value(user.favoriteFruit);
+        }
+
+        writer.endObject();
+    }
+
+    private void moshiFriend(com.squareup.moshi.JsonWriter writer, Friend friend) throws IOException {
+        writer.beginObject();
+
+        if (friend.id != null) {
+            writer.name("id");
+            writer.value(friend.id);
+        }
+
+        if (friend.name != null) {
+            writer.name("name");
+            writer.value(friend.name);
+        }
+
+        writer.endObject();
     }
 }

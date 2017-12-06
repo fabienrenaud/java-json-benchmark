@@ -5,6 +5,8 @@ import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
+import okio.BufferedSink;
+import okio.Okio;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.ByteArrayOutputStream;
@@ -107,6 +109,18 @@ public class Serialization extends JsonBench {
         OutputStreamWriter writer = new OutputStreamWriter(baos);
         JSON_SOURCE.streamSerializer().minimaljson(JSON_SOURCE.nextPojo()).writeTo(writer);
         writer.close();
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object moshi() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        BufferedSink sink = Okio.buffer(Okio.sink(baos));
+        try (com.squareup.moshi.JsonWriter jw = com.squareup.moshi.JsonWriter.of(sink)) {
+            JSON_SOURCE.streamSerializer().moshi(jw, JSON_SOURCE.nextPojo());
+        }
+        sink.close();
         return baos;
     }
 }

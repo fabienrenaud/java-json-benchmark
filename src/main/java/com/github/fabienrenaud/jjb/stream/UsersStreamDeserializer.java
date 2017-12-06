@@ -12,6 +12,7 @@ import com.owlike.genson.stream.ValueType;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by frenaud on 7/23/16.
@@ -558,5 +559,149 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         }
 
         return u;
+    }
+
+    @Override
+    public Users moshi(com.squareup.moshi.JsonReader reader) throws IOException {
+        Users users = new Users();
+
+        reader.beginObject();
+
+        while (reader.hasNext()) {
+            switch (reader.nextName()) {
+                case "users":
+                    users.users = new ArrayList<>();
+                    reader.beginArray();
+                    while (reader.hasNext()) {
+                        users.users.add(moshiUser(reader));
+                    }
+                    reader.endArray();
+                    break;
+                default:
+                    reader.skipValue();
+            }
+        }
+
+        reader.endObject();
+
+        return users;
+    }
+
+    private User moshiUser(com.squareup.moshi.JsonReader reader) throws IOException {
+        User user = new User();
+
+        reader.beginObject();
+
+        while (reader.hasNext()) {
+            switch (reader.nextName()) {
+                case "_id":
+                    user._id = reader.nextString();
+                    break;
+                case "index":
+                    user.index = reader.nextInt();
+                    break;
+                case "guid":
+                    user.guid = reader.nextString();
+                    break;
+                case "isActive":
+                    user.isActive = reader.nextBoolean();
+                    break;
+                case "balance":
+                    user.balance = reader.nextString();
+                    break;
+                case "picture":
+                    user.picture = reader.nextString();
+                    break;
+                case "age":
+                    user.age = reader.nextInt();
+                    break;
+                case "eyeColor":
+                    user.eyeColor = reader.nextString();
+                    break;
+                case "name":
+                    user.name = reader.nextString();
+                    break;
+                case "gender":
+                    user.gender = reader.nextString();
+                    break;
+                case "company":
+                    user.company = reader.nextString();
+                    break;
+                case "email":
+                    user.email = reader.nextString();
+                    break;
+                case "phone":
+                    user.phone = reader.nextString();
+                    break;
+                case "address":
+                    user.address = reader.nextString();
+                    break;
+                case "about":
+                    user.about = reader.nextString();
+                    break;
+                case "registered":
+                    user.registered = reader.nextString();
+                    break;
+                case "latitude":
+                    user.latitude = reader.nextDouble();
+                    break;
+                case "longitude":
+                    user.longitude = reader.nextDouble();
+                    break;
+                case "tags":
+                    user.tags = new ArrayList<>();
+                    reader.beginArray();
+                    while (reader.hasNext()) {
+                        user.tags.add(reader.nextString());
+                    }
+                    reader.endArray();
+                    break;
+                case "friends":
+                    user.friends = new ArrayList<>();
+                    reader.beginArray();
+                    while (reader.hasNext()) {
+                        user.friends.add(moshiFriend(reader));
+                    }
+                    reader.endArray();
+                    break;
+                case "greeting":
+                    user.greeting = reader.nextString();
+                    break;
+                case "favoriteFruit":
+                    user.favoriteFruit = reader.nextString();
+                    break;
+                default:
+                    reader.skipValue();
+                    break;
+            }
+        }
+
+        reader.endObject();
+
+        return user;
+    }
+
+    private Friend moshiFriend(com.squareup.moshi.JsonReader reader) throws IOException {
+        Friend friend = new Friend();
+
+        reader.beginObject();
+
+        while (reader.hasNext()) {
+            switch (reader.nextName()) {
+                case "id":
+                    friend.id = reader.nextString();
+                    break;
+                case "name":
+                    friend.name = reader.nextString();
+                    break;
+                default:
+                    reader.skipValue();
+                    break;
+            }
+        }
+
+        reader.endObject();
+
+        return friend;
     }
 }

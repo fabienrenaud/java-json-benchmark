@@ -81,4 +81,12 @@ public class Deserialization extends JsonBench {
     public Object minimaljson() throws Exception {
         return JSON_SOURCE.streamDeserializer().minimaljson(JSON_SOURCE.nextReader());
     }
+
+    @Benchmark
+    @Override
+    public Object moshi() throws Exception {
+        try (com.squareup.moshi.JsonReader jr = com.squareup.moshi.JsonReader.of(JSON_SOURCE.nextOkioBufferedSource())) {
+            return JSON_SOURCE.streamDeserializer().moshi(jr);
+        }
+    }
 }

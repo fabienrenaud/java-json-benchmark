@@ -33,6 +33,9 @@ dependencies {
     // JSONP
     compile group: 'javax.json', name: 'javax.json-api', version: '1.1.2'
     compile group: 'org.glassfish', name: 'javax.json', version: '1.1.2'
+    // JSONB
+    compile group: 'javax.json.bind', name: 'javax.json.bind-api', version: '1.0'
+    compile group: 'org.eclipse', name: 'yasson', version: '1.0.1'
     // GENSON
     compile group: 'com.owlike', name: 'genson', version: '1.4'
     // FlexJson

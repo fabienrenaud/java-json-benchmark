@@ -17,7 +17,6 @@ import flexjson.JSONSerializer;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
-import org.glassfish.json.JsonProviderImpl;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
     private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new JsonProviderImpl())
+            .withProvider(new org.glassfish.json.JsonProviderImpl())
             .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();

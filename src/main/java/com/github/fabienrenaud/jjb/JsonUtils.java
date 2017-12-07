@@ -1,5 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
+import com.dslplatform.json.JsonWriter;
+
 import javax.json.spi.JsonProvider;
 import java.io.ByteArrayOutputStream;
 
@@ -35,25 +37,10 @@ public final class JsonUtils {
         return writer;
     }
 
-    private static final ThreadLocal<ByteArrayOutputStream> THREAD_BYTE_ARRAY_OUTPUT_STREAM = new ThreadLocal<ByteArrayOutputStream>() {
-        @Override
-        protected ByteArrayOutputStream initialValue() {
-            return new ByteArrayOutputStream();
-        }
-    };
+    private static final ThreadLocal<ByteArrayOutputStream> THREAD_BYTE_ARRAY_OUTPUT_STREAM = ThreadLocal.withInitial(ByteArrayOutputStream::new);
 
-    private static final ThreadLocal<StringBuilder> THREAD_STRING_BUILDER = new ThreadLocal<StringBuilder>() {
-        @Override
-        protected StringBuilder initialValue() {
-            return new StringBuilder();
-        }
-    };
+    private static final ThreadLocal<StringBuilder> THREAD_STRING_BUILDER = ThreadLocal.withInitial(StringBuilder::new);
 
-    private static final ThreadLocal<com.dslplatform.json.JsonWriter> THREAD_DSL_WRITER = new ThreadLocal<com.dslplatform.json.JsonWriter>() {
-        @Override
-        protected com.dslplatform.json.JsonWriter initialValue() {
-            return new com.dslplatform.json.JsonWriter();
-        }
-    };
+    private static final ThreadLocal<com.dslplatform.json.JsonWriter> THREAD_DSL_WRITER = ThreadLocal.withInitial(JsonWriter::new);
 
 }

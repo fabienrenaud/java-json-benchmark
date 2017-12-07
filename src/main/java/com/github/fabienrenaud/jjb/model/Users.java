@@ -6,6 +6,7 @@ import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by frenaud on 7/3/16.
@@ -94,64 +95,40 @@ public class Users {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof User)) return false;
-
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof User)) {
+                return false;
+            }
             User user = (User) o;
-
-            if (index != user.index) return false;
-            if (isActive != user.isActive) return false;
-            if (age != user.age) return false;
-            if (Double.compare(user.latitude, latitude) != 0) return false;
-            if (Double.compare(user.longitude, longitude) != 0) return false;
-            if (_id != null ? !_id.equals(user._id) : user._id != null) return false;
-            if (guid != null ? !guid.equals(user.guid) : user.guid != null) return false;
-            if (balance != null ? !balance.equals(user.balance) : user.balance != null) return false;
-            if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
-            if (eyeColor != null ? !eyeColor.equals(user.eyeColor) : user.eyeColor != null) return false;
-            if (name != null ? !name.equals(user.name) : user.name != null) return false;
-            if (gender != null ? !gender.equals(user.gender) : user.gender != null) return false;
-            if (company != null ? !company.equals(user.company) : user.company != null) return false;
-            if (email != null ? !email.equals(user.email) : user.email != null) return false;
-            if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
-            if (address != null ? !address.equals(user.address) : user.address != null) return false;
-            if (about != null ? !about.equals(user.about) : user.about != null) return false;
-            if (registered != null ? !registered.equals(user.registered) : user.registered != null) return false;
-            if (tags != null ? !tags.equals(user.tags) : user.tags != null) return false;
-            if (friends != null ? !friends.equals(user.friends) : user.friends != null) return false;
-            if (greeting != null ? !greeting.equals(user.greeting) : user.greeting != null) return false;
-            return favoriteFruit != null ? favoriteFruit.equals(user.favoriteFruit) : user.favoriteFruit == null;
+            return index == user.index &&
+                    isActive == user.isActive &&
+                    age == user.age &&
+                    Double.compare(user.latitude, latitude) < 1e-13 &&
+                    Double.compare(user.longitude, longitude) < 1e-13 &&
+                    Objects.equals(_id, user._id) &&
+                    Objects.equals(guid, user.guid) &&
+                    Objects.equals(balance, user.balance) &&
+                    Objects.equals(picture, user.picture) &&
+                    Objects.equals(eyeColor, user.eyeColor) &&
+                    Objects.equals(name, user.name) &&
+                    Objects.equals(gender, user.gender) &&
+                    Objects.equals(company, user.company) &&
+                    Objects.equals(email, user.email) &&
+                    Objects.equals(phone, user.phone) &&
+                    Objects.equals(address, user.address) &&
+                    Objects.equals(about, user.about) &&
+                    Objects.equals(registered, user.registered) &&
+                    Objects.equals(tags, user.tags) &&
+                    Objects.equals(friends, user.friends) &&
+                    Objects.equals(greeting, user.greeting) &&
+                    Objects.equals(favoriteFruit, user.favoriteFruit);
         }
 
         @Override
         public int hashCode() {
-            int result;
-            long temp;
-            result = _id != null ? _id.hashCode() : 0;
-            result = 31 * result + index;
-            result = 31 * result + (guid != null ? guid.hashCode() : 0);
-            result = 31 * result + (isActive ? 1 : 0);
-            result = 31 * result + (balance != null ? balance.hashCode() : 0);
-            result = 31 * result + (picture != null ? picture.hashCode() : 0);
-            result = 31 * result + age;
-            result = 31 * result + (eyeColor != null ? eyeColor.hashCode() : 0);
-            result = 31 * result + (name != null ? name.hashCode() : 0);
-            result = 31 * result + (gender != null ? gender.hashCode() : 0);
-            result = 31 * result + (company != null ? company.hashCode() : 0);
-            result = 31 * result + (email != null ? email.hashCode() : 0);
-            result = 31 * result + (phone != null ? phone.hashCode() : 0);
-            result = 31 * result + (address != null ? address.hashCode() : 0);
-            result = 31 * result + (about != null ? about.hashCode() : 0);
-            result = 31 * result + (registered != null ? registered.hashCode() : 0);
-            temp = Double.doubleToLongBits(latitude);
-            result = 31 * result + (int) (temp ^ (temp >>> 32));
-            temp = Double.doubleToLongBits(longitude);
-            result = 31 * result + (int) (temp ^ (temp >>> 32));
-            result = 31 * result + (tags != null ? tags.hashCode() : 0);
-            result = 31 * result + (friends != null ? friends.hashCode() : 0);
-            result = 31 * result + (greeting != null ? greeting.hashCode() : 0);
-            result = 31 * result + (favoriteFruit != null ? favoriteFruit.hashCode() : 0);
-            return result;
+            return Objects.hash(_id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company, email, phone, address, about, registered, tags, friends, greeting, favoriteFruit);
         }
 
         @Override

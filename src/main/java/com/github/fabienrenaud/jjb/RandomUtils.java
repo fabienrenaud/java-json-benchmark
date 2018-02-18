@@ -3,7 +3,9 @@ package com.github.fabienrenaud.jjb;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
 import java.util.Random;
+import java.util.UUID;
 
 public final class RandomUtils {
 
@@ -44,6 +46,34 @@ public final class RandomUtils {
 
     public static String random(int count, int start, int end, final boolean letters, final boolean numbers, final char[] chars) {
         return RandomStringUtils.random(count, start, end, letters, numbers, chars, RANDOM);
+    }
+
+    public static BigDecimal randomBigDecimal() {
+        return BigDecimal.valueOf(RANDOM.nextDouble());
+    }
+
+    public static UUID nextUUID() {
+        return new UUID(RANDOM.nextLong(), RANDOM.nextLong());
+    }
+
+    public static long nextLong() {
+        return RANDOM.nextLong();
+    }
+
+    public static long[] longArray(int size) {
+        long[] arr = new long[size];
+        for (int i = 0;i < size; i++) {
+            arr[i] = Math.abs(RANDOM.nextInt());
+        }
+        return arr;
+    }
+
+    public static String[] stringArray(int size, int count) {
+        String[] arr = new String[size];
+        for (int i = 0;i < size; i++) {
+            arr[i] = randomAlphabetic(count);
+        }
+        return arr;
     }
 
     public static int nextInt(int bound) {

@@ -84,6 +84,13 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object dsljson_reflection() throws Exception {
+        byte[] buffer = JSON_SOURCE.nextByteArray();
+        return JSON_SOURCE.provider().dsljson_reflection().deserialize(JSON_SOURCE.pojoType(), buffer, buffer.length);
+    }
+
+    @Benchmark
+    @Override
     public Object logansquare() throws Exception {
         return LoganSquare.parse(JSON_SOURCE.nextInputStream(), JSON_SOURCE.pojoType());
     }

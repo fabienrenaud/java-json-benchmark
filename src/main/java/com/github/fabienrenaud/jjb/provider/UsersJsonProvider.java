@@ -2,6 +2,7 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
+import com.dslplatform.json.ConfigureJava8;
 import com.dslplatform.json.DslJson;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,8 +46,10 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     /*
      * DSL-json
      */
-    private final DslJson<Users> dsljson = new DslJson<>();
-    private final ThreadLocal<com.dslplatform.json.JsonWriter> dsljsonwriter = new ThreadLocal<>();
+    private final DslJson<Object> dsljson = new DslJson<>();
+    private final DslJson<Object> dsljson_reflection =
+            new DslJson<>(com.dslplatform.json.runtime.Settings.withRuntime()
+                            .with(new ConfigureJava8()));//don't include service loader
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
@@ -121,8 +124,13 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
-    public DslJson<Users> dsljson() {
+    public DslJson<Object> dsljson() {
         return dsljson;
+    }
+
+    @Override
+    public DslJson<Object> dsljson_reflection() {
+        return dsljson_reflection;
     }
 
     @Override

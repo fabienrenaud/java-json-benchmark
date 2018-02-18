@@ -31,12 +31,6 @@ public final class JsonUtils {
         return b;
     }
 
-    public static com.dslplatform.json.JsonWriter dslJsonWriter() {
-        com.dslplatform.json.JsonWriter writer = THREAD_DSL_WRITER.get();
-        writer.reset();
-        return writer;
-    }
-
     private static final ThreadLocal<ByteArrayOutputStream> THREAD_BYTE_ARRAY_OUTPUT_STREAM = ThreadLocal.withInitial(ByteArrayOutputStream::new);
 
     private static final ThreadLocal<StringBuilder> THREAD_STRING_BUILDER = ThreadLocal.withInitial(StringBuilder::new);

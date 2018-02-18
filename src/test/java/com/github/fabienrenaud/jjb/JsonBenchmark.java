@@ -1,5 +1,6 @@
 package com.github.fabienrenaud.jjb;
 
+import com.github.fabienrenaud.jjb.model.Clients;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.support.Api;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
@@ -28,7 +29,7 @@ public abstract class JsonBenchmark<T> {
             return;
         }
 
-        if (o instanceof Users) {
+        if (o instanceof Users || o instanceof Clients) {
             testPojo((T) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
             String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE.provider().jsonioStreamOptions());
@@ -153,6 +154,13 @@ public abstract class JsonBenchmark<T> {
     public void dsljson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.DSLJSON, BENCH.dsljson());
+        }
+    }
+
+    @Test
+    public void dsljson_reflection() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.DSLJSON_REFLECTION, BENCH.dsljson_reflection());
         }
     }
 

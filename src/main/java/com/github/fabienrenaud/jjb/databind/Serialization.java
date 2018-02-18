@@ -102,9 +102,15 @@ public class Serialization extends JsonBench {
     @Override
     public Object dsljson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        com.dslplatform.json.JsonWriter jw = JsonUtils.dslJsonWriter();
-        JSON_SOURCE.provider().dsljson().serialize(jw, JSON_SOURCE.nextPojo());
-        jw.toStream(baos);
+        JSON_SOURCE.provider().dsljson().serialize(JSON_SOURCE.nextPojo(), baos);
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object dsljson_reflection() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE.provider().dsljson_reflection().serialize(JSON_SOURCE.nextPojo(), baos);
         return baos;
     }
 

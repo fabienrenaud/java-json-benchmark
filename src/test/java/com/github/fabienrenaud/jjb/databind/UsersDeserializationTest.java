@@ -6,7 +6,7 @@ import com.github.fabienrenaud.jjb.support.Api;
 /**
  * @author Fabien Renaud
  */
-public class DeserializationTest extends JsonBenchmarkUsersTest {
+public class UsersDeserializationTest extends JsonBenchmarkUsersTest {
 
     static {
         BENCH = new Deserialization();

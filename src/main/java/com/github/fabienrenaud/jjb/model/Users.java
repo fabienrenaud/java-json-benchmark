@@ -149,9 +149,11 @@ public class Users {
         public Friend() {
         }
 
-        public Friend(String id, String name) {
-            this.id = id;
-            this.name = name;
+        public static Friend create(String id, String name) {
+            Friend friend = new Friend();
+            friend.id = id;
+            friend.name = name;
+            return friend;
         }
 
         @Override

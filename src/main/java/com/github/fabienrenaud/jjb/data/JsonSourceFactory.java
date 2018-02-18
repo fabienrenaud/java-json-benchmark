@@ -22,6 +22,8 @@ public final class JsonSourceFactory {
         switch (bs) {
             case USERS:
                 return new UsersSource(quantity, size);
+            case CLIENTS:
+                return new ClientsSource(quantity, size);
             default:
                 throw new RuntimeException();
         }

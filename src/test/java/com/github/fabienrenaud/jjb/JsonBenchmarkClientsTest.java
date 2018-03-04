@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.model.Clients;
+import com.github.fabienrenaud.jjb.support.Api;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -13,8 +14,8 @@ public abstract class JsonBenchmarkClientsTest extends JsonBenchmark<Clients> {
 
     private static File configFile;
 
-    static {
-        BENCH_SUPPORT = BenchSupport.CLIENTS;
+    public JsonBenchmarkClientsTest(JsonBench BENCH, Api BENCH_API) {
+        super(BENCH, BenchSupport.CLIENTS, BENCH_API);
     }
 
     @BeforeClass
@@ -33,7 +34,7 @@ public abstract class JsonBenchmarkClientsTest extends JsonBenchmark<Clients> {
 
     @Override
     protected void testPojo(Clients o) {
-        Object original = BENCH.JSON_SOURCE.nextPojo();
+        Object original = BENCH.JSON_SOURCE().nextPojo();
         if (!o.equals(original)) {
             System.out.println("Difference in Clients!");
             System.out.println("   Original   : " + original);

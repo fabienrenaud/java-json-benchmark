@@ -1,4 +1,4 @@
-package com.github.fabienrenaud.jjb.databind;
+package com.github.fabienrenaud.jjb.stream;
 
 import com.github.fabienrenaud.jjb.JsonBenchmarkUsersTest;
 import com.github.fabienrenaud.jjb.data.JsonSource;
@@ -17,12 +17,6 @@ public class UsersSerializationTest extends JsonBenchmarkUsersTest {
             public JsonSource JSON_SOURCE() {
                 return source;
             }
-        }, Api.DATABIND);
+        }, Api.STREAM);
     }
-
-    @Override
-    public void boon() throws Exception {
-        // FIXME: boon turns empty list to null values which makes this test fail.
-    }
-
 }

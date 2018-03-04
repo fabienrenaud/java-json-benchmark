@@ -11,7 +11,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Clients;
 import com.google.gson.*;
-import com.jsoniter.extra.PreciseFloatSupport;
 import com.owlike.genson.Context;
 import com.owlike.genson.Converter;
 import com.owlike.genson.Genson;
@@ -158,7 +157,6 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 
-        PreciseFloatSupport.enable();
         TypeConverterManager.register(UUID.class, (TypeConverter<UUID>) value -> UUID.fromString((String)value));
         TypeConverterManager.register(LocalDate.class, (TypeConverter<LocalDate>) value -> LocalDate.parse((String)value));
         TypeConverterManager.register(OffsetDateTime.class, (TypeConverter<OffsetDateTime>) value -> OffsetDateTime.parse((String)value));

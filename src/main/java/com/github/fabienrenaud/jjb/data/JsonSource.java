@@ -8,6 +8,7 @@ import com.github.fabienrenaud.jjb.RandomUtils;
 import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.annotation.JsoniterAnnotationSupport;
+import com.jsoniter.extra.PreciseFloatSupport;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
 import okio.BufferedSource;
@@ -26,9 +27,13 @@ import java.io.Reader;
 public abstract class JsonSource<T> {
 
     static {
-        JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_STRICTLY);
-        JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
+        //TODO: disabled since it causes test compilation to fail for all libs
+        //JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_STRICTLY);
+        //JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
+        JsonIterator.setMode(DecodingMode.REFLECTION_MODE);
+        JsonStream.setMode(EncodingMode.REFLECTION_MODE);
         JsoniterAnnotationSupport.enable();
+        PreciseFloatSupport.enable();
     }
 
     private final JsonProvider<T> provider;

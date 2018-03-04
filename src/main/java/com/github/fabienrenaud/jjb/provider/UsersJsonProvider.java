@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
-import com.jsoniter.extra.PreciseFloatSupport;
 import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
 
@@ -66,8 +65,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
-
-        PreciseFloatSupport.enable();
     }
 
     @Override

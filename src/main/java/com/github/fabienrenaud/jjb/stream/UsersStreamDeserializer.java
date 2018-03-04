@@ -326,9 +326,14 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
             String fieldname = jParser.getCurrentName();
             if ("users".equals(fieldname)) {
-                uc.users = new ArrayList<>();
-                while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
-                    uc.users.add(jacksonUser(jParser));
+                if (jParser.nextToken() == com.fasterxml.jackson.core.JsonToken.START_ARRAY) {
+                    uc.users = new ArrayList<>();
+                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                        uc.users.add(jacksonUser(jParser));
+                        if (jParser.isClosed()) {
+                            throw new IOException("parser closed");
+                        }
+                    }
                 }
             }
         }
@@ -340,7 +345,7 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
             String fieldname = jParser.getCurrentName();
             if (fieldname == null) {
-                continue;
+                break;
             }
             switch (fieldname) {
                 case "_id":

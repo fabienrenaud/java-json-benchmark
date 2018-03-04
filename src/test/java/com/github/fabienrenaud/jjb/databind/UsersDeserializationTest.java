@@ -1,6 +1,8 @@
 package com.github.fabienrenaud.jjb.databind;
 
 import com.github.fabienrenaud.jjb.JsonBenchmarkUsersTest;
+import com.github.fabienrenaud.jjb.data.JsonSource;
+import com.github.fabienrenaud.jjb.data.JsonSourceFactory;
 import com.github.fabienrenaud.jjb.support.Api;
 
 /**
@@ -8,9 +10,14 @@ import com.github.fabienrenaud.jjb.support.Api;
  */
 public class UsersDeserializationTest extends JsonBenchmarkUsersTest {
 
-    static {
-        BENCH = new Deserialization();
-        BENCH_API = Api.DATABIND;
+    public UsersDeserializationTest() {
+        super(new Deserialization() {
+            private final JsonSource source = JsonSourceFactory.create("users", 1, 10);
+            @Override
+            public JsonSource JSON_SOURCE() {
+                return source;
+            }
+        }, Api.DATABIND);
     }
 
 }

@@ -70,7 +70,7 @@ dependencies {
     compile group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.4.3'
     // jsoniter
     compile group: 'com.jsoniter', name: 'jsoniter', version: '0.9.11'
-    compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
+    //compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
     // minimal-json
     compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.4'
 

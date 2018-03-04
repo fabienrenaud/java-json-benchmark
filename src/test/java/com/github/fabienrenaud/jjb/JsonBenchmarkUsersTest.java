@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.support.Api;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -16,8 +17,8 @@ public abstract class JsonBenchmarkUsersTest extends JsonBenchmark<Users> {
 
     private static File configFile;
 
-    static {
-        BENCH_SUPPORT = BenchSupport.USERS;
+    public JsonBenchmarkUsersTest(JsonBench BENCH, Api BENCH_API) {
+        super(BENCH, BenchSupport.USERS, BENCH_API);
     }
 
     @BeforeClass
@@ -36,7 +37,7 @@ public abstract class JsonBenchmarkUsersTest extends JsonBenchmark<Users> {
 
     @Override
     protected void testPojo(Users o) {
-        Object original = BENCH.JSON_SOURCE.nextPojo();
+        Object original = BENCH.JSON_SOURCE().nextPojo();
         if (!o.equals(original)) {
             System.out.println("Difference in Users!");
             System.out.println("   Original   : " + original);

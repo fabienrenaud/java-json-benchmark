@@ -6,8 +6,10 @@ import com.github.fabienrenaud.jjb.provider.ClientsJsonProvider;
 
 public class ClientsSource extends JsonSource<Clients> {
 
+    private static final ClientsJsonProvider clientsJsonProvider = new ClientsJsonProvider();
+
     public ClientsSource(int quantity, int individualSize) {
-        super(quantity, individualSize, new ClientsJsonProvider(), new ClientsGenerator(), null, null);
+        super(quantity, individualSize, clientsJsonProvider, new ClientsGenerator(), null, null);
     }
 
     @Override

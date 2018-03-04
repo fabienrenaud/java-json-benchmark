@@ -17,9 +17,15 @@ import static org.junit.Assert.fail;
  */
 public abstract class JsonBenchmark<T> {
 
-    public static JsonBench BENCH;
-    public static BenchSupport BENCH_SUPPORT;
-    public static Api BENCH_API;
+    public final JsonBench BENCH;
+    public final BenchSupport BENCH_SUPPORT;
+    public final Api BENCH_API;
+
+    public JsonBenchmark(JsonBench BENCH, BenchSupport BENCH_SUPPORT, Api BENCH_API) {
+        this.BENCH = BENCH;
+        this.BENCH_SUPPORT = BENCH_SUPPORT;
+        this.BENCH_API = BENCH_API;
+    }
 
     private static final int ITERATIONS = 3;
 
@@ -32,7 +38,7 @@ public abstract class JsonBenchmark<T> {
         if (o instanceof Users || o instanceof Clients) {
             testPojo((T) o);
         } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
-            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE.provider().jsonioStreamOptions());
+            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE().provider().jsonioStreamOptions());
             testString(v);
         } else if (o instanceof com.grack.nanojson.JsonObject) {
             String v = com.grack.nanojson.JsonWriter.string(o);
@@ -44,7 +50,7 @@ public abstract class JsonBenchmark<T> {
 
     private void testString(String v) {
         try {
-            testPojo(BENCH.JSON_SOURCE.provider().jackson().readValue(v, pojoType()));
+            testPojo(BENCH.JSON_SOURCE().provider().jackson().readValue(v, pojoType()));
         } catch (IOException ex) {
             fail(ex.getMessage());
         }
@@ -52,7 +58,7 @@ public abstract class JsonBenchmark<T> {
 
     private boolean supports(final Library lib) {
         return BENCH_SUPPORT.libapis().stream()
-            .anyMatch((l) -> l.lib() == lib && l.api().contains(BENCH_API));
+            .anyMatch((l) -> l.lib() == lib && l.active() && l.api().contains(BENCH_API));
     }
 
     protected abstract void testPojo(T obj);

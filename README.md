@@ -57,7 +57,7 @@ The results here-below were computed on May the 21st, 2017 with the following li
 | json-smart  | 2.3     |
 | johnzon     | 1.1.0   |
 | logansquare | 1.3.7   |
-| dsl-json    | 1.6.4   |
+| dsl-json    | 1.7.0   |
 | simplejson  | 1.1.1   |
 | nanojson    | 1.2     |
 | jodd json   | 3.8.5   |

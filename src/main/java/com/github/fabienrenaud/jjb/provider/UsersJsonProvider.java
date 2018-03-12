@@ -4,6 +4,7 @@ import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
 import com.dslplatform.json.ConfigureJava8;
 import com.dslplatform.json.DslJson;
+import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
@@ -45,10 +46,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     /*
      * DSL-json
      */
-    private final DslJson<Object> dsljson = new DslJson<>();
-    private final DslJson<Object> dsljson_reflection =
-            new DslJson<>(com.dslplatform.json.runtime.Settings.withRuntime()
-                            .with(new ConfigureJava8()));//don't include service loader
+    private final DslJson<Object> dsljson = new DslJson<>(Settings.withRuntime().includeServiceLoader());
+    private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 

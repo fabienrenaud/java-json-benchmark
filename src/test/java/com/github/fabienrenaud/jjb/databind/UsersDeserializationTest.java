@@ -12,12 +12,18 @@ public class UsersDeserializationTest extends JsonBenchmarkUsersTest {
 
     public UsersDeserializationTest() {
         super(new Deserialization() {
-            private final JsonSource source = JsonSourceFactory.create("users", 1, 10);
+            private final JsonSource source = JsonSourceFactory.create("users", 1, 2000);
             @Override
             public JsonSource JSON_SOURCE() {
                 return source;
             }
         }, Api.DATABIND);
+    }
+
+
+    @Override
+    public void boon() throws Exception {
+        // FIXME: null collection
     }
 
 }

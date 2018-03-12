@@ -12,7 +12,7 @@ public class UsersSerializationTest extends JsonBenchmarkUsersTest {
 
     public UsersSerializationTest() {
         super(new Serialization() {
-            private final JsonSource source = JsonSourceFactory.create("users", 1, 10);
+            private final JsonSource source = JsonSourceFactory.create("users", 1, 2000);
             @Override
             public JsonSource JSON_SOURCE() {
                 return source;

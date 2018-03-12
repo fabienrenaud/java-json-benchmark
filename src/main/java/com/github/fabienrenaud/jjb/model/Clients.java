@@ -106,11 +106,11 @@ public class Clients {
             return index == client.index &&
                     isActive == client.isActive &&
                     age == client.age &&
-                    Double.compare(client.latitude, latitude) < 1e-13 &&
-                    Double.compare(client.longitude, longitude) < 1e-13 &&
+                    Math.abs(Double.doubleToLongBits(client.latitude) - Double.doubleToLongBits(latitude)) < 2 &&
+                    Math.abs(Double.doubleToLongBits(client.longitude) - Double.doubleToLongBits(longitude)) < 2 &&
                     Objects.equals(_id, client._id) &&
                     Objects.equals(guid, client.guid) &&
-                    Objects.equals(balance, client.balance) &&
+                    balance.compareTo(client.balance) == 0 &&
                     Objects.equals(picture, client.picture) &&
                     Objects.equals(eyeColor, client.eyeColor) &&
                     Objects.equals(name, client.name) &&
@@ -160,14 +160,14 @@ public class Clients {
         }
     }
 
-    public static class LoganBigDecimalConverter extends DoubleBasedTypeConverter<BigDecimal> {
+    public static class LoganBigDecimalConverter extends StringBasedTypeConverter<BigDecimal> {
         @Override
-        public BigDecimal getFromDouble(double s) {
+        public BigDecimal getFromString(String s) {
             return new BigDecimal(s);
         }
 
-        public double convertToDouble(BigDecimal object) {
-            return object.doubleValue();
+        public String convertToString(BigDecimal object) {
+            return object.toPlainString();
         }
     }
 

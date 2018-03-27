@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fabienrenaud/java-json-benchmark.svg?branch=master)](https://travis-ci.org/fabienrenaud/java-json-benchmark)
+
 # Benchmark of Java JSON libraries
 
 ## Purpose

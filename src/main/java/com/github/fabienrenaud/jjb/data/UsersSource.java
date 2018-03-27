@@ -11,8 +11,10 @@ import com.github.fabienrenaud.jjb.stream.UsersStreamSerializer;
  */
 public class UsersSource extends JsonSource<Users> {
 
+    private static final UsersJsonProvider usersJsonProvider = new UsersJsonProvider();
+
     public UsersSource(int quantity, int individualSize) {
-        super(quantity, individualSize, new UsersJsonProvider(), new UsersGenerator(), new UsersStreamSerializer(), new UsersStreamDeserializer());
+        super(quantity, individualSize, usersJsonProvider, new UsersGenerator(), new UsersStreamSerializer(), new UsersStreamDeserializer());
     }
 
     @Override

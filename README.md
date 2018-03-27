@@ -45,10 +45,10 @@ The results here-below were computed on May the 21st, 2017 with the following li
 
 | Library     | Version |
 |-------------|---------|
-| jackson     | 2.8.8   |
+| jackson     | 2.9.4   |
 | genson      | 1.4     |
 | fastjson    | 1.2.32  |
-| gson        | 2.8.0   |
+| gson        | 2.8.2   |
 | org.json    | 20090211   |
 | javax-json  | 1.0, 1.0.4 |
 | json-io     | 4.9.12  |
@@ -57,7 +57,7 @@ The results here-below were computed on May the 21st, 2017 with the following li
 | json-smart  | 2.3     |
 | johnzon     | 1.1.0   |
 | logansquare | 1.3.7   |
-| dsl-json    | 1.4.1   |
+| dsl-json    | 1.7.0   |
 | simplejson  | 1.1.1   |
 | nanojson    | 1.2     |
 | jodd json   | 3.8.5   |

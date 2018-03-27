@@ -8,12 +8,22 @@ import java.util.List;
  */
 public class Libapi {
 
+    private final boolean active;
     private final Library lib;
     private final List<Api> api;
 
     public Libapi(Library lib, Api... api) {
+        this(true, lib, api);
+    }
+
+    public Libapi(boolean active, Library lib, Api... api) {
+        this.active = active;
         this.lib = lib;
         this.api = Arrays.asList(api);
+    }
+
+    public boolean active() {
+        return active;
     }
 
     public Library lib() {

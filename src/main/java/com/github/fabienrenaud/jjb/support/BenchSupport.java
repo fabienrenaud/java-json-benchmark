@@ -24,6 +24,7 @@ public enum BenchSupport {
         new Libapi(Library.JOHNZON, Api.DATABIND),
         new Libapi(Library.JSONSMART, Api.DATABIND),
         new Libapi(Library.DSLJSON, Api.DATABIND),
+        new Libapi(Library.DSLJSON_REFLECTION, Api.DATABIND),
         new Libapi(Library.LOGANSQUARE, Api.DATABIND),
         new Libapi(Library.JSONSIMPLE, Api.STREAM),
         new Libapi(Library.NANOJSON, Api.STREAM),
@@ -32,6 +33,31 @@ public enum BenchSupport {
         new Libapi(Library.TAPESTRY, Api.STREAM),
         new Libapi(Library.JSONITER, Api.DATABIND),
         new Libapi(Library.MINIMALJSON, Api.STREAM)
+    ),
+    CLIENTS(
+            new Libapi(Library.GSON, Api.DATABIND),
+            new Libapi(Library.JACKSON, Api.DATABIND),
+            new Libapi(Library.JACKSON_AFTERBURNER, Api.DATABIND),
+            new Libapi(Library.ORGJSON),
+            new Libapi(Library.GENSON, Api.DATABIND),
+            new Libapi(false, Library.YASSON, Api.DATABIND),
+            new Libapi(Library.JAVAXJSON),
+            new Libapi(Library.FLEXJSON, Api.DATABIND),
+            new Libapi(Library.FASTJSON, Api.DATABIND),
+            new Libapi(Library.JSONIO),
+            new Libapi(false, Library.BOON, Api.DATABIND),
+            new Libapi(false, Library.JOHNZON, Api.DATABIND),
+            new Libapi(false, Library.JSONSMART, Api.DATABIND),
+            new Libapi(Library.DSLJSON, Api.DATABIND),
+            new Libapi(Library.DSLJSON_REFLECTION, Api.DATABIND),
+            new Libapi(Library.LOGANSQUARE, Api.DATABIND),
+            new Libapi(Library.JSONSIMPLE),
+            new Libapi(Library.NANOJSON),
+            new Libapi(Library.JODD, Api.DATABIND),
+            new Libapi(Library.MOSHI, Api.DATABIND),
+            new Libapi(Library.TAPESTRY),
+            new Libapi(false, Library.JSONITER, Api.DATABIND),
+            new Libapi(Library.MINIMALJSON)
     );
 
     private final List<Libapi> libapis;
@@ -46,6 +72,7 @@ public enum BenchSupport {
 
     public Set<Library> supportedLibs() {
          return libapis.stream()
+            .filter(Libapi::active)
             .map(Libapi::lib)
             .collect(Collectors.toSet());
     }

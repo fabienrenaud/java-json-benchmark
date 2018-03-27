@@ -21,6 +21,7 @@ public enum Library {
     JOHNZON,
     JSONSMART,
     DSLJSON,
+    DSLJSON_REFLECTION,
     LOGANSQUARE,
     JSONSIMPLE,
     NANOJSON,

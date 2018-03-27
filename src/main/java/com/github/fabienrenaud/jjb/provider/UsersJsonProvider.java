@@ -2,13 +2,14 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
+import com.dslplatform.json.ConfigureJava8;
 import com.dslplatform.json.DslJson;
+import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
-import com.jsoniter.extra.PreciseFloatSupport;
 import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
 
@@ -45,8 +46,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     /*
      * DSL-json
      */
-    private final DslJson<Users> dsljson = new DslJson<>();
-    private final ThreadLocal<com.dslplatform.json.JsonWriter> dsljsonwriter = new ThreadLocal<>();
+    private final DslJson<Object> dsljson = new DslJson<>(Settings.withRuntime().includeServiceLoader());
+    private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
@@ -63,8 +64,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
-
-        PreciseFloatSupport.enable();
     }
 
     @Override
@@ -121,8 +120,13 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
-    public DslJson<Users> dsljson() {
+    public DslJson<Object> dsljson() {
         return dsljson;
+    }
+
+    @Override
+    public DslJson<Object> dsljson_reflection() {
+        return dsljson_reflection;
     }
 
     @Override

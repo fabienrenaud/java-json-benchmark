@@ -40,7 +40,9 @@ public interface JsonProvider<T> {
 
     Map<String, Object> jsonioStreamOptions();
 
-    DslJson<T> dsljson();
+    DslJson<Object> dsljson();
+
+    DslJson<Object> dsljson_reflection();
 
     jodd.json.JsonParser joddDeser();
 

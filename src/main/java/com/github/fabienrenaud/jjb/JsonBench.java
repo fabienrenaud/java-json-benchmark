@@ -8,7 +8,8 @@ import com.github.fabienrenaud.jjb.data.JsonSourceFactory;
  */
 public abstract class JsonBench {
 
-    public static final JsonSource JSON_SOURCE = JsonSourceFactory.create();
+    protected static final JsonSource CLI_JSON_SOURCE = JsonSourceFactory.create();
+    public abstract JsonSource JSON_SOURCE();
 
     public Object gson() throws Exception {
         return null;
@@ -63,6 +64,10 @@ public abstract class JsonBench {
     }
 
     public Object dsljson() throws Exception {
+        return null;
+    }
+
+    public Object dsljson_reflection() throws Exception {
         return null;
     }
 

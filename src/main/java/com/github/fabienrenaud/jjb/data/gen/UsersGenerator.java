@@ -90,7 +90,7 @@ public class UsersGenerator implements DataGenerator<Users> {
             int id = RandomUtils.nextInt(0, 10000);
             String idStr = Integer.toString(id);
             String name = RandomUtils.randomAlphabetic(30);
-            u.friends.add(new Friend(idStr, name));
+            u.friends.add(Friend.create(idStr, name));
             expectedSize += idStr.length() + name.length() + 20; // {'_id':'','name':''},
         }
 

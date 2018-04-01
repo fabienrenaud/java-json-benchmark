@@ -1,16 +1,15 @@
 package com.github.fabienrenaud.jjb.data;
 
+import com.github.fabienrenaud.jjb.RandomUtils;
 import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
-import com.github.fabienrenaud.jjb.RandomUtils;
-import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
-import com.jsoniter.annotation.JsoniterAnnotationSupport;
 import com.jsoniter.extra.PreciseFloatSupport;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
+import com.jsoniter.spi.DecodingMode;
 import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
@@ -32,7 +31,7 @@ public abstract class JsonSource<T> {
         //JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.REFLECTION_MODE);
         JsonStream.setMode(EncodingMode.REFLECTION_MODE);
-        JsoniterAnnotationSupport.enable();
+//        JsoniterAnnotationSupport.enable();
         PreciseFloatSupport.enable();
     }
 

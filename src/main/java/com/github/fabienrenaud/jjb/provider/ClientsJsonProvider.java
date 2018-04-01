@@ -2,7 +2,6 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
-import com.dslplatform.json.ConfigureJava8;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -11,7 +10,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Clients;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializer;
 import com.owlike.genson.Context;
 import com.owlike.genson.Converter;
 import com.owlike.genson.Genson;
@@ -22,6 +25,7 @@ import com.squareup.moshi.Moshi;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.transformer.AbstractTransformer;
+import jodd.bean.JoddBean;
 import jodd.json.TypeJsonSerializer;
 import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
@@ -33,7 +37,8 @@ import javax.annotation.Nullable;
 import javax.json.bind.Jsonb;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.*;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,26 +60,25 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     private final JsonFactory jacksonFactory = new JsonFactory();
-    private final Genson genson =
-            new GensonBuilder()
-                    .useDateAsTimestamp(false)
-                    .withConverter(new Converter<LocalDate>() {
-                        public void serialize(LocalDate object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
-                            writer.writeString(object.toString());
-                        }
-                        public LocalDate deserialize(ObjectReader reader, Context ctx) {
-                            return LocalDate.parse(reader.valueAsString());
-                        }
-                    }, LocalDate.class)
-                    .withConverter(new Converter<OffsetDateTime>() {
-                        public void serialize(OffsetDateTime object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
-                            writer.writeString(object.toString());
-                        }
-                        public OffsetDateTime deserialize(ObjectReader reader, Context ctx) {
-                            return OffsetDateTime.parse(reader.valueAsString());
-                        }
-                    }, OffsetDateTime.class)
-                    .create();
+    private final Genson genson = new GensonBuilder()
+            .useDateAsTimestamp(false)
+            .withConverter(new Converter<LocalDate>() {
+                public void serialize(LocalDate object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
+                    writer.writeString(object.toString());
+                }
+                public LocalDate deserialize(ObjectReader reader, Context ctx) {
+                    return LocalDate.parse(reader.valueAsString());
+                }
+            }, LocalDate.class)
+            .withConverter(new Converter<OffsetDateTime>() {
+                public void serialize(OffsetDateTime object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
+                    writer.writeString(object.toString());
+                }
+                public OffsetDateTime deserialize(ObjectReader reader, Context ctx) {
+                    return OffsetDateTime.parse(reader.valueAsString());
+                }
+            }, OffsetDateTime.class)
+            .create();
     private final Jsonb yasson = new JsonBindingProvider().create()
             .withProvider(new org.glassfish.json.JsonProviderImpl())
             .build();
@@ -84,11 +88,10 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
 			getContext().writeQuoted(o.toString());
 		}
 	};
-    private final JSONDeserializer<Clients> flexjsonDeser =
-			new JSONDeserializer<Clients>()
-                    .use(UUID.class, (objectBinder, o, type, aClass) -> UUID.fromString((String) o))
-					.use(LocalDate.class, (objectBinder, o, type, aClass) -> LocalDate.parse((String) o))
-					.use(OffsetDateTime.class, (objectBinder, o, type, aClass) -> OffsetDateTime.parse((String) o));
+    private final JSONDeserializer<Clients> flexjsonDeser = new JSONDeserializer<Clients>()
+            .use(UUID.class, (objectBinder, o, type, aClass) -> UUID.fromString((String) o))
+            .use(LocalDate.class, (objectBinder, o, type, aClass) -> LocalDate.parse((String) o))
+            .use(OffsetDateTime.class, (objectBinder, o, type, aClass) -> OffsetDateTime.parse((String) o));
 
 	private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final Mapper johnzon;
@@ -156,9 +159,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 
-        TypeConverterManager.register(UUID.class, (TypeConverter<UUID>) value -> UUID.fromString((String)value));
-        TypeConverterManager.register(LocalDate.class, (TypeConverter<LocalDate>) value -> LocalDate.parse((String)value));
-        TypeConverterManager.register(OffsetDateTime.class, (TypeConverter<OffsetDateTime>) value -> OffsetDateTime.parse((String)value));
+        TypeConverterManager joddTypeConverterManager = JoddBean.defaults().getTypeConverterManager();
+        joddTypeConverterManager.register(UUID.class, (TypeConverter<UUID>) value -> UUID.fromString((String)value));
+        joddTypeConverterManager.register(LocalDate.class, (TypeConverter<LocalDate>) value -> LocalDate.parse((String)value));
+        joddTypeConverterManager.register(OffsetDateTime.class, (TypeConverter<OffsetDateTime>) value -> OffsetDateTime.parse((String)value));
+
     }
 
     @Override
@@ -239,39 +244,24 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
         return moshi;
     }
 
-    private static final ThreadLocal<JSONSerializer> FLEXJSON_SER = new ThreadLocal<JSONSerializer>() {
-        @Override
-        protected JSONSerializer initialValue() {
-            return new JSONSerializer()
-                    .transform(FLEX_IDENTITY, UUID.class)
-                    .transform(FLEX_IDENTITY, LocalDate.class)
-                    .transform(FLEX_IDENTITY, OffsetDateTime.class);
-        }
-    };
+    private static final ThreadLocal<JSONSerializer> FLEXJSON_SER = ThreadLocal.withInitial(() -> new JSONSerializer()
+            .transform(FLEX_IDENTITY, UUID.class)
+            .transform(FLEX_IDENTITY, LocalDate.class)
+            .transform(FLEX_IDENTITY, OffsetDateTime.class));
 
-    private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = new ThreadLocal<jodd.json.JsonParser>() {
-        @Override
-        protected jodd.json.JsonParser initialValue() {
-            return new jodd.json.JsonParser();
-        }
-    };
+    private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = ThreadLocal.withInitial(jodd.json.JsonParser::new);
 
-    private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = new ThreadLocal<jodd.json.JsonSerializer>() {
-        @Override
-        protected jodd.json.JsonSerializer initialValue() {
-            return new jodd.json.JsonSerializer()
-                    .withSerializer(UUID.class, (TypeJsonSerializer<UUID>) (jsonContext, value) -> {
-                        jsonContext.writeString(value.toString());
-                        return true;
-                    })
-                    .withSerializer(LocalDate.class, (TypeJsonSerializer<LocalDate>) (jsonContext, value) -> {
-                        jsonContext.writeString(value.toString());
-                        return true;
-                    })
-                    .withSerializer(OffsetDateTime.class, (TypeJsonSerializer<OffsetDateTime>) (jsonContext, value) -> {
-                        jsonContext.writeString(value.toString());
-                        return true;
-                    });
-        }
-    };
+    private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = ThreadLocal.withInitial(() -> new jodd.json.JsonSerializer()
+            .withSerializer(UUID.class, (TypeJsonSerializer<UUID>) (jsonContext, value) -> {
+                jsonContext.writeString(value.toString());
+                return true;
+            })
+            .withSerializer(LocalDate.class, (TypeJsonSerializer<LocalDate>) (jsonContext, value) -> {
+                jsonContext.writeString(value.toString());
+                return true;
+            })
+            .withSerializer(OffsetDateTime.class, (TypeJsonSerializer<OffsetDateTime>) (jsonContext, value) -> {
+                jsonContext.writeString(value.toString());
+                return true;
+            }));
 }

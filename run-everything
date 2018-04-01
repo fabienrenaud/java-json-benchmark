@@ -1,0 +1,29 @@
+#!/usr/bin/env sh -e
+
+DATA_TYPES="users clients"
+NUMBERS="1"
+SIZES="1 10 100 1000"
+COMMANDS="ser deser"
+
+echo ./gradlew clean build shadowJar
+./gradlew clean build shadowJar
+
+export SEED=${RANDOM}
+export SHADOW="done"
+
+for datatype in ${DATA_TYPES}; do
+    for n in ${NUMBERS}; do
+        for size in ${SIZES}; do
+            for command in ${COMMANDS}; do
+                outputFile="output/${command}-${n}-${size}-${datatype}.txt"
+                echo ./run ${command} --number ${n} --size ${size} --datatype ${datatype}
+                ./run ${command} \
+                    --number ${n} \
+                    --size ${size} \
+                    --datatype ${datatype} \
+                    > ${outputFile}
+            done
+        done
+    done
+done
+

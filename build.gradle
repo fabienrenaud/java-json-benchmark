@@ -5,9 +5,11 @@ plugins {
 }
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 group = 'com.github.fabienrenaud'
 version = '3'
+mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -93,7 +95,7 @@ dependencies {
 }
 
 shadowJar {
-    baseName = 'benchmarks'
+    archiveName = 'app.jar'
     exclude 'META-INF/*.SF'
     exclude 'META-INF/*.DSA'
     exclude 'META-INF/*.RSA'

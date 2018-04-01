@@ -108,22 +108,22 @@ The results here-below were computed on May the 21st, 2017 with the following li
 
 ## Run
 
-By default, running `./bench ser` (`./bench deser` respectively) will run 
+By default, running `./run ser` (`./run deser` respectively) will run 
 all -- stream and databind -- serialization (deserialization respectively)
 benchmarks with 1 KB payloads of _Users_.
 
 You can also specificy which libs, apis, payload-sizes and number of 
 iterations (and more) you want to run. For example:
 
-    ./bench deser --apis stream --libs genson,jackson 
-    ./bench ser --apis databind,stream --libs jackson 
-    ./bench deser --apis stream --libs dsljson,jackson --size 10 --datatype users
+    ./run deser --apis stream --libs genson,jackson 
+    ./run ser --apis databind,stream --libs jackson 
+    ./run deser --apis stream --libs dsljson,jackson --size 10 --datatype users
  
-Type `./bench help ser` or `./bench help deser` to print help for those
+Type `./run help ser` or `./run help deser` to print help for those
 commands.
 
 If you wish to run _all_ benchmarks used to generate the reports above,
-you can run `./bench-all`. This will take several hours to complete, so
+you can run `./run-everything`. This will take several hours to complete, so
 be patient.
 
 ## Contribute

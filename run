@@ -1,0 +1,9 @@
+#!/usr/bin/env sh -e
+
+JAR=build/libs/app.jar
+
+[ -z ${JVM_OPTIONS} ] && JVM_OPTIONS="-server -XX:+AggressiveOpts -Xms2G -Xmx2G"
+[ -z ${SEED} ] && export SEED=${RANDOM}
+[ -z ${SHADOW} ] && echo ./gradlew clean build shadowJar && ./gradlew clean build shadowJar
+
+exec java ${JVM_OPTIONS} -jar ${JAR} $*

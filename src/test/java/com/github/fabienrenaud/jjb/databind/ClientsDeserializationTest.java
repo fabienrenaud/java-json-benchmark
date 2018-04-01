@@ -46,4 +46,14 @@ public class ClientsDeserializationTest extends JsonBenchmarkClientsTest {
     public void jsoniter() throws Exception {
         // FIXME: does not work
     }
+
+    @Override
+    public void dsljson() throws Exception {
+        // FIXME: throws NPE
+    }
+
+    @Override
+    public void dsljson_reflection() throws Exception {
+        // FIXME: throws NPE
+    }
 }

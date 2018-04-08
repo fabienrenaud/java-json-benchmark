@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 group = 'com.github.fabienrenaud'
-version = '3'
+version = '5'
 mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 
 sourceCompatibility = 1.8

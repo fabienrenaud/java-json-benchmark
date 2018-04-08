@@ -4,8 +4,8 @@
 
 ## Purpose
 
-The purpose of this project is to evaluate serialization and deserialization performance of JSON libraries in Java.
-The following libraries are evaluated:
+This project benchmarks the throughput performance of a variety of Java Json libraries using [JMH](http://openjdk.java.net/projects/code-tools/jmh/).
+It covers the following libraries:
 
 * [jackson](https://github.com/FasterXML/jackson)
 * [genson](https://owlike.github.io/genson/)
@@ -25,69 +25,84 @@ The following libraries are evaluated:
 * [moshi](https://github.com/square/moshi)
 * [tapestry](https://tapestry.apache.org/json.html)
 * [jsoniter](http://jsoniter.com)
+* [minimal-json](https://github.com/ralfstx/minimal-json)
 
-This benchmark tests throughput performance of serialization and deserialization algorithms of the databind and stream API when available.
-Random payloads of various sizes are generated at runtime before each benchmark.
+When available, both databinding and 'stream' (custom packing and unpacking) implementations are tested.
+Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10, 100 and 1000 KB size: 
+* [`Users`](/src/main/java/com/github/fabienrenaud/jjb/model/Users.java): uses primitive types, String, List and simple POJOs; and
+* [`Clients`](/src/main/java/com/github/fabienrenaud/jjb/model/Clients.java): adds arrays, enum, UUID, LocalDate
 
-Four different sizes of payloads are evaluated in the charts below: 1 KB, 10 KB, 100 KB and 1 MB. And it is possible to generate on the fly any size of payloads.
+This benchmark is written to:
+* randomly generate payloads upon static loading of the JVM/benchmark; the *seed* is also shared across runs
+* read data from RAM
+* write data to reusable output streams (when possible); this reduces allocation pressure
+* consume all output streams; to avoid dead code elimination optimization  
 
-Each benchmark is written to read bytes from RAM and write to reusable output streams in RAM when possible, strings are rarely generated. All data is randomly generated upon static loading.
-
-This benchmark does NOT evaluate:
-
-* compression performance or efficiency
-* payloads bigger than 1.1 MB (would be easy to do though)
-* RAM utilization
+Not evaluated are: RAM utilization, compression, payloads > 1 MB.
 
 ## Results
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-The results here-below were computed on May the 21st, 2017 with the following libraries and versions:
+The results here-below were computed on April the 8th, 2018 with the following libraries and versions:
 
-| Library     | Version |
-|-------------|---------|
-| jackson     | 2.9.4   |
-| genson      | 1.4     |
-| fastjson    | 1.2.32  |
-| gson        | 2.8.2   |
-| org.json    | 20090211   |
-| javax-json  | 1.0, 1.0.4 |
-| json-io     | 4.9.12  |
-| flexjson    | 3.3     |
-| boon        | 0.34    |
-| json-smart  | 2.3     |
-| johnzon     | 1.1.0   |
-| logansquare | 1.3.7   |
-| dsl-json    | 1.7.0   |
-| simplejson  | 1.1.1   |
-| nanojson    | 1.2     |
-| jodd json   | 3.8.5   |
-| moshi       | 1.5.0   |
-| tapestry    | 5.4.3   |
-| jsoniter    | 0.9.11  |
+| Library      | Version  |
+|--------------|----------|
+| jackson      | 2.9.5    |
+| genson       | 1.4      |
+| fastjson     | 1.2.47   |
+| gson         | 2.8.2    |
+| org.json     | 20090211 |
+| javax-json   | 1.1.2    |
+| json-io      | 4.10.0   |
+| flexjson     | 3.3      |
+| boon         | 0.34     |
+| json-smart   | 2.3      |
+| johnzon      | 1.1.1    |
+| logansquare  | 1.3.7    |
+| dsl-json     | 1.7.1    |
+| simplejson   | 1.1.1    |
+| nanojson     | 1.2      |
+| jodd json    | 4.3.0    |
+| moshi        | 1.5.0    |
+| tapestry     | 5.4.3    |
+| jsoniter     | 0.9.22   |
+| minimal-json | 0.9.5    |
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/edit?usp=sharing)
+[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1gI5-FFWwPjf4pxgYE0cEfbFIyNUGL8ci4NKLjTozU5I/edit?usp=sharing)
 
-### Deserialization performance
+[Raw JMH results are available here][jmh-results]
 
-![json deserialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=746064058&format=image)
+### `Users` model
 
-[Raw JMH results here][jmh-results]
+Uses: primitive types, String, List and simple POJOs
 
-### Serialization performance
+**Deserialization performance**
+![json deserialization performance for primitive types, String, List and simple POJOs](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=1217359585&format=image)
 
-![json serialization performance](https://docs.google.com/spreadsheets/d/16GSfiTSRP2WKu3XxqNPIW_0KvZ2PezjFMHqTHrG-XZU/pubchart?oid=1130150523&format=image)
+**Serialization performance**
+![json serialization performance for primitive types, String, List and simple POJOs](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=296776676&format=image)
 
-[Raw JMH results here][jmh-results]
+### `Clients` model
+
+Uses: primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate
+
+Note: fewer libraries are tested with this model due to lack of support for some of the evaluated types.
+
+**Deserialization performance**
+![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=684555912&format=image)
+
+**Serialization performance**
+![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=2004244401&format=image)
+
 
 ### Benchmark configuration
 
 #### JMH
 
-    # JMH version: 1.19
-    # VM version: JDK 1.8.0_121, VM 25.121-b13
-    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/bin/java
+    # JMH version: 1.20
+    # VM version: JDK 1.8.0_131, VM 25.131-b11
+    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/bin/java
     # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
     # Warmup: 5 iterations, 1 s each
     # Measurement: 10 iterations, 3 s each
@@ -141,4 +156,4 @@ find numerous examples in the commit history. For instance:
 
 Pull requests are welcome.
 
-[jmh-results]: /archive/raw-results-2017-05-21.md
+[jmh-results]: /archive/raw-results-2018-04-08.md

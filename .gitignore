@@ -11,8 +11,9 @@ build/
 /nbproject/
 out/
 
-# System
+# Misc 
 .DS_Store
+.swp
 
 # Runtime
 *.json

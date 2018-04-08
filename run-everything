@@ -15,7 +15,7 @@ for datatype in ${DATA_TYPES}; do
     for n in ${NUMBERS}; do
         for size in ${SIZES}; do
             for command in ${COMMANDS}; do
-                outputFile="output/${command}-${n}-${size}-${datatype}.txt"
+                outputFile="output/${datatype}-${command}-${n}-${size}.txt"
                 echo ./run ${command} --number ${n} --size ${size} --datatype ${datatype}
                 ./run ${command} \
                     --number ${n} \

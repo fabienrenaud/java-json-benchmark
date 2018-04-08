@@ -12,13 +12,12 @@ public final class RandomUtils {
     private static final Random RANDOM;
 
     static {
-        String seed = System.getenv("SEED");
-        if (StringUtils.isNumeric(seed)) {
-            System.out.println("Using SEED=" + seed + " as seed for Random");
-            RANDOM = new Random(Long.parseLong(seed));
-        } else {
-            RANDOM = new Random();
-        }
+        String seedStr = System.getenv("SEED");
+        long seed = StringUtils.isNumeric(seedStr)
+                ? Long.parseLong(seedStr)
+                : System.nanoTime(); // only relevant for unit tests
+        System.out.println("Using SEED=" + seed + " as seed for Random");
+        RANDOM = new Random(seed);
     }
 
     private RandomUtils() {

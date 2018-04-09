@@ -106,8 +106,8 @@ public class Clients {
             return index == client.index &&
                     isActive == client.isActive &&
                     age == client.age &&
-                    Math.abs(Double.doubleToLongBits(client.latitude) - Double.doubleToLongBits(latitude)) < 2 &&
-                    Math.abs(Double.doubleToLongBits(client.longitude) - Double.doubleToLongBits(longitude)) < 2 &&
+                    Math.abs(Double.doubleToLongBits(client.latitude) - Double.doubleToLongBits(latitude)) < 3 &&
+                    Math.abs(Double.doubleToLongBits(client.longitude) - Double.doubleToLongBits(longitude)) < 3 &&
                     Objects.equals(_id, client._id) &&
                     Objects.equals(guid, client.guid) &&
                     balance.compareTo(client.balance) == 0 &&
@@ -145,7 +145,7 @@ public class Clients {
 
         @Override
         public String toString() {
-            return "JsonDataObj{" + "_id=" + _id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + Arrays.asList(emails) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
+            return "JsonDataObj{" + "_id=" + _id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + (emails != null ? Arrays.asList(emails) : null) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
         }
     }
 

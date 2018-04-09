@@ -105,8 +105,8 @@ public class Users {
             return index == user.index &&
                     isActive == user.isActive &&
                     age == user.age &&
-                    Math.abs(Double.doubleToLongBits(user.latitude) - Double.doubleToLongBits(latitude)) < 2 &&
-                    Math.abs(Double.doubleToLongBits(user.longitude) - Double.doubleToLongBits(longitude)) < 2 &&
+                    Math.abs(Double.doubleToLongBits(user.latitude) - Double.doubleToLongBits(latitude)) < 3 &&
+                    Math.abs(Double.doubleToLongBits(user.longitude) - Double.doubleToLongBits(longitude)) < 3 &&
                     Objects.equals(_id, user._id) &&
                     Objects.equals(guid, user.guid) &&
                     Objects.equals(balance, user.balance) &&

@@ -5,17 +5,11 @@ import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
-import com.jsoniter.JsonIterator;
-import com.jsoniter.extra.PreciseFloatSupport;
-import com.jsoniter.output.EncodingMode;
-import com.jsoniter.output.JsonStream;
-import com.jsoniter.spi.DecodingMode;
 import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -26,13 +20,7 @@ import java.io.Reader;
 public abstract class JsonSource<T> {
 
     static {
-        //TODO: disabled since it causes test compilation to fail for all libs
-        //JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_STRICTLY);
-        //JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
-        JsonIterator.setMode(DecodingMode.REFLECTION_MODE);
-        JsonStream.setMode(EncodingMode.REFLECTION_MODE);
-//        JsoniterAnnotationSupport.enable();
-        PreciseFloatSupport.enable();
+        JsonSourceInits.jsoniter();
     }
 
     private final JsonProvider<T> provider;
@@ -58,17 +46,13 @@ public abstract class JsonSource<T> {
         this.streamDeserializer = streamDeserializer;
         populateFields(quantity, individualSize);
 
-        this.jsonAsByteArrayInputStream = new ThreadLocal<ByteArrayInputStream[]>() {
-
-            @Override
-            protected ByteArrayInputStream[] initialValue() {
-                ByteArrayInputStream[] arr = new ByteArrayInputStream[quantity];
-                for (int i = 0; i < arr.length; i++) {
-                    arr[i] = new ByteArrayInputStream(jsonAsBytes[i]);
-                }
-                return arr;
+        this.jsonAsByteArrayInputStream = ThreadLocal.withInitial(() -> {
+            ByteArrayInputStream[] arr = new ByteArrayInputStream[quantity];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = new ByteArrayInputStream(jsonAsBytes[i]);
             }
-        };
+            return arr;
+        });
     }
 
     private final void populateFields(final int quantity, final int individualSize) {
@@ -114,7 +98,7 @@ public abstract class JsonSource<T> {
     public BufferedSource nextOkioBufferedSource() {
         return Okio.buffer(new ForwardingSource(Okio.source(nextInputStream())) {
             @Override
-            public void close() throws IOException {
+            public void close() {
             }
         });
     }

@@ -38,11 +38,6 @@ public class ClientsSerializationTest extends JsonBenchmarkClientsTest {
     }
 
     @Override
-    public void jsoniter() throws Exception {
-        // FIXME: does not work
-    }
-
-    @Override
     public void jsonsmart() throws Exception {
         // FIXME: tried to access field java.time.LocalDate.month
     }

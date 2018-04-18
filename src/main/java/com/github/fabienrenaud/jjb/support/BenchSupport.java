@@ -56,7 +56,7 @@ public enum BenchSupport {
             new Libapi(Library.JODD, Api.DATABIND),
             new Libapi(Library.MOSHI, Api.DATABIND),
             new Libapi(Library.TAPESTRY),
-            new Libapi(false, Library.JSONITER, Api.DATABIND),
+            new Libapi(Library.JSONITER, Api.DATABIND),
             new Libapi(Library.MINIMALJSON)
     );
 

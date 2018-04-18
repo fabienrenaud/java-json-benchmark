@@ -41,9 +41,4 @@ public class ClientsDeserializationTest extends JsonBenchmarkClientsTest {
     public void johnzon() throws Exception {
         // FIXME: does not work
     }
-
-    @Override
-    public void jsoniter() throws Exception {
-        // FIXME: does not work
-    }
 }

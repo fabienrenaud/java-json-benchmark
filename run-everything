@@ -1,12 +1,15 @@
-#!/usr/bin/env sh -e
+#!/bin/sh -e
 
 DATA_TYPES="users clients"
 NUMBERS="1"
 SIZES="1 10 100 1000"
 COMMANDS="ser deser"
+OUTPUT_DIR=output
 
 echo ./gradlew clean build shadowJar
 ./gradlew clean build shadowJar
+
+[ ! -d ${OUTPUT_DIR} ] && mkdir -p ${OUTPUT_DIR}
 
 export SEED=${RANDOM}
 export SHADOW="done"
@@ -21,7 +24,7 @@ for datatype in ${DATA_TYPES}; do
                     --number ${n} \
                     --size ${size} \
                     --datatype ${datatype} \
-                    > ${outputFile}
+                    | tee ${outputFile}
             done
         done
     done

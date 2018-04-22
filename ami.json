@@ -1,0 +1,56 @@
+{
+  "variables": {
+    "region": "us-west-2",
+    "aws_profile": "{{env `AWS_PROFILE`}}",
+    "iam_instance_profile": "java-json-benchmark"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "profile": "{{user `aws_profile`}}",
+      "region": "{{user `region`}}",
+      "source_ami_filter": {
+        "filters": {
+          "name": "amzn-ami-hvm-*-gp2",
+          "architecture": "x86_64",
+          "owner-alias": "amazon",
+          "root-device-type": "ebs",
+          "block-device-mapping.volume-type": "gp2",
+          "ena-support": "true",
+          "sriov-net-support": "simple",
+          "virtualization-type": "hvm"
+        },
+        "most_recent": true
+      },
+      "instance_type": "c5.xlarge",
+      "iam_instance_profile": "{{user `iam_instance_profile`}}",
+      "ssh_username": "ec2-user",
+      "ami_name": "java-json-benchmark-build-{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "app.tar.gz",
+      "destination": "/tmp/app.tar.gz"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum -y clean all",
+        "sudo yum -y upgrade",
+        "sudo yum install -y java-1.8.0-openjdk-devel",
+        "sudo yum remove -y java-1.7.0-openjdk",
+        "sudo /usr/sbin/alternatives --config java && sudo /usr/sbin/alternatives --config javac",
+        "mkdir ~/app",
+        "tar xzf /tmp/app.tar.gz -C ~/app",
+        "pushd ~/app",
+        "mkdir output",
+        "./run-everything", 
+        "archiveName=results-$(date +%Y-%m-%dT%H:%M:%S).tar.gz",
+        "tar czf ./${archiveName} output",
+        "aws s3 cp ./${archiveName} s3://java-json-benchmark/"
+      ]
+    }
+  ]
+}

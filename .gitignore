@@ -19,4 +19,5 @@ out/
 
 # Runtime
 *.json
+!ami.json
 *.log

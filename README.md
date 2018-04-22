@@ -69,7 +69,7 @@ The results here-below were computed on April the 8th, 2018 with the following l
 | jsoniter     | 0.9.22   |
 | minimal-json | 0.9.5    |
 
-[All graphs and sheets are available in this google doc.](https://docs.google.com/spreadsheets/d/1gI5-FFWwPjf4pxgYE0cEfbFIyNUGL8ci4NKLjTozU5I/edit?usp=sharing)
+[All graphs and sheets are available in this google doc.][spreadsheet]
 
 [Raw JMH results are available here][jmh-results]
 
@@ -78,10 +78,10 @@ The results here-below were computed on April the 8th, 2018 with the following l
 Uses: primitive types, String, List and simple POJOs
 
 **Deserialization performance**
-![json deserialization performance for primitive types, String, List and simple POJOs](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=1217359585&format=image)
+![json deserialization performance for primitive types, String, List and simple POJOs][graph-users-deser]
 
 **Serialization performance**
-![json serialization performance for primitive types, String, List and simple POJOs](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=296776676&format=image)
+![json serialization performance for primitive types, String, List and simple POJOs][graph-users-ser]
 
 ### `Clients` model
 
@@ -90,36 +90,29 @@ Uses: primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalD
 Note: fewer libraries are tested with this model due to lack of support for some of the evaluated types.
 
 **Deserialization performance**
-![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=684555912&format=image)
+![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][graph-clients-deser]
 
 **Serialization performance**
-![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate](https://docs.google.com/spreadsheets/d/e/2PACX-1vR4_0Ew3t2-VeYUVgJM_VkELoVXSYJGWVUu7LWEEoLclY5TEYoZ8HsLnpTdcBGgjrGEGpvRnArjbKrv/pubchart?oid=2004244401&format=image)
+![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][graph-clients-ser]
 
 
 ### Benchmark configuration
 
-#### JMH
+Tests were run on an [Amazon EC2 c5.xlarge](https://aws.amazon.com/ec2/instance-types/c5/) (4 vCPU, 8 GiB RAM)
 
-    # JMH version: 1.20
-    # VM version: JDK 1.8.0_131, VM 25.131-b11
-    # VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/bin/java
-    # VM options: -XX:+AggressiveOpts -Xms2G -Xmx2G
-    # Warmup: 5 iterations, 1 s each
-    # Measurement: 10 iterations, 3 s each
-    # Timeout: 10 min per iteration
-    # Threads: 16 threads, will synchronize iterations
-    # Benchmark mode: Throughput, ops/time
+JMH info:
 
-#### Hardware
-
-    Model Name: MacBook Pro
-    Processor Name: Intel Core i7
-    Processor Speed: 2.6 GHz
-    Number of Processors: 1
-    Total Number of Cores: 4
-    L2 Cache (per Core): 256 KB
-    L3 Cache: 6 MB
-    Memory: 16 GB
+```
+# JMH version: 1.20
+# VM version: JDK 1.8.0_161, VM 25.161-b14
+# VM invoker: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.36.amzn1.x86_64/jre/bin/java
+# VM options: -XX:+AggressiveOpts -Xms2g -Xmx2g
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+```
 
 ## Run
 
@@ -156,4 +149,10 @@ find numerous examples in the commit history. For instance:
 
 Pull requests are welcome.
 
-[jmh-results]: /archive/raw-results-2018-04-08.md
+
+[jmh-results]: /archive/raw-results-2018-04-21.md
+[spreadsheet]: https://docs.google.com/spreadsheets/d/111HkglyS4ONv1xPQXKabDDXn_rKxQaUiMaNoEtXb1wE/edit?usp=sharing
+[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vTK4izjhdoGGdV-2d9KQ4UG4XrDQgm-xXUeI2KLptc0no92BMLP7rs01tr_VzrJeYP1P3IHu5_3ZtJ6/pubchart?oid=1217359585&format=image
+[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vTK4izjhdoGGdV-2d9KQ4UG4XrDQgm-xXUeI2KLptc0no92BMLP7rs01tr_VzrJeYP1P3IHu5_3ZtJ6/pubchart?oid=296776676&format=image
+[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vTK4izjhdoGGdV-2d9KQ4UG4XrDQgm-xXUeI2KLptc0no92BMLP7rs01tr_VzrJeYP1P3IHu5_3ZtJ6/pubchart?oid=684555912&format=image
+[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vTK4izjhdoGGdV-2d9KQ4UG4XrDQgm-xXUeI2KLptc0no92BMLP7rs01tr_VzrJeYP1P3IHu5_3ZtJ6/pubchart?oid=2004244401&format=image

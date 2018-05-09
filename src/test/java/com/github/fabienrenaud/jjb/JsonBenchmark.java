@@ -225,4 +225,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.MINIMALJSON, BENCH.minimaljson());
         }
     }
+
+    @Test
+    public void mjson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.MJSON, BENCH.mjson());
+        }
+    }
 }

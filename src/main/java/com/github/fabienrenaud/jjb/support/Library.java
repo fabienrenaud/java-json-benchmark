@@ -29,7 +29,8 @@ public enum Library {
     MOSHI,
     TAPESTRY,
     JSONITER,
-    MINIMALJSON;
+    MINIMALJSON,
+    MJSON;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

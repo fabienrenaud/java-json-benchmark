@@ -848,10 +848,10 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
         writer.endObject();
     }
-    
+
     private void moshiUser(com.squareup.moshi.JsonWriter writer, User user) throws IOException {
         writer.beginObject();
-        
+
         if (user._id != null) {
             writer.name("_id");
             writer.value(user._id);
@@ -978,5 +978,90 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         }
 
         writer.endObject();
+    }
+
+    @Override
+    public mjson.Json mjson(Users obj) throws IOException {
+        mjson.Json usersJson = mjson.Json.object();
+        if (obj.users != null) {
+            mjson.Json usersArr = mjson.Json.array();
+            for (User u : obj.users) {
+                usersArr.add(mjson(u));
+            }
+            usersJson.set("users", usersArr);
+        }
+        return usersJson;
+    }
+
+    private mjson.Json mjson(User user) throws IOException {
+        mjson.Json userJson = mjson.Json.object();
+        if (user._id != null) {
+            userJson.set("_id", user._id);
+        }
+        userJson.set("index", user.index);
+        if (user.guid != null) {
+            userJson.set("guid", user.guid);
+        }
+        userJson.set("isActive", user.isActive);
+        if (user.balance != null) {
+            userJson.set("balance", user.balance);
+        }
+        if (user.picture != null) {
+            userJson.set("picture", user.picture);
+        }
+        userJson.set("age", user.age);
+        if (user.eyeColor != null) {
+            userJson.set("eyeColor", user.eyeColor);
+        }
+        if (user.name != null) {
+            userJson.set("name", user.name);
+        }
+        if (user.gender != null) {
+            userJson.set("gender", user.gender);
+        }
+        if (user.company != null) {
+            userJson.set("company", user.company);
+        }
+        if (user.email != null) {
+            userJson.set("email", user.email);
+        }
+        if (user.phone != null) {
+            userJson.set("phone", user.phone);
+        }
+        if (user.address != null) {
+            userJson.set("address", user.address);
+        }
+        if (user.about != null) {
+            userJson.set("about", user.about);
+        }
+        if (user.registered != null) {
+            userJson.set("registered", user.registered);
+        }
+        userJson.set("latitude", user.latitude);
+        userJson.set("longitude", user.longitude);
+        if (user.tags != null) {
+            mjson.Json tagsArr= mjson.Json.array();
+            for (String tag : user.tags) {
+                tagsArr.add(tag);
+            }
+            userJson.set("tags", tagsArr);
+        }
+        if (user.friends != null) {
+            mjson.Json friendsArr = mjson.Json.array();
+            for (Friend friend : user.friends) {
+                mjson.Json friendJson = mjson.Json.object();
+                friendJson.set("id", friend.id);
+                friendJson.set("name", friend.name);
+                friendsArr.add(friendJson);
+            }
+            userJson.set("friends", friendsArr);
+        }
+        if (user.greeting != null) {
+            userJson.set("greeting", user.greeting);
+        }
+        if (user.favoriteFruit != null) {
+            userJson.set("favoriteFruit", user.favoriteFruit);
+        }
+        return userJson;
     }
 }

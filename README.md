@@ -26,9 +26,10 @@ It covers the following libraries:
 * [tapestry](https://tapestry.apache.org/json.html)
 * [jsoniter](http://jsoniter.com)
 * [minimal-json](https://github.com/ralfstx/minimal-json)
+* [mjson](https://github.com/bolerio/mjson)
 
 When available, both databinding and 'stream' (custom packing and unpacking) implementations are tested.
-Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10, 100 and 1000 KB size: 
+Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10, 100 and 1000 KB size:
 * [`Users`](/src/main/java/com/github/fabienrenaud/jjb/model/Users.java): uses primitive types, String, List and simple POJOs; and
 * [`Clients`](/src/main/java/com/github/fabienrenaud/jjb/model/Clients.java): adds arrays, enum, UUID, LocalDate
 
@@ -36,7 +37,7 @@ This benchmark is written to:
 * randomly generate payloads upon static loading of the JVM/benchmark; the *seed* is also shared across runs
 * read data from RAM
 * write data to reusable output streams (when possible); this reduces allocation pressure
-* consume all output streams; to avoid dead code elimination optimization  
+* consume all output streams; to avoid dead code elimination optimization
 
 Not evaluated are: RAM utilization, compression, payloads > 1 MB.
 
@@ -116,17 +117,17 @@ JMH info:
 
 ## Run
 
-By default, running `./run ser` (`./run deser` respectively) will run 
+By default, running `./run ser` (`./run deser` respectively) will run
 all -- stream and databind -- serialization (deserialization respectively)
 benchmarks with 1 KB payloads of _Users_.
 
-You can also specificy which libs, apis, payload-sizes and number of 
+You can also specificy which libs, apis, payload-sizes and number of
 iterations (and more) you want to run. For example:
 
-    ./run deser --apis stream --libs genson,jackson 
-    ./run ser --apis databind,stream --libs jackson 
+    ./run deser --apis stream --libs genson,jackson
+    ./run ser --apis databind,stream --libs jackson
     ./run deser --apis stream --libs dsljson,jackson --size 10 --datatype users
- 
+
 Type `./run help ser` or `./run help deser` to print help for those
 commands.
 
@@ -145,7 +146,7 @@ find numerous examples in the commit history. For instance:
  * Addition of moshi: https://github.com/fabienrenaud/java-json-benchmark/commit/6af2c0a7091b12a9dc768e49499682b97ea57ff6
  * Addition of jodd: https://github.com/fabienrenaud/java-json-benchmark/commit/288a4e61496588ed4c0a80e1f107f34f9a2c985c
  * Addition of json-simple: https://github.com/fabienrenaud/java-json-benchmark/commit/1e1e559c39a6eddc3dd7d7cea777fc7861415469
- 
+
 
 Pull requests are welcome.
 

@@ -81,6 +81,8 @@ dependencies {
     compile group: 'org.javassist', name: 'javassist', version: '3.22.0-GA'
     // minimal-json
     compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'
+    // mjson
+    compile group: 'org.sharegov', name: 'mjson', version: '1.4.1'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -110,11 +112,11 @@ task (depsize) {
         def size = 0;
         def formatStr = "%,10.2f"
         configurations.default.collect { it.length() / (1024 * 1024) }.each { size += it }
-    
+
         def out = new StringBuffer()
         out << 'Total dependencies size:'.padRight(45)
         out << "${String.format(formatStr, size)} MiB\n\n"
-    
+
         configurations
             .default
             .sort { -it.length() }

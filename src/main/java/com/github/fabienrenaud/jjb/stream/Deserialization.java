@@ -94,4 +94,10 @@ public class Deserialization extends JsonBench {
             return JSON_SOURCE().streamDeserializer().moshi(jr);
         }
     }
+
+    @Benchmark
+    @Override
+    public Object mjson() throws Exception {
+        return mjson.Json.read(JSON_SOURCE().nextString());
+    }
 }

@@ -128,4 +128,10 @@ public class Serialization extends JsonBench {
         sink.close();
         return baos;
     }
+
+    @Benchmark
+    @Override
+    public Object mjson() throws Exception {
+        return JSON_SOURCE().streamSerializer().mjson(JSON_SOURCE().nextPojo()).toString();
+    }
 }

@@ -29,4 +29,6 @@ public interface StreamSerializer<T> {
     com.eclipsesource.json.JsonValue minimaljson(final T obj) throws IOException;
 
     void moshi(com.squareup.moshi.JsonWriter writer, T obj) throws IOException;
+
+    mjson.Json mjson(final T obj) throws IOException;
 }

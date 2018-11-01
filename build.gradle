@@ -82,6 +82,8 @@ dependencies {
     compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'
     // mjson
     compile group: 'org.sharegov', name: 'mjson', version: '1.4.1'
+    // underscore-java
+    compile group: 'com.github.javadev', name: 'underscore', version: '1.37'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

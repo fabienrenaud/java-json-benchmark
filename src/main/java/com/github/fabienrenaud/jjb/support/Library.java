@@ -30,7 +30,8 @@ public enum Library {
     TAPESTRY,
     JSONITER,
     MINIMALJSON,
-    MJSON;
+    MJSON,
+    UNDERSCORE_JAVA;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

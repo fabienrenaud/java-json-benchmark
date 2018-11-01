@@ -100,4 +100,10 @@ public class Deserialization extends JsonBench {
     public Object mjson() throws Exception {
         return mjson.Json.read(JSON_SOURCE().nextString());
     }
+
+    @Benchmark
+    @Override
+    public Object underscore_java() throws Exception {
+        return JSON_SOURCE().streamDeserializer().underscore_java(JSON_SOURCE().nextString());
+    }
 }

@@ -709,4 +709,106 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
         return friend;
     }
+
+    @Override
+    public Users underscore_java(String string) {
+        java.util.Map<String, Object> jso = (java.util.Map<String, Object>) com.github.underscore.lodash.U.fromJson(string);
+        Object v;
+        Users uc = new Users();
+
+        if ((v = jso.get("users")) != null) {
+            java.util.List<Object> jsarr = (java.util.List<Object>) v;
+            uc.users = new ArrayList<>();
+            for (Object vi : jsarr) {
+                uc.users.add(underscore_java((java.util.Map<String, Object>) vi));
+            }
+        }
+        return uc;
+    }
+
+    private User underscore_java(java.util.Map<String, Object> jso) {
+        Object v;
+        User u = new User();
+
+        if ((v = jso.get("_id")) != null) {
+            u._id = (String) v;
+        }
+        if ((v = jso.get("index")) != null) {
+            u.index = ((Long) v).intValue();
+        }
+        if ((v = jso.get("guid")) != null) {
+            u.guid = (String) v;
+        }
+        if ((v = jso.get("isActive")) != null) {
+            u.isActive = ((Boolean) v);
+        }
+        if ((v = jso.get("balance")) != null) {
+            u.balance = (String) v;
+        }
+        if ((v = jso.get("picture")) != null) {
+            u.picture = (String) v;
+        }
+        if ((v = jso.get("age")) != null) {
+            u.age = ((Long) v).intValue();
+        }
+        if ((v = jso.get("eyeColor")) != null) {
+            u.eyeColor = (String) v;
+        }
+        if ((v = jso.get("name")) != null) {
+            u.name = (String) v;
+        }
+        if ((v = jso.get("gender")) != null) {
+            u.gender = (String) v;
+        }
+        if ((v = jso.get("company")) != null) {
+            u.company = (String) v;
+        }
+        if ((v = jso.get("email")) != null) {
+            u.email = (String) v;
+        }
+        if ((v = jso.get("phone")) != null) {
+            u.phone = (String) v;
+        }
+        if ((v = jso.get("address")) != null) {
+            u.address = (String) v;
+        }
+        if ((v = jso.get("about")) != null) {
+            u.about = (String) v;
+        }
+        if ((v = jso.get("registered")) != null) {
+            u.registered = (String) v;
+        }
+        if ((v = jso.get("latitude")) != null) {
+            u.latitude = (Double) v;
+        }
+        if ((v = jso.get("longitude")) != null) {
+            u.longitude = (Double) v;
+        }
+        if ((v = jso.get("greeting")) != null) {
+            u.greeting = (String) v;
+        }
+        if ((v = jso.get("favoriteFruit")) != null) {
+            u.favoriteFruit = (String) v;
+        }
+        if ((v = jso.get("tags")) != null) {
+            java.util.List<Object> jsonarr = (java.util.List<Object>) v;
+            u.tags = new ArrayList<>();
+            for (Object vi : jsonarr) {
+                u.tags.add((String) vi);
+            }
+        }
+        if ((v = jso.get("friends")) != null) {
+            java.util.List<Object> jsonarr = (java.util.List<Object>) v;
+            u.friends = new ArrayList<>();
+            for (Object vi : jsonarr) {
+                java.util.Map<String, Object> jso0 = (java.util.Map<String, Object>) vi;
+                Friend f = new Friend();
+                f.id = (String) jso0.get("id");
+                f.name = (String) jso0.get("name");
+                u.friends.add(f);
+            }
+        }
+
+        return u;
+    }
 }

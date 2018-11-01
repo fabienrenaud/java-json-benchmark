@@ -21,4 +21,6 @@ public interface StreamDeserializer<T> {
     T minimaljson(Reader reader) throws IOException;
 
     T moshi(com.squareup.moshi.JsonReader reader) throws IOException;
+
+    T underscore_java(String reader) throws IOException;
 }

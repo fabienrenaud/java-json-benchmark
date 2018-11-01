@@ -1064,4 +1064,89 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         }
         return userJson;
     }
+
+    @Override
+    public String underscore_java(final Users obj) throws IOException {
+        java.util.Map<String, Object> jso = new java.util.LinkedHashMap<>();
+        if (obj.users != null) {
+            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            for (User u : obj.users) {
+                jsarr.add(underscore_java(u));
+            }
+            jso.put("users", jsarr);
+        }
+        return com.github.underscore.lodash.U.toJson(jso);
+    }
+
+    private java.util.Map<String, Object> underscore_java(final User u) throws IOException {
+        java.util.Map<String, Object> jso = new java.util.LinkedHashMap<>();
+        if (u._id != null) {
+            jso.put("_id", u._id);
+        }
+        jso.put("index", u.index);
+        if (u.guid != null) {
+            jso.put("guid", u.guid);
+        }
+        jso.put("isActive", u.isActive);
+        if (u.balance != null) {
+            jso.put("balance", u.balance);
+        }
+        if (u.picture != null) {
+            jso.put("picture", u.picture);
+        }
+        jso.put("age", u.age);
+        if (u.eyeColor != null) {
+            jso.put("eyeColor", u.eyeColor);
+        }
+        if (u.name != null) {
+            jso.put("name", u.name);
+        }
+        if (u.gender != null) {
+            jso.put("gender", u.gender);
+        }
+        if (u.company != null) {
+            jso.put("company", u.company);
+        }
+        if (u.email != null) {
+            jso.put("email", u.email);
+        }
+        if (u.phone != null) {
+            jso.put("phone", u.phone);
+        }
+        if (u.address != null) {
+            jso.put("address", u.address);
+        }
+        if (u.about != null) {
+            jso.put("about", u.about);
+        }
+        if (u.registered != null) {
+            jso.put("registered", u.registered);
+        }
+        jso.put("latitude", u.latitude);
+        jso.put("longitude", u.longitude);
+        if (u.tags != null) {
+            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            for (String t : u.tags) {
+                jsarr.add(t);
+            }
+            jso.put("tags", jsarr);
+        }
+        if (u.friends != null) {
+            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            for (Friend f : u.friends) {
+                java.util.Map<String, Object> jso0 = new java.util.LinkedHashMap<>();
+                jso0.put("id", f.id);
+                jso0.put("name", f.name);
+                jsarr.add(jso0);
+            }
+            jso.put("friends", jsarr);
+        }
+        if (u.greeting != null) {
+            jso.put("greeting", u.greeting);
+        }
+        if (u.favoriteFruit != null) {
+            jso.put("favoriteFruit", u.favoriteFruit);
+        }
+        return jso;
+    }
 }

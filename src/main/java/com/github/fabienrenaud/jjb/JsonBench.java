@@ -106,4 +106,8 @@ public abstract class JsonBench {
     public Object mjson() throws Exception {
         return null;
     }
+
+    public Object underscore_java() throws Exception {
+        return null;
+    }
 }

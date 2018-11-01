@@ -134,4 +134,10 @@ public class Serialization extends JsonBench {
     public Object mjson() throws Exception {
         return JSON_SOURCE().streamSerializer().mjson(JSON_SOURCE().nextPojo()).toString();
     }
+
+    @Benchmark
+    @Override
+    public Object underscore_java() throws Exception {
+        return JSON_SOURCE().streamSerializer().underscore_java(JSON_SOURCE().nextPojo());
+    }
 }

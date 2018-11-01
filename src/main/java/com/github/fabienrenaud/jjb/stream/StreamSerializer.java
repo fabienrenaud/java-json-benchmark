@@ -31,4 +31,6 @@ public interface StreamSerializer<T> {
     void moshi(com.squareup.moshi.JsonWriter writer, T obj) throws IOException;
 
     mjson.Json mjson(final T obj) throws IOException;
+
+    Object underscore_java(final T obj) throws IOException;
 }

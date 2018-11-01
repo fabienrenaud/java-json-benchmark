@@ -232,4 +232,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.MJSON, BENCH.mjson());
         }
     }
+
+    @Test
+    public void underscore_java() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.UNDERSCORE_JAVA, BENCH.underscore_java());
+        }
+    }
 }

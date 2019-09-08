@@ -239,4 +239,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.UNDERSCORE_JAVA, BENCH.underscore_java());
         }
     }
+    
+    @Test
+    public void purejson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.PUREJSON, BENCH.underscore_java());
+        }
+    }
 }

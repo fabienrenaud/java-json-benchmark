@@ -31,7 +31,8 @@ public enum Library {
     JSONITER,
     MINIMALJSON,
     MJSON,
-    UNDERSCORE_JAVA;
+    UNDERSCORE_JAVA,
+    PUREJSON;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

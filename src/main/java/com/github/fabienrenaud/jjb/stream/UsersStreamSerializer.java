@@ -1159,8 +1159,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     @Override
     public Value purejson(Users obj) throws IOException {
-        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
-        final List<Parser.Value> arr = new ArrayList<>();
+        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
+        final List<Parser.Value> arr = new ArrayList<>(obj.users.size());
         if (obj.users != null) {
             for (User u : obj.users) {
                 arr.add(purejson(u));

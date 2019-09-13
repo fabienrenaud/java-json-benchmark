@@ -1,6 +1,9 @@
 package com.github.fabienrenaud.jjb.stream;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -130,8 +133,15 @@ public class Deserialization extends JsonBench {
     @Override
     public Object purejson() throws Exception {
         final AtomicReference<Object> ref = new AtomicReference<>();
-        Parser.create().parse(JSON_SOURCE().nextString()).ifSuccess(v -> ref.set(PureJson.toObject(v))).ifFailure(System.out::println);
-        return ref.get();
+        try(final InputStream is = new ByteArrayInputStream(JSON_SOURCE().nextByteArray())) {
+            Parser.create()
+            .parse(is)
+            .ifSuccess(v -> ref.set(PureJson.toObject(v))) //construct object if success.
+            .ifFailure(msg -> { throw new RuntimeException(msg); }); //crash if exception 
+            return ref.get();
+        } finally {
+            
+        }
     }
     
     
@@ -143,7 +153,7 @@ public class Deserialization extends JsonBench {
             final AtomicBoolean isUser = new AtomicBoolean(false);
             v.isJSON((k, _v) -> k.isString(key -> 
                 _v.isArray(__v -> {
-                    if(key.equals("users")) {
+                    if (key.equals("users")) {
                         users.add(toUser(__v));
                         isUser.set(true);
                     } else if (key.equals("clients")) {

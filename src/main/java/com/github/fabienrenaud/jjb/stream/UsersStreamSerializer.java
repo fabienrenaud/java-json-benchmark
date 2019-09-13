@@ -1160,8 +1160,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public Value purejson(Users obj) throws IOException {
         final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
-        final List<Parser.Value> arr = new ArrayList<>(obj.users.size());
         if (obj.users != null) {
+            final List<Parser.Value> arr = new ArrayList<>(obj.users.size());
             for (User u : obj.users) {
                 arr.add(purejson(u));
             }
@@ -1218,14 +1218,14 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         map.put(Value.string("latitude"), Value.number(u.latitude));
         map.put(Value.string("longitude"), Value.number(u.longitude));
         if (u.tags != null) {
-            final List<Parser.Value> jsarr = new ArrayList<>();
+            final List<Parser.Value> jsarr = new ArrayList<>(u.tags.size());
             for (String t : u.tags) {
                 jsarr.add(Value.string(t));
             }
             map.put(Value.string("tags"), Value.arr(jsarr));
         }
         if (u.friends != null) {
-            final List<Value> jsarr = new ArrayList<>();
+            final List<Value> jsarr = new ArrayList<>(u.friends.size());
             for (Friend f : u.friends) {
                 Map<Value, Value> jso0 = new LinkedHashMap<>();
                 jso0.put(Value.string("id"), Value.string(f.id));

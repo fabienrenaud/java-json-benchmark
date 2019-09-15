@@ -71,7 +71,7 @@ The results here-below were computed on April the 8th, 2018 with the following l
 | tapestry     | 5.4.3    |
 | jsoniter     | 0.9.22   |
 | minimal-json | 0.9.5    |
-| purejson     | 1.0.0    |
+| purejson     | 1.0.1    |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 

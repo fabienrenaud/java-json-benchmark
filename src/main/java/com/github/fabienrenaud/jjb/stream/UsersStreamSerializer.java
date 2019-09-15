@@ -7,10 +7,17 @@ import com.github.fabienrenaud.jjb.model.Users.User;
 import com.google.gson.stream.JsonWriter;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
+
+import io.github.senthilganeshs.parser.json.Parser;
+import io.github.senthilganeshs.parser.json.Parser.Value;
+
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UsersStreamSerializer implements StreamSerializer<Users> {
 
@@ -1040,7 +1047,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         userJson.set("latitude", user.latitude);
         userJson.set("longitude", user.longitude);
         if (user.tags != null) {
-            mjson.Json tagsArr= mjson.Json.array();
+            mjson.Json tagsArr = mjson.Json.array();
             for (String tag : user.tags) {
                 tagsArr.add(tag);
             }
@@ -1148,5 +1155,89 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             jso.put("favoriteFruit", u.favoriteFruit);
         }
         return jso;
+    }
+
+    @Override
+    public Value purejson(Users obj) {
+        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
+        final List<Value> arr = new ArrayList<>(obj.users.size());
+        for (User u : obj.users) {
+            arr.add(purejson(u));
+        }
+        map.put(Value.string("users"), Value.arr(arr));
+        return Value.json(map);
+    }
+
+    private Parser.Value purejson(final User u) {
+        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
+
+        if (u._id != null) {
+            map.put(Value.string("_id"), Value.string(u._id));
+        }
+        map.put(Value.string("index"), Value.integer(u.index));
+        if (u.guid != null) {
+            map.put(Value.string("guid"), Value.string(u.guid));
+        }
+        map.put(Value.string("isActive"), Value.bool(u.isActive));
+        if (u.balance != null) {
+            map.put(Value.string("balance"), Value.string(u.balance));
+        }
+        if (u.picture != null) {
+            map.put(Value.string("picture"), Value.string(u.picture));
+        }
+        map.put(Value.string("age"), Value.integer(u.age));
+        if (u.eyeColor != null) {
+            map.put(Value.string("eyeColor"), Value.string(u.eyeColor));
+        }
+        if (u.name != null) {
+            map.put(Value.string("name"), Value.string(u.name));
+        }
+        if (u.gender != null) {
+            map.put(Value.string("gender"), Value.string(u.gender));
+        }
+        if (u.company != null) {
+            map.put(Value.string("company"), Value.string(u.company));
+        }
+        if (u.email != null) {
+            map.put(Value.string("email"), Value.string(u.email));
+        }
+        if (u.phone != null) {
+            map.put(Value.string("phone"), Value.string(u.phone));
+        }
+        if (u.address != null) {
+            map.put(Value.string("address"), Value.string(u.address));
+        }
+        if (u.about != null) {
+            map.put(Value.string("about"), Value.string(u.about));
+        }
+        if (u.registered != null) {
+            map.put(Value.string("registered"), Value.string(u.registered));
+        }
+        map.put(Value.string("latitude"), Value.number(u.latitude));
+        map.put(Value.string("longitude"), Value.number(u.longitude));
+        if (u.tags != null) {
+            final List<Parser.Value> jsarr = new ArrayList<>(u.tags.size());
+            for (String t : u.tags) {
+                jsarr.add(Value.string(t));
+            }
+            map.put(Value.string("tags"), Value.arr(jsarr));
+        }
+        if (u.friends != null) {
+            final List<Value> jsarr = new ArrayList<>(u.friends.size());
+            for (Friend f : u.friends) {
+                Map<Value, Value> jso0 = new LinkedHashMap<>();
+                jso0.put(Value.string("id"), Value.string(f.id));
+                jso0.put(Value.string("name"), Value.string(f.name));
+                jsarr.add(Value.json(jso0));
+            }
+            map.put(Value.string("friends"), Value.arr(jsarr));
+        }
+        if (u.greeting != null) {
+            map.put(Value.string("greeting"), Value.string(u.greeting));
+        }
+        if (u.favoriteFruit != null) {
+            map.put(Value.string("favoriteFruit"), Value.string(u.favoriteFruit));
+        }
+        return Parser.Value.json(map);
     }
 }

@@ -1,18 +1,22 @@
 package com.github.fabienrenaud.jjb.stream;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
+import org.openjdk.jmh.annotations.Benchmark;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
+
+import io.github.senthilganeshs.parser.json.Generator;
+import io.github.senthilganeshs.parser.json.Parser.Value;
 import okio.BufferedSink;
 import okio.Okio;
-import org.openjdk.jmh.annotations.Benchmark;
-
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 
 /**
  * @author Fabien Renaud
@@ -139,5 +143,12 @@ public class Serialization extends JsonBench {
     @Override
     public Object underscore_java() throws Exception {
         return JSON_SOURCE().streamSerializer().underscore_java(JSON_SOURCE().nextPojo());
+    }
+    
+    @Benchmark
+    @Override
+    public Object purejson() throws Exception {
+        Value purejson = JSON_SOURCE().streamSerializer().purejson(JSON_SOURCE().nextPojo());
+        return Generator.create().generate(purejson);
     }
 }

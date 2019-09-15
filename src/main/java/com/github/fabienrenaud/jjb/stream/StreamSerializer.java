@@ -4,6 +4,9 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.gson.stream.JsonWriter;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
+
+import io.github.senthilganeshs.parser.json.Parser.Value;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -33,4 +36,6 @@ public interface StreamSerializer<T> {
     mjson.Json mjson(final T obj) throws IOException;
 
     Object underscore_java(final T obj) throws IOException;
+    
+    Value purejson(final T obj) throws IOException;
 }

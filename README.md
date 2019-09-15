@@ -28,6 +28,7 @@ It covers the following libraries:
 * [minimal-json](https://github.com/ralfstx/minimal-json)
 * [mjson](https://github.com/bolerio/mjson)
 * [underscore-java](https://github.com/javadev/underscore-java)
+* [purejson](https://senthilganeshs.github.io/jsonp/)
 
 When available, both databinding and 'stream' (custom packing and unpacking) implementations are tested.
 Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10, 100 and 1000 KB size:
@@ -70,6 +71,7 @@ The results here-below were computed on April the 8th, 2018 with the following l
 | tapestry     | 5.4.3    |
 | jsoniter     | 0.9.22   |
 | minimal-json | 0.9.5    |
+| purejson     | 1.0.1    |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 

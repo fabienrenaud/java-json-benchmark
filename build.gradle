@@ -84,6 +84,8 @@ dependencies {
     compile group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // underscore-java
     compile group: 'com.github.javadev', name: 'underscore', version: '1.37'
+    //purejson 
+    compile group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
 
     // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'

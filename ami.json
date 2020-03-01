@@ -11,7 +11,7 @@
       "region": "{{user `region`}}",
       "source_ami_filter": {
         "filters": {
-          "name": "amzn-ami-hvm-*-gp2",
+          "name": "amzn2-ami-hvm-*-gp2",
           "architecture": "x86_64",
           "owner-alias": "amazon",
           "root-device-type": "ebs",
@@ -20,6 +20,7 @@
           "sriov-net-support": "simple",
           "virtualization-type": "hvm"
         },
+        "owners": ["137112412989"],
         "most_recent": true
       },
       "instance_type": "c5.xlarge",
@@ -39,6 +40,7 @@
       "inline": [
         "sudo yum -y clean all",
         "sudo yum -y upgrade",
+        "sudo yum search java",
         "sudo yum install -y java-1.8.0-openjdk-devel",
         "sudo yum remove -y java-1.7.0-openjdk",
         "sudo /usr/sbin/alternatives --config java && sudo /usr/sbin/alternatives --config javac",

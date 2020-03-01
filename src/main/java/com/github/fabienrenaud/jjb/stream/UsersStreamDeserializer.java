@@ -11,6 +11,7 @@ import com.owlike.genson.stream.ValueType;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -779,10 +780,10 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             u.registered = (String) v;
         }
         if ((v = jso.get("latitude")) != null) {
-            u.latitude = (Double) v;
+            u.latitude = v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v;
         }
         if ((v = jso.get("longitude")) != null) {
-            u.longitude = (Double) v;
+            u.longitude = v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v;
         }
         if ((v = jso.get("greeting")) != null) {
             u.greeting = (String) v;

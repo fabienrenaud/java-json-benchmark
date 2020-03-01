@@ -25,7 +25,6 @@ import com.squareup.moshi.Moshi;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.transformer.AbstractTransformer;
-import jodd.bean.JoddBean;
 import jodd.json.TypeJsonSerializer;
 import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
@@ -159,7 +158,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 
-        TypeConverterManager joddTypeConverterManager = JoddBean.defaults().getTypeConverterManager();
+        TypeConverterManager joddTypeConverterManager = TypeConverterManager.get();
         joddTypeConverterManager.register(UUID.class, (TypeConverter<UUID>) value -> UUID.fromString((String)value));
         joddTypeConverterManager.register(LocalDate.class, (TypeConverter<LocalDate>) value -> LocalDate.parse((String)value));
         joddTypeConverterManager.register(OffsetDateTime.class, (TypeConverter<OffsetDateTime>) value -> OffsetDateTime.parse((String)value));

@@ -1,10 +1,9 @@
 plugins {
-    id 'com.github.johnrengelman.shadow' version '1.2.4'
-    id "com.github.ben-manes.versions" version '0.17.0'
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id "com.github.ben-manes.versions" version '0.28.0'
 }
-
-apply plugin: 'java'
-apply plugin: 'application'
 
 group = 'com.github.fabienrenaud'
 version = '6'

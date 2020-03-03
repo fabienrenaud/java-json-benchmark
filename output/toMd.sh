@@ -28,7 +28,7 @@ for datatype in $datatypes; do
    
     echo "## JMH: $title"
     echo 
-    tail -n30 $f | grep -A30 "Benchmark" | sed -E -e 's/± +/±/' | \
+    tail -n50 $f | grep -A30 "Benchmark" | sed -E -e 's/± +/±/' | \
       awk 'BEGIN { OFS=" | " } { print "",$1,$2,$3,$4,$5,$6,""; if ($1 == "Benchmark") { print "|-----------|------|-----|-------|-------|-------|"; } }' | \
       sed -E \
       -e 's/^.*databind\.Deserialization\.([a-zA-Z_]+)/| \1\/databind/g' \

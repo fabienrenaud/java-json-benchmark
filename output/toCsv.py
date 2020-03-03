@@ -19,16 +19,20 @@ def extractScores(f):
     result = {}
     with open(f) as fh:
         lines = fh.readlines()
-    summary = False
+    complete = False
+    benchmark = False
     for l in lines:
-        if l.startswith("# Run complete. Total time:"):
-            summary = True
-        elif summary and not l.startswith('Benchmark'):
-            values = re.split('\s+', l)
-            if (len(values) > 3):
-                name = values[0].split('.')[-1]
-                score = values[3]
-                result[name] = score
+        if not complete and l.startswith("# Run complete. Total time:"):
+            complete = True
+        elif complete:
+            if benchmark:
+                values = re.split('\s+', l)
+                if (len(values) > 3):
+                    name = values[0].split('.')[-1]
+                    score = values[3]
+                    result[name] = score
+            elif l.startswith('Benchmark'):
+                benchmark = True
     return result
 
 

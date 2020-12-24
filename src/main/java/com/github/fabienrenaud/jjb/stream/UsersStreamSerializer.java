@@ -107,88 +107,89 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public javax.json.JsonObject javaxjson(final Users obj) throws IOException {
+    public void javaxjson(final javax.json.stream.JsonGenerator generator, final Users obj) throws IOException {
+        generator.writeStartObject();
         javax.json.JsonObjectBuilder jso = javax.json.Json.createObjectBuilder();
         if (obj.users != null) {
-            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            generator.writeStartArray("users");
             for (User u : obj.users) {
-                jsarr.add(javaxjson(u));
+                javaxjson(generator, u);
             }
-            jso.add("users", jsarr);
+            generator.writeEnd();
         }
-        return jso.build();
+        generator.writeEnd();
     }
 
-    private javax.json.JsonObjectBuilder javaxjson(final User u) throws IOException {
-        javax.json.JsonObjectBuilder jso = javax.json.Json.createObjectBuilder();
+    private void javaxjson(final javax.json.stream.JsonGenerator generator, final User u) throws IOException {
+        generator.writeStartObject();
         if (u._id != null) {
-            jso.add("_id", u._id);
+            generator.write("_id", u._id);
         }
-        jso.add("index", u.index);
+        generator.write("index",u.index);
         if (u.guid != null) {
-            jso.add("guid", u.guid);
+            generator.write("guid",u.guid);
         }
-        jso.add("isActive", u.isActive);
+        generator.write("isActive",u.isActive);
         if (u.balance != null) {
-            jso.add("balance", u.balance);
+            generator.write("balance",u.balance);
         }
         if (u.picture != null) {
-            jso.add("picture", u.picture);
+            generator.write("picture",u.picture);
         }
-        jso.add("age", u.age);
+        generator.write("age",u.age);
         if (u.eyeColor != null) {
-            jso.add("eyeColor", u.eyeColor);
+            generator.write("eyeColor",u.eyeColor);
         }
         if (u.name != null) {
-            jso.add("name", u.name);
+            generator.write("name",u.name);
         }
         if (u.gender != null) {
-            jso.add("gender", u.gender);
+            generator.write("gender",u.gender);
         }
         if (u.company != null) {
-            jso.add("company", u.company);
+            generator.write("company",u.company);
         }
         if (u.email != null) {
-            jso.add("email", u.email);
+            generator.write("email",u.email);
         }
         if (u.phone != null) {
-            jso.add("phone", u.phone);
+            generator.write("phone",u.phone);
         }
         if (u.address != null) {
-            jso.add("address", u.address);
+            generator.write("address",u.address);
         }
         if (u.about != null) {
-            jso.add("about", u.about);
+            generator.write("about",u.about);
         }
         if (u.registered != null) {
-            jso.add("registered", u.registered);
+            generator.write("registered",u.registered);
         }
-        jso.add("latitude", u.latitude);
-        jso.add("longitude", u.longitude);
+        generator.write("latitude",u.latitude);
+        generator.write("longitude",u.longitude);
         if (u.tags != null) {
-            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            generator.writeStartArray("tags");
             for (String t : u.tags) {
-                jsarr.add(t);
+                generator.write(t);
             }
-            jso.add("tags", jsarr);
+            generator.writeEnd();
         }
         if (u.friends != null) {
-            javax.json.JsonArrayBuilder jsarr = javax.json.Json.createArrayBuilder();
+            generator.writeStartArray("friends");
             for (Friend f : u.friends) {
-                javax.json.JsonObjectBuilder jso0 = javax.json.Json.createObjectBuilder();
-                jso0.add("id", f.id);
-                jso0.add("name", f.name);
-                jsarr.add(jso0);
+                generator.writeStartObject();
+                generator.write("id",f.id);
+                generator.write("name",f.name);
+                generator.writeEnd();
             }
-            jso.add("friends", jsarr);
+            generator.writeEnd();
         }
         if (u.greeting != null) {
-            jso.add("greeting", u.greeting);
+            generator.write("greeting",u.greeting);
         }
         if (u.favoriteFruit != null) {
-            jso.add("favoriteFruit", u.favoriteFruit);
+            generator.write("favoriteFruit",u.favoriteFruit);
         }
-        return jso;
+        generator.writeEnd();
     }
 
     @Override

@@ -58,6 +58,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .registerModule(new AfterburnerModule())
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new GensonBuilder()
             .useDateAsTimestamp(false)
@@ -183,6 +184,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public JsonFactory jacksonFactory() {
         return jacksonFactory;
+    }
+
+    @Override
+    public javax.json.stream.JsonGeneratorFactory javaxjsonFactory() {
+        return javaxJsonFactory;
     }
 
     @Override

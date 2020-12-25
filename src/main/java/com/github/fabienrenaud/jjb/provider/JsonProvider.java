@@ -26,6 +26,8 @@ public interface JsonProvider<T> {
 
     JsonFactory jacksonFactory();
 
+    javax.json.stream.JsonGeneratorFactory javaxjsonFactory();
+
     Genson genson();
 
     Jsonb yasson();

@@ -31,6 +31,7 @@ import javax.json.bind.Jsonb;
 public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();
+    private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
     private final ObjectMapper jackson = new ObjectMapper();
     private final ObjectMapper jacksonAfterburner = new ObjectMapper();
     private final JsonFactory jacksonFactory = new JsonFactory();
@@ -84,6 +85,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public JsonFactory jacksonFactory() {
         return jacksonFactory;
+    }
+
+    @Override
+    public javax.json.stream.JsonGeneratorFactory javaxjsonFactory() {
+        return javaxJsonFactory;
     }
 
     @Override

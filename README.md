@@ -47,33 +47,34 @@ Not evaluated are: RAM utilization, compression, payloads > 1 MB.
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 8.
 
-The results here-below were computed on March the 1st, 2020 with the following libraries and versions:
+The results here-below were computed on November the 27th, 2021 with the following libraries and versions:
 
 | Library      | Version  |
 |--------------|----------|
-| jackson      | 2.10.2   |
+| jackson      | 2.13.0   |
 | genson       | 1.6      |
-| fastjson     | 1.2.62   |
-| gson         | 2.8.6    |
-| org.json     | 20090211 |
+| fastjson     | 1.2.78   |
+| gson         | 2.8.9    |
+| org.json     | 20210307 |
 | javax-json   | 1.1.4    |
-| json-io      | 4.12.0   |
+| json-io      | 4.13.0   |
 | flexjson     | 3.3      |
 | boon         | 0.34     |
-| json-smart   | 2.3      |
-| johnzon      | 1.2.3    |
+| json-smart   | 2.4.7    |
+| johnzon      | 1.2.15   |
 | logansquare  | 1.3.7    |
-| dsl-json     | 1.9.5    |
+| dsl-json     | 1.9.9    |
 | simplejson   | 1.1.1    |
-| nanojson     | 1.4      |
-| jodd json    | 5.1.3    |
-| moshi        | 1.9.2    |
-| tapestry     | 5.4.5    |
+| nanojson     | 1.7      |
+| jodd json    | 6.0.3    |
+| moshi        | 1.12.0   |
+| tapestry     | 5.7.3    |
 | jsoniter     | 0.9.23   |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |
-| underscore   | 1.52     | 
+| underscore   | 1.71     | 
 | purejson     | 1.0.1    |
+| yasson       | 1.0.9    |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 
@@ -109,10 +110,11 @@ Tests were run on an [Amazon EC2 c5.xlarge](https://aws.amazon.com/ec2/instance-
 JMH info:
 
 ```
-# JMH version: 1.23
-# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
-# VM invoker: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.amzn2.0.1.x86_64/jre/bin/java
+# JMH version: 1.33
+# VM version: JDK 1.8.0_302, OpenJDK 64-Bit Server VM, 25.302-b08
+# VM invoker: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/jre/bin/java
 # VM options: -XX:+AggressiveOpts -Xms2g -Xmx2g
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 10 iterations, 3 s each
 # Timeout: 10 min per iteration
@@ -156,9 +158,9 @@ find numerous examples in the commit history. For instance:
 Pull requests are welcome.
 
 
-[jmh-results]: /archive/raw-results-2020-03-01.md
-[spreadsheet]: https://docs.google.com/spreadsheets/d/14GZ7zbn0sXT3zIgS-2Nv4F9UGdCIrvI4Ctg_vzKbF0Q/edit?usp=sharing
-[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=1217359585&format=image
-[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=296776676&format=image
-[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=684555912&format=image
-[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=2004244401&format=image
+[jmh-results]: /archive/raw-results-2021-11-27.md
+[spreadsheet]: https://docs.google.com/spreadsheets/d/18XdXQi7GJmVgWBuo0BAsjbPUHW-qDHge1k4WT8uOEIU/edit?usp=sharing
+[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=1217359585&format=image
+[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=296776676&format=image
+[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=684555912&format=image
+[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=2004244401&format=image

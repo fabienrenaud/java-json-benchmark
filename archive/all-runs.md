@@ -1,5 +1,54 @@
 Benchmark runs by date
 
+## 2021-11-27
+
+| Library      | Version  |
+|--------------|----------|
+| jackson      | 2.13.0   |
+| genson       | 1.6      |
+| fastjson     | 1.2.78   |
+| gson         | 2.8.9    |
+| org.json     | 20210307 |
+| javax-json   | 1.1.4    |
+| json-io      | 4.13.0   |
+| flexjson     | 3.3      |
+| boon         | 0.34     |
+| json-smart   | 2.4.7    |
+| johnzon      | 1.2.15   |
+| logansquare  | 1.3.7    |
+| dsl-json     | 1.9.9    |
+| simplejson   | 1.1.1    |
+| nanojson     | 1.7      |
+| jodd json    | 6.0.3    |
+| moshi        | 1.12.0   |
+| tapestry     | 5.7.3    |
+| jsoniter     | 0.9.23   |
+| minimal-json | 0.9.5    |
+| mjson        | 1.4.1    |
+| underscore   | 1.71     | 
+| purejson     | 1.0.1    |
+| yasson       | 1.0.9    |
+
+**`Users` model**
+
+![json deserialization performance for primitive types, String, List and simple POJOs][20211127-graph-users-deser]
+![json serialization performance for primitive types, String, List and simple POJOs][20211127-graph-users-ser]
+
+**`Clients` model**
+![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20211127-graph-clients-deser]
+![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20211127-graph-clients-ser]
+
+
+**JMH configuration and hardware**
+
+Same as below, JMH 1.33.
+
+**Links**
+
+* [google spreadsheet][20211127-spreadsheet]
+* [raw-results-2020-03-01.md](/archive/raw-results-2021-11-27.md)
+
+
 ## 2020-03-01
 
 | Library      | Version  |
@@ -256,3 +305,9 @@ Same as below, JMH 1.15.
 [20200301-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=296776676&format=image
 [20200301-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=684555912&format=image
 [20200301-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSRA9tHwuThs4VSvTSaeP3e0XKsthz89oUvYpaDkybhoXbQYP2xOmf9Idtyz8Kmxoxx2grrL-kZYWEY/pubchart?oid=2004244401&format=image
+
+[20211127-spreadsheet]: https://docs.google.com/spreadsheets/d/18XdXQi7GJmVgWBuo0BAsjbPUHW-qDHge1k4WT8uOEIU/edit?usp=sharing
+[20211127-graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=1217359585&format=image
+[20211127-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=296776676&format=image
+[20211127-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=684555912&format=image
+[20211127-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=2004244401&format=image

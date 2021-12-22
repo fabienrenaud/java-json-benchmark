@@ -109,7 +109,6 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void javaxjson(final javax.json.stream.JsonGenerator generator, final Users obj) throws IOException {
         generator.writeStartObject();
-        javax.json.JsonObjectBuilder jso = javax.json.Json.createObjectBuilder();
         if (obj.users != null) {
             generator.writeStartArray("users");
             for (User u : obj.users) {

@@ -55,6 +55,22 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object avajejsonb_jackson() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().avajeJsonb_jackson().toJson(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object avajejsonb() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().avajeJsonb_default().toJson(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
+
+    @Benchmark
+    @Override
     public Object gson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         Writer w = new OutputStreamWriter(baos);

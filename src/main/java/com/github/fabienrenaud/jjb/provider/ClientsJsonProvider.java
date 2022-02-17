@@ -25,6 +25,8 @@ import com.squareup.moshi.Moshi;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.transformer.AbstractTransformer;
+import io.avaje.jsonb.jackson.JacksonAdapter;
+import io.avaje.jsonb.stream.JsonStream;
 import jodd.json.TypeJsonSerializer;
 import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
@@ -144,6 +146,13 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     private final DslJson<Object> dsljson = new DslJson<>(Settings.withRuntime().includeServiceLoader());
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
+    private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_jackson = io.avaje.jsonb.Jsonb
+            .newBuilder().serializeEmpty(true)
+            .adapter(new JacksonAdapter(true, true, false)).build().type(Clients.class);
+    private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_default = io.avaje.jsonb.Jsonb
+            .newBuilder().serializeEmpty(true)
+            .adapter(new JsonStream(true, true, false)).build().type(Clients.class);
+
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
     public ClientsJsonProvider() {
@@ -232,6 +241,16 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public DslJson<Object> dsljson_reflection() {
         return dsljson_reflection;
+    }
+
+    @Override
+    public io.avaje.jsonb.JsonType<Clients> avajeJsonb_jackson() {
+        return avajeJsonb_jackson;
+    }
+
+    @Override
+    public io.avaje.jsonb.JsonType<Clients> avajeJsonb_default() {
+        return avajeJsonb_default;
     }
 
     @Override

@@ -51,4 +51,8 @@ public interface JsonProvider<T> {
     jodd.json.JsonSerializer joddSer();
 
     com.squareup.moshi.JsonAdapter<T> moshi();
+
+    io.avaje.jsonb.JsonType<T> avajeJsonb_jackson();
+
+    io.avaje.jsonb.JsonType<T> avajeJsonb_default();
 }

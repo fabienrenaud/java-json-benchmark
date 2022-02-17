@@ -11,6 +11,7 @@ import java.util.Objects;
 /**
  * Created by frenaud on 7/3/16.
  */
+@io.avaje.jsonb.Json
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
@@ -40,6 +41,7 @@ public class Users {
         return "Users{" + "users=" + users + '}';
     }
 
+    @io.avaje.jsonb.Json
     @JsonObject
     @CompiledJson
     public static final class User {
@@ -137,6 +139,7 @@ public class Users {
         }
     }
 
+    @io.avaje.jsonb.Json
     @JsonObject
     @CompiledJson
     public static final class Friend {

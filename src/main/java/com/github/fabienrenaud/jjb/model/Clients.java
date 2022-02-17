@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+@io.avaje.jsonb.Json
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
@@ -44,6 +45,7 @@ public class Clients {
         return "Clients{" + "clients=" + clients + '}';
     }
 
+    @io.avaje.jsonb.Json
     @JsonObject
     public static final class Client {
 
@@ -217,6 +219,7 @@ public class Clients {
         }
     }
 
+    @io.avaje.jsonb.Json
     @JsonObject
     public static final class Partner {
 

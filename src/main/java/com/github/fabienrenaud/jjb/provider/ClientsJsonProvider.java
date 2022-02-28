@@ -147,11 +147,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_jackson = io.avaje.jsonb.Jsonb
-            .newBuilder().serializeEmpty(true)
-            .adapter(new JacksonAdapter(true, true, false)).build().type(Clients.class);
+            .newBuilder()
+            .adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
     private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_default = io.avaje.jsonb.Jsonb
-            .newBuilder().serializeEmpty(true)
-            .adapter(new JsonStream(true, true, false)).build().type(Clients.class);
+            .newBuilder()
+            .adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 

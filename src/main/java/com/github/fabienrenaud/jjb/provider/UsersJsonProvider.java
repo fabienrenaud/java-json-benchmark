@@ -54,8 +54,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
-    private io.avaje.jsonb.JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(true, true, false)).serializeEmpty(true).build().type(Users.class);
-    private io.avaje.jsonb.JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(true, true, false)).serializeEmpty(true).build().type(Users.class);
+    private io.avaje.jsonb.JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private io.avaje.jsonb.JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
         jacksonAfterburner.registerModule(new AfterburnerModule());

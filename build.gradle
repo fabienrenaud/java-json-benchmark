@@ -85,6 +85,10 @@ dependencies {
     implementation group: 'com.github.javadev', name: 'underscore', version: '1.71'
     //purejson 
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
+    // avaje-jsonb
+    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '0.11'
+    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '0.11'
+    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '0.11'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

@@ -2,7 +2,6 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.util.io.JsonReader;
 import com.cedarsoftware.util.io.JsonWriter;
-import com.dslplatform.json.ConfigureJava8;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -15,6 +14,9 @@ import com.squareup.moshi.Moshi;
 
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+import io.avaje.jsonb.JsonType;
+import io.avaje.jsonb.stream.JsonStream;
+import io.avaje.jsonb.jackson.JacksonAdapter;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
@@ -51,6 +53,9 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
+
+    private io.avaje.jsonb.JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private io.avaje.jsonb.JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
         jacksonAfterburner.registerModule(new AfterburnerModule());
@@ -148,6 +153,16 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public com.squareup.moshi.JsonAdapter<Users> moshi() {
         return moshi;
+    }
+
+    @Override
+    public JsonType<Users> avajeJsonb_jackson() {
+        return avajeJsonb_jackson;
+    }
+
+    @Override
+    public JsonType<Users> avajeJsonb_default() {
+        return avajeJsonb_default;
     }
 
     private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = new ThreadLocal<flexjson.JSONSerializer>() {

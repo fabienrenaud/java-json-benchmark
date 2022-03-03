@@ -95,6 +95,20 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object avajejsonb_jackson() throws Exception {
+        byte[] buffer = JSON_SOURCE().nextByteArray();
+        return JSON_SOURCE().provider().avajeJsonb_jackson().fromJson(buffer);
+    }
+
+    @Benchmark
+    @Override
+    public Object avajejsonb() throws Exception {
+        byte[] buffer = JSON_SOURCE().nextByteArray();
+        return JSON_SOURCE().provider().avajeJsonb_default().fromJson(buffer);
+    }
+
+    @Benchmark
+    @Override
     public Object logansquare() throws Exception {
         return LoganSquare.parse(JSON_SOURCE().nextInputStream(), JSON_SOURCE().pojoType());
     }

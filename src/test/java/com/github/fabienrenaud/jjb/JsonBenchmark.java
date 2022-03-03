@@ -171,6 +171,20 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
+    public void avajeJsonb_diesel() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.AVAJEJSONB, BENCH.avajejsonb());
+        }
+    }
+
+    @Test
+    public void avajeJsonb_jackson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.AVAJEJSONB_JACKSON, BENCH.avajejsonb_jackson());
+        }
+    }
+
+    @Test
     public void logansquare() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.LOGANSQUARE, BENCH.logansquare());

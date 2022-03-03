@@ -114,4 +114,12 @@ public abstract class JsonBench {
     public Object purejson() throws Exception {
         return null;
     }
+
+    public Object avajejsonb_jackson() throws Exception {
+        return null;
+    }
+
+    public Object avajejsonb() throws Exception {
+        return null;
+    }
 }

@@ -28,7 +28,6 @@ import flexjson.transformer.AbstractTransformer;
 import io.avaje.jsonb.jackson.JacksonAdapter;
 import io.avaje.jsonb.stream.JsonStream;
 import jodd.json.TypeJsonSerializer;
-import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
@@ -169,9 +168,9 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .build();
 
         TypeConverterManager joddTypeConverterManager = TypeConverterManager.get();
-        joddTypeConverterManager.register(UUID.class, (TypeConverter<UUID>) value -> UUID.fromString((String)value));
-        joddTypeConverterManager.register(LocalDate.class, (TypeConverter<LocalDate>) value -> LocalDate.parse((String)value));
-        joddTypeConverterManager.register(OffsetDateTime.class, (TypeConverter<OffsetDateTime>) value -> OffsetDateTime.parse((String)value));
+        joddTypeConverterManager.register(UUID.class, value -> UUID.fromString((String)value));
+        joddTypeConverterManager.register(LocalDate.class, value -> LocalDate.parse((String)value));
+        joddTypeConverterManager.register(OffsetDateTime.class, value -> OffsetDateTime.parse((String)value));
 
     }
 

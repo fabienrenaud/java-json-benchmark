@@ -48,7 +48,7 @@
         "tar xzf /tmp/app.tar.gz -C ~/app",
         "pushd ~/app",
         "mkdir output",
-        "./run-everything", 
+        "./run-everything",
         "archiveName=results-$(date +%Y-%m-%dT%H:%M:%S).tar.gz",
         "tar czf ./${archiveName} output",
         "aws s3 cp ./${archiveName} s3://java-json-benchmark/"

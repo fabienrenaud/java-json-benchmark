@@ -110,7 +110,7 @@ public abstract class JsonBench {
     public Object underscore_java() throws Exception {
         return null;
     }
-    
+
     public Object purejson() throws Exception {
         return null;
     }

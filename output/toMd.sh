@@ -16,18 +16,18 @@ for datatype in $datatypes; do
     cmd=$(echo $fnoxt | cut -d- -f2)
     n=$(echo $fnoxt | cut -d- -f3)
     s=$(echo $fnoxt | cut -d- -f4)
-  
+
     title=""
     case $cmd in
       "deser") title="Deserialization" ;;
       "ser") title="Serialization" ;;
       *) echo "Unknown name: '$cmd'"; exit 1 ;;
     esac
-  
+
     title="$title - $s KB"
-   
+
     echo "## JMH: $title"
-    echo 
+    echo
     tail -n50 $f | grep -A30 "Benchmark" | sed -E -e 's/± +/±/' | \
       awk 'BEGIN { OFS=" | " } { print "",$1,$2,$3,$4,$5,$6,""; if ($1 == "Benchmark") { print "|-----------|------|-----|-------|-------|-------|"; } }' | \
       sed -E \

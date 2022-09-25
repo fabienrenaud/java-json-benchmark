@@ -43,8 +43,7 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object orgjson() throws JSONException {
-        JSONObject node = new JSONObject(JSON_SOURCE().nextString());
-        return node;
+        return new JSONObject(JSON_SOURCE().nextString());
     }
 
     @Benchmark
@@ -110,8 +109,7 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object tapestry() throws Exception {
-        org.apache.tapestry5.json.JSONObject node = new org.apache.tapestry5.json.JSONObject(JSON_SOURCE().nextString());
-        return node;
+        return new org.apache.tapestry5.json.JSONObject(JSON_SOURCE().nextString());
     }
 
     @Benchmark
@@ -154,7 +152,6 @@ public class Deserialization extends JsonBench {
             return ref.get();
         }
     }
-
 
     interface PureJson {
         static Object toObject(Value v) {

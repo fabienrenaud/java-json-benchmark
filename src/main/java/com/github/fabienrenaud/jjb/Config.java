@@ -12,7 +12,7 @@ public final class Config {
     private Config() {
     }
 
-    public static File save(final Cli.AbstractCommand cmd) {
+    public static File save(Cli.AbstractCommand cmd) {
         File f = new File(COMMAND_FILE);
         try {
             new ObjectMapper().writeValue(f, cmd);

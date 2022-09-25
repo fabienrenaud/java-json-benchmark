@@ -23,27 +23,27 @@ public final class RandomUtils {
     private RandomUtils() {
     }
 
-    public static String randomAlphabetic(final int count) {
+    public static String randomAlphabetic(int count) {
         return random(count, true, false);
     }
 
-    public static String randomAlphanumeric(final int count) {
+    public static String randomAlphanumeric(int count) {
         return random(count, true, true);
     }
 
-    public static String randomNumeric(final int count) {
+    public static String randomNumeric(int count) {
         return random(count, false, true);
     }
 
-    public static String random(final int count, final boolean letters, final boolean numbers) {
+    public static String random(int count, boolean letters, boolean numbers) {
         return random(count, 0, 0, letters, numbers);
     }
 
-    public static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers) {
+    public static String random(int count, int start, int end, boolean letters, boolean numbers) {
         return random(count, start, end, letters, numbers, null);
     }
 
-    public static String random(int count, int start, int end, final boolean letters, final boolean numbers, final char[] chars) {
+    public static String random(int count, int start, int end, boolean letters, boolean numbers, char[] chars) {
         return RandomStringUtils.random(count, start, end, letters, numbers, chars, RANDOM);
     }
 
@@ -79,7 +79,7 @@ public final class RandomUtils {
         return RANDOM.nextInt(bound);
     }
 
-    public static int nextInt(final int startInclusive, final int endExclusive) {
+    public static int nextInt(int startInclusive, int endExclusive) {
         assert endExclusive >= startInclusive;
         assert startInclusive >= 0;
 
@@ -90,7 +90,7 @@ public final class RandomUtils {
         return startInclusive + RANDOM.nextInt(endExclusive - startInclusive);
     }
 
-    public static double nextDouble(final double startInclusive, final double endInclusive) {
+    public static double nextDouble(double startInclusive, double endInclusive) {
         assert endInclusive >= startInclusive;
         assert startInclusive >= 0;
 

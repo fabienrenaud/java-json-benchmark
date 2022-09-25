@@ -13,29 +13,29 @@ import java.io.IOException;
 
 public interface StreamSerializer<T> {
 
-    org.json.JSONObject orgjson(final T obj) throws JSONException;
+    org.json.JSONObject orgjson(T obj) throws JSONException;
 
-    void javaxjson(final javax.json.stream.JsonGenerator generator, final T obj) throws IOException;
+    void javaxjson(javax.json.stream.JsonGenerator generator, T obj) throws IOException;
 
-    void genson(final ObjectWriter j, final T obj) throws IOException;
+    void genson(ObjectWriter j, T obj) throws IOException;
 
-    void gson(final JsonWriter j, final T obj) throws IOException;
+    void gson(JsonWriter j, T obj) throws IOException;
 
-    void jackson(final JsonGenerator j, final T obj) throws IOException;
+    void jackson(JsonGenerator j, T obj) throws IOException;
 
-    org.json.simple.JSONObject jsonsimple(final T obj) throws IOException;
+    org.json.simple.JSONObject jsonsimple(T obj) throws IOException;
 
-    void nanojson(final JsonAppendableWriter writer, final T obj) throws IOException;
+    void nanojson(JsonAppendableWriter writer, T obj) throws IOException;
 
-    org.apache.tapestry5.json.JSONObject tapestry(final T obj) throws IOException;
+    org.apache.tapestry5.json.JSONObject tapestry(T obj) throws IOException;
 
-    com.eclipsesource.json.JsonValue minimaljson(final T obj) throws IOException;
+    com.eclipsesource.json.JsonValue minimaljson(T obj) throws IOException;
 
     void moshi(com.squareup.moshi.JsonWriter writer, T obj) throws IOException;
 
-    mjson.Json mjson(final T obj) throws IOException;
+    mjson.Json mjson(T obj) throws IOException;
 
-    Object underscore_java(final T obj) throws IOException;
+    Object underscore_java(T obj) throws IOException;
     
-    Value purejson(final T obj) throws IOException;
+    Value purejson(T obj) throws IOException;
 }

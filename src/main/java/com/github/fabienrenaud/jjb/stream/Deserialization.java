@@ -143,8 +143,8 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object purejson() throws Exception {
-        final AtomicReference<Object> ref = new AtomicReference<>();
-        try (final InputStream is = new ByteArrayInputStream(JSON_SOURCE().nextByteArray())) {
+        AtomicReference<Object> ref = new AtomicReference<>();
+        try (InputStream is = new ByteArrayInputStream(JSON_SOURCE().nextByteArray())) {
             Parser.create()
                     .parse(is)
                     .ifSuccess(v -> ref.set(PureJson.toObject(v))) //construct object if success.
@@ -157,11 +157,11 @@ public class Deserialization extends JsonBench {
 
 
     interface PureJson {
-        static Object toObject(final Value v) {
+        static Object toObject(Value v) {
             List<User> users = new ArrayList<>();
             List<Client> clients = new ArrayList<>();
 
-            final AtomicBoolean isUser = new AtomicBoolean(false);
+            AtomicBoolean isUser = new AtomicBoolean(false);
             v.isJSON((k, jv) -> k.isString(key ->
                     jv.isArray(av -> {
                         if (key.equals("users")) {
@@ -184,8 +184,8 @@ public class Deserialization extends JsonBench {
             }
         }
 
-        static Client toClient(final Value v) {
-            final Client client = new Client();
+        static Client toClient(Value v) {
+            Client client = new Client();
             v.isJSON((k, jv) -> k.isString(key -> {
                 switch (key) {
                     case "_id":
@@ -253,16 +253,16 @@ public class Deserialization extends JsonBench {
                         jv.isDouble(longitude -> client.longitude = longitude);
                         break;
                     case "tags":
-                        final List<String> tags = new ArrayList<>();
+                        List<String> tags = new ArrayList<>();
                         jv.isArray(av -> av
                                 .isString(tags::add));
                         client.tags = tags;
                         break;
                     case "partners":
-                        final List<Partner> partners = new ArrayList<>();
-                        final List<Long> ids = new ArrayList<>();
-                        final List<String> names = new ArrayList<>();
-                        final List<OffsetDateTime> since = new ArrayList<>();
+                        List<Partner> partners = new ArrayList<>();
+                        List<Long> ids = new ArrayList<>();
+                        List<String> names = new ArrayList<>();
+                        List<OffsetDateTime> since = new ArrayList<>();
 
                         jv.isArray(av -> av
                                 .isJSON((ak, ajv) -> ak.isString(ajk -> {
@@ -290,8 +290,8 @@ public class Deserialization extends JsonBench {
             return client;
         }
 
-        static User toUser(final Value v) {
-            final User user = new User();
+        static User toUser(Value v) {
+            User user = new User();
             v.isJSON((jk, jv) -> jk.isString(key -> {
                 switch (key) {
                     case "_id":
@@ -349,14 +349,14 @@ public class Deserialization extends JsonBench {
                         jv.isDouble(longitude -> user.longitude = longitude);
                         break;
                     case "tags":
-                        final List<String> tags = new ArrayList<>();
+                        List<String> tags = new ArrayList<>();
                         jv.isArray(__v -> __v.isString(tags::add));
                         user.tags = tags;
                         break;
                     case "friends":
-                        final List<Friend> friends = new ArrayList<>();
-                        final List<String> ids = new ArrayList<>();
-                        final List<String> names = new ArrayList<>();
+                        List<Friend> friends = new ArrayList<>();
+                        List<String> ids = new ArrayList<>();
+                        List<String> names = new ArrayList<>();
 
                         jv.isArray(jav -> jav
                                 .isJSON((jak, jajv) -> jak.isString(jakk -> {

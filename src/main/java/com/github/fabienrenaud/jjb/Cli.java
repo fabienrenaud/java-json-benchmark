@@ -77,7 +77,7 @@ public final class Cli {
         public AbstractCommand() {
         }
 
-        public AbstractCommand(final String mode) {
+        public AbstractCommand(String mode) {
             this.mode = mode;
         }
 
@@ -162,7 +162,7 @@ public final class Cli {
             return includes;
         }
 
-        private void exit(final String msg) {
+        private void exit(String msg) {
             System.err.print(msg);
             System.err.println();
             System.exit(2);

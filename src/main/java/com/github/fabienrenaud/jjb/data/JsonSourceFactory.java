@@ -14,7 +14,7 @@ public final class JsonSourceFactory {
         return create(cmd.dataType, cmd.numberOfPayloads, cmd.sizeOfEachPayloadInKb * 1000);
     }
 
-    public static JsonSource<?> create(final String dataType, final int quantity, final int size) {
+    public static JsonSource<?> create(String dataType, int quantity, int size) {
         BenchSupport bs = BenchSupport.valueOf(dataType.toUpperCase());
         switch (bs) {
             case USERS:

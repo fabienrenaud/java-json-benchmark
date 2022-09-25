@@ -5,7 +5,7 @@ import os
 import re
 
 
-def parseFileInfo(f):
+def parse_file_info(f):
     words = f.replace('.txt', '').split('-')
     return {
         'datatype': words[0],
@@ -15,7 +15,7 @@ def parseFileInfo(f):
     }
 
 
-def extractScores(f):
+def extract_scores(f):
     result = {}
     with open(f) as fh:
         lines = fh.readlines()
@@ -27,7 +27,7 @@ def extractScores(f):
         elif complete:
             if benchmark:
                 values = re.split('\s+', l)
-                if (len(values) > 3):
+                if len(values) > 3:
                     name = values[0].split('.')[-1]
                     score = values[3]
                     result[name] = score
@@ -40,8 +40,8 @@ cwd = os.getcwd()
 sheets = {}
 for f in os.listdir(cwd):
     if os.path.isfile(f) and f.endswith('.txt'):
-        fileInfo = parseFileInfo(f)
-        scores = extractScores(f)
+        fileInfo = parse_file_info(f)
+        scores = extract_scores(f)
 
         sheetName = "{}-{}-{}".format(fileInfo['datatype'],
                                       fileInfo['command'], fileInfo['number'])

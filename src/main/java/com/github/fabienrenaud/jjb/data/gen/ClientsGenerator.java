@@ -27,7 +27,7 @@ public class ClientsGenerator implements DataGenerator<Clients> {
     }
 
 
-    private static int appendClient(final Clients uc, final int sizeAvailable) {
+    private static int appendClient(Clients uc, int sizeAvailable) {
         int expectedSize = 2; // {}
 
         Client u = new Client();

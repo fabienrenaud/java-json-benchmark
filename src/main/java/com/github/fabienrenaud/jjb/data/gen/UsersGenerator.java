@@ -23,7 +23,7 @@ public class UsersGenerator implements DataGenerator<Users> {
     }
 
 
-    private static int appendUser(final Users uc, final int sizeAvailable) {
+    private static int appendUser(Users uc, int sizeAvailable) {
         int expectedSize = 2; // {}
 
         User u = new User();

@@ -31,7 +31,7 @@ public abstract class JsonSource<T> {
     private final StreamSerializer<T> streamSerializer;
     private final StreamDeserializer<T> streamDeserializer;
 
-    JsonSource(final int quantity, final int individualSize, final JsonProvider provider, final DataGenerator<T> dataGenerator, final StreamSerializer<T> streamSerializer, final StreamDeserializer<T> streamDeserializer) {
+    JsonSource(int quantity, int individualSize, JsonProvider provider, DataGenerator<T> dataGenerator, StreamSerializer<T> streamSerializer, StreamDeserializer<T> streamDeserializer) {
         this.provider = provider;
 
         this.jsonAsObject = newPojoArray(quantity);
@@ -52,7 +52,7 @@ public abstract class JsonSource<T> {
         });
     }
 
-    private final void populateFields(final int quantity, final int individualSize) {
+    private void populateFields(int quantity, int individualSize) {
         try {
             for (int i = 0; i < quantity; i++) {
                 T obj = pojoType().newInstance();
@@ -116,7 +116,7 @@ public abstract class JsonSource<T> {
 
     public abstract Class<T> pojoType();
 
-    private int index(final int bound) {
+    private int index(int bound) {
         return bound == 1 ? 0 : RandomUtils.nextInt(bound);
     }
 }

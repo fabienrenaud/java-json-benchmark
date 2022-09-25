@@ -22,7 +22,7 @@ import java.util.Map;
 public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     @Override
-    public org.json.JSONObject orgjson(final Users obj) throws JSONException {
+    public org.json.JSONObject orgjson(Users obj) throws JSONException {
         org.json.JSONObject jso = new org.json.JSONObject();
         if (obj.users != null) {
             org.json.JSONArray jsarr = new org.json.JSONArray();
@@ -34,7 +34,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return jso;
     }
 
-    private org.json.JSONObject orgjson(final User u) throws JSONException {
+    private org.json.JSONObject orgjson(User u) throws JSONException {
         org.json.JSONObject jso = new org.json.JSONObject();
         if (u._id != null) {
             jso.put("_id", u._id);
@@ -107,7 +107,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public void javaxjson(final javax.json.stream.JsonGenerator generator, final Users obj) throws IOException {
+    public void javaxjson(javax.json.stream.JsonGenerator generator, Users obj) throws IOException {
         generator.writeStartObject();
         if (obj.users != null) {
             generator.writeStartArray("users");
@@ -119,7 +119,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         generator.writeEnd();
     }
 
-    private void javaxjson(final javax.json.stream.JsonGenerator generator, final User u) throws IOException {
+    private void javaxjson(javax.json.stream.JsonGenerator generator, User u) throws IOException {
         generator.writeStartObject();
         if (u._id != null) {
             generator.write("_id", u._id);
@@ -205,7 +205,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         j.endObject();
     }
 
-    private void genson(final ObjectWriter j, final User u) throws IOException {
+    private void genson(ObjectWriter j, User u) throws IOException {
         j.beginObject();
         if (u._id != null) {
             j.writeString("_id", u._id);
@@ -293,7 +293,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         j.endObject();
     }
 
-    private void gson(final JsonWriter j, final User u) throws IOException {
+    private void gson(JsonWriter j, User u) throws IOException {
         j.beginObject();
         if (u._id != null) {
             j.name("_id");
@@ -403,7 +403,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         j.writeEndObject();
     }
 
-    private void jackson(final JsonGenerator j, final User u) throws IOException {
+    private void jackson(JsonGenerator j, User u) throws IOException {
         j.writeStartObject();
         if (u._id != null) {
             j.writeFieldName("_id");
@@ -500,7 +500,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public org.json.simple.JSONObject jsonsimple(final Users obj) throws IOException {
+    public org.json.simple.JSONObject jsonsimple(Users obj) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
         if (obj.users != null) {
             org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
@@ -512,7 +512,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return jso;
     }
 
-    private org.json.simple.JSONObject jsonsimple(final User u) throws IOException {
+    private org.json.simple.JSONObject jsonsimple(User u) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
         if (u._id != null) {
             jso.put("_id", u._id);
@@ -585,7 +585,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public void nanojson(final JsonAppendableWriter w, Users obj) throws IOException {
+    public void nanojson(JsonAppendableWriter w, Users obj) throws IOException {
         JsonAppendableWriter cw = w.object();
         if (obj.users != null) {
             cw.array("users");
@@ -597,7 +597,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         cw.end();
     }
 
-    private JsonAppendableWriter nanojson(final JsonAppendableWriter w, final User u) throws IOException {
+    private JsonAppendableWriter nanojson(JsonAppendableWriter w, User u) throws IOException {
         JsonAppendableWriter cw = w.object();
         if (u._id != null) {
             cw.value("_id", u._id);
@@ -671,7 +671,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public org.apache.tapestry5.json.JSONObject tapestry(final Users obj) throws IOException {
+    public org.apache.tapestry5.json.JSONObject tapestry(Users obj) throws IOException {
         org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
         if (obj.users != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
@@ -683,7 +683,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return jso;
     }
 
-    private org.apache.tapestry5.json.JSONObject tapestry(final User u) throws IOException {
+    private org.apache.tapestry5.json.JSONObject tapestry(User u) throws IOException {
         org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
         if (u._id != null) {
             jso.put("_id", u._id);
@@ -768,7 +768,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return jso;
     }
 
-    private com.eclipsesource.json.JsonValue minimaljson(final User u) throws IOException {
+    private com.eclipsesource.json.JsonValue minimaljson(User u) throws IOException {
         com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
         if (u._id != null) {
             jso.add("_id", u._id);
@@ -1073,7 +1073,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public String underscore_java(final Users obj) throws IOException {
+    public String underscore_java(Users obj) throws IOException {
         Map<String, Object> jso = new LinkedHashMap<>();
         if (obj.users != null) {
             List<Object> jsarr = new ArrayList<>();
@@ -1085,7 +1085,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return com.github.underscore.lodash.U.toJson(jso);
     }
 
-    private Map<String, Object> underscore_java(final User u) throws IOException {
+    private Map<String, Object> underscore_java(User u) throws IOException {
         Map<String, Object> jso = new LinkedHashMap<>();
         if (u._id != null) {
             jso.put("_id", u._id);
@@ -1159,8 +1159,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     @Override
     public Value purejson(Users obj) {
-        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
-        final List<Value> arr = new ArrayList<>(obj.users.size());
+        Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
+        List<Value> arr = new ArrayList<>(obj.users.size());
         for (User u : obj.users) {
             arr.add(purejson(u));
         }
@@ -1168,8 +1168,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return Value.json(map);
     }
 
-    private Parser.Value purejson(final User u) {
-        final Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
+    private Parser.Value purejson(User u) {
+        Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
 
         if (u._id != null) {
             map.put(Value.string("_id"), Value.string(u._id));
@@ -1216,14 +1216,14 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         map.put(Value.string("latitude"), Value.number(u.latitude));
         map.put(Value.string("longitude"), Value.number(u.longitude));
         if (u.tags != null) {
-            final List<Parser.Value> jsarr = new ArrayList<>(u.tags.size());
+            List<Parser.Value> jsarr = new ArrayList<>(u.tags.size());
             for (String t : u.tags) {
                 jsarr.add(Value.string(t));
             }
             map.put(Value.string("tags"), Value.arr(jsarr));
         }
         if (u.friends != null) {
-            final List<Value> jsarr = new ArrayList<>(u.friends.size());
+            List<Value> jsarr = new ArrayList<>(u.friends.size());
             for (Friend f : u.friends) {
                 Map<Value, Value> jso0 = new LinkedHashMap<>();
                 jso0.put(Value.string("id"), Value.string(f.id));

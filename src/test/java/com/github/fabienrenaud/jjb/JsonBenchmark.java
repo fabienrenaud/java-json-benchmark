@@ -26,7 +26,7 @@ public abstract class JsonBenchmark<T> {
 
     private static final int ITERATIONS = 3;
 
-    protected void test(final Library lib, final Object o) {
+    protected void test(Library lib, Object o) {
         if (o == null) { // means it shouldn't be supported.
             assertFalse("Library '" + lib + "' for api '" + BENCH_API + " returned null", supports(lib));
             return;
@@ -53,7 +53,7 @@ public abstract class JsonBenchmark<T> {
         }
     }
 
-    private boolean supports(final Library lib) {
+    private boolean supports(Library lib) {
         return BENCH_SUPPORT.libapis().stream()
             .anyMatch((l) -> l.lib() == lib && l.active() && l.api().contains(BENCH_API));
     }

@@ -2,6 +2,7 @@ package com.github.fabienrenaud.jjb.support;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Libapi {
 
@@ -33,20 +34,22 @@ public class Libapi {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Libapi)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Libapi)) {
+            return false;
+        }
 
         Libapi libapi = (Libapi) o;
 
-        if (lib != libapi.lib) return false;
-        return api == libapi.api;
-
+        return active == libapi.active &&
+                lib == libapi.lib &&
+                Objects.equals(api, libapi.api);
     }
 
     @Override
     public int hashCode() {
-        int result = lib != null ? lib.hashCode() : 0;
-        result = 31 * result + (api != null ? api.hashCode() : 0);
-        return result;
+        return Objects.hash(active, lib, api);
     }
 }

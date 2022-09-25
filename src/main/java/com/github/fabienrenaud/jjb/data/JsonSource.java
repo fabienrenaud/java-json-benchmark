@@ -14,9 +14,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public abstract class JsonSource<T> {
 
     static {

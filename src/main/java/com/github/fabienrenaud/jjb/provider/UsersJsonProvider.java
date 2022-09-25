@@ -27,9 +27,6 @@ import java.util.Map;
 
 import javax.json.bind.Jsonb;
 
-/**
- * Created by frenaud on 7/24/16.
- */
 public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();

@@ -10,9 +10,6 @@ import java.io.File;
 
 import static org.junit.Assert.fail;
 
-/**
- * Created by frenaud on 6/30/16.
- */
 public abstract class JsonBenchmarkUsersTest extends JsonBenchmark<Users> {
 
     private static File configFile;

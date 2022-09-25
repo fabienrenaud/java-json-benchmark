@@ -4,9 +4,6 @@ import com.github.fabienrenaud.jjb.Cli;
 import com.github.fabienrenaud.jjb.Config;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public final class JsonSourceFactory {
 
     private JsonSourceFactory() {

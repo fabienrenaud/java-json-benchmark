@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Created by frenaud on 7/24/16.
- */
 public enum BenchSupport {
     USERS(
         new Libapi(Library.GSON, Api.DATABIND, Api.STREAM),

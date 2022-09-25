@@ -3,9 +3,6 @@ package com.github.fabienrenaud.jjb.support;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by frenaud on 7/24/16.
- */
 public class Libapi {
 
     private final boolean active;

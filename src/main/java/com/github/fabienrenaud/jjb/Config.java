@@ -5,9 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public final class Config {
 
     private static final String COMMAND_FILE = ".cli.params.json";

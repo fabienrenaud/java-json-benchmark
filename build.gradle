@@ -13,7 +13,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 ext {
@@ -100,7 +100,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = 'app.jar'
+    archiveFileName = 'app.jar'
     exclude 'META-INF/*.SF'
     exclude 'META-INF/*.DSA'
     exclude 'META-INF/*.RSA'

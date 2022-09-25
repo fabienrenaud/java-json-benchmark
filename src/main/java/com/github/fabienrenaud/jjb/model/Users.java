@@ -8,9 +8,6 @@ import com.dslplatform.json.JsonAttribute;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by frenaud on 7/3/16.
- */
 @io.avaje.jsonb.Json
 @JsonObject
 @CompiledJson

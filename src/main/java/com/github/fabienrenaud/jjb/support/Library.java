@@ -4,9 +4,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by frenaud on 7/24/16.
- */
 public enum Library {
     GSON,
     JACKSON,

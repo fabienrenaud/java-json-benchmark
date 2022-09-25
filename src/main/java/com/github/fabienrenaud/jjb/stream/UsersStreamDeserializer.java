@@ -15,9 +15,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
     @Override

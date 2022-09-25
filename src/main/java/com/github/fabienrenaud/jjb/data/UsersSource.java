@@ -6,9 +6,6 @@ import com.github.fabienrenaud.jjb.provider.UsersJsonProvider;
 import com.github.fabienrenaud.jjb.stream.UsersStreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.UsersStreamSerializer;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public class UsersSource extends JsonSource<Users> {
 
     private static final UsersJsonProvider usersJsonProvider = new UsersJsonProvider();

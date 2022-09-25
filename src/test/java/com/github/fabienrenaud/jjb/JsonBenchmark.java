@@ -12,9 +12,6 @@ import java.io.IOException;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public abstract class JsonBenchmark<T> {
 
     public final JsonBench BENCH;

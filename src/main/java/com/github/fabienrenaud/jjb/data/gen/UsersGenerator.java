@@ -7,9 +7,6 @@ import com.github.fabienrenaud.jjb.RandomUtils;
 
 import java.util.ArrayList;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public class UsersGenerator implements DataGenerator<Users> {
 
     @Override

@@ -13,9 +13,6 @@ import javax.json.bind.Jsonb;
 
 import java.util.Map;
 
-/**
- * Created by frenaud on 7/24/16.
- */
 public interface JsonProvider<T> {
 
     Gson gson();

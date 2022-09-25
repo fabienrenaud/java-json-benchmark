@@ -8,9 +8,6 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by frenaud on 7/3/16.
- */
 public class UsersGeneratorTest {
 
     private static final int MARGIN_ERROR = 10; // %

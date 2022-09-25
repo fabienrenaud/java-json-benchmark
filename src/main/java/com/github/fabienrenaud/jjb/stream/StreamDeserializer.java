@@ -7,9 +7,6 @@ import com.owlike.genson.stream.ObjectReader;
 import java.io.IOException;
 import java.io.Reader;
 
-/**
- * Created by frenaud on 7/23/16.
- */
 public interface StreamDeserializer<T> {
 
     T genson(ObjectReader reader) throws IOException;

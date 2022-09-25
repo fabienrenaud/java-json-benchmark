@@ -759,7 +759,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     public com.eclipsesource.json.JsonValue minimaljson(Users obj) throws IOException {
         com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
         if (obj.users != null) {
-            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
             for (User u : obj.users) {
                 jsarr.add(minimaljson(u));
             }
@@ -815,14 +815,14 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         jso.add("latitude", u.latitude);
         jso.add("longitude", u.longitude);
         if (u.tags != null) {
-            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
             for (String t : u.tags) {
                 jsarr.add(t);
             }
             jso.add("tags", jsarr);
         }
         if (u.friends != null) {
-            com.eclipsesource.json.JsonArray jsarr = (com.eclipsesource.json.JsonArray) com.eclipsesource.json.Json.array();
+            com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
             for (Friend f : u.friends) {
                 com.eclipsesource.json.JsonObject jso0 = com.eclipsesource.json.Json.object();
                 jso0.add("id", f.id);
@@ -1074,9 +1074,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     @Override
     public String underscore_java(final Users obj) throws IOException {
-        java.util.Map<String, Object> jso = new java.util.LinkedHashMap<>();
+        Map<String, Object> jso = new LinkedHashMap<>();
         if (obj.users != null) {
-            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            List<Object> jsarr = new ArrayList<>();
             for (User u : obj.users) {
                 jsarr.add(underscore_java(u));
             }
@@ -1085,8 +1085,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         return com.github.underscore.lodash.U.toJson(jso);
     }
 
-    private java.util.Map<String, Object> underscore_java(final User u) throws IOException {
-        java.util.Map<String, Object> jso = new java.util.LinkedHashMap<>();
+    private Map<String, Object> underscore_java(final User u) throws IOException {
+        Map<String, Object> jso = new LinkedHashMap<>();
         if (u._id != null) {
             jso.put("_id", u._id);
         }
@@ -1132,16 +1132,16 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         jso.put("latitude", u.latitude);
         jso.put("longitude", u.longitude);
         if (u.tags != null) {
-            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            List<Object> jsarr = new ArrayList<>();
             for (String t : u.tags) {
                 jsarr.add(t);
             }
             jso.put("tags", jsarr);
         }
         if (u.friends != null) {
-            java.util.List<Object> jsarr = new java.util.ArrayList<>();
+            List<Object> jsarr = new ArrayList<>();
             for (Friend f : u.friends) {
-                java.util.Map<String, Object> jso0 = new java.util.LinkedHashMap<>();
+                Map<String, Object> jso0 = new LinkedHashMap<>();
                 jso0.put("id", f.id);
                 jso0.put("name", f.name);
                 jsarr.add(jso0);

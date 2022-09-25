@@ -14,6 +14,7 @@ import java.io.Reader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
@@ -710,21 +711,21 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
     @Override
     public Users underscore_java(String string) {
-        java.util.Map<String, Object> jso = (java.util.Map<String, Object>) com.github.underscore.lodash.U.fromJson(string);
+        Map<String, Object> jso = com.github.underscore.lodash.U.fromJson(string);
         Object v;
         Users uc = new Users();
 
         if ((v = jso.get("users")) != null) {
-            java.util.List<Object> jsarr = (java.util.List<Object>) v;
+            List<Object> jsarr = (List<Object>) v;
             uc.users = new ArrayList<>();
             for (Object vi : jsarr) {
-                uc.users.add(underscore_java((java.util.Map<String, Object>) vi));
+                uc.users.add(underscore_java((Map<String, Object>) vi));
             }
         }
         return uc;
     }
 
-    private User underscore_java(java.util.Map<String, Object> jso) {
+    private User underscore_java(Map<String, Object> jso) {
         Object v;
         User u = new User();
 
@@ -789,17 +790,17 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             u.favoriteFruit = (String) v;
         }
         if ((v = jso.get("tags")) != null) {
-            java.util.List<Object> jsonarr = (java.util.List<Object>) v;
+            List<Object> jsonarr = (List<Object>) v;
             u.tags = new ArrayList<>();
             for (Object vi : jsonarr) {
                 u.tags.add((String) vi);
             }
         }
         if ((v = jso.get("friends")) != null) {
-            java.util.List<Object> jsonarr = (java.util.List<Object>) v;
+            List<Object> jsonarr = (List<Object>) v;
             u.friends = new ArrayList<>();
             for (Object vi : jsonarr) {
-                java.util.Map<String, Object> jso0 = (java.util.Map<String, Object>) vi;
+                Map<String, Object> jso0 = (Map<String, Object>) vi;
                 Friend f = new Friend();
                 f.id = (String) jso0.get("id");
                 f.name = (String) jso0.get("name");

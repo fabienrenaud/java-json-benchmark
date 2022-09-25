@@ -2,7 +2,6 @@ package com.github.fabienrenaud.jjb.model;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
-import com.bluelinelabs.logansquare.typeconverters.DoubleBasedTypeConverter;
 import com.bluelinelabs.logansquare.typeconverters.StringBasedTypeConverter;
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;

@@ -158,7 +158,7 @@ public class Serialization extends JsonBench {
     public Object underscore_java() throws Exception {
         return JSON_SOURCE().streamSerializer().underscore_java(JSON_SOURCE().nextPojo());
     }
-    
+
     @Benchmark
     @Override
     public Object purejson() throws Exception {

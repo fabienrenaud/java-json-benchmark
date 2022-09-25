@@ -13,7 +13,6 @@ import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
 
 import flexjson.JSONDeserializer;
-import flexjson.JSONSerializer;
 import io.avaje.jsonb.JsonType;
 import io.avaje.jsonb.stream.JsonStream;
 import io.avaje.jsonb.jackson.JacksonAdapter;
@@ -51,8 +50,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
-    private io.avaje.jsonb.JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
-    private io.avaje.jsonb.JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
         jacksonAfterburner.registerModule(new AfterburnerModule());
@@ -108,7 +107,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         return flexjsonDeser;
     }
 
-    public JSONSerializer flexjsonSer() {
+    public flexjson.JSONSerializer flexjsonSer() {
         return FLEXJSON_SER.get();
     }
 
@@ -162,24 +161,9 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         return avajeJsonb_default;
     }
 
-    private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = new ThreadLocal<flexjson.JSONSerializer>() {
-        @Override
-        protected JSONSerializer initialValue() {
-            return new JSONSerializer();
-        }
-    };
+    private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = ThreadLocal.withInitial(flexjson.JSONSerializer::new);
 
-    private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = new ThreadLocal<jodd.json.JsonParser>() {
-        @Override
-        protected jodd.json.JsonParser initialValue() {
-            return new jodd.json.JsonParser();
-        }
-    };
+    private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = ThreadLocal.withInitial(jodd.json.JsonParser::new);
 
-    private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = new ThreadLocal<jodd.json.JsonSerializer>() {
-        @Override
-        protected jodd.json.JsonSerializer initialValue() {
-            return new jodd.json.JsonSerializer();
-        }
-    };
+    private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = ThreadLocal.withInitial(jodd.json.JsonSerializer::new);
 }

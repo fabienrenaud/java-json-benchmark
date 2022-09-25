@@ -198,7 +198,7 @@ public final class Cli {
             for (BenchSupport bs : BenchSupport.values()) {
                 System.out.println("  + " + bs.name().toLowerCase());
                 for (Libapi la : bs.libapis()) {
-                    System.out.println(String.format("      Lib: %-20s | Api: %s", la.lib(), la.api()));
+                    System.out.printf("      Lib: %-20s | Api: %s%n", la.lib(), la.api());
                 }
                 System.out.println();
             }

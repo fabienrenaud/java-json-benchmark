@@ -560,9 +560,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         jso.put("longitude", u.longitude);
         if (u.tags != null) {
             org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
-            for (String t : u.tags) {
-                jsarr.add(t);
-            }
+            jsarr.addAll(u.tags);
             jso.put("tags", jsarr);
         }
         if (u.friends != null) {
@@ -676,7 +674,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         if (obj.users != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
             for (User u : obj.users) {
-                jsarr.put(tapestry(u));
+                jsarr.add(tapestry(u));
             }
             jso.put("users", jsarr);
         }
@@ -731,9 +729,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         jso.put("longitude", u.longitude);
         if (u.tags != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
-            for (String t : u.tags) {
-                jsarr.put(t);
-            }
+            jsarr.addAll(u.tags);
             jso.put("tags", jsarr);
         }
         if (u.friends != null) {
@@ -742,7 +738,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
                 org.apache.tapestry5.json.JSONObject jso0 = new org.apache.tapestry5.json.JSONObject();
                 jso0.put("id", f.id);
                 jso0.put("name", f.name);
-                jsarr.put(jso0);
+                jsarr.add(jso0);
             }
             jso.put("friends", jsarr);
         }
@@ -1133,9 +1129,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
         jso.put("longitude", u.longitude);
         if (u.tags != null) {
             List<Object> jsarr = new ArrayList<>();
-            for (String t : u.tags) {
-                jsarr.add(t);
-            }
+            jsarr.addAll(u.tags);
             jso.put("tags", jsarr);
         }
         if (u.friends != null) {

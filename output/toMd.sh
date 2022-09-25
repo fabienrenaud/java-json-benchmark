@@ -21,7 +21,7 @@ for datatype in $datatypes; do
     case $cmd in
       "deser") title="Deserialization" ;;
       "ser") title="Serialization" ;;
-      *) echo "Unknow name: '$name"; exit 1 ;;
+      *) echo "Unknown name: '$name"; exit 1 ;;
     esac
   
     title="$title - $s KB"

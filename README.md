@@ -128,7 +128,7 @@ By default, running `./run ser` (`./run deser` respectively) will run
 all -- stream and databind -- serialization (deserialization respectively)
 benchmarks with 1 KB payloads of _Users_.
 
-You can also specificy which libs, apis, payload-sizes and number of
+You can also specify which libs, apis, payload-sizes and number of
 iterations (and more) you want to run. For example:
 
     ./run deser --apis stream --libs genson,jackson

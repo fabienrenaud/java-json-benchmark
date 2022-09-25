@@ -27,17 +27,21 @@ public class Clients {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Clients)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Clients)) {
+            return false;
+        }
 
         Clients that = (Clients) o;
 
-        return clients != null ? clients.equals(that.clients) : that.clients == null;
+        return Objects.equals(clients, that.clients);
     }
 
     @Override
     public int hashCode() {
-        return clients != null ? clients.hashCode() : 0;
+        return Objects.hashCode(clients);
     }
 
     @Override
@@ -104,7 +108,9 @@ public class Clients {
             if (!(o instanceof Client)) {
                 return false;
             }
+
             Client client = (Client) o;
+
             return index == client.index &&
                     isActive == client.isActive &&
                     age == client.age &&
@@ -129,7 +135,8 @@ public class Clients {
 
         @Override
         public int hashCode() {
-            return Objects.hash(_id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company, emails, phones, address, about, registered, tags, partners);
+            return Objects.hash(_id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company,
+                    Arrays.hashCode(emails), Arrays.hashCode(phones), address, about, registered, tags, partners);
         }
 
         private String toStr(long[] nums) {
@@ -243,22 +250,23 @@ public class Clients {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Partner)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Partner)) {
+                return false;
+            }
 
             Partner partner = (Partner) o;
 
-            if (id != partner.id) return false;
-            if (since == null && partner.since != null || since != null && !since.isEqual(partner.since)) return false;
-            return name != null ? name.equals(partner.name) : partner.name == null;
+            return id == partner.id &&
+                    Objects.equals(since, partner.since) &&
+                    Objects.equals(name, partner.name);
         }
 
         @Override
         public int hashCode() {
-            int result = (int)id;
-            result = 31 * result + (since != null ? since.hashCode() : 0);
-            result = 31 * result + (name != null ? name.hashCode() : 0);
-            return result;
+            return Objects.hash(id, since, name);
         }
 
         @Override

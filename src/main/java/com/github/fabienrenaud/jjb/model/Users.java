@@ -20,17 +20,21 @@ public class Users {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Users)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Users)) {
+            return false;
+        }
 
         Users that = (Users) o;
 
-        return users != null ? users.equals(that.users) : that.users == null;
+        return Objects.equals(users, that.users);
     }
 
     @Override
     public int hashCode() {
-        return users != null ? users.hashCode() : 0;
+        return Objects.hashCode(users);
     }
 
     @Override
@@ -100,7 +104,9 @@ public class Users {
             if (!(o instanceof User)) {
                 return false;
             }
+
             User user = (User) o;
+
             return index == user.index &&
                     isActive == user.isActive &&
                     age == user.age &&
@@ -158,20 +164,22 @@ public class Users {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Friend)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Friend)) {
+                return false;
+            }
 
             Friend friend = (Friend) o;
 
-            if (id != null ? !id.equals(friend.id) : friend.id != null) return false;
-            return name != null ? name.equals(friend.name) : friend.name == null;
+            return Objects.equals(id, friend.id) &&
+                    Objects.equals(name, friend.name);
         }
 
         @Override
         public int hashCode() {
-            int result = id != null ? id.hashCode() : 0;
-            result = 31 * result + (name != null ? name.hashCode() : 0);
-            return result;
+            return Objects.hash(id, name);
         }
 
         @Override

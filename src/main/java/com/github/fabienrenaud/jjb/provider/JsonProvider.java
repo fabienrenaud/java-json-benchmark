@@ -21,6 +21,8 @@ public interface JsonProvider<T> {
 
     ObjectMapper jacksonAfterburner();
 
+    ObjectMapper jacksonBlackbird();
+
     JsonFactory jacksonFactory();
 
     javax.json.stream.JsonGeneratorFactory javaxjsonFactory();

@@ -84,6 +84,13 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
+    public void jackson_blackbird() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JACKSON_BLACKBIRD, BENCH.jackson_blackbird());
+        }
+    }
+
+    @Test
     public void orgjson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.ORGJSON, BENCH.orgjson());

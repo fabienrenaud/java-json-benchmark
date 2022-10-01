@@ -23,6 +23,10 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object jackson_blackbird() throws Exception {
+        return null;
+    }
+
     public Object orgjson() throws Exception {
         return null;
     }

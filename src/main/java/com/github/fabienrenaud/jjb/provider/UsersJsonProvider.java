@@ -7,6 +7,7 @@ import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
+import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
@@ -31,7 +32,10 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final Gson gson = new Gson();
     private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
     private final ObjectMapper jackson = new ObjectMapper();
-    private final ObjectMapper jacksonAfterburner = new ObjectMapper();
+    private final ObjectMapper jacksonAfterburner = new ObjectMapper()
+            .registerModule(new AfterburnerModule());
+    private final ObjectMapper jacksonBlackbird = new ObjectMapper()
+            .registerModule(new BlackbirdModule());
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
     private final Jsonb yasson = new JsonBindingProvider().create()
@@ -54,8 +58,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
-        jacksonAfterburner.registerModule(new AfterburnerModule());
-
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
@@ -81,6 +83,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public ObjectMapper jacksonAfterburner() {
         return jacksonAfterburner;
+    }
+
+    @Override
+    public ObjectMapper jacksonBlackbird() {
+        return jacksonBlackbird;
     }
 
     @Override

@@ -44,6 +44,14 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object jackson_blackbird() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().jacksonBlackbird().writeValue(baos, JSON_SOURCE().nextPojo());
+        return baos;
+    }
+
+    @Benchmark
+    @Override
     public Object genson() {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         JSON_SOURCE().provider().genson().serialize(JSON_SOURCE().nextPojo(), baos);

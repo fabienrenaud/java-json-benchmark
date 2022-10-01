@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
+import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.model.Clients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +58,10 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     private final ObjectMapper jacksonAfterburner = new ObjectMapper()
             .registerModule(new AfterburnerModule())
+            .registerModule(new JavaTimeModule())
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    private final ObjectMapper jacksonBlackbird = new ObjectMapper()
+            .registerModule(new BlackbirdModule())
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
@@ -187,6 +192,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public ObjectMapper jacksonAfterburner() {
         return jacksonAfterburner;
+    }
+
+    @Override
+    public ObjectMapper jacksonBlackbird() {
+        return jacksonBlackbird;
     }
 
     @Override

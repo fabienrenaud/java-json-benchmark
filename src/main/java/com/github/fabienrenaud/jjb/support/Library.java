@@ -8,6 +8,7 @@ public enum Library {
     GSON,
     JACKSON,
     JACKSON_AFTERBURNER,
+    JACKSON_BLACKBIRD,
     ORGJSON,
     YASSON,
     GENSON, JAVAXJSON,

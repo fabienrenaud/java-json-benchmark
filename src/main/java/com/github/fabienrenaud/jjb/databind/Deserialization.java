@@ -39,6 +39,12 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object jackson_blackbird() throws IOException {
+        return JSON_SOURCE().provider().jacksonBlackbird().readValue(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
+    }
+
+    @Benchmark
+    @Override
     public Object genson() throws JsonSyntaxException {
         return JSON_SOURCE().provider().genson().deserialize(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
     }

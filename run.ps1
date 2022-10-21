@@ -2,7 +2,7 @@ $jar = "build\libs\app.jar"
 $heapSize = "2g"
 
 if (-not (Test-Path env:JVM_OPTIONS)) {
-    $jvmOpts = "-server -XX:+AggressiveOpts -Xms${heapSize} -Xmx${heapSize}"
+    $jvmOpts = "-server -Xms${heapSize} -Xmx${heapSize}"
 } else {
     $jvmOpts = "$env:JVM_OPTIONS"
 }

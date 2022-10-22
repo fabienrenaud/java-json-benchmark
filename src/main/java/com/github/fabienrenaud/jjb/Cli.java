@@ -48,7 +48,7 @@ public final class Cli {
          * JMH options
          */
         @Option(type = OptionType.GLOBAL, name = "-f", description = "JMH: forks. Defaults to 2.")
-        public int forks = 2;
+        public int forks = 1;
         @Option(type = OptionType.GLOBAL, name = "-wi", description = "JMH: warmup iterations. Defaults to 1.")
         public int warmupIterations = 1;
         @Option(type = OptionType.GLOBAL, name = "-i", description = "JMH: measurement iterations. Defaults to 1.")

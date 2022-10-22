@@ -1,4 +1,4 @@
-#!/usr/bin/env sh -e
+#!/bin/bash
 
 datatypes=$(ls *.txt | cut -d- -f1 | sort | uniq)
 

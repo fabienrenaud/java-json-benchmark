@@ -1,0 +1,47 @@
+# JMH version: 1.33
+# VM version: JDK 17.0.4, OpenJDK 64-Bit Server VM, 17.0.4+8-jvmci-22.2-b06
+# VM invoker: /home/mintozzy/.sdkman/candidates/java/22.2.r17-grl/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms2g -Xmx2g
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 1 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb
+
+# Run progress: 0.00% complete, ETA 00:13:12
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: Using SEED=298585768449823 as seed for Random
+10320.877 ops/s
+Iteration   1: 10780.606 ops/s
+
+# Run progress: 1.52% complete, ETA 00:14:22
+# Fork: 2 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: Using SEED=298599019564176 as seed for Random
+11059.269 ops/s
+Iteration   1: 10597.304 ops/s
+
+
+Result "com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb":
+  10688.955 ops/s
+
+
+# JMH version: 1.33
+# VM version: JDK 17.0.4, OpenJDK 64-Bit Server VM, 17.0.4+8-jvmci-22.2-b06
+# VM invoker: /home/mintozzy/.sdkman/candidates/java/22.2.r17-grl/bin/java
+# VM options: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -Xms2g -Xmx2g
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 1 iterations, 10 s each
+# Measurement: 1 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb_jackson
+
+# Run progress: 3.03% complete, ETA 00:14:08
+# Fork: 1 of 2
+OpenJDK 64-Bit Server VM warning: -XX:ThreadPriorityPolicy=1 may require system level permission, e.g., being the root user. If the necessary permission is not possessed, changes to priority will be silently ignored.
+# Warmup Iteration   1: Using SEED=298612265677184 as seed for Random

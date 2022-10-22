@@ -32,3 +32,6 @@ jobs:
         arguments: build
     - name: Run everything
       run: sh run-everything
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: result adding back to repo

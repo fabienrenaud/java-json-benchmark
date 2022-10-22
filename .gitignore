@@ -1,7 +1,6 @@
 # Build
 target/
 *.csv
-*.txt
 build/
 .gradle/
 *.gz

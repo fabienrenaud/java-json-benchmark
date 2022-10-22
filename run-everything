@@ -2,7 +2,7 @@
 
 DATA_TYPES="users clients"
 NUMBERS="1"
-SIZES="1 10 100 1000"
+SIZES="1 10 100"
 COMMANDS="ser deser"
 OUTPUT_DIR=output
 

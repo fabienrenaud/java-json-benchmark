@@ -7,11 +7,7 @@
 
 name: Java CI with Gradle
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: [push, pull_request]
 
 permissions:
   contents: read
@@ -39,7 +35,4 @@ jobs:
         ./toMd.sh ../index.md
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: result adding back to repo
-        contents: write
-        push_options: --force
-        #test2
+        commit_message: result adding back to repo [skip ci]

@@ -10,15 +10,15 @@
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb
 
-# Run progress: 0.00% complete, ETA 00:06:36
+# Run progress: 0.00% complete, ETA 00:03:00
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1323952992915 as seed for Random
-32956.376 ops/s
-Iteration   1: 54227.859 ops/s
+# Warmup Iteration   1: Using SEED=3122158819438 as seed for Random
+3158.191 ops/s
+Iteration   1: 8500.142 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
-  54227.859 ops/s
+  8500.142 ops/s
 
 
 # JMH version: 1.33
@@ -33,346 +33,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson
 
-# Run progress: 3.03% complete, ETA 00:06:58
+# Run progress: 6.67% complete, ETA 00:03:05
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1337013715068 as seed for Random
-25439.006 ops/s
-Iteration   1: 38217.059 ops/s
+# Warmup Iteration   1: Using SEED=3135378559084 as seed for Random
+1626.889 ops/s
+Iteration   1: 3196.850 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson":
-  38217.059 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.boon
-
-# Run progress: 6.06% complete, ETA 00:06:46
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1350163845111 as seed for Random
-<failure>
-
-java.lang.ExceptionInInitializerError
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: java.lang.ClassCastException: class [B cannot be cast to class [C ([B and [C are in module java.base of loader 'bootstrap')
-	at org.boon.core.reflection.FastStringUtils$StringImplementation$1.toCharArray(FastStringUtils.java:92)
-	at org.boon.core.reflection.FastStringUtils.toCharArray(FastStringUtils.java:175)
-	at org.boon.primitive.Chr.chars(Chr.java:70)
-	at org.boon.json.implementation.JsonParserCharArray.<clinit>(JsonParserCharArray.java:275)
-	... 17 more
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_thrpt_jmhStub(Deserialization_boon_jmhTest.java:119)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:83)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.implementation.JsonParserLax
-	at org.boon.json.JsonMappingParser.<init>(JsonMappingParser.java:85)
-	at org.boon.json.JsonParserFactory.create(JsonParserFactory.java:228)
-	at org.boon.json.implementation.ObjectMapperImpl.readValue(ObjectMapperImpl.java:78)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.boon(Deserialization.java:73)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_boon_jmhTest.boon_Throughput(Deserialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-
+  3196.850 ops/s
 
 
 # JMH version: 1.33
@@ -387,15 +56,15 @@ java.lang.NoClassDefFoundError: Could not initialize class org.boon.json.impleme
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson
 
-# Run progress: 9.09% complete, ETA 00:04:31
+# Run progress: 13.33% complete, ETA 00:02:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1351155011810 as seed for Random
-41757.574 ops/s
-Iteration   1: 59734.089 ops/s
+# Warmup Iteration   1: Using SEED=3148600692583 as seed for Random
+27417.431 ops/s
+Iteration   1: 50690.447 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
-  59734.089 ops/s
+  50690.447 ops/s
 
 
 # JMH version: 1.33
@@ -410,15 +79,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection
 
-# Run progress: 12.12% complete, ETA 00:04:52
+# Run progress: 20.00% complete, ETA 00:02:38
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1364294709968 as seed for Random
-42291.340 ops/s
-Iteration   1: 47836.498 ops/s
+# Warmup Iteration   1: Using SEED=3161827592866 as seed for Random
+26218.435 ops/s
+Iteration   1: 42855.089 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection":
-  47836.498 ops/s
+  42855.089 ops/s
 
 
 # JMH version: 1.33
@@ -433,15 +102,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection"
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.fastjson
 
-# Run progress: 15.15% complete, ETA 00:04:59
+# Run progress: 26.67% complete, ETA 00:02:25
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1377436286789 as seed for Random
-14627.047 ops/s
-Iteration   1: 28957.638 ops/s
+# Warmup Iteration   1: Using SEED=3174974360318 as seed for Random
+2151.332 ops/s
+Iteration   1: 4026.212 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
-  28957.638 ops/s
+  4026.212 ops/s
 
 
 # JMH version: 1.33
@@ -456,15 +125,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.flexjson
 
-# Run progress: 18.18% complete, ETA 00:04:59
+# Run progress: 33.33% complete, ETA 00:02:12
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1390563968267 as seed for Random
-1212.802 ops/s
-Iteration   1: 2635.713 ops/s
+# Warmup Iteration   1: Using SEED=3188138507480 as seed for Random
+829.126 ops/s
+Iteration   1: 1439.665 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
-  2635.713 ops/s
+  1439.665 ops/s
 
 
 # JMH version: 1.33
@@ -479,15 +148,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.genson
 
-# Run progress: 21.21% complete, ETA 00:04:56
+# Run progress: 40.00% complete, ETA 00:01:58
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1403747745183 as seed for Random
-21386.867 ops/s
-Iteration   1: 29644.907 ops/s
+# Warmup Iteration   1: Using SEED=3201342189357 as seed for Random
+2130.977 ops/s
+Iteration   1: 3783.298 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
-  29644.907 ops/s
+  3783.298 ops/s
 
 
 # JMH version: 1.33
@@ -502,15 +171,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.gson
 
-# Run progress: 24.24% complete, ETA 00:04:50
+# Run progress: 46.67% complete, ETA 00:01:45
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1416842822680 as seed for Random
-16187.329 ops/s
-Iteration   1: 27710.065 ops/s
+# Warmup Iteration   1: Using SEED=3214508847406 as seed for Random
+2892.629 ops/s
+Iteration   1: 4793.595 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
-  27710.065 ops/s
+  4793.595 ops/s
 
 
 # JMH version: 1.33
@@ -525,15 +194,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson
 
-# Run progress: 27.27% complete, ETA 00:04:42
+# Run progress: 53.33% complete, ETA 00:01:32
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1429928345536 as seed for Random
-20731.899 ops/s
-Iteration   1: 36079.792 ops/s
+# Warmup Iteration   1: Using SEED=3227723688459 as seed for Random
+1780.706 ops/s
+Iteration   1: 3615.817 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
-  36079.792 ops/s
+  3615.817 ops/s
 
 
 # JMH version: 1.33
@@ -548,15 +217,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 
-# Run progress: 30.30% complete, ETA 00:04:33
+# Run progress: 60.00% complete, ETA 00:01:19
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1443055365189 as seed for Random
-27288.084 ops/s
-Iteration   1: 39828.090 ops/s
+# Warmup Iteration   1: Using SEED=3240860200380 as seed for Random
+2719.655 ops/s
+Iteration   1: 4067.186 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner":
-  39828.090 ops/s
+  4067.186 ops/s
 
 
 # JMH version: 1.33
@@ -571,15 +240,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird
 
-# Run progress: 33.33% complete, ETA 00:04:24
+# Run progress: 66.67% complete, ETA 00:01:05
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1456180860287 as seed for Random
-27216.626 ops/s
-Iteration   1: 38224.529 ops/s
+# Warmup Iteration   1: Using SEED=3254020844765 as seed for Random
+2330.727 ops/s
+Iteration   1: 3872.554 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
-  38224.529 ops/s
+  3872.554 ops/s
 
 
 # JMH version: 1.33
@@ -594,38 +263,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jodd
 
-# Run progress: 36.36% complete, ETA 00:04:14
+# Run progress: 73.33% complete, ETA 00:00:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1469237257329 as seed for Random
-11290.612 ops/s
-Iteration   1: 26755.310 ops/s
+# Warmup Iteration   1: Using SEED=3267195100470 as seed for Random
+1957.962 ops/s
+Iteration   1: 4557.626 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jodd":
-  26755.310 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.johnzon
-
-# Run progress: 39.39% complete, ETA 00:04:03
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1482343567563 as seed for Random
-4317.970 ops/s
-Iteration   1: 6527.032 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.databind.Deserialization.johnzon":
-  6527.032 ops/s
+  4557.626 ops/s
 
 
 # JMH version: 1.33
@@ -640,12 +286,12 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.johnzon":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter
 
-# Run progress: 42.42% complete, ETA 00:03:52
+# Run progress: 80.00% complete, ETA 00:00:39
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1495487292996 as seed for Random
+# Warmup Iteration   1: Using SEED=3280408679103 as seed for Random
 <failure>
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@518506f1 with [class java.lang.String], exception: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@39bf78f6 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -706,6 +352,203 @@ return obj;
 	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
 	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
+	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
+	at com.jsoniter.Codegen.genSource(Codegen.java:241)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
+	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
+	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
+	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_thrpt_jmhStub(Deserialization_jsoniter_jmhTest.java:119)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:83)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.Codegen.gen(Codegen.java:78)
+	... 51 more
+
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@1161fa3d with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
+if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
+if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
+return col == null ? new java.util.ArrayList(0): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+}
+Object a1 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(1): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+return obj;
+}
+Object a2 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(2): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+return obj;
+}
+Object a3 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(3): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+return obj;
+}
+Object a4 = (java.lang.String)iter.readString();
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(8): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+obj.add(a4);
+while (com.jsoniter.CodegenAccess.nextToken(iter) == ',') {
+obj.add((java.lang.String)iter.readString());
+}
+return obj;
+}
+	at com.jsoniter.Codegen.gen(Codegen.java:86)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
+	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
+	at com.jsoniter.Codegen.genSource(Codegen.java:241)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:170)
+	at com.jsoniter.CodegenImplArray.genCollectionWithCapacity(CodegenImplArray.java:130)
+	at com.jsoniter.CodegenImplArray.genCollection(CodegenImplArray.java:84)
+	at com.jsoniter.Codegen.genSource(Codegen.java:234)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
+	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
+	at com.jsoniter.Codegen.genSource(Codegen.java:241)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
+	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
+	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
+	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.Codegen.gen(Codegen.java:78)
+	... 50 more
+
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@7871bf3 with [class java.lang.String], exception: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
+if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
+if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
+return col == null ? new java.util.ArrayList(0): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+}
+Object a1 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(1): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+return obj;
+}
+Object a2 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(2): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+return obj;
+}
+Object a3 = (java.lang.String)iter.readString();
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(3): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+return obj;
+}
+Object a4 = (java.lang.String)iter.readString();
+java.util.ArrayList obj = col == null ? new java.util.ArrayList(8): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+obj.add(a4);
+while (com.jsoniter.CodegenAccess.nextToken(iter) == ',') {
+obj.add((java.lang.String)iter.readString());
+}
+return obj;
+}
+	at com.jsoniter.Codegen.gen(Codegen.java:86)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
+	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
+	at com.jsoniter.Codegen.genSource(Codegen.java:241)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:170)
+	at com.jsoniter.CodegenImplArray.genCollectionWithCapacity(CodegenImplArray.java:130)
+	at com.jsoniter.CodegenImplArray.genCollection(CodegenImplArray.java:84)
+	at com.jsoniter.Codegen.genSource(Codegen.java:234)
+	at com.jsoniter.Codegen.gen(Codegen.java:68)
+	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
+	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
+	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
@@ -747,9 +590,9 @@ Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protect
 	at javassist.CtClass.toClass(CtClass.java:1298)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:25)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@33e280c1 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@4799f844 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -814,6 +657,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -842,9 +687,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@505cf006 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@1e361f6d with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -909,6 +754,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -937,9 +784,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@32318428 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@2274cf90 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1004,6 +851,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1032,9 +881,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@7aae7867 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@495dbfcc with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1099,6 +948,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1127,9 +978,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@37a3c8aa with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@57094200 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1194,6 +1045,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1222,9 +1075,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@9183ac1 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@3d7ca875 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1289,6 +1142,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1317,7 +1172,7 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
 com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@47e538f8 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
@@ -1384,6 +1239,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1412,9 +1269,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@6897a4ef with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@4d14336f with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1479,6 +1336,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1507,9 +1366,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@2d9ad6a0 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@3edfae2 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1574,6 +1433,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1602,9 +1463,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@1c50d72c with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@23a08da8 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1669,6 +1530,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1697,9 +1560,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@690da177 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@1ef424b8 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1764,6 +1627,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1792,9 +1657,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@14754a41 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@6296cfa5 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1859,6 +1724,8 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
+	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
 	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
 	at com.jsoniter.Codegen.genSource(Codegen.java:241)
@@ -1887,9 +1754,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
+	... 50 more
 
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@6ba18d86 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
+com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@6462d4d2 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
 if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
 if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
@@ -1954,99 +1821,6 @@ return obj;
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
-	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
-	at com.jsoniter.Codegen.genSource(Codegen.java:241)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
-	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
-	at javassist.ClassPool.makeClass(ClassPool.java:837)
-	at javassist.ClassPool.makeClass(ClassPool.java:814)
-	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
-	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
-
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@dd1be42 with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.decoder.java.util.List_java.lang.String: frozen class (cannot edit)
-public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
-if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
-if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
-return col == null ? new java.util.ArrayList(0): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-}
-Object a1 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(1): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-return obj;
-}
-Object a2 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(2): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-return obj;
-}
-Object a3 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(3): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-obj.add(a3);
-return obj;
-}
-Object a4 = (java.lang.String)iter.readString();
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(8): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-obj.add(a3);
-obj.add(a4);
-while (com.jsoniter.CodegenAccess.nextToken(iter) == ',') {
-obj.add((java.lang.String)iter.readString());
-}
-return obj;
-}
-	at com.jsoniter.Codegen.gen(Codegen.java:86)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
-	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
-	at com.jsoniter.Codegen.genSource(Codegen.java:241)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:170)
-	at com.jsoniter.CodegenImplArray.genCollectionWithCapacity(CodegenImplArray.java:130)
-	at com.jsoniter.CodegenImplArray.genCollection(CodegenImplArray.java:84)
-	at com.jsoniter.Codegen.genSource(Codegen.java:234)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
 	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
@@ -2077,53 +1851,9 @@ Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.d
 	at javassist.ClassPool.makeClass(ClassPool.java:814)
 	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:16)
 	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 48 more
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_thrpt_jmhStub(Deserialization_jsoniter_jmhTest.java:119)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:83)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+	... 50 more
 
 
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jsonsmart
-
-# Run progress: 45.45% complete, ETA 00:03:28
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1497562586238 as seed for Random
-26709.458 ops/s
-Iteration   1: 32610.318 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.databind.Deserialization.jsonsmart":
-  32610.318 ops/s
 
 
 # JMH version: 1.33
@@ -2138,15 +1868,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jsonsmart":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.logansquare
 
-# Run progress: 48.48% complete, ETA 00:03:18
+# Run progress: 86.67% complete, ETA 00:00:24
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1510709489065 as seed for Random
-17907.436 ops/s
-Iteration   1: 34438.411 ops/s
+# Warmup Iteration   1: Using SEED=3281563468380 as seed for Random
+1820.649 ops/s
+Iteration   1: 2210.200 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
-  34438.411 ops/s
+  2210.200 ops/s
 
 
 # JMH version: 1.33
@@ -2161,363 +1891,18 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.moshi
 
-# Run progress: 51.52% complete, ETA 00:03:08
+# Run progress: 93.33% complete, ETA 00:00:12
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1523771088016 as seed for Random
-14516.939 ops/s
-Iteration   1: 18824.258 ops/s
+# Warmup Iteration   1: Using SEED=3294776533195 as seed for Random
+2287.294 ops/s
+Iteration   1: 4215.180 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.moshi":
-  18824.258 ops/s
+  4215.180 ops/s
 
 
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.yasson
-
-# Run progress: 54.55% complete, ETA 00:02:57
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1536875773465 as seed for Random
-1596.304 ops/s
-Iteration   1: 3381.593 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.databind.Deserialization.yasson":
-  3381.593 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.genson
-
-# Run progress: 57.58% complete, ETA 00:02:46
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1550023802595 as seed for Random
-7132.397 ops/s
-Iteration   1: 16503.405 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.genson":
-  16503.405 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.gson
-
-# Run progress: 60.61% complete, ETA 00:02:35
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1563239970122 as seed for Random
-2462.729 ops/s
-Iteration   1: 2522.815 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.gson":
-  2522.815 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.jackson
-
-# Run progress: 63.64% complete, ETA 00:02:24
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1576671159699 as seed for Random
-18624.693 ops/s
-Iteration   1: 40066.434 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.jackson":
-  40066.434 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.javaxjson
-
-# Run progress: 66.67% complete, ETA 00:02:12
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1589820930860 as seed for Random
-5099.410 ops/s
-Iteration   1: 10464.920 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.javaxjson":
-  10464.920 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.jsonio
-
-# Run progress: 69.70% complete, ETA 00:02:01
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1602854725107 as seed for Random
-1577.358 ops/s
-Iteration   1: 2877.693 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.jsonio":
-  2877.693 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.jsonsimple
-
-# Run progress: 72.73% complete, ETA 00:01:49
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1616028340628 as seed for Random
-2927.850 ops/s
-Iteration   1: 8761.819 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.jsonsimple":
-  8761.819 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.minimaljson
-
-# Run progress: 75.76% complete, ETA 00:01:37
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1629286049765 as seed for Random
-2251.407 ops/s
-Iteration   1: 2589.172 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.minimaljson":
-  2589.172 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.mjson
-
-# Run progress: 78.79% complete, ETA 00:01:25
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1642417397550 as seed for Random
-3812.278 ops/s
-Iteration   1: 5456.138 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.mjson":
-  5456.138 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.moshi
-
-# Run progress: 81.82% complete, ETA 00:01:13
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1655505122377 as seed for Random
-3658.254 ops/s
-Iteration   1: 4094.118 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.moshi":
-  4094.118 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.nanojson
-
-# Run progress: 84.85% complete, ETA 00:01:01
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1668655365202 as seed for Random
-8755.479 ops/s
-Iteration   1: 17959.037 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.nanojson":
-  17959.037 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.orgjson
-
-# Run progress: 87.88% complete, ETA 00:00:49
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1681810337836 as seed for Random
-3770.611 ops/s
-Iteration   1: 5616.261 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.orgjson":
-  5616.261 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.purejson
-
-# Run progress: 90.91% complete, ETA 00:00:37
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1694914079788 as seed for Random
-3172.683 ops/s
-Iteration   1: 6317.958 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.purejson":
-  6317.958 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.tapestry
-
-# Run progress: 93.94% complete, ETA 00:00:24
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1707989865394 as seed for Random
-6332.790 ops/s
-Iteration   1: 26208.585 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.tapestry":
-  26208.585 ops/s
-
-
-# JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
-# VM options: -Xms2g -Xmx2g
-# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
-# Warmup: 1 iterations, 10 s each
-# Measurement: 1 iterations, 2 s each
-# Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
-# Benchmark mode: Throughput, ops/time
-# Benchmark: com.github.fabienrenaud.jjb.stream.Deserialization.underscore_java
-
-# Run progress: 96.97% complete, ETA 00:00:12
-# Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1721159674971 as seed for Random
-3531.661 ops/s
-Iteration   1: 22162.923 ops/s
-
-
-Result "com.github.fabienrenaud.jjb.stream.Deserialization.underscore_java":
-  22162.923 ops/s
-
-
-# Run complete. Total time: 00:06:50
+# Run complete. Total time: 00:03:05
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -2525,35 +1910,18 @@ experiments, perform baseline and negative tests that provide experimental contr
 the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
 Do not assume the numbers tell you what you want them to tell.
 
-Benchmark                                              Mode  Cnt      Score   Error  Units
-c.g.f.j.databind.Deserialization.avajejsonb           thrpt       54227.859          ops/s
-c.g.f.j.databind.Deserialization.avajejsonb_jackson   thrpt       38217.059          ops/s
-c.g.f.j.databind.Deserialization.dsljson              thrpt       59734.089          ops/s
-c.g.f.j.databind.Deserialization.dsljson_reflection   thrpt       47836.498          ops/s
-c.g.f.j.databind.Deserialization.fastjson             thrpt       28957.638          ops/s
-c.g.f.j.databind.Deserialization.flexjson             thrpt        2635.713          ops/s
-c.g.f.j.databind.Deserialization.genson               thrpt       29644.907          ops/s
-c.g.f.j.databind.Deserialization.gson                 thrpt       27710.065          ops/s
-c.g.f.j.databind.Deserialization.jackson              thrpt       36079.792          ops/s
-c.g.f.j.databind.Deserialization.jackson_afterburner  thrpt       39828.090          ops/s
-c.g.f.j.databind.Deserialization.jackson_blackbird    thrpt       38224.529          ops/s
-c.g.f.j.databind.Deserialization.jodd                 thrpt       26755.310          ops/s
-c.g.f.j.databind.Deserialization.johnzon              thrpt        6527.032          ops/s
-c.g.f.j.databind.Deserialization.jsonsmart            thrpt       32610.318          ops/s
-c.g.f.j.databind.Deserialization.logansquare          thrpt       34438.411          ops/s
-c.g.f.j.databind.Deserialization.moshi                thrpt       18824.258          ops/s
-c.g.f.j.databind.Deserialization.yasson               thrpt        3381.593          ops/s
-c.g.f.j.stream.Deserialization.genson                 thrpt       16503.405          ops/s
-c.g.f.j.stream.Deserialization.gson                   thrpt        2522.815          ops/s
-c.g.f.j.stream.Deserialization.jackson                thrpt       40066.434          ops/s
-c.g.f.j.stream.Deserialization.javaxjson              thrpt       10464.920          ops/s
-c.g.f.j.stream.Deserialization.jsonio                 thrpt        2877.693          ops/s
-c.g.f.j.stream.Deserialization.jsonsimple             thrpt        8761.819          ops/s
-c.g.f.j.stream.Deserialization.minimaljson            thrpt        2589.172          ops/s
-c.g.f.j.stream.Deserialization.mjson                  thrpt        5456.138          ops/s
-c.g.f.j.stream.Deserialization.moshi                  thrpt        4094.118          ops/s
-c.g.f.j.stream.Deserialization.nanojson               thrpt       17959.037          ops/s
-c.g.f.j.stream.Deserialization.orgjson                thrpt        5616.261          ops/s
-c.g.f.j.stream.Deserialization.purejson               thrpt        6317.958          ops/s
-c.g.f.j.stream.Deserialization.tapestry               thrpt       26208.585          ops/s
-c.g.f.j.stream.Deserialization.underscore_java        thrpt       22162.923          ops/s
+Benchmark                             Mode  Cnt      Score   Error  Units
+Deserialization.avajejsonb           thrpt        8500.142          ops/s
+Deserialization.avajejsonb_jackson   thrpt        3196.850          ops/s
+Deserialization.dsljson              thrpt       50690.447          ops/s
+Deserialization.dsljson_reflection   thrpt       42855.089          ops/s
+Deserialization.fastjson             thrpt        4026.212          ops/s
+Deserialization.flexjson             thrpt        1439.665          ops/s
+Deserialization.genson               thrpt        3783.298          ops/s
+Deserialization.gson                 thrpt        4793.595          ops/s
+Deserialization.jackson              thrpt        3615.817          ops/s
+Deserialization.jackson_afterburner  thrpt        4067.186          ops/s
+Deserialization.jackson_blackbird    thrpt        3872.554          ops/s
+Deserialization.jodd                 thrpt        4557.626          ops/s
+Deserialization.logansquare          thrpt        2210.200          ops/s
+Deserialization.moshi                thrpt        4215.180          ops/s

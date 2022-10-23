@@ -35,4 +35,4 @@ jobs:
         ./toMd.sh ../index.md
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: result adding back to repo [skip ci]
+        commit_message: result adding back to repo [skip ci] another test

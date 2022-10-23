@@ -12,13 +12,13 @@
 
 # Run progress: 0.00% complete, ETA 00:06:36
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=913528160967 as seed for Random
-59250.380 ops/s
-Iteration   1: 67172.794 ops/s
+# Warmup Iteration   1: Using SEED=978405185810 as seed for Random
+74737.049 ops/s
+Iteration   1: 79597.056 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb":
-  67172.794 ops/s
+  79597.056 ops/s
 
 
 # JMH version: 1.33
@@ -33,15 +33,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb_jackson
 
-# Run progress: 3.03% complete, ETA 00:07:02
+# Run progress: 3.03% complete, ETA 00:06:54
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=926688108262 as seed for Random
-38093.873 ops/s
-Iteration   1: 52326.883 ops/s
+# Warmup Iteration   1: Using SEED=991331211710 as seed for Random
+64513.646 ops/s
+Iteration   1: 77466.504 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb_jackson":
-  52326.883 ops/s
+  77466.504 ops/s
 
 
 # JMH version: 1.33
@@ -56,9 +56,9 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.avajejsonb_jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.boon
 
-# Run progress: 6.06% complete, ETA 00:06:48
+# Run progress: 6.06% complete, ETA 00:06:39
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=939817654123 as seed for Random
+# Warmup Iteration   1: Using SEED=1004176029023 as seed for Random
 <failure>
 
 java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
@@ -107,187 +107,8 @@ java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflect
 	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
 	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
 	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
-	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
-	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
-	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_thrpt_jmhStub(Serialization_boon_jmhTest.java:119)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:83)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -376,8 +197,187 @@ java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflect
 	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
 	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
 	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_thrpt_jmhStub(Serialization_boon_jmhTest.java:119)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:83)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflection.Reflection
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeInstance(JsonSimpleSerializerImpl.java:601)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serializeObject(JsonSimpleSerializerImpl.java:564)
+	at org.boon.json.serializers.impl.JsonSimpleSerializerImpl.serialize(JsonSimpleSerializerImpl.java:152)
+	at org.boon.json.implementation.ObjectMapperImpl.writeValue(ObjectMapperImpl.java:217)
+	at com.github.fabienrenaud.jjb.databind.Serialization.boon(Serialization.java:89)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_boon_jmhTest.boon_Throughput(Serialization_boon_jmhTest.java:78)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -406,15 +406,15 @@ java.lang.NoClassDefFoundError: Could not initialize class org.boon.core.reflect
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.dsljson
 
-# Run progress: 9.09% complete, ETA 00:04:33
+# Run progress: 9.09% complete, ETA 00:04:25
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=940787896780 as seed for Random
-70714.922 ops/s
-Iteration   1: 74094.071 ops/s
+# Warmup Iteration   1: Using SEED=1004893607939 as seed for Random
+84702.257 ops/s
+Iteration   1: 93209.858 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.dsljson":
-  74094.071 ops/s
+  93209.858 ops/s
 
 
 # JMH version: 1.33
@@ -429,15 +429,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.dsljson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.dsljson_reflection
 
-# Run progress: 12.12% complete, ETA 00:04:53
+# Run progress: 12.12% complete, ETA 00:04:44
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=954007697198 as seed for Random
-58278.077 ops/s
-Iteration   1: 65635.006 ops/s
+# Warmup Iteration   1: Using SEED=1017675787807 as seed for Random
+80138.117 ops/s
+Iteration   1: 88086.027 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.dsljson_reflection":
-  65635.006 ops/s
+  88086.027 ops/s
 
 
 # JMH version: 1.33
@@ -452,15 +452,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.dsljson_reflection":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.fastjson
 
-# Run progress: 15.15% complete, ETA 00:05:00
+# Run progress: 15.15% complete, ETA 00:04:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=967083433947 as seed for Random
-24539.612 ops/s
-Iteration   1: 39053.425 ops/s
+# Warmup Iteration   1: Using SEED=1030593123621 as seed for Random
+47765.992 ops/s
+Iteration   1: 65455.296 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.fastjson":
-  39053.425 ops/s
+  65455.296 ops/s
 
 
 # JMH version: 1.33
@@ -475,15 +475,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.fastjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.flexjson
 
-# Run progress: 18.18% complete, ETA 00:05:00
+# Run progress: 18.18% complete, ETA 00:04:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=980144430626 as seed for Random
-470.701 ops/s
-Iteration   1: 313.901 ops/s
+# Warmup Iteration   1: Using SEED=1043436029854 as seed for Random
+597.126 ops/s
+Iteration   1: 372.739 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.flexjson":
-  313.901 ops/s
+  372.739 ops/s
 
 
 # JMH version: 1.33
@@ -498,15 +498,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.flexjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.genson
 
-# Run progress: 21.21% complete, ETA 00:04:56
+# Run progress: 21.21% complete, ETA 00:04:49
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=993318437871 as seed for Random
-32389.488 ops/s
-Iteration   1: 42502.682 ops/s
+# Warmup Iteration   1: Using SEED=1056332345128 as seed for Random
+50883.282 ops/s
+Iteration   1: 61382.386 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.genson":
-  42502.682 ops/s
+  61382.386 ops/s
 
 
 # JMH version: 1.33
@@ -521,15 +521,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.genson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.gson
 
-# Run progress: 24.24% complete, ETA 00:04:50
+# Run progress: 24.24% complete, ETA 00:04:43
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1006407152358 as seed for Random
-11214.086 ops/s
-Iteration   1: 16842.919 ops/s
+# Warmup Iteration   1: Using SEED=1069178020653 as seed for Random
+18561.542 ops/s
+Iteration   1: 23238.183 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.gson":
-  16842.919 ops/s
+  23238.183 ops/s
 
 
 # JMH version: 1.33
@@ -544,15 +544,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.gson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jackson
 
-# Run progress: 27.27% complete, ETA 00:04:42
+# Run progress: 27.27% complete, ETA 00:04:36
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1019523699068 as seed for Random
-47601.635 ops/s
-Iteration   1: 57082.824 ops/s
+# Warmup Iteration   1: Using SEED=1082060712080 as seed for Random
+67946.455 ops/s
+Iteration   1: 75312.178 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson":
-  57082.824 ops/s
+  75312.178 ops/s
 
 
 # JMH version: 1.33
@@ -567,15 +567,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jackson_afterburner
 
-# Run progress: 30.30% complete, ETA 00:04:34
+# Run progress: 30.30% complete, ETA 00:04:28
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1032640101201 as seed for Random
-43437.156 ops/s
-Iteration   1: 54374.433 ops/s
+# Warmup Iteration   1: Using SEED=1094926793504 as seed for Random
+69384.214 ops/s
+Iteration   1: 78989.185 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson_afterburner":
-  54374.433 ops/s
+  78989.185 ops/s
 
 
 # JMH version: 1.33
@@ -590,15 +590,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson_afterburner":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jackson_blackbird
 
-# Run progress: 33.33% complete, ETA 00:04:24
+# Run progress: 33.33% complete, ETA 00:04:18
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1045716180920 as seed for Random
-45854.039 ops/s
-Iteration   1: 54079.898 ops/s
+# Warmup Iteration   1: Using SEED=1107761026564 as seed for Random
+63498.241 ops/s
+Iteration   1: 72033.778 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson_blackbird":
-  54079.898 ops/s
+  72033.778 ops/s
 
 
 # JMH version: 1.33
@@ -613,15 +613,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.jackson_blackbird":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jodd
 
-# Run progress: 36.36% complete, ETA 00:04:14
+# Run progress: 36.36% complete, ETA 00:04:08
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1058817276128 as seed for Random
-3628.162 ops/s
-Iteration   1: 5873.697 ops/s
+# Warmup Iteration   1: Using SEED=1120578231277 as seed for Random
+4591.512 ops/s
+Iteration   1: 5787.528 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.jodd":
-  5873.697 ops/s
+  5787.528 ops/s
 
 
 # JMH version: 1.33
@@ -636,15 +636,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.jodd":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.johnzon
 
-# Run progress: 39.39% complete, ETA 00:04:03
+# Run progress: 39.39% complete, ETA 00:03:58
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1071960360963 as seed for Random
-12138.087 ops/s
-Iteration   1: 20884.667 ops/s
+# Warmup Iteration   1: Using SEED=1133413997035 as seed for Random
+17249.925 ops/s
+Iteration   1: 23643.451 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.johnzon":
-  20884.667 ops/s
+  23643.451 ops/s
 
 
 # JMH version: 1.33
@@ -659,12 +659,12 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.johnzon":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jsoniter
 
-# Run progress: 42.42% complete, ETA 00:03:52
+# Run progress: 42.42% complete, ETA 00:03:47
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1085078238841 as seed for Random
+# Warmup Iteration   1: Using SEED=1146232224611 as seed for Random
 <failure>
 
-com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
 public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
 java.util.List list = (java.util.List)obj;
 int size = list.size();
@@ -720,6 +720,762 @@ stream.writeVal((java.lang.String)e);
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 37 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
+
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
+	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
+	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
+	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
 Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
@@ -735,10 +1491,47 @@ Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protect
 	at javassist.CtClass.toClass(CtClass.java:1298)
 	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:29)
 	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
-	... 37 more
+	... 36 more
 
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
 	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
 	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
 	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
@@ -755,9 +1548,53 @@ java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(O
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
 
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
 	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
 	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
 	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
@@ -774,9 +1611,53 @@ java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(O
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
 
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
+com.jsoniter.spi.JsonException: failed to generate encoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.List} with [class java.lang.String], exception: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+public static void encode_(java.lang.Object obj, com.jsoniter.output.JsonStream stream) throws java.io.IOException {
+java.util.List list = (java.util.List)obj;
+int size = list.size();
+if (size == 0) { return; }
+java.lang.Object e = list.get(0);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+for (int i = 1; i < size; i++) {
+stream.write(',');
+e = list.get(i);
+if (e == null) { stream.writeNull(); } else {
+stream.writeVal((java.lang.String)e);
+}
+}
+}
+
+	at com.jsoniter.output.Codegen.gen(Codegen.java:110)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:269)
+	at com.jsoniter.output.CodegenImplArray.genList(CodegenImplArray.java:113)
+	at com.jsoniter.output.CodegenImplArray.genCollection(CodegenImplArray.java:30)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:222)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
+	at com.jsoniter.output.CodegenImplNative.genWriteOp(CodegenImplNative.java:295)
+	at com.jsoniter.output.CodegenImplObject.genField(CodegenImplObject.java:117)
+	at com.jsoniter.output.CodegenImplObject.genObject(CodegenImplObject.java:22)
+	at com.jsoniter.output.Codegen.genSource(Codegen.java:227)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:98)
+	at com.jsoniter.output.Codegen.getEncoder(Codegen.java:49)
 	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
 	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
 	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
@@ -793,234 +1674,13 @@ java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(O
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(Object, com.jsoniter.output.JsonStream)" because "encoder" is null
-	at com.jsoniter.output.Codegen$1.encode(Codegen.java:139)
-	at com.jsoniter.output.JsonStream.writeVal(JsonStream.java:362)
-	at com.jsoniter.output.JsonStream.serialize(JsonStream.java:408)
-	at com.github.fabienrenaud.jjb.databind.Serialization.jsoniter(Serialization.java:169)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Serialization_jsoniter_jmhTest.jsoniter_Throughput(Serialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.RuntimeException: jsoniter_codegen.cfg9223372034806973682.encoder.java.util.List_java.lang.String: frozen class (cannot edit)
+	at javassist.ClassPool.checkNotFrozen(ClassPool.java:595)
+	at javassist.ClassPool.makeClass(ClassPool.java:837)
+	at javassist.ClassPool.makeClass(ClassPool.java:814)
+	at com.jsoniter.output.DynamicCodegen.gen(DynamicCodegen.java:16)
+	at com.jsoniter.output.Codegen.gen(Codegen.java:102)
+	... 36 more
 
 
 
@@ -1037,15 +1697,15 @@ java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Encoder.encode(O
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.jsonsmart
 
-# Run progress: 45.45% complete, ETA 00:03:28
+# Run progress: 45.45% complete, ETA 00:03:22
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1087038780103 as seed for Random
-18101.715 ops/s
-Iteration   1: 21211.648 ops/s
+# Warmup Iteration   1: Using SEED=1147037193269 as seed for Random
+28843.713 ops/s
+Iteration   1: 34448.032 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.jsonsmart":
-  21211.648 ops/s
+  34448.032 ops/s
 
 
 # JMH version: 1.33
@@ -1060,15 +1720,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.jsonsmart":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.logansquare
 
-# Run progress: 48.48% complete, ETA 00:03:18
+# Run progress: 48.48% complete, ETA 00:03:12
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1100033049853 as seed for Random
-31580.671 ops/s
-Iteration   1: 52816.810 ops/s
+# Warmup Iteration   1: Using SEED=1159879696769 as seed for Random
+45628.495 ops/s
+Iteration   1: 64850.642 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.logansquare":
-  52816.810 ops/s
+  64850.642 ops/s
 
 
 # JMH version: 1.33
@@ -1083,15 +1743,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.logansquare":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.moshi
 
-# Run progress: 51.52% complete, ETA 00:03:08
+# Run progress: 51.52% complete, ETA 00:03:02
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1113202600494 as seed for Random
-17245.479 ops/s
-Iteration   1: 28833.470 ops/s
+# Warmup Iteration   1: Using SEED=1172817105007 as seed for Random
+29641.834 ops/s
+Iteration   1: 37250.991 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.moshi":
-  28833.470 ops/s
+  37250.991 ops/s
 
 
 # JMH version: 1.33
@@ -1106,15 +1766,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.moshi":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Serialization.yasson
 
-# Run progress: 54.55% complete, ETA 00:02:57
+# Run progress: 54.55% complete, ETA 00:02:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1126300114696 as seed for Random
-9751.065 ops/s
-Iteration   1: 20490.950 ops/s
+# Warmup Iteration   1: Using SEED=1185694283432 as seed for Random
+15697.121 ops/s
+Iteration   1: 28495.126 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Serialization.yasson":
-  20490.950 ops/s
+  28495.126 ops/s
 
 
 # JMH version: 1.33
@@ -1129,15 +1789,15 @@ Result "com.github.fabienrenaud.jjb.databind.Serialization.yasson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.genson
 
-# Run progress: 57.58% complete, ETA 00:02:46
+# Run progress: 57.58% complete, ETA 00:02:42
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1139382141615 as seed for Random
-20138.415 ops/s
-Iteration   1: 35386.975 ops/s
+# Warmup Iteration   1: Using SEED=1198520017708 as seed for Random
+34859.192 ops/s
+Iteration   1: 52465.627 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.genson":
-  35386.975 ops/s
+  52465.627 ops/s
 
 
 # JMH version: 1.33
@@ -1152,15 +1812,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.genson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.gson
 
-# Run progress: 60.61% complete, ETA 00:02:35
+# Run progress: 60.61% complete, ETA 00:02:31
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1152523008895 as seed for Random
-7148.825 ops/s
-Iteration   1: 10943.992 ops/s
+# Warmup Iteration   1: Using SEED=1211360684336 as seed for Random
+12848.583 ops/s
+Iteration   1: 17157.451 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.gson":
-  10943.992 ops/s
+  17157.451 ops/s
 
 
 # JMH version: 1.33
@@ -1175,15 +1835,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.gson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.jackson
 
-# Run progress: 63.64% complete, ETA 00:02:24
+# Run progress: 63.64% complete, ETA 00:02:20
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1165650557580 as seed for Random
-30499.774 ops/s
-Iteration   1: 53411.998 ops/s
+# Warmup Iteration   1: Using SEED=1224268359292 as seed for Random
+47665.429 ops/s
+Iteration   1: 69233.397 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.jackson":
-  53411.998 ops/s
+  69233.397 ops/s
 
 
 # JMH version: 1.33
@@ -1198,15 +1858,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.javaxjson
 
-# Run progress: 66.67% complete, ETA 00:02:12
+# Run progress: 66.67% complete, ETA 00:02:09
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1178780525040 as seed for Random
-41710.201 ops/s
-Iteration   1: 59513.426 ops/s
+# Warmup Iteration   1: Using SEED=1237178613736 as seed for Random
+65044.031 ops/s
+Iteration   1: 79757.597 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.javaxjson":
-  59513.426 ops/s
+  79757.597 ops/s
 
 
 # JMH version: 1.33
@@ -1221,15 +1881,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.javaxjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.jsonio
 
-# Run progress: 69.70% complete, ETA 00:02:01
+# Run progress: 69.70% complete, ETA 00:01:58
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1191927240228 as seed for Random
-1311.687 ops/s
-Iteration   1: 4914.454 ops/s
+# Warmup Iteration   1: Using SEED=1250020149959 as seed for Random
+3246.426 ops/s
+Iteration   1: 5056.753 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.jsonio":
-  4914.454 ops/s
+  5056.753 ops/s
 
 
 # JMH version: 1.33
@@ -1244,15 +1904,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.jsonio":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.jsonsimple
 
-# Run progress: 72.73% complete, ETA 00:01:49
+# Run progress: 72.73% complete, ETA 00:01:46
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1205059887940 as seed for Random
-1844.938 ops/s
-Iteration   1: 4292.226 ops/s
+# Warmup Iteration   1: Using SEED=1262857916945 as seed for Random
+4530.038 ops/s
+Iteration   1: 5084.531 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.jsonsimple":
-  4292.226 ops/s
+  5084.531 ops/s
 
 
 # JMH version: 1.33
@@ -1267,15 +1927,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.jsonsimple":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.minimaljson
 
-# Run progress: 75.76% complete, ETA 00:01:37
+# Run progress: 75.76% complete, ETA 00:01:35
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1218149192965 as seed for Random
-7343.347 ops/s
-Iteration   1: 23540.167 ops/s
+# Warmup Iteration   1: Using SEED=1275708548994 as seed for Random
+22009.419 ops/s
+Iteration   1: 44409.359 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.minimaljson":
-  23540.167 ops/s
+  44409.359 ops/s
 
 
 # JMH version: 1.33
@@ -1290,15 +1950,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.minimaljson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.mjson
 
-# Run progress: 78.79% complete, ETA 00:01:25
+# Run progress: 78.79% complete, ETA 00:01:23
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1231334291041 as seed for Random
-2879.865 ops/s
-Iteration   1: 4284.349 ops/s
+# Warmup Iteration   1: Using SEED=1288607449048 as seed for Random
+2734.603 ops/s
+Iteration   1: 10462.353 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.mjson":
-  4284.349 ops/s
+  10462.353 ops/s
 
 
 # JMH version: 1.33
@@ -1313,15 +1973,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.mjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.moshi
 
-# Run progress: 81.82% complete, ETA 00:01:13
+# Run progress: 81.82% complete, ETA 00:01:11
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1244433654353 as seed for Random
-17266.436 ops/s
-Iteration   1: 29617.463 ops/s
+# Warmup Iteration   1: Using SEED=1301413441911 as seed for Random
+25632.528 ops/s
+Iteration   1: 39776.630 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.moshi":
-  29617.463 ops/s
+  39776.630 ops/s
 
 
 # JMH version: 1.33
@@ -1336,15 +1996,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.moshi":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.nanojson
 
-# Run progress: 84.85% complete, ETA 00:01:01
+# Run progress: 84.85% complete, ETA 00:00:59
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1257622411269 as seed for Random
-18995.488 ops/s
-Iteration   1: 22902.790 ops/s
+# Warmup Iteration   1: Using SEED=1314283906025 as seed for Random
+44882.424 ops/s
+Iteration   1: 50157.921 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.nanojson":
-  22902.790 ops/s
+  50157.921 ops/s
 
 
 # JMH version: 1.33
@@ -1359,15 +2019,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.nanojson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.orgjson
 
-# Run progress: 87.88% complete, ETA 00:00:49
+# Run progress: 87.88% complete, ETA 00:00:48
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1270802771391 as seed for Random
-2555.126 ops/s
-Iteration   1: 5123.611 ops/s
+# Warmup Iteration   1: Using SEED=1327136203862 as seed for Random
+4891.997 ops/s
+Iteration   1: 7936.943 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.orgjson":
-  5123.611 ops/s
+  7936.943 ops/s
 
 
 # JMH version: 1.33
@@ -1382,15 +2042,15 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.orgjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.stream.Serialization.purejson
 
-# Run progress: 90.91% complete, ETA 00:00:37
+# Run progress: 90.91% complete, ETA 00:00:36
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1283972494883 as seed for Random
-4194.508 ops/s
-Iteration   1: 7275.603 ops/s
+# Warmup Iteration   1: Using SEED=1340007389909 as seed for Random
+8141.361 ops/s
+Iteration   1: 10248.965 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.purejson":
-  7275.603 ops/s
+  10248.965 ops/s
 
 
 # JMH version: 1.33
@@ -1407,13 +2067,13 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.purejson":
 
 # Run progress: 93.94% complete, ETA 00:00:24
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1297036174555 as seed for Random
-1423.935 ops/s
-Iteration   1: 1817.877 ops/s
+# Warmup Iteration   1: Using SEED=1352895987543 as seed for Random
+2876.574 ops/s
+Iteration   1: 4961.084 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.tapestry":
-  1817.877 ops/s
+  4961.084 ops/s
 
 
 # JMH version: 1.33
@@ -1430,16 +2090,16 @@ Result "com.github.fabienrenaud.jjb.stream.Serialization.tapestry":
 
 # Run progress: 96.97% complete, ETA 00:00:12
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=1310161206664 as seed for Random
-6051.081 ops/s
-Iteration   1: 9738.842 ops/s
+# Warmup Iteration   1: Using SEED=1365835095621 as seed for Random
+9020.076 ops/s
+Iteration   1: 14530.880 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.stream.Serialization.underscore_java":
-  9738.842 ops/s
+  14530.880 ops/s
 
 
-# Run complete. Total time: 00:06:49
+# Run complete. Total time: 00:06:40
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -1448,34 +2108,34 @@ the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from th
 Do not assume the numbers tell you what you want them to tell.
 
 Benchmark                                            Mode  Cnt      Score   Error  Units
-c.g.f.j.databind.Serialization.avajejsonb           thrpt       67172.794          ops/s
-c.g.f.j.databind.Serialization.avajejsonb_jackson   thrpt       52326.883          ops/s
-c.g.f.j.databind.Serialization.dsljson              thrpt       74094.071          ops/s
-c.g.f.j.databind.Serialization.dsljson_reflection   thrpt       65635.006          ops/s
-c.g.f.j.databind.Serialization.fastjson             thrpt       39053.425          ops/s
-c.g.f.j.databind.Serialization.flexjson             thrpt         313.901          ops/s
-c.g.f.j.databind.Serialization.genson               thrpt       42502.682          ops/s
-c.g.f.j.databind.Serialization.gson                 thrpt       16842.919          ops/s
-c.g.f.j.databind.Serialization.jackson              thrpt       57082.824          ops/s
-c.g.f.j.databind.Serialization.jackson_afterburner  thrpt       54374.433          ops/s
-c.g.f.j.databind.Serialization.jackson_blackbird    thrpt       54079.898          ops/s
-c.g.f.j.databind.Serialization.jodd                 thrpt        5873.697          ops/s
-c.g.f.j.databind.Serialization.johnzon              thrpt       20884.667          ops/s
-c.g.f.j.databind.Serialization.jsonsmart            thrpt       21211.648          ops/s
-c.g.f.j.databind.Serialization.logansquare          thrpt       52816.810          ops/s
-c.g.f.j.databind.Serialization.moshi                thrpt       28833.470          ops/s
-c.g.f.j.databind.Serialization.yasson               thrpt       20490.950          ops/s
-c.g.f.j.stream.Serialization.genson                 thrpt       35386.975          ops/s
-c.g.f.j.stream.Serialization.gson                   thrpt       10943.992          ops/s
-c.g.f.j.stream.Serialization.jackson                thrpt       53411.998          ops/s
-c.g.f.j.stream.Serialization.javaxjson              thrpt       59513.426          ops/s
-c.g.f.j.stream.Serialization.jsonio                 thrpt        4914.454          ops/s
-c.g.f.j.stream.Serialization.jsonsimple             thrpt        4292.226          ops/s
-c.g.f.j.stream.Serialization.minimaljson            thrpt       23540.167          ops/s
-c.g.f.j.stream.Serialization.mjson                  thrpt        4284.349          ops/s
-c.g.f.j.stream.Serialization.moshi                  thrpt       29617.463          ops/s
-c.g.f.j.stream.Serialization.nanojson               thrpt       22902.790          ops/s
-c.g.f.j.stream.Serialization.orgjson                thrpt        5123.611          ops/s
-c.g.f.j.stream.Serialization.purejson               thrpt        7275.603          ops/s
-c.g.f.j.stream.Serialization.tapestry               thrpt        1817.877          ops/s
-c.g.f.j.stream.Serialization.underscore_java        thrpt        9738.842          ops/s
+c.g.f.j.databind.Serialization.avajejsonb           thrpt       79597.056          ops/s
+c.g.f.j.databind.Serialization.avajejsonb_jackson   thrpt       77466.504          ops/s
+c.g.f.j.databind.Serialization.dsljson              thrpt       93209.858          ops/s
+c.g.f.j.databind.Serialization.dsljson_reflection   thrpt       88086.027          ops/s
+c.g.f.j.databind.Serialization.fastjson             thrpt       65455.296          ops/s
+c.g.f.j.databind.Serialization.flexjson             thrpt         372.739          ops/s
+c.g.f.j.databind.Serialization.genson               thrpt       61382.386          ops/s
+c.g.f.j.databind.Serialization.gson                 thrpt       23238.183          ops/s
+c.g.f.j.databind.Serialization.jackson              thrpt       75312.178          ops/s
+c.g.f.j.databind.Serialization.jackson_afterburner  thrpt       78989.185          ops/s
+c.g.f.j.databind.Serialization.jackson_blackbird    thrpt       72033.778          ops/s
+c.g.f.j.databind.Serialization.jodd                 thrpt        5787.528          ops/s
+c.g.f.j.databind.Serialization.johnzon              thrpt       23643.451          ops/s
+c.g.f.j.databind.Serialization.jsonsmart            thrpt       34448.032          ops/s
+c.g.f.j.databind.Serialization.logansquare          thrpt       64850.642          ops/s
+c.g.f.j.databind.Serialization.moshi                thrpt       37250.991          ops/s
+c.g.f.j.databind.Serialization.yasson               thrpt       28495.126          ops/s
+c.g.f.j.stream.Serialization.genson                 thrpt       52465.627          ops/s
+c.g.f.j.stream.Serialization.gson                   thrpt       17157.451          ops/s
+c.g.f.j.stream.Serialization.jackson                thrpt       69233.397          ops/s
+c.g.f.j.stream.Serialization.javaxjson              thrpt       79757.597          ops/s
+c.g.f.j.stream.Serialization.jsonio                 thrpt        5056.753          ops/s
+c.g.f.j.stream.Serialization.jsonsimple             thrpt        5084.531          ops/s
+c.g.f.j.stream.Serialization.minimaljson            thrpt       44409.359          ops/s
+c.g.f.j.stream.Serialization.mjson                  thrpt       10462.353          ops/s
+c.g.f.j.stream.Serialization.moshi                  thrpt       39776.630          ops/s
+c.g.f.j.stream.Serialization.nanojson               thrpt       50157.921          ops/s
+c.g.f.j.stream.Serialization.orgjson                thrpt        7936.943          ops/s
+c.g.f.j.stream.Serialization.purejson               thrpt       10248.965          ops/s
+c.g.f.j.stream.Serialization.tapestry               thrpt        4961.084          ops/s
+c.g.f.j.stream.Serialization.underscore_java        thrpt       14530.880          ops/s

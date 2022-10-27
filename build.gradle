@@ -9,8 +9,8 @@ group = 'com.github.fabienrenaud'
 version = '7'
 mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+//sourceCompatibility = JavaVersion.VERSION_17
+//targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()

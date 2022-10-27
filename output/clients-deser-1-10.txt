@@ -1,6 +1,6 @@
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -12,18 +12,18 @@
 
 # Run progress: 0.00% complete, ETA 00:03:00
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3132884858889 as seed for Random
-7295.599 ops/s
-Iteration   1: 15753.575 ops/s
+# Warmup Iteration   1: Using SEED=3454159176573 as seed for Random
+6534.910 ops/s
+Iteration   1: 11257.515 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
-  15753.575 ops/s
+  11257.515 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -33,20 +33,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson
 
-# Run progress: 6.67% complete, ETA 00:03:01
+# Run progress: 6.67% complete, ETA 00:03:03
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3145738486409 as seed for Random
-4692.281 ops/s
-Iteration   1: 9336.740 ops/s
+# Warmup Iteration   1: Using SEED=3467200006249 as seed for Random
+3557.083 ops/s
+Iteration   1: 8531.166 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson":
-  9336.740 ops/s
+  8531.166 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -56,20 +56,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson"
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson
 
-# Run progress: 13.33% complete, ETA 00:02:48
+# Run progress: 13.33% complete, ETA 00:02:50
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3158673350272 as seed for Random
-42526.104 ops/s
-Iteration   1: 69967.641 ops/s
+# Warmup Iteration   1: Using SEED=3480371789256 as seed for Random
+36418.447 ops/s
+Iteration   1: 57436.317 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
-  69967.641 ops/s
+  57436.317 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -79,20 +79,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection
 
-# Run progress: 20.00% complete, ETA 00:02:34
+# Run progress: 20.00% complete, ETA 00:02:37
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3171562817870 as seed for Random
-38103.740 ops/s
-Iteration   1: 54420.795 ops/s
+# Warmup Iteration   1: Using SEED=3493473317260 as seed for Random
+38608.762 ops/s
+Iteration   1: 48132.711 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection":
-  54420.795 ops/s
+  48132.711 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -102,20 +102,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection"
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.fastjson
 
-# Run progress: 26.67% complete, ETA 00:02:22
+# Run progress: 26.67% complete, ETA 00:02:24
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3184455503165 as seed for Random
-3208.177 ops/s
-Iteration   1: 7248.444 ops/s
+# Warmup Iteration   1: Using SEED=3506505087350 as seed for Random
+3453.066 ops/s
+Iteration   1: 9343.319 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
-  7248.444 ops/s
+  9343.319 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -125,20 +125,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.flexjson
 
-# Run progress: 33.33% complete, ETA 00:02:09
+# Run progress: 33.33% complete, ETA 00:02:10
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3197345701020 as seed for Random
-1388.749 ops/s
-Iteration   1: 2216.154 ops/s
+# Warmup Iteration   1: Using SEED=3519579684417 as seed for Random
+1331.257 ops/s
+Iteration   1: 2866.829 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
-  2216.154 ops/s
+  2866.829 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -148,20 +148,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.genson
 
-# Run progress: 40.00% complete, ETA 00:01:56
+# Run progress: 40.00% complete, ETA 00:01:57
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3210294432792 as seed for Random
-4789.333 ops/s
-Iteration   1: 10976.255 ops/s
+# Warmup Iteration   1: Using SEED=3532738472089 as seed for Random
+5099.728 ops/s
+Iteration   1: 8639.892 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
-  10976.255 ops/s
+  8639.892 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -171,20 +171,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.gson
 
-# Run progress: 46.67% complete, ETA 00:01:43
+# Run progress: 46.67% complete, ETA 00:01:44
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3223162281675 as seed for Random
-4079.466 ops/s
-Iteration   1: 9568.063 ops/s
+# Warmup Iteration   1: Using SEED=3545893567779 as seed for Random
+4744.938 ops/s
+Iteration   1: 10752.366 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
-  9568.063 ops/s
+  10752.366 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -194,20 +194,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson
 
-# Run progress: 53.33% complete, ETA 00:01:30
+# Run progress: 53.33% complete, ETA 00:01:31
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3236024087836 as seed for Random
-3684.635 ops/s
-Iteration   1: 5430.615 ops/s
+# Warmup Iteration   1: Using SEED=3558970169361 as seed for Random
+3260.637 ops/s
+Iteration   1: 4999.789 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
-  5430.615 ops/s
+  4999.789 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -217,20 +217,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 
-# Run progress: 60.00% complete, ETA 00:01:17
+# Run progress: 60.00% complete, ETA 00:01:18
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3248899009541 as seed for Random
-4710.848 ops/s
-Iteration   1: 7289.010 ops/s
+# Warmup Iteration   1: Using SEED=3572033757453 as seed for Random
+4845.240 ops/s
+Iteration   1: 10286.146 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner":
-  7289.010 ops/s
+  10286.146 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -240,20 +240,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird
 
-# Run progress: 66.67% complete, ETA 00:01:04
+# Run progress: 66.67% complete, ETA 00:01:05
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3261762458737 as seed for Random
-4064.074 ops/s
-Iteration   1: 7619.386 ops/s
+# Warmup Iteration   1: Using SEED=3585142341034 as seed for Random
+3427.658 ops/s
+Iteration   1: 7169.767 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
-  7619.386 ops/s
+  7169.767 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -263,20 +263,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jodd
 
-# Run progress: 73.33% complete, ETA 00:00:51
+# Run progress: 73.33% complete, ETA 00:00:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3274637267184 as seed for Random
-4234.921 ops/s
-Iteration   1: 10246.380 ops/s
+# Warmup Iteration   1: Using SEED=3598256681810 as seed for Random
+3883.012 ops/s
+Iteration   1: 7651.469 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jodd":
-  10246.380 ops/s
+  7651.469 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -286,424 +286,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jodd":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter
 
-# Run progress: 80.00% complete, ETA 00:00:38
+# Run progress: 80.00% complete, ETA 00:00:39
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3287502846342 as seed for Random
-<failure>
-
-com.jsoniter.spi.JsonException: failed to generate decoder for: com.jsoniter.spi.ClassInfo@6494cd2 with [class java.lang.String], exception: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
-public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.util.ArrayList col = (java.util.ArrayList)com.jsoniter.CodegenAccess.resetExistingObject(iter);
-if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
-if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
-return col == null ? new java.util.ArrayList(0): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-}
-Object a1 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(1): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-return obj;
-}
-Object a2 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(2): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-return obj;
-}
-Object a3 = (java.lang.String)iter.readString();
-if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(3): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-obj.add(a3);
-return obj;
-}
-Object a4 = (java.lang.String)iter.readString();
-java.util.ArrayList obj = col == null ? new java.util.ArrayList(8): (java.util.ArrayList)com.jsoniter.CodegenAccess.reuseCollection(col);
-obj.add(a1);
-obj.add(a2);
-obj.add(a3);
-obj.add(a4);
-while (com.jsoniter.CodegenAccess.nextToken(iter) == ',') {
-obj.add((java.lang.String)iter.readString());
-}
-return obj;
-}
-	at com.jsoniter.Codegen.gen(Codegen.java:86)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
-	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
-	at com.jsoniter.Codegen.genSource(Codegen.java:241)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:170)
-	at com.jsoniter.CodegenImplArray.genCollectionWithCapacity(CodegenImplArray.java:130)
-	at com.jsoniter.CodegenImplArray.genCollection(CodegenImplArray.java:84)
-	at com.jsoniter.Codegen.genSource(Codegen.java:234)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.CodegenImplNative.genReadOp(CodegenImplNative.java:213)
-	at com.jsoniter.CodegenImplNative.genField(CodegenImplNative.java:191)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:331)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.addFieldDispatch(CodegenImplObjectStrict.java:344)
-	at com.jsoniter.CodegenImplObjectStrict.renderTriTree(CodegenImplObjectStrict.java:304)
-	at com.jsoniter.CodegenImplObjectStrict.genObjectUsingStrict(CodegenImplObjectStrict.java:93)
-	at com.jsoniter.Codegen.genSource(Codegen.java:241)
-	at com.jsoniter.Codegen.gen(Codegen.java:68)
-	at com.jsoniter.Codegen.getDecoder(Codegen.java:25)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @3bb50eaa
-	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
-	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
-	at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:199)
-	at java.base/java.lang.reflect.Method.setAccessible(Method.java:193)
-	at javassist.util.proxy.SecurityActions.setAccessible(SecurityActions.java:159)
-	at javassist.util.proxy.DefineClassHelper$JavaOther.defineClass(DefineClassHelper.java:213)
-	at javassist.util.proxy.DefineClassHelper$Java11.defineClass(DefineClassHelper.java:52)
-	at javassist.util.proxy.DefineClassHelper.toClass(DefineClassHelper.java:260)
-	at javassist.ClassPool.toClass(ClassPool.java:1240)
-	at javassist.ClassPool.toClass(ClassPool.java:1098)
-	at javassist.ClassPool.toClass(ClassPool.java:1056)
-	at javassist.CtClass.toClass(CtClass.java:1298)
-	at com.jsoniter.DynamicCodegen.gen(DynamicCodegen.java:25)
-	at com.jsoniter.Codegen.gen(Codegen.java:78)
-	... 50 more
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_thrpt_jmhStub(Deserialization_jsoniter_jmhTest.java:119)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:83)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(com.jsoniter.JsonIterator)" because "decoder" is null
-	at com.jsoniter.Codegen$1.decode(Codegen.java:115)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:385)
-	at com.jsoniter.JsonIterator.read(JsonIterator.java:375)
-	at com.jsoniter.JsonIterator.deserialize(JsonIterator.java:441)
-	at com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter(Deserialization.java:137)
-	at com.github.fabienrenaud.jjb.databind.jmh_generated.Deserialization_jsoniter_jmhTest.jsoniter_Throughput(Deserialization_jsoniter_jmhTest.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:475)
-	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:458)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+# Warmup Iteration   1: Using SEED=3611355421381 as seed for Random
+2658.441 ops/s
+Iteration   1: 5242.765 ops/s
 
 
+Result "com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter":
+  5242.765 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -713,20 +309,20 @@ java.lang.NullPointerException: Cannot invoke "com.jsoniter.spi.Decoder.decode(c
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.logansquare
 
-# Run progress: 86.67% complete, ETA 00:00:24
+# Run progress: 86.67% complete, ETA 00:00:26
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3289250553034 as seed for Random
-4966.421 ops/s
-Iteration   1: 9895.885 ops/s
+# Warmup Iteration   1: Using SEED=3624418886185 as seed for Random
+4602.440 ops/s
+Iteration   1: 8581.001 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
-  9895.885 ops/s
+  8581.001 ops/s
 
 
 # JMH version: 1.33
-# VM version: JDK 17.0.4.1, OpenJDK 64-Bit Server VM, 17.0.4.1+1
-# VM invoker: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java
+# VM version: JDK 1.8.0_345, OpenJDK 64-Bit Server VM, 25.345-b01
+# VM invoker: /usr/lib/jvm/temurin-8-jdk-amd64/jre/bin/java
 # VM options: -Xms2g -Xmx2g
 # Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
 # Warmup: 1 iterations, 10 s each
@@ -736,18 +332,18 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.moshi
 
-# Run progress: 93.33% complete, ETA 00:00:12
+# Run progress: 93.33% complete, ETA 00:00:13
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3302116638682 as seed for Random
-5950.318 ops/s
-Iteration   1: 12027.477 ops/s
+# Warmup Iteration   1: Using SEED=3637448271619 as seed for Random
+4315.664 ops/s
+Iteration   1: 8035.848 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.moshi":
-  12027.477 ops/s
+  8035.848 ops/s
 
 
-# Run complete. Total time: 00:03:02
+# Run complete. Total time: 00:03:16
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -756,17 +352,18 @@ the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from th
 Do not assume the numbers tell you what you want them to tell.
 
 Benchmark                             Mode  Cnt      Score   Error  Units
-Deserialization.avajejsonb           thrpt       15753.575          ops/s
-Deserialization.avajejsonb_jackson   thrpt        9336.740          ops/s
-Deserialization.dsljson              thrpt       69967.641          ops/s
-Deserialization.dsljson_reflection   thrpt       54420.795          ops/s
-Deserialization.fastjson             thrpt        7248.444          ops/s
-Deserialization.flexjson             thrpt        2216.154          ops/s
-Deserialization.genson               thrpt       10976.255          ops/s
-Deserialization.gson                 thrpt        9568.063          ops/s
-Deserialization.jackson              thrpt        5430.615          ops/s
-Deserialization.jackson_afterburner  thrpt        7289.010          ops/s
-Deserialization.jackson_blackbird    thrpt        7619.386          ops/s
-Deserialization.jodd                 thrpt       10246.380          ops/s
-Deserialization.logansquare          thrpt        9895.885          ops/s
-Deserialization.moshi                thrpt       12027.477          ops/s
+Deserialization.avajejsonb           thrpt       11257.515          ops/s
+Deserialization.avajejsonb_jackson   thrpt        8531.166          ops/s
+Deserialization.dsljson              thrpt       57436.317          ops/s
+Deserialization.dsljson_reflection   thrpt       48132.711          ops/s
+Deserialization.fastjson             thrpt        9343.319          ops/s
+Deserialization.flexjson             thrpt        2866.829          ops/s
+Deserialization.genson               thrpt        8639.892          ops/s
+Deserialization.gson                 thrpt       10752.366          ops/s
+Deserialization.jackson              thrpt        4999.789          ops/s
+Deserialization.jackson_afterburner  thrpt       10286.146          ops/s
+Deserialization.jackson_blackbird    thrpt        7169.767          ops/s
+Deserialization.jodd                 thrpt        7651.469          ops/s
+Deserialization.jsoniter             thrpt        5242.765          ops/s
+Deserialization.logansquare          thrpt        8581.001          ops/s
+Deserialization.moshi                thrpt        8035.848          ops/s

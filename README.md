@@ -19,6 +19,7 @@ It covers the following libraries:
 * [json-smart](http://netplex.github.io/json-smart/)
 * [johnzon](http://johnzon.apache.org/)
 * [logansquare](https://github.com/bluelinelabs/LoganSquare)
+* [avaje-jsonb](https://github.com/avaje/avaje-jsonb)
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [json-simple](https://code.google.com/archive/p/json-simple/)
 * [nanojson](https://github.com/mmastrac/nanojson)

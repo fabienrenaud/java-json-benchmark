@@ -12,13 +12,13 @@
 
 # Run progress: 0.00% complete, ETA 00:03:00
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3779381581334 as seed for Random
-169432.910 ops/s
-Iteration   1: 337935.082 ops/s
+# Warmup Iteration   1: Using SEED=3712013208416 as seed for Random
+93505.644 ops/s
+Iteration   1: 214210.721 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
-  337935.082 ops/s
+  214210.721 ops/s
 
 
 # JMH version: 1.33
@@ -33,15 +33,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson
 
-# Run progress: 6.67% complete, ETA 00:03:07
+# Run progress: 6.67% complete, ETA 00:03:05
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3792757184620 as seed for Random
-68827.654 ops/s
-Iteration   1: 192037.741 ops/s
+# Warmup Iteration   1: Using SEED=3725292828900 as seed for Random
+129042.417 ops/s
+Iteration   1: 278011.152 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson":
-  192037.741 ops/s
+  278011.152 ops/s
 
 
 # JMH version: 1.33
@@ -56,15 +56,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.avajejsonb_jackson"
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson
 
-# Run progress: 13.33% complete, ETA 00:02:54
+# Run progress: 13.33% complete, ETA 00:02:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3806121917004 as seed for Random
-145027.454 ops/s
-Iteration   1: 434128.116 ops/s
+# Warmup Iteration   1: Using SEED=3738516953910 as seed for Random
+390459.546 ops/s
+Iteration   1: 692472.252 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
-  434128.116 ops/s
+  692472.252 ops/s
 
 
 # JMH version: 1.33
@@ -79,15 +79,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection
 
-# Run progress: 20.00% complete, ETA 00:02:40
+# Run progress: 20.00% complete, ETA 00:02:38
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3819468777406 as seed for Random
-238770.927 ops/s
-Iteration   1: 407743.945 ops/s
+# Warmup Iteration   1: Using SEED=3751581055097 as seed for Random
+405914.206 ops/s
+Iteration   1: 545963.443 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection":
-  407743.945 ops/s
+  545963.443 ops/s
 
 
 # JMH version: 1.33
@@ -102,15 +102,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.dsljson_reflection"
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.fastjson
 
-# Run progress: 26.67% complete, ETA 00:02:27
+# Run progress: 26.67% complete, ETA 00:02:25
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3832814488836 as seed for Random
-25197.480 ops/s
-Iteration   1: 55297.793 ops/s
+# Warmup Iteration   1: Using SEED=3764713475433 as seed for Random
+39495.785 ops/s
+Iteration   1: 77620.237 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
-  55297.793 ops/s
+  77620.237 ops/s
 
 
 # JMH version: 1.33
@@ -125,15 +125,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.fastjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.flexjson
 
-# Run progress: 33.33% complete, ETA 00:02:13
+# Run progress: 33.33% complete, ETA 00:02:11
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3846151593224 as seed for Random
-14817.126 ops/s
-Iteration   1: 27636.012 ops/s
+# Warmup Iteration   1: Using SEED=3777952826199 as seed for Random
+20874.569 ops/s
+Iteration   1: 38230.059 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
-  27636.012 ops/s
+  38230.059 ops/s
 
 
 # JMH version: 1.33
@@ -148,15 +148,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.flexjson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.genson
 
-# Run progress: 40.00% complete, ETA 00:02:00
+# Run progress: 40.00% complete, ETA 00:01:58
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3859477051488 as seed for Random
-42485.098 ops/s
-Iteration   1: 90172.052 ops/s
+# Warmup Iteration   1: Using SEED=3791098410632 as seed for Random
+108238.465 ops/s
+Iteration   1: 183636.746 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
-  90172.052 ops/s
+  183636.746 ops/s
 
 
 # JMH version: 1.33
@@ -171,15 +171,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.genson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.gson
 
-# Run progress: 46.67% complete, ETA 00:01:46
+# Run progress: 46.67% complete, ETA 00:01:45
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3872879814629 as seed for Random
-78903.581 ops/s
-Iteration   1: 154147.118 ops/s
+# Warmup Iteration   1: Using SEED=3804267177115 as seed for Random
+15218.768 ops/s
+Iteration   1: 54167.841 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
-  154147.118 ops/s
+  54167.841 ops/s
 
 
 # JMH version: 1.33
@@ -194,15 +194,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.gson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson
 
-# Run progress: 53.33% complete, ETA 00:01:33
+# Run progress: 53.33% complete, ETA 00:01:32
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3886242412948 as seed for Random
-33146.197 ops/s
-Iteration   1: 33831.606 ops/s
+# Warmup Iteration   1: Using SEED=3817431393186 as seed for Random
+66630.633 ops/s
+Iteration   1: 90121.164 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
-  33831.606 ops/s
+  90121.164 ops/s
 
 
 # JMH version: 1.33
@@ -217,20 +217,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 
-# Run progress: 60.00% complete, ETA 00:01:20
+# Run progress: 60.00% complete, ETA 00:01:19
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3899650432333 as seed for Random
+# Warmup Iteration   1: Using SEED=3830618839971 as seed for Random
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by com.fasterxml.jackson.module.afterburner.util.MyClassLoader (file:/home/runner/work/java-json-benchmark/java-json-benchmark/build/libs/app.jar) to method java.lang.ClassLoader.findLoadedClass(java.lang.String)
 WARNING: Please consider reporting this to the maintainers of com.fasterxml.jackson.module.afterburner.util.MyClassLoader
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-99612.585 ops/s
-Iteration   1: 197796.298 ops/s
+134666.458 ops/s
+Iteration   1: 318545.987 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner":
-  197796.298 ops/s
+  318545.987 ops/s
 
 
 # JMH version: 1.33
@@ -245,15 +245,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_afterburner
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird
 
-# Run progress: 66.67% complete, ETA 00:01:06
+# Run progress: 66.67% complete, ETA 00:01:05
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3912991714282 as seed for Random
-56760.359 ops/s
-Iteration   1: 101711.915 ops/s
+# Warmup Iteration   1: Using SEED=3843741292869 as seed for Random
+128649.591 ops/s
+Iteration   1: 308065.777 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
-  101711.915 ops/s
+  308065.777 ops/s
 
 
 # JMH version: 1.33
@@ -268,15 +268,15 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jackson_blackbird":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jodd
 
-# Run progress: 73.33% complete, ETA 00:00:53
+# Run progress: 73.33% complete, ETA 00:00:52
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3926361570157 as seed for Random
-57042.108 ops/s
-Iteration   1: 113676.752 ops/s
+# Warmup Iteration   1: Using SEED=3856882522383 as seed for Random
+45171.530 ops/s
+Iteration   1: 101968.368 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jodd":
-  113676.752 ops/s
+  101968.368 ops/s
 
 
 # JMH version: 1.33
@@ -291,20 +291,20 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jodd":
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter
 
-# Run progress: 80.00% complete, ETA 00:00:40
+# Run progress: 80.00% complete, ETA 00:00:39
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3939764399912 as seed for Random
+# Warmup Iteration   1: Using SEED=3870031017070 as seed for Random
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by javassist.util.proxy.SecurityActions (file:/home/runner/work/java-json-benchmark/java-json-benchmark/build/libs/app.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
 WARNING: Please consider reporting this to the maintainers of javassist.util.proxy.SecurityActions
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-125989.803 ops/s
-Iteration   1: 283555.158 ops/s
+133220.172 ops/s
+Iteration   1: 188796.336 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter":
-  283555.158 ops/s
+  188796.336 ops/s
 
 
 # JMH version: 1.33
@@ -321,13 +321,13 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.jsoniter":
 
 # Run progress: 86.67% complete, ETA 00:00:26
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3953239407385 as seed for Random
-39063.105 ops/s
-Iteration   1: 97800.530 ops/s
+# Warmup Iteration   1: Using SEED=3883156595916 as seed for Random
+40699.250 ops/s
+Iteration   1: 136684.644 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
-  97800.530 ops/s
+  136684.644 ops/s
 
 
 # JMH version: 1.33
@@ -344,16 +344,16 @@ Result "com.github.fabienrenaud.jjb.databind.Deserialization.logansquare":
 
 # Run progress: 93.33% complete, ETA 00:00:13
 # Fork: 1 of 1
-# Warmup Iteration   1: Using SEED=3966652081165 as seed for Random
-23328.430 ops/s
-Iteration   1: 47244.600 ops/s
+# Warmup Iteration   1: Using SEED=3896341101088 as seed for Random
+127132.045 ops/s
+Iteration   1: 213481.051 ops/s
 
 
 Result "com.github.fabienrenaud.jjb.databind.Deserialization.moshi":
-  47244.600 ops/s
+  213481.051 ops/s
 
 
-# Run complete. Total time: 00:03:20
+# Run complete. Total time: 00:03:17
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -362,18 +362,18 @@ the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from th
 Do not assume the numbers tell you what you want them to tell.
 
 Benchmark                             Mode  Cnt       Score   Error  Units
-Deserialization.avajejsonb           thrpt       337935.082          ops/s
-Deserialization.avajejsonb_jackson   thrpt       192037.741          ops/s
-Deserialization.dsljson              thrpt       434128.116          ops/s
-Deserialization.dsljson_reflection   thrpt       407743.945          ops/s
-Deserialization.fastjson             thrpt        55297.793          ops/s
-Deserialization.flexjson             thrpt        27636.012          ops/s
-Deserialization.genson               thrpt        90172.052          ops/s
-Deserialization.gson                 thrpt       154147.118          ops/s
-Deserialization.jackson              thrpt        33831.606          ops/s
-Deserialization.jackson_afterburner  thrpt       197796.298          ops/s
-Deserialization.jackson_blackbird    thrpt       101711.915          ops/s
-Deserialization.jodd                 thrpt       113676.752          ops/s
-Deserialization.jsoniter             thrpt       283555.158          ops/s
-Deserialization.logansquare          thrpt        97800.530          ops/s
-Deserialization.moshi                thrpt        47244.600          ops/s
+Deserialization.avajejsonb           thrpt       214210.721          ops/s
+Deserialization.avajejsonb_jackson   thrpt       278011.152          ops/s
+Deserialization.dsljson              thrpt       692472.252          ops/s
+Deserialization.dsljson_reflection   thrpt       545963.443          ops/s
+Deserialization.fastjson             thrpt        77620.237          ops/s
+Deserialization.flexjson             thrpt        38230.059          ops/s
+Deserialization.genson               thrpt       183636.746          ops/s
+Deserialization.gson                 thrpt        54167.841          ops/s
+Deserialization.jackson              thrpt        90121.164          ops/s
+Deserialization.jackson_afterburner  thrpt       318545.987          ops/s
+Deserialization.jackson_blackbird    thrpt       308065.777          ops/s
+Deserialization.jodd                 thrpt       101968.368          ops/s
+Deserialization.jsoniter             thrpt       188796.336          ops/s
+Deserialization.logansquare          thrpt       136684.644          ops/s
+Deserialization.moshi                thrpt       213481.051          ops/s

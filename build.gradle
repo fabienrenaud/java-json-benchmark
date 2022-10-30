@@ -27,7 +27,7 @@ dependencies {
 
     // CLI and misc
     implementation group: 'io.airlift', name: 'airline', version: '0.9'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
     // org.json
     implementation group: 'org.json', name: 'json', version: '20210307'

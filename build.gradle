@@ -77,7 +77,7 @@ dependencies {
     implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.7.3'
     // jsoniter
     implementation group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
-    implementation group: 'org.javassist', name: 'javassist', version: '3.26.0-GA'
+    implementation group: 'org.javassist', name: 'javassist', version: '3.29.2-GA'
     // minimal-json
     implementation group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'
     // mjson

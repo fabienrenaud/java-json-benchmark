@@ -12,20 +12,18 @@ import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
-
 import flexjson.JSONDeserializer;
 import io.avaje.jsonb.JsonType;
-import io.avaje.jsonb.stream.JsonStream;
 import io.avaje.jsonb.jackson.JacksonAdapter;
+import io.avaje.jsonb.stream.JsonStream;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
+import org.eclipse.yasson.YassonJsonb;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.json.bind.Jsonb;
 
 public class UsersJsonProvider implements JsonProvider<Users> {
 
@@ -38,8 +36,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
             .registerModule(new BlackbirdModule());
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
-    private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new org.glassfish.json.JsonProviderImpl())
+    private final YassonJsonb yasson = (YassonJsonb) new JsonBindingProvider().create()
+//            .withProvider(new org.glassfish.json.JsonProviderImpl())
             .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
@@ -54,8 +52,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
 
-    private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
-    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.builder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
@@ -64,10 +62,10 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         // set johnson JsonReader (default is `JsonProvider.provider()`)
         javax.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
-            .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
-            .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
-            .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
-            .build();
+                .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
+                .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
+                .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
+                .build();
     }
 
     @Override
@@ -106,7 +104,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
-    public Jsonb yasson() {
+    public YassonJsonb yasson() {
         return yasson;
     }
 

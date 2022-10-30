@@ -8,8 +8,7 @@ import com.owlike.genson.Genson;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import org.apache.johnzon.mapper.Mapper;
-
-import javax.json.bind.Jsonb;
+import org.eclipse.yasson.YassonJsonb;
 
 import java.util.Map;
 
@@ -29,7 +28,7 @@ public interface JsonProvider<T> {
 
     Genson genson();
 
-    Jsonb yasson();
+    YassonJsonb yasson();
 
     JSONDeserializer<T> flexjsonDeser();
 

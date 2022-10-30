@@ -11,11 +11,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.model.Clients;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import com.owlike.genson.Context;
 import com.owlike.genson.Converter;
 import com.owlike.genson.Genson;
@@ -33,9 +29,9 @@ import jodd.typeconverter.TypeConverterManager;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
+import org.eclipse.yasson.YassonJsonb;
 
 import javax.annotation.Nullable;
-import javax.json.bind.Jsonb;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -72,6 +68,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public void serialize(LocalDate object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
                     writer.writeString(object.toString());
                 }
+
                 public LocalDate deserialize(ObjectReader reader, Context ctx) {
                     return LocalDate.parse(reader.valueAsString());
                 }
@@ -80,26 +77,27 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public void serialize(OffsetDateTime object, com.owlike.genson.stream.ObjectWriter writer, Context ctx) {
                     writer.writeString(object.toString());
                 }
+
                 public OffsetDateTime deserialize(ObjectReader reader, Context ctx) {
                     return OffsetDateTime.parse(reader.valueAsString());
                 }
             }, OffsetDateTime.class)
             .create();
-    private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new org.glassfish.json.JsonProviderImpl())
+    private final YassonJsonb yasson = (YassonJsonb) new JsonBindingProvider().create()
+//            .withProvider("org.glassfish.json.JsonProviderImpl")
             .build();
-	private static final AbstractTransformer FLEX_IDENTITY = new AbstractTransformer() {
-		@Override
-		public void transform(Object o) {
-			getContext().writeQuoted(o.toString());
-		}
-	};
+    private static final AbstractTransformer FLEX_IDENTITY = new AbstractTransformer() {
+        @Override
+        public void transform(Object o) {
+            getContext().writeQuoted(o.toString());
+        }
+    };
     private final JSONDeserializer<Clients> flexjsonDeser = new JSONDeserializer<Clients>()
             .use(UUID.class, (objectBinder, o, type, aClass) -> UUID.fromString((String) o))
             .use(LocalDate.class, (objectBinder, o, type, aClass) -> LocalDate.parse((String) o))
             .use(OffsetDateTime.class, (objectBinder, o, type, aClass) -> OffsetDateTime.parse((String) o));
 
-	private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
+    private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Clients> moshi =
             new Moshi.Builder().add(UUID.class, new JsonAdapter<UUID>() {
@@ -108,6 +106,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public UUID fromJson(com.squareup.moshi.JsonReader reader) throws IOException {
                     return UUID.fromString(reader.nextString());
                 }
+
                 @Override
                 public void toJson(com.squareup.moshi.JsonWriter writer, @Nullable UUID value) throws IOException {
                     writer.value(value.toString());
@@ -118,6 +117,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public BigDecimal fromJson(com.squareup.moshi.JsonReader reader) throws IOException {
                     return new BigDecimal(reader.nextString());
                 }
+
                 @Override
                 public void toJson(com.squareup.moshi.JsonWriter writer, @Nullable BigDecimal value) throws IOException {
                     writer.value(value.toPlainString());
@@ -128,6 +128,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public LocalDate fromJson(com.squareup.moshi.JsonReader reader) throws IOException {
                     return LocalDate.parse(reader.nextString());
                 }
+
                 @Override
                 public void toJson(com.squareup.moshi.JsonWriter writer, @Nullable LocalDate value) throws IOException {
                     writer.value(value.toString());
@@ -138,6 +139,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                 public OffsetDateTime fromJson(com.squareup.moshi.JsonReader reader) throws IOException {
                     return OffsetDateTime.parse(reader.nextString());
                 }
+
                 @Override
                 public void toJson(com.squareup.moshi.JsonWriter writer, @Nullable OffsetDateTime value) throws IOException {
                     writer.value(value.toString());
@@ -151,10 +153,10 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_jackson = io.avaje.jsonb.Jsonb
-            .newBuilder()
+            .builder()
             .adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
     private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_default = io.avaje.jsonb.Jsonb
-            .newBuilder()
+            .builder()
             .adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
 
     private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
@@ -167,15 +169,15 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
         // set johnson JsonReader (default is `JsonProvider.provider()`)
         javax.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
-            .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
-            .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
-            .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
-            .build();
+                .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
+                .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
+                .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
+                .build();
 
         TypeConverterManager joddTypeConverterManager = TypeConverterManager.get();
-        joddTypeConverterManager.register(UUID.class, value -> UUID.fromString((String)value));
-        joddTypeConverterManager.register(LocalDate.class, value -> LocalDate.parse((String)value));
-        joddTypeConverterManager.register(OffsetDateTime.class, value -> OffsetDateTime.parse((String)value));
+        joddTypeConverterManager.register(UUID.class, value -> UUID.fromString((String) value));
+        joddTypeConverterManager.register(LocalDate.class, value -> LocalDate.parse((String) value));
+        joddTypeConverterManager.register(OffsetDateTime.class, value -> OffsetDateTime.parse((String) value));
 
     }
 
@@ -215,7 +217,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     }
 
     @Override
-    public Jsonb yasson() {
+    public YassonJsonb yasson() {
         return yasson;
     }
 

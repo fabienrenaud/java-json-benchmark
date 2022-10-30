@@ -30,7 +30,7 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 
     // org.json
-    implementation group: 'org.json', name: 'json', version: '20210307'
+    implementation group: 'org.json', name: 'json', version: '20220924'
     // Jackson
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: "${jacksonVersion}"

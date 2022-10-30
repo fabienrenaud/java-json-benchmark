@@ -172,11 +172,11 @@ public class Deserialization extends JsonBench {
 
             if (isUser.get()) {
                 Users us = new Users();
-                us.users = users;
+                us.setUsers(users);
                 return us;
             } else {
                 Clients cs = new Clients();
-                cs.clients = clients;
+                cs.setClients(clients);
                 return cs;
             }
         }
@@ -186,43 +186,43 @@ public class Deserialization extends JsonBench {
             v.isJSON((k, jv) -> k.isString(key -> {
                 switch (key) {
                     case "_id":
-                        jv.isInteger(id -> client._id = id);
+                        jv.isInteger(client::set_id);
                         break;
                     case "index":
-                        jv.isInteger(index -> client.index = index.intValue());
+                        jv.isInteger(index -> client.setIndex(index.intValue()));
                         break;
                     case "guid":
-                        jv.isInteger(guid -> client.guid = UUID.fromString(guid.toString()));
+                        jv.isInteger(guid -> client.setGuid(UUID.fromString(guid.toString())));
                         break;
                     case "isActive":
-                        jv.isBool(isActive -> client.isActive = isActive);
+                        jv.isBool(client::setIsActive);
                         break;
                     case "balance":
-                        jv.isDouble(balance -> client.balance = new BigDecimal(balance));
+                        jv.isDouble(balance -> client.setBalance(new BigDecimal(balance)));
                         break;
                     case "picture":
-                        jv.isString(picture -> client.picture = picture);
+                        jv.isString(client::setPicture);
                         break;
                     case "age":
-                        jv.isInteger(age -> client.age = age.intValue());
+                        jv.isInteger(age -> client.setAge(age.intValue()));
                         break;
                     case "eyeColor":
-                        jv.isInteger(ec -> client.eyeColor = EyeColor.fromNumber(ec.intValue()));
+                        jv.isInteger(ec -> client.setEyeColor(EyeColor.fromNumber(ec.intValue())));
                         break;
                     case "name":
-                        jv.isString(name -> client.name = name);
+                        jv.isString(client::setName);
                         break;
                     case "gender":
-                        jv.isString(gender -> client.gender = gender);
+                        jv.isString(client::setGender);
                         break;
                     case "company":
-                        jv.isString(company -> client.company = company);
+                        jv.isString(client::setCompany);
                         break;
                     case "emails":
                         List<String> emails = new ArrayList<>();
                         jv.isArray(av -> av
                                 .isString(emails::add));
-                        client.emails = emails.toArray(new String[0]);
+                        client.setEmails(emails.toArray(new String[0]));
                         break;
                     case "phones":
                         List<Long> phones = new ArrayList<>();
@@ -232,28 +232,28 @@ public class Deserialization extends JsonBench {
                         for (int i = 0; i < phones.size(); i++) {
                             ps[i] = phones.get(i);
                         }
-                        client.phones = ps;
+                        client.setPhones(ps);
                         break;
                     case "address":
-                        jv.isString(address -> client.address = address);
+                        jv.isString(client::setAddress);
                         break;
                     case "about":
-                        jv.isString(about -> client.about = about);
+                        jv.isString(client::setAbout);
                         break;
                     case "registered":
-                        jv.isString(registered -> client.registered = LocalDate.parse(registered));
+                        jv.isString(registered -> client.setRegistered(LocalDate.parse(registered)));
                         break;
                     case "latitude":
-                        jv.isDouble(latitude -> client.latitude = latitude);
+                        jv.isDouble(client::setLatitude);
                         break;
                     case "longitude":
-                        jv.isDouble(longitude -> client.longitude = longitude);
+                        jv.isDouble(client::setLongitude);
                         break;
                     case "tags":
                         List<String> tags = new ArrayList<>();
                         jv.isArray(av -> av
                                 .isString(tags::add));
-                        client.tags = tags;
+                        client.setTags(tags);
                         break;
                     case "partners":
                         List<Partner> partners = new ArrayList<>();
@@ -279,7 +279,7 @@ public class Deserialization extends JsonBench {
                         for (int i = 0; i < ids.size(); i++) {
                             partners.add(Partner.create(ids.get(i), names.get(i), since.get(i)));
                         }
-                        client.partners = partners;
+                        client.setPartners(partners);
                         break;
                 }
             }));
@@ -292,63 +292,63 @@ public class Deserialization extends JsonBench {
             v.isJSON((jk, jv) -> jk.isString(key -> {
                 switch (key) {
                     case "_id":
-                        jv.isString(id -> user._id = id);
+                        jv.isString(user::set_id);
                         break;
                     case "index":
-                        jv.isInteger(index -> user.index = index.intValue());
+                        jv.isInteger(index -> user.setIndex(index.intValue()));
                         break;
                     case "guid":
-                        jv.isString(guid -> user.guid = guid);
+                        jv.isString(user::setGuid);
                         break;
                     case "isActive":
-                        jv.isBool(isActive -> user.isActive = isActive);
+                        jv.isBool(user::setIsActive);
                         break;
                     case "balance":
-                        jv.isString(balance -> user.balance = balance);
+                        jv.isString(user::setBalance);
                         break;
                     case "picture":
-                        jv.isString(picture -> user.picture = picture);
+                        jv.isString(user::setPicture);
                         break;
                     case "age":
-                        jv.isInteger(age -> user.age = age.intValue());
+                        jv.isInteger(age -> user.setAge(age.intValue()));
                         break;
                     case "eyeColor":
-                        jv.isString(ec -> user.eyeColor = ec);
+                        jv.isString(user::setEyeColor);
                         break;
                     case "name":
-                        jv.isString(name -> user.name = name);
+                        jv.isString(user::setName);
                         break;
                     case "gender":
-                        jv.isString(gender -> user.gender = gender);
+                        jv.isString(user::setGender);
                         break;
                     case "company":
-                        jv.isString(company -> user.company = company);
+                        jv.isString(user::setCompany);
                         break;
                     case "email":
-                        jv.isString(email -> user.email = email);
+                        jv.isString(user::setEmail);
                         break;
                     case "phone":
-                        jv.isString(phone -> user.phone = phone);
+                        jv.isString(user::setPhone);
                         break;
                     case "address":
-                        jv.isString(address -> user.address = address);
+                        jv.isString(user::setAddress);
                         break;
                     case "about":
-                        jv.isString(about -> user.about = about);
+                        jv.isString(user::setAbout);
                         break;
                     case "registered":
-                        jv.isString(registered -> user.registered = registered);
+                        jv.isString(user::setRegistered);
                         break;
                     case "latitude":
-                        jv.isDouble(latitude -> user.latitude = latitude);
+                        jv.isDouble(user::setLatitude);
                         break;
                     case "longitude":
-                        jv.isDouble(longitude -> user.longitude = longitude);
+                        jv.isDouble(user::setLongitude);
                         break;
                     case "tags":
                         List<String> tags = new ArrayList<>();
                         jv.isArray(__v -> __v.isString(tags::add));
-                        user.tags = tags;
+                        user.setTags(tags);
                         break;
                     case "friends":
                         List<Friend> friends = new ArrayList<>();
@@ -370,13 +370,13 @@ public class Deserialization extends JsonBench {
                         for (int i = 0; i < ids.size(); i++) {
                             friends.add(Friend.create(ids.get(i), names.get(i)));
                         }
-                        user.friends = friends;
+                        user.setFriends(friends);
                         break;
                     case "greeting":
-                        jv.isString(greeting -> user.greeting = greeting);
+                        jv.isString(user::setGreeting);
                         break;
                     case "favoriteFruit":
-                        jv.isString(fav -> user.favoriteFruit = fav);
+                        jv.isString(user::setFavoriteFruit);
                         break;
                 }
             }));

@@ -169,7 +169,6 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
-            .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
 
         TypeConverterManager joddTypeConverterManager = TypeConverterManager.get();

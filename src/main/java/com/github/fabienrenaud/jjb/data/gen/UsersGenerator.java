@@ -13,7 +13,7 @@ public class UsersGenerator implements DataGenerator<Users> {
     public int populate(Users obj, int size) {
         int approxSize = 12; // {'users':[]}
 
-        obj.users = new ArrayList<>();
+        obj.setUsers(new ArrayList<>());
         while (approxSize < size) {
             approxSize += appendUser(obj, size - approxSize);
             approxSize += 1; // ,
@@ -27,44 +27,44 @@ public class UsersGenerator implements DataGenerator<Users> {
         int expectedSize = 2; // {}
 
         User u = new User();
-        u._id = RandomUtils.randomNumeric(20);
-        expectedSize += 9 + u._id.length(); // ,'_id':''
-        u.index = RandomUtils.nextInt(0, Integer.MAX_VALUE);
-        expectedSize += 11 + Integer.toString(u.index).length(); // ,'index':''
-        u.guid = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 10 + u.guid.length(); // ,'guid':''
-        u.isActive = RandomUtils.nextInt(0, 2) == 1;
-        expectedSize += 17 + (u.isActive ? 4 : 5); // ,'isActive':''
-        u.balance = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 16 + u.balance.length(); // ,'balance':''
-        u.picture = RandomUtils.randomAlphanumeric(100);
-        expectedSize += 16 + u.picture.length(); // ,'picture':''
-        u.age = RandomUtils.nextInt(0, 100);
-        expectedSize += 9 + Integer.toString(u.age).length(); // ,'age':''
-        u.eyeColor = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 17 + u.eyeColor.length(); // ,'eyeColor':''
-        u.name = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 10 + u.name.length(); // ,'name':''
-        u.gender = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 12 + u.gender.length(); // ,'gender':''
-        u.company = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 13 + u.company.length(); // ,'company':''
-        u.email = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 11 + u.email.length(); // ,'email':''
-        u.phone = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 11 + u.phone.length(); // ,'phone':''
-        u.address = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 13 + u.address.length(); // ,'address':''
-        u.about = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 11 + u.about.length(); // ,'about':''
-        u.registered = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 16 + u.registered.length(); // ,'registered':''
-        u.latitude = RandomUtils.nextDouble(0, 90);
-        expectedSize += 14 + Double.toString(u.latitude).length(); // ,'latitude':''
-        u.longitude = RandomUtils.nextDouble(0, 180);
-        expectedSize += 15 + Double.toString(u.longitude).length(); // ,'longitude':''
+        u.set_id(RandomUtils.randomNumeric(20));
+        expectedSize += 9 + u.get_id().length(); // ,'_id':''
+        u.setIndex(RandomUtils.nextInt(0, Integer.MAX_VALUE));
+        expectedSize += 11 + Integer.toString(u.getIndex()).length(); // ,'index':''
+        u.setGuid(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 10 + u.getGuid().length(); // ,'guid':''
+        u.setIsActive(RandomUtils.nextInt(0, 2) == 1);
+        expectedSize += 17 + (u.getIsActive() ? 4 : 5); // ,'isActive':''
+        u.setBalance(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 16 + u.getBalance().length(); // ,'balance':''
+        u.setPicture(RandomUtils.randomAlphanumeric(100));
+        expectedSize += 16 + u.getPicture().length(); // ,'picture':''
+        u.setAge(RandomUtils.nextInt(0, 100));
+        expectedSize += 9 + Integer.toString(u.getAge()).length(); // ,'age':''
+        u.setEyeColor(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 17 + u.getEyeColor().length(); // ,'eyeColor':''
+        u.setName(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 10 + u.getName().length(); // ,'name':''
+        u.setGender(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 12 + u.getGender().length(); // ,'gender':''
+        u.setCompany(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 13 + u.getCompany().length(); // ,'company':''
+        u.setEmail(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 11 + u.getEmail().length(); // ,'email':''
+        u.setPhone(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 11 + u.getPhone().length(); // ,'phone':''
+        u.setAddress(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 13 + u.getAddress().length(); // ,'address':''
+        u.setAbout(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 11 + u.getAbout().length(); // ,'about':''
+        u.setRegistered(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 16 + u.getRegistered().length(); // ,'registered':''
+        u.setLatitude(RandomUtils.nextDouble(0, 90));
+        expectedSize += 14 + Double.toString(u.getLatitude()).length(); // ,'latitude':''
+        u.setLongitude(RandomUtils.nextDouble(0, 180));
+        expectedSize += 15 + Double.toString(u.getLongitude()).length(); // ,'longitude':''
 
-        u.tags = new ArrayList<>();
+        u.setTags(new ArrayList<>());
         expectedSize += 10; // ,'tags':[]
         int nTags = RandomUtils.nextInt(0, 50);
         for (int i = 0; i < nTags; i++) {
@@ -72,12 +72,12 @@ public class UsersGenerator implements DataGenerator<Users> {
                 break;
             }
             String t = RandomUtils.randomAlphanumeric(10);
-            u.tags.add(t);
+            u.getTags().add(t);
             expectedSize += t.length(); // '',
         }
 
         int nFriends = RandomUtils.nextInt(0, 50);
-        u.friends = new ArrayList<>();
+        u.setFriends(new ArrayList<>());
         expectedSize += 13; // ,'friends':[]
         for (int i = 0; i < nFriends; i++) {
             if (expectedSize > sizeAvailable) {
@@ -87,16 +87,16 @@ public class UsersGenerator implements DataGenerator<Users> {
             int id = RandomUtils.nextInt(0, 10000);
             String idStr = Integer.toString(id);
             String name = RandomUtils.randomAlphabetic(30);
-            u.friends.add(Friend.create(idStr, name));
-            expectedSize += idStr.length() + name.length() + 20; // {'_id':'','name':''},
+            u.getFriends().add(Friend.create(idStr, name));
+            expectedSize += idStr.length() + name.length() + 20; // {'id':'','name':''},
         }
 
-        u.greeting = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 14 + u.greeting.length(); // ,'greeting':''
-        u.favoriteFruit = RandomUtils.randomAlphanumeric(20);
-        expectedSize += 19 + u.favoriteFruit.length(); // ,'favoriteFruit':''
+        u.setGreeting(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 14 + u.getGreeting().length(); // ,'greeting':''
+        u.setFavoriteFruit(RandomUtils.randomAlphanumeric(20));
+        expectedSize += 19 + u.getFavoriteFruit().length(); // ,'favoriteFruit':''
 
-        uc.users.add(u);
+        uc.getUsers().add(u);
 
         return expectedSize;
     }

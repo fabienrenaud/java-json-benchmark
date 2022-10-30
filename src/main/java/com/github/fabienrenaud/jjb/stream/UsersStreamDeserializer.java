@@ -26,11 +26,11 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             reader.next();
             String fieldname = reader.name();
             if ("users".equals(fieldname)) {
-                uc.users = new ArrayList<>();
+                uc.setUsers(new ArrayList<>());
                 reader.beginArray();
                 while (reader.hasNext()) {
                     reader.next();
-                    uc.users.add(gensonUser(reader));
+                    uc.getUsers().add(gensonUser(reader));
                 }
                 reader.endArray();
             }
@@ -51,79 +51,79 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             }
             switch (fieldname) {
                 case "_id":
-                    r._id = reader.valueAsString();
+                    r.set_id(reader.valueAsString());
                     break;
                 case "index":
-                    r.index = reader.valueAsInt();
+                    r.setIndex(reader.valueAsInt());
                     break;
                 case "guid":
-                    r.guid = reader.valueAsString();
+                    r.setGuid(reader.valueAsString());
                     break;
                 case "isActive":
-                    r.isActive = reader.valueAsBoolean();
+                    r.setIsActive(reader.valueAsBoolean());
                     break;
                 case "balance":
-                    r.balance = reader.valueAsString();
+                    r.setBalance(reader.valueAsString());
                     break;
                 case "picture":
-                    r.picture = reader.valueAsString();
+                    r.setPicture(reader.valueAsString());
                     break;
                 case "age":
-                    r.age = reader.valueAsInt();
+                    r.setAge(reader.valueAsInt());
                     break;
                 case "eyeColor":
-                    r.eyeColor = reader.valueAsString();
+                    r.setEyeColor(reader.valueAsString());
                     break;
                 case "name":
-                    r.name = reader.valueAsString();
+                    r.setName(reader.valueAsString());
                     break;
                 case "gender":
-                    r.gender = reader.valueAsString();
+                    r.setGender(reader.valueAsString());
                     break;
                 case "company":
-                    r.company = reader.valueAsString();
+                    r.setCompany(reader.valueAsString());
                     break;
                 case "email":
-                    r.email = reader.valueAsString();
+                    r.setEmail(reader.valueAsString());
                     break;
                 case "phone":
-                    r.phone = reader.valueAsString();
+                    r.setPhone(reader.valueAsString());
                     break;
                 case "address":
-                    r.address = reader.valueAsString();
+                    r.setAddress(reader.valueAsString());
                     break;
                 case "about":
-                    r.about = reader.valueAsString();
+                    r.setAbout(reader.valueAsString());
                     break;
                 case "registered":
-                    r.registered = reader.valueAsString();
+                    r.setRegistered(reader.valueAsString());
                     break;
                 case "latitude":
-                    r.latitude = reader.valueAsDouble();
+                    r.setLatitude(reader.valueAsDouble());
                     break;
                 case "longitude":
-                    r.longitude = reader.valueAsDouble();
+                    r.setLongitude(reader.valueAsDouble());
                     break;
                 case "greeting":
-                    r.greeting = reader.valueAsString();
+                    r.setGreeting(reader.valueAsString());
                     break;
                 case "favoriteFruit":
-                    r.favoriteFruit = reader.valueAsString();
+                    r.setFavoriteFruit(reader.valueAsString());
                     break;
                 case "tags":
                     if (reader.getValueType() == ValueType.ARRAY) {
-                        r.tags = new ArrayList<>();
+                        r.setTags(new ArrayList<>());
                         reader.beginArray();
                         while (reader.hasNext()) {
                             reader.next();
-                            r.tags.add(reader.valueAsString());
+                            r.getTags().add(reader.valueAsString());
                         }
                         reader.endArray();
                     }
                     break;
                 case "friends":
                     if (reader.getValueType() == ValueType.ARRAY) {
-                        r.friends = new ArrayList<>();
+                        r.setFriends(new ArrayList<>());
                         reader.beginArray();
                         while (reader.hasNext()) {
                             if (reader.next() == ValueType.OBJECT) {
@@ -137,15 +137,15 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                                     }
                                     switch (fn) {
                                         case "id":
-                                            f.id = reader.valueAsString();
+                                            f.setId(reader.valueAsString());
                                             break;
                                         case "name":
-                                            f.name = reader.valueAsString();
+                                            f.setName(reader.valueAsString());
                                             break;
                                     }
                                 }
                                 reader.endObject();
-                                r.friends.add(f);
+                                r.getFriends().add(f);
                             }
                         }
                         reader.endArray();
@@ -172,10 +172,10 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             if (token == JsonToken.NAME) {
                 String fieldname = reader.nextName();
                 if ("users".equals(fieldname)) {
-                    uc.users = new ArrayList<>();
+                    uc.setUsers(new ArrayList<>());
                     reader.beginArray();
                     while (reader.peek() != JsonToken.END_ARRAY) {
-                        uc.users.add(gsonUser(reader));
+                        uc.getUsers().add(gsonUser(reader));
                     }
                     reader.endArray();
                 }
@@ -200,67 +200,67 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                     String fieldname = reader.nextName();
                     switch (fieldname) {
                         case "_id":
-                            r._id = reader.nextString();
+                            r.set_id(reader.nextString());
                             break;
                         case "index":
-                            r.index = reader.nextInt();
+                            r.setIndex(reader.nextInt());
                             break;
                         case "guid":
-                            r.guid = reader.nextString();
+                            r.setGuid(reader.nextString());
                             break;
                         case "isActive":
-                            r.isActive = reader.nextBoolean();
+                            r.setIsActive(reader.nextBoolean());
                             break;
                         case "balance":
-                            r.balance = reader.nextString();
+                            r.setBalance(reader.nextString());
                             break;
                         case "picture":
-                            r.picture = reader.nextString();
+                            r.setPicture(reader.nextString());
                             break;
                         case "age":
-                            r.age = reader.nextInt();
+                            r.setAge(reader.nextInt());
                             break;
                         case "eyeColor":
-                            r.eyeColor = reader.nextString();
+                            r.setEyeColor(reader.nextString());
                             break;
                         case "name":
-                            r.name = reader.nextString();
+                            r.setName(reader.nextString());
                             break;
                         case "gender":
-                            r.gender = reader.nextString();
+                            r.setGender(reader.nextString());
                             break;
                         case "company":
-                            r.company = reader.nextString();
+                            r.setCompany(reader.nextString());
                             break;
                         case "email":
-                            r.email = reader.nextString();
+                            r.setEmail(reader.nextString());
                             break;
                         case "phone":
-                            r.phone = reader.nextString();
+                            r.setPhone(reader.nextString());
                             break;
                         case "address":
-                            r.address = reader.nextString();
+                            r.setAddress(reader.nextString());
                             break;
                         case "about":
-                            r.about = reader.nextString();
+                            r.setAbout(reader.nextString());
                             break;
                         case "registered":
-                            r.registered = reader.nextString();
+                            r.setRegistered(reader.nextString());
                             break;
                         case "latitude":
-                            r.latitude = reader.nextDouble();
+                            r.setLatitude(reader.nextDouble());
                             break;
                         case "longitude":
-                            r.longitude = reader.nextDouble();
+                            r.setLongitude(reader.nextDouble());
                             break;
                         case "greeting":
-                            r.greeting = reader.nextString();
+                            r.setGreeting(reader.nextString());
                             break;
                         case "favoriteFruit":
-                            r.favoriteFruit = reader.nextString();
+                            r.setFavoriteFruit(reader.nextString());
                             break;
                         case "tags":
-                            r.tags = new ArrayList<>();
+                            r.setTags(new ArrayList<>());
                             boolean carryOn = true;
                             while (carryOn) {
                                 token = reader.peek();
@@ -273,13 +273,13 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                                         carryOn = false;
                                         break;
                                     case STRING:
-                                        r.tags.add(reader.nextString());
+                                        r.getTags().add(reader.nextString());
                                         break;
                                 }
                             }
                             break;
                         case "friends":
-                            r.friends = new ArrayList<>();
+                            r.setFriends(new ArrayList<>());
                             Friend f = null;
                             carryOn = true;
                             while (carryOn) {
@@ -298,16 +298,16 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                                         break;
                                     case END_OBJECT:
                                         reader.endObject();
-                                        r.friends.add(f);
+                                        r.getFriends().add(f);
                                         break;
                                     case NAME:
                                         String fn = reader.nextName();
                                         switch (fn) {
                                             case "id":
-                                                f.id = reader.nextString();
+                                                f.setId(reader.nextString());
                                                 break;
                                             case "name":
-                                                f.name = reader.nextString();
+                                                f.setName(reader.nextString());
                                                 break;
                                         }
                                         break;
@@ -326,9 +326,9 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             String fieldname = jParser.getCurrentName();
             if ("users".equals(fieldname)) {
                 if (jParser.nextToken() == com.fasterxml.jackson.core.JsonToken.START_ARRAY) {
-                    uc.users = new ArrayList<>();
+                    uc.setUsers(new ArrayList<>());
                     while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
-                        uc.users.add(jacksonUser(jParser));
+                        uc.getUsers().add(jacksonUser(jParser));
                         if (jParser.isClosed()) {
                             throw new IOException("parser closed");
                         }
@@ -349,93 +349,93 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
             switch (fieldname) {
                 case "_id":
                     jParser.nextToken();
-                    r._id = jParser.getValueAsString();
+                    r.set_id(jParser.getValueAsString());
                     break;
                 case "index":
                     jParser.nextToken();
-                    r.index = jParser.getIntValue();
+                    r.setIndex(jParser.getIntValue());
                     break;
                 case "guid":
                     jParser.nextToken();
-                    r.guid = jParser.getValueAsString();
+                    r.setGuid(jParser.getValueAsString());
                     break;
                 case "isActive":
                     jParser.nextToken();
-                    r.isActive = jParser.getBooleanValue();
+                    r.setIsActive(jParser.getBooleanValue());
                     break;
                 case "balance":
                     jParser.nextToken();
-                    r.balance = jParser.getValueAsString();
+                    r.setBalance(jParser.getValueAsString());
                     break;
                 case "picture":
                     jParser.nextToken();
-                    r.picture = jParser.getValueAsString();
+                    r.setPicture(jParser.getValueAsString());
                     break;
                 case "age":
                     jParser.nextToken();
-                    r.age = jParser.getIntValue();
+                    r.setAge(jParser.getIntValue());
                     break;
                 case "eyeColor":
                     jParser.nextToken();
-                    r.eyeColor = jParser.getValueAsString();
+                    r.setEyeColor(jParser.getValueAsString());
                     break;
                 case "name":
                     jParser.nextToken();
-                    r.name = jParser.getValueAsString();
+                    r.setName(jParser.getValueAsString());
                     break;
                 case "gender":
                     jParser.nextToken();
-                    r.gender = jParser.getValueAsString();
+                    r.setGender(jParser.getValueAsString());
                     break;
                 case "company":
                     jParser.nextToken();
-                    r.company = jParser.getValueAsString();
+                    r.setCompany(jParser.getValueAsString());
                     break;
                 case "email":
                     jParser.nextToken();
-                    r.email = jParser.getValueAsString();
+                    r.setEmail(jParser.getValueAsString());
                     break;
                 case "phone":
                     jParser.nextToken();
-                    r.phone = jParser.getValueAsString();
+                    r.setPhone(jParser.getValueAsString());
                     break;
                 case "address":
                     jParser.nextToken();
-                    r.address = jParser.getValueAsString();
+                    r.setAddress(jParser.getValueAsString());
                     break;
                 case "about":
                     jParser.nextToken();
-                    r.about = jParser.getValueAsString();
+                    r.setAbout(jParser.getValueAsString());
                     break;
                 case "registered":
                     jParser.nextToken();
-                    r.registered = jParser.getValueAsString();
+                    r.setRegistered(jParser.getValueAsString());
                     break;
                 case "latitude":
                     jParser.nextToken();
-                    r.latitude = jParser.getDoubleValue();
+                    r.setLatitude(jParser.getDoubleValue());
                     break;
                 case "longitude":
                     jParser.nextToken();
-                    r.longitude = jParser.getDoubleValue();
+                    r.setLongitude(jParser.getDoubleValue());
                     break;
                 case "greeting":
                     jParser.nextToken();
-                    r.greeting = jParser.getValueAsString();
+                    r.setGreeting(jParser.getValueAsString());
                     break;
                 case "favoriteFruit":
                     jParser.nextToken();
-                    r.favoriteFruit = jParser.getValueAsString();
+                    r.setFavoriteFruit(jParser.getValueAsString());
                     break;
                 case "tags":
-                    r.tags = new ArrayList<>();
+                    r.setTags(new ArrayList<>());
                     jParser.nextToken();
                     while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
-                        r.tags.add(jParser.getValueAsString());
+                        r.getTags().add(jParser.getValueAsString());
                     }
                     break;
                 case "friends":
-                    r.friends = new ArrayList<>();
+                    r.setFriends(new ArrayList<>());
                     jParser.nextToken(); // current token is "[", move next.
                     while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
                         Friend f = new Friend();
@@ -447,15 +447,15 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                             switch (fn) {
                                 case "id":
                                     jParser.nextToken();
-                                    f.id = jParser.getValueAsString();
+                                    f.setId(jParser.getValueAsString());
                                     break;
                                 case "name":
                                     jParser.nextToken();
-                                    f.name = jParser.getValueAsString();
+                                    f.setName(jParser.getValueAsString());
                                     break;
                             }
                         }
-                        r.friends.add(f);
+                        r.getFriends().add(f);
                     }
                     break;
             }
@@ -471,9 +471,9 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
         if ((v = jso.get("users")) != null) {
             com.eclipsesource.json.JsonArray jsarr = v.asArray();
-            uc.users = new ArrayList<>();
+            uc.setUsers(new ArrayList<>());
             for (com.eclipsesource.json.JsonValue vi : jsarr) {
-                uc.users.add(minimaljsonUser(vi.asObject()));
+                uc.getUsers().add(minimaljsonUser(vi.asObject()));
             }
         }
         return uc;
@@ -484,81 +484,81 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         User u = new User();
 
         if ((v = jso.get("_id")) != null) {
-            u._id = v.asString();
+            u.set_id(v.asString());
         }
         if ((v = jso.get("index")) != null) {
-            u.index = v.asInt();
+            u.setIndex(v.asInt());
         }
         if ((v = jso.get("guid")) != null) {
-            u.guid = v.asString();
+            u.setGuid(v.asString());
         }
         if ((v = jso.get("isActive")) != null) {
-            u.isActive = v.asBoolean();
+            u.setIsActive(v.asBoolean());
         }
         if ((v = jso.get("balance")) != null) {
-            u.balance = v.asString();
+            u.setBalance(v.asString());
         }
         if ((v = jso.get("picture")) != null) {
-            u.picture = v.asString();
+            u.setPicture(v.asString());
         }
         if ((v = jso.get("age")) != null) {
-            u.age = v.asInt();
+            u.setAge(v.asInt());
         }
         if ((v = jso.get("eyeColor")) != null) {
-            u.eyeColor = v.asString();
+            u.setEyeColor(v.asString());
         }
         if ((v = jso.get("name")) != null) {
-            u.name = v.asString();
+            u.setName(v.asString());
         }
         if ((v = jso.get("gender")) != null) {
-            u.gender = v.asString();
+            u.setGender(v.asString());
         }
         if ((v = jso.get("company")) != null) {
-            u.company = v.asString();
+            u.setCompany(v.asString());
         }
         if ((v = jso.get("email")) != null) {
-            u.email = v.asString();
+            u.setEmail(v.asString());
         }
         if ((v = jso.get("phone")) != null) {
-            u.phone = v.asString();
+            u.setPhone(v.asString());
         }
         if ((v = jso.get("address")) != null) {
-            u.address = v.asString();
+            u.setAddress(v.asString());
         }
         if ((v = jso.get("about")) != null) {
-            u.about = v.asString();
+            u.setAbout(v.asString());
         }
         if ((v = jso.get("registered")) != null) {
-            u.registered = v.asString();
+            u.setRegistered(v.asString());
         }
         if ((v = jso.get("latitude")) != null) {
-            u.latitude = v.asDouble();
+            u.setLatitude(v.asDouble());
         }
         if ((v = jso.get("longitude")) != null) {
-            u.longitude = v.asDouble();
+            u.setLongitude(v.asDouble());
         }
         if ((v = jso.get("greeting")) != null) {
-            u.greeting = v.asString();
+            u.setGreeting(v.asString());
         }
         if ((v = jso.get("favoriteFruit")) != null) {
-            u.favoriteFruit = v.asString();
+            u.setFavoriteFruit(v.asString());
         }
         if ((v = jso.get("tags")) != null) {
             com.eclipsesource.json.JsonArray jsonarr = v.asArray();
-            u.tags = new ArrayList<>();
+            u.setTags(new ArrayList<>());
             for (com.eclipsesource.json.JsonValue vi : jsonarr) {
-                u.tags.add(vi.asString());
+                u.getTags().add(vi.asString());
             }
         }
         if ((v = jso.get("friends")) != null) {
             com.eclipsesource.json.JsonArray jsonarr = v.asArray();
-            u.friends = new ArrayList<>();
+            u.setFriends(new ArrayList<>());
             for (com.eclipsesource.json.JsonValue vi : jsonarr) {
                 com.eclipsesource.json.JsonObject jso0 = vi.asObject();
                 Friend f = new Friend();
-                f.id = jso0.get("id").asString();
-                f.name = jso0.get("name").asString();
-                u.friends.add(f);
+                f.setId(jso0.get("id").asString());
+                f.setName(jso0.get("name").asString());
+                u.getFriends().add(f);
             }
         }
 
@@ -574,10 +574,10 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         while (reader.hasNext()) {
             switch (reader.nextName()) {
                 case "users":
-                    users.users = new ArrayList<>();
+                    users.setUsers(new ArrayList<>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        users.users.add(moshiUser(reader));
+                        users.getUsers().add(moshiUser(reader));
                     }
                     reader.endArray();
                     break;
@@ -599,80 +599,80 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         while (reader.hasNext()) {
             switch (reader.nextName()) {
                 case "_id":
-                    user._id = reader.nextString();
+                    user.set_id(reader.nextString());
                     break;
                 case "index":
-                    user.index = reader.nextInt();
+                    user.setIndex(reader.nextInt());
                     break;
                 case "guid":
-                    user.guid = reader.nextString();
+                    user.setGuid(reader.nextString());
                     break;
                 case "isActive":
-                    user.isActive = reader.nextBoolean();
+                    user.setIsActive(reader.nextBoolean());
                     break;
                 case "balance":
-                    user.balance = reader.nextString();
+                    user.setBalance(reader.nextString());
                     break;
                 case "picture":
-                    user.picture = reader.nextString();
+                    user.setPicture(reader.nextString());
                     break;
                 case "age":
-                    user.age = reader.nextInt();
+                    user.setAge(reader.nextInt());
                     break;
                 case "eyeColor":
-                    user.eyeColor = reader.nextString();
+                    user.setEyeColor(reader.nextString());
                     break;
                 case "name":
-                    user.name = reader.nextString();
+                    user.setName(reader.nextString());
                     break;
                 case "gender":
-                    user.gender = reader.nextString();
+                    user.setGender(reader.nextString());
                     break;
                 case "company":
-                    user.company = reader.nextString();
+                    user.setCompany(reader.nextString());
                     break;
                 case "email":
-                    user.email = reader.nextString();
+                    user.setEmail(reader.nextString());
                     break;
                 case "phone":
-                    user.phone = reader.nextString();
+                    user.setPhone(reader.nextString());
                     break;
                 case "address":
-                    user.address = reader.nextString();
+                    user.setAddress(reader.nextString());
                     break;
                 case "about":
-                    user.about = reader.nextString();
+                    user.setAbout(reader.nextString());
                     break;
                 case "registered":
-                    user.registered = reader.nextString();
+                    user.setRegistered(reader.nextString());
                     break;
                 case "latitude":
-                    user.latitude = reader.nextDouble();
+                    user.setLatitude(reader.nextDouble());
                     break;
                 case "longitude":
-                    user.longitude = reader.nextDouble();
+                    user.setLongitude(reader.nextDouble());
                     break;
                 case "tags":
-                    user.tags = new ArrayList<>();
+                    user.setTags(new ArrayList<>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        user.tags.add(reader.nextString());
+                        user.getTags().add(reader.nextString());
                     }
                     reader.endArray();
                     break;
                 case "friends":
-                    user.friends = new ArrayList<>();
+                    user.setFriends(new ArrayList<>());
                     reader.beginArray();
                     while (reader.hasNext()) {
-                        user.friends.add(moshiFriend(reader));
+                        user.getFriends().add(moshiFriend(reader));
                     }
                     reader.endArray();
                     break;
                 case "greeting":
-                    user.greeting = reader.nextString();
+                    user.setGreeting(reader.nextString());
                     break;
                 case "favoriteFruit":
-                    user.favoriteFruit = reader.nextString();
+                    user.setFavoriteFruit(reader.nextString());
                     break;
                 default:
                     reader.skipValue();
@@ -693,10 +693,10 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         while (reader.hasNext()) {
             switch (reader.nextName()) {
                 case "id":
-                    friend.id = reader.nextString();
+                    friend.setId(reader.nextString());
                     break;
                 case "name":
-                    friend.name = reader.nextString();
+                    friend.setName(reader.nextString());
                     break;
                 default:
                     reader.skipValue();
@@ -717,9 +717,9 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
         if ((v = jso.get("users")) != null) {
             List<Object> jsarr = (List<Object>) v;
-            uc.users = new ArrayList<>();
+            uc.setUsers(new ArrayList<>());
             for (Object vi : jsarr) {
-                uc.users.add(underscore_java((Map<String, Object>) vi));
+                uc.getUsers().add(underscore_java((Map<String, Object>) vi));
             }
         }
         return uc;
@@ -730,81 +730,81 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         User u = new User();
 
         if ((v = jso.get("_id")) != null) {
-            u._id = (String) v;
+            u.set_id((String) v);
         }
         if ((v = jso.get("index")) != null) {
-            u.index = ((Long) v).intValue();
+            u.setIndex(((Long) v).intValue());
         }
         if ((v = jso.get("guid")) != null) {
-            u.guid = (String) v;
+            u.setGuid((String) v);
         }
         if ((v = jso.get("isActive")) != null) {
-            u.isActive = ((Boolean) v);
+            u.setIsActive(((Boolean) v));
         }
         if ((v = jso.get("balance")) != null) {
-            u.balance = (String) v;
+            u.setBalance((String) v);
         }
         if ((v = jso.get("picture")) != null) {
-            u.picture = (String) v;
+            u.setPicture((String) v);
         }
         if ((v = jso.get("age")) != null) {
-            u.age = ((Long) v).intValue();
+            u.setAge(((Long) v).intValue());
         }
         if ((v = jso.get("eyeColor")) != null) {
-            u.eyeColor = (String) v;
+            u.setEyeColor((String) v);
         }
         if ((v = jso.get("name")) != null) {
-            u.name = (String) v;
+            u.setName((String) v);
         }
         if ((v = jso.get("gender")) != null) {
-            u.gender = (String) v;
+            u.setGender((String) v);
         }
         if ((v = jso.get("company")) != null) {
-            u.company = (String) v;
+            u.setCompany((String) v);
         }
         if ((v = jso.get("email")) != null) {
-            u.email = (String) v;
+            u.setEmail((String) v);
         }
         if ((v = jso.get("phone")) != null) {
-            u.phone = (String) v;
+            u.setPhone((String) v);
         }
         if ((v = jso.get("address")) != null) {
-            u.address = (String) v;
+            u.setAddress((String) v);
         }
         if ((v = jso.get("about")) != null) {
-            u.about = (String) v;
+            u.setAbout((String) v);
         }
         if ((v = jso.get("registered")) != null) {
-            u.registered = (String) v;
+            u.setRegistered((String) v);
         }
         if ((v = jso.get("latitude")) != null) {
-            u.latitude = v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v;
+            u.setLatitude(v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v);
         }
         if ((v = jso.get("longitude")) != null) {
-            u.longitude = v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v;
+            u.setLongitude(v instanceof BigDecimal ? ((BigDecimal) v).doubleValue() : (Double) v);
         }
         if ((v = jso.get("greeting")) != null) {
-            u.greeting = (String) v;
+            u.setGreeting((String) v);
         }
         if ((v = jso.get("favoriteFruit")) != null) {
-            u.favoriteFruit = (String) v;
+            u.setFavoriteFruit((String) v);
         }
         if ((v = jso.get("tags")) != null) {
             List<Object> jsonarr = (List<Object>) v;
-            u.tags = new ArrayList<>();
+            u.setTags(new ArrayList<>());
             for (Object vi : jsonarr) {
-                u.tags.add((String) vi);
+                u.getTags().add((String) vi);
             }
         }
         if ((v = jso.get("friends")) != null) {
             List<Object> jsonarr = (List<Object>) v;
-            u.friends = new ArrayList<>();
+            u.setFriends(new ArrayList<>());
             for (Object vi : jsonarr) {
                 Map<String, Object> jso0 = (Map<String, Object>) vi;
                 Friend f = new Friend();
-                f.id = (String) jso0.get("id");
-                f.name = (String) jso0.get("name");
-                u.friends.add(f);
+                f.setId((String) jso0.get("id"));
+                f.setName((String) jso0.get("name"));
+                u.getFriends().add(f);
             }
         }
 

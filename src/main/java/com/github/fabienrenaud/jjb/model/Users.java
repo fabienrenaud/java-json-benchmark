@@ -16,7 +16,7 @@ public class Users {
 
     @JsonField
     @jodd.json.meta.JSON
-    public List<User> users;
+    private List<User> users;
 
     @Override
     public boolean equals(Object o) {
@@ -42,59 +42,67 @@ public class Users {
         return "Users{" + "users=" + users + '}';
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     @io.avaje.jsonb.Json
     @JsonObject
     @CompiledJson
     public static final class User {
 
         @JsonField
-        public String _id;
+        private String _id;
         @JsonField
-        public int index;
+        private int index;
         @JsonField
-        public String guid;
+        private String guid;
         @JsonField
-        public boolean isActive;
+        private boolean isActive;
         @JsonField
-        public String balance;
+        private String balance;
         @JsonField
-        public String picture;
+        private String picture;
         @JsonField
-        public int age;
+        private int age;
         @JsonField
-        public String eyeColor;
+        private String eyeColor;
         @JsonField
-        public String name;
+        private String name;
         @JsonField
-        public String gender;
+        private String gender;
         @JsonField
-        public String company;
+        private String company;
         @JsonField
-        public String email;
+        private String email;
         @JsonField
-        public String phone;
+        private String phone;
         @JsonField
-        public String address;
+        private String address;
         @JsonField
-        public String about;
+        private String about;
         @JsonField
-        public String registered;
+        private String registered;
         @JsonField
-        public double latitude;
+        private double latitude;
         @JsonField
-        public double longitude;
-        @JsonField
-        @JsonAttribute(nullable = false)
-        @jodd.json.meta.JSON
-        public List<String> tags;
+        private double longitude;
         @JsonField
         @JsonAttribute(nullable = false)
         @jodd.json.meta.JSON
-        public List<Friend> friends;
+        private List<String> tags;
         @JsonField
-        public String greeting;
+        @JsonAttribute(nullable = false)
+        @jodd.json.meta.JSON
+        private List<Friend> friends;
         @JsonField
-        public String favoriteFruit;
+        private String greeting;
+        @JsonField
+        private String favoriteFruit;
 
         @Override
         public boolean equals(Object o) {
@@ -140,6 +148,182 @@ public class Users {
         public String toString() {
             return "JsonDataObj{" + "_id=" + _id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", email=" + email + ", phone=" + phone + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", friends=" + friends + ", greeting=" + greeting + ", favoriteFruit=" + favoriteFruit + '}';
         }
+
+        public String get_id() {
+            return _id;
+        }
+
+        public void set_id(String _id) {
+            this._id = _id;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        public String getGuid() {
+            return guid;
+        }
+
+        public void setGuid(String guid) {
+            this.guid = guid;
+        }
+
+        public boolean getIsActive() {
+            return isActive;
+        }
+
+        public void setIsActive(boolean isActive) {
+            this.isActive = isActive;
+        }
+
+        public String getBalance() {
+            return balance;
+        }
+
+        public void setBalance(String balance) {
+            this.balance = balance;
+        }
+
+        public String getPicture() {
+            return picture;
+        }
+
+        public void setPicture(String picture) {
+            this.picture = picture;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public String getEyeColor() {
+            return eyeColor;
+        }
+
+        public void setEyeColor(String eyeColor) {
+            this.eyeColor = eyeColor;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getGender() {
+            return gender;
+        }
+
+        public void setGender(String gender) {
+            this.gender = gender;
+        }
+
+        public String getCompany() {
+            return company;
+        }
+
+        public void setCompany(String company) {
+            this.company = company;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getAbout() {
+            return about;
+        }
+
+        public void setAbout(String about) {
+            this.about = about;
+        }
+
+        public String getRegistered() {
+            return registered;
+        }
+
+        public void setRegistered(String registered) {
+            this.registered = registered;
+        }
+
+        public double getLatitude() {
+            return latitude;
+        }
+
+        public void setLatitude(double latitude) {
+            this.latitude = latitude;
+        }
+
+        public double getLongitude() {
+            return longitude;
+        }
+
+        public void setLongitude(double longitude) {
+            this.longitude = longitude;
+        }
+
+        public List<String> getTags() {
+            return tags;
+        }
+
+        public void setTags(List<String> tags) {
+            this.tags = tags;
+        }
+
+        public List<Friend> getFriends() {
+            return friends;
+        }
+
+        public void setFriends(List<Friend> friends) {
+            this.friends = friends;
+        }
+
+        public String getGreeting() {
+            return greeting;
+        }
+
+        public void setGreeting(String greeting) {
+            this.greeting = greeting;
+        }
+
+        public String getFavoriteFruit() {
+            return favoriteFruit;
+        }
+
+        public void setFavoriteFruit(String favoriteFruit) {
+            this.favoriteFruit = favoriteFruit;
+        }
     }
 
     @io.avaje.jsonb.Json
@@ -148,9 +332,9 @@ public class Users {
     public static final class Friend {
 
         @JsonField
-        public String id;
+        private String id;
         @JsonField
-        public String name;
+        private String name;
 
         public Friend() {
         }
@@ -187,6 +371,21 @@ public class Users {
             return "Friend{" + "id=" + id + ", name=" + name + '}';
         }
 
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
 }

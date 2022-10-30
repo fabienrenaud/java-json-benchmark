@@ -19,7 +19,7 @@ repositories {
 ext {
     jacksonVersion = '2.13.0'
     dslJsonVersion = '1.9.9'
-    johnzonVersion = '1.2.15'
+    johnzonVersion = '1.2.19'
     jmhVersion = '1.33'
 }
 

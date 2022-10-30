@@ -43,7 +43,7 @@ dependencies {
     implementation group: 'org.glassfish', name: 'javax.json', version: '1.1.4'
     // JSONB
     implementation group: 'javax.json.bind', name: 'javax.json.bind-api', version: '1.0'
-    implementation group: 'org.eclipse', name: 'yasson', version: '1.0.9'
+    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
     // GENSON
     implementation group: 'com.owlike', name: 'genson', version: '1.6'
     // FlexJson

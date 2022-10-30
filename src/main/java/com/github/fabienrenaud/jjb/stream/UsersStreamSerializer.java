@@ -1078,7 +1078,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             }
             jso.put("users", jsarr);
         }
-        return com.github.underscore.lodash.U.toJson(jso);
+        return com.github.underscore.U.toJson(jso);
     }
 
     private Map<String, Object> underscore_java(User u) throws IOException {

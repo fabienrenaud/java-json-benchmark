@@ -126,4 +126,8 @@ public abstract class JsonBench {
     public Object avajejsonb() throws Exception {
         return null;
     }
+
+    public Object qson() throws Exception {
+        return null;
+    }
 }

@@ -30,6 +30,7 @@ It covers the following libraries:
 * [mjson](https://github.com/bolerio/mjson)
 * [underscore-java](https://github.com/javadev/underscore-java)
 * [purejson](https://senthilganeshs.github.io/jsonp/)
+* [qson](https://github.com/quarkusio/qson)
 
 When available, both databinding and 'stream' (custom packing and unpacking) implementations are tested.
 Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10, 100 and 1000 KB size:

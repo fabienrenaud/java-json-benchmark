@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
+import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.mapper.Mapper;
 
 import javax.json.bind.Jsonb;
@@ -54,4 +55,6 @@ public interface JsonProvider<T> {
     io.avaje.jsonb.JsonType<T> avajeJsonb_jackson();
 
     io.avaje.jsonb.JsonType<T> avajeJsonb_default();
+
+    QsonMapper qson();
 }

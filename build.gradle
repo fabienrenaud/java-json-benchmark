@@ -20,7 +20,7 @@ ext {
     jacksonVersion = '2.13.4'
     dslJsonVersion = '1.9.9'
     johnzonVersion = '1.2.19'
-    jmhVersion = '1.33'
+    jmhVersion = '1.35'
 }
 
 dependencies {
@@ -49,7 +49,7 @@ dependencies {
     // FlexJson
     implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // FastJson
-    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.17'
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.83'
     // json-io
     implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.14.0'
     // boon
@@ -58,7 +58,7 @@ dependencies {
     implementation group: 'org.apache.johnzon', name: 'johnzon-core', version: "${johnzonVersion}"
     implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', version: "${johnzonVersion}"
     // json-smart
-    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.7'
+    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.8'
     // DSL-json
     implementation group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     annotationProcessor group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
@@ -72,9 +72,9 @@ dependencies {
     // jodd
     implementation group: 'org.jodd', name: 'jodd-json', version: '6.0.3'
     // moshi
-    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.12.0'
+    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.14.0'
     // tapestry
-    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.7.3'
+    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
     // jsoniter
     implementation group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
     implementation group: 'org.javassist', name: 'javassist', version: '3.29.2-GA'
@@ -83,7 +83,7 @@ dependencies {
     // mjson
     implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.71'
+    implementation group: 'com.github.javadev', name: 'underscore', version: '1.81'
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // avaje-jsonb

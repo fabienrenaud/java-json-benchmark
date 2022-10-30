@@ -711,7 +711,7 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
     @Override
     public Users underscore_java(String string) {
-        Map<String, Object> jso = com.github.underscore.lodash.U.fromJson(string);
+        Map<String, Object> jso = com.github.underscore.U.fromJson(string);
         Object v;
         Users uc = new Users();
 

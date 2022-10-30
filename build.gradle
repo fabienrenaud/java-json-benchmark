@@ -83,7 +83,7 @@ dependencies {
     // mjson
     implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.71'
+    implementation group: 'com.github.javadev', name: 'underscore', version: '1.81'
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // avaje-jsonb

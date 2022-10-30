@@ -31,6 +31,7 @@ public enum Library {
     JSONITER,
     MINIMALJSON,
     MJSON,
+    QSON,
     UNDERSCORE_JAVA,
     PUREJSON;
 

@@ -28,6 +28,7 @@ import flexjson.JSONSerializer;
 import flexjson.transformer.AbstractTransformer;
 import io.avaje.jsonb.jackson.JacksonAdapter;
 import io.avaje.jsonb.stream.JsonStream;
+import io.quarkus.qson.generator.QsonMapper;
 import jodd.json.TypeJsonSerializer;
 import jodd.typeconverter.TypeConverterManager;
 import org.apache.johnzon.core.JsonProviderImpl;
@@ -143,6 +144,8 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
                     writer.value(value.toString());
                 }
             }).build().adapter(Clients.class);
+
+    private final QsonMapper qson = new QsonMapper();
 
     /*
      * DSL-json
@@ -274,6 +277,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public com.squareup.moshi.JsonAdapter<Clients> moshi() {
         return moshi;
+    }
+
+    @Override
+    public QsonMapper qson() {
+        return qson;
     }
 
     private static final ThreadLocal<JSONSerializer> FLEXJSON_SER = ThreadLocal.withInitial(() -> new JSONSerializer()

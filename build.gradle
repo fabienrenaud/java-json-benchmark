@@ -12,6 +12,8 @@ mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
+applicationDefaultJvmArgs = ["--add-opens", "java.base/jdk.internal.loader=ALL-UNNAMED"]
+
 repositories {
     mavenCentral()
 }

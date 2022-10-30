@@ -51,7 +51,7 @@ dependencies {
     // FastJson
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.78'
     // json-io
-    implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.13.0'
+    implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.14.0'
     // boon
     implementation group: 'io.fastjson', name: 'boon', version: '0.34'
     // johnzon

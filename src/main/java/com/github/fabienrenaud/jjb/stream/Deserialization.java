@@ -185,8 +185,8 @@ public class Deserialization extends JsonBench {
             Client client = new Client();
             v.isJSON((k, jv) -> k.isString(key -> {
                 switch (key) {
-                    case "_id":
-                        jv.isInteger(client::set_id);
+                    case "id":
+                        jv.isInteger(client::setId);
                         break;
                     case "index":
                         jv.isInteger(index -> client.setIndex(index.intValue()));
@@ -291,8 +291,8 @@ public class Deserialization extends JsonBench {
             User user = new User();
             v.isJSON((jk, jv) -> jk.isString(key -> {
                 switch (key) {
-                    case "_id":
-                        jv.isString(user::set_id);
+                    case "id":
+                        jv.isString(user::setId);
                         break;
                     case "index":
                         jv.isInteger(index -> user.setIndex(index.intValue()));

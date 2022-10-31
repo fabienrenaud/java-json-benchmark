@@ -61,7 +61,7 @@ public class Clients {
     public static final class Client {
 
         @JsonField
-        private long _id;
+        private long id;
         @JsonField
         private int index;
         @JsonField(typeConverter = LoganUUIDConverter.class)
@@ -123,7 +123,7 @@ public class Clients {
                     age == client.age &&
                     Math.abs(Double.doubleToLongBits(client.latitude) - Double.doubleToLongBits(latitude)) < 3 &&
                     Math.abs(Double.doubleToLongBits(client.longitude) - Double.doubleToLongBits(longitude)) < 3 &&
-                    Objects.equals(_id, client._id) &&
+                    Objects.equals(id, client.id) &&
                     Objects.equals(guid, client.guid) &&
                     balance.compareTo(client.balance) == 0 &&
                     Objects.equals(picture, client.picture) &&
@@ -142,7 +142,7 @@ public class Clients {
 
         @Override
         public int hashCode() {
-            return Objects.hash(_id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company,
+            return Objects.hash(id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company,
                     Arrays.hashCode(emails), Arrays.hashCode(phones), address, about, registered, tags, partners);
         }
 
@@ -161,15 +161,15 @@ public class Clients {
 
         @Override
         public String toString() {
-            return "JsonDataObj{" + "_id=" + _id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + (emails != null ? Arrays.asList(emails) : null) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
+            return "JsonDataObj{" + "id=" + id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + (emails != null ? Arrays.asList(emails) : null) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
         }
 
-        public long get_id() {
-            return _id;
+        public long getId() {
+            return id;
         }
 
-        public void set_id(long _id) {
-            this._id = _id;
+        public void setId(long id) {
+            this.id = id;
         }
 
         public int getIndex() {

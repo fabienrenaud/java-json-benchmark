@@ -31,8 +31,8 @@ public class ClientsGenerator implements DataGenerator<Clients> {
         int expectedSize = 2; // {}
 
         Client u = new Client();
-        u.set_id(Math.abs(RandomUtils.nextLong()));
-        expectedSize += 9 + Long.toString(u.get_id()).length(); // ,'_id':''
+        u.setId(Math.abs(RandomUtils.nextLong()));
+        expectedSize += 9 + Long.toString(u.getId()).length(); // ,'id':''
         u.setIndex(RandomUtils.nextInt(0, Integer.MAX_VALUE));
         expectedSize += 11 + Integer.toString(u.getIndex()).length(); // ,'index':''
         u.setGuid(RandomUtils.nextUUID());
@@ -109,7 +109,7 @@ public class ClientsGenerator implements DataGenerator<Clients> {
                     ZoneOffset.UTC
             );
             u.getPartners().add(Partner.create(id, name, at));
-            expectedSize += Long.toString(id).length() + name.length() + 50; // {'_id':'','name':'','since':''},
+            expectedSize += Long.toString(id).length() + name.length() + 50; // {'id':'','name':'','since':''},
         }
 
         uc.getClients().add(u);

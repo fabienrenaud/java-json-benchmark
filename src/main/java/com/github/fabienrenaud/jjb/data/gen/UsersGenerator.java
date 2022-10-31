@@ -27,8 +27,8 @@ public class UsersGenerator implements DataGenerator<Users> {
         int expectedSize = 2; // {}
 
         User u = new User();
-        u.set_id(RandomUtils.randomNumeric(20));
-        expectedSize += 9 + u.get_id().length(); // ,'_id':''
+        u.setId(RandomUtils.randomNumeric(20));
+        expectedSize += 9 + u.getId().length(); // ,'id':''
         u.setIndex(RandomUtils.nextInt(0, Integer.MAX_VALUE));
         expectedSize += 11 + Integer.toString(u.getIndex()).length(); // ,'index':''
         u.setGuid(RandomUtils.randomAlphanumeric(20));

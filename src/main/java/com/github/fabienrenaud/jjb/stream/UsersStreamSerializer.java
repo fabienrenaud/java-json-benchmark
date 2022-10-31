@@ -36,8 +36,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.json.JSONObject orgjson(User u) throws JSONException {
         org.json.JSONObject jso = new org.json.JSONObject();
-        if (u.get_id() != null) {
-            jso.put("_id", u.get_id());
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
         jso.put("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -121,8 +121,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void javaxjson(javax.json.stream.JsonGenerator generator, User u) throws IOException {
         generator.writeStartObject();
-        if (u.get_id() != null) {
-            generator.write("_id", u.get_id());
+        if (u.getId() != null) {
+            generator.write("id", u.getId());
         }
         generator.write("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -207,8 +207,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void genson(ObjectWriter j, User u) throws IOException {
         j.beginObject();
-        if (u.get_id() != null) {
-            j.writeString("_id", u.get_id());
+        if (u.getId() != null) {
+            j.writeString("id", u.getId());
         }
         j.writeNumber("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -295,9 +295,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void gson(JsonWriter j, User u) throws IOException {
         j.beginObject();
-        if (u.get_id() != null) {
-            j.name("_id");
-            j.value(u.get_id());
+        if (u.getId() != null) {
+            j.name("id");
+            j.value(u.getId());
         }
         j.name("index");
         j.value(u.getIndex());
@@ -405,9 +405,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void jackson(JsonGenerator j, User u) throws IOException {
         j.writeStartObject();
-        if (u.get_id() != null) {
-            j.writeFieldName("_id");
-            j.writeString(u.get_id());
+        if (u.getId() != null) {
+            j.writeFieldName("id");
+            j.writeString(u.getId());
         }
         j.writeFieldName("index");
         j.writeNumber(u.getIndex());
@@ -514,8 +514,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.json.simple.JSONObject jsonsimple(User u) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
-        if (u.get_id() != null) {
-            jso.put("_id", u.get_id());
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
         jso.put("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -597,8 +597,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private JsonAppendableWriter nanojson(JsonAppendableWriter w, User u) throws IOException {
         JsonAppendableWriter cw = w.object();
-        if (u.get_id() != null) {
-            cw.value("_id", u.get_id());
+        if (u.getId() != null) {
+            cw.value("id", u.getId());
         }
         cw.value("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -683,8 +683,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.apache.tapestry5.json.JSONObject tapestry(User u) throws IOException {
         org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
-        if (u.get_id() != null) {
-            jso.put("_id", u.get_id());
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
         jso.put("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -766,8 +766,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private com.eclipsesource.json.JsonValue minimaljson(User u) throws IOException {
         com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
-        if (u.get_id() != null) {
-            jso.add("_id", u.get_id());
+        if (u.getId() != null) {
+            jso.add("id", u.getId());
         }
         jso.add("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -855,9 +855,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private void moshiUser(com.squareup.moshi.JsonWriter writer, User user) throws IOException {
         writer.beginObject();
 
-        if (user.get_id() != null) {
-            writer.name("_id");
-            writer.value(user.get_id());
+        if (user.getId() != null) {
+            writer.name("id");
+            writer.value(user.getId());
         }
 
         writer.name("index");
@@ -998,8 +998,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private mjson.Json mjson(User user) throws IOException {
         mjson.Json userJson = mjson.Json.object();
-        if (user.get_id() != null) {
-            userJson.set("_id", user.get_id());
+        if (user.getId() != null) {
+            userJson.set("id", user.getId());
         }
         userJson.set("index", user.getIndex());
         if (user.getGuid() != null) {
@@ -1083,8 +1083,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private Map<String, Object> underscore_java(User u) throws IOException {
         Map<String, Object> jso = new LinkedHashMap<>();
-        if (u.get_id() != null) {
-            jso.put("_id", u.get_id());
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
         jso.put("index", u.getIndex());
         if (u.getGuid() != null) {
@@ -1165,8 +1165,8 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private Parser.Value purejson(User u) {
         Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
 
-        if (u.get_id() != null) {
-            map.put(Value.string("_id"), Value.string(u.get_id()));
+        if (u.getId() != null) {
+            map.put(Value.string("id"), Value.string(u.getId()));
         }
         map.put(Value.string("index"), Value.integer(u.getIndex()));
         if (u.getGuid() != null) {

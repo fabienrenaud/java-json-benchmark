@@ -50,8 +50,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                 continue;
             }
             switch (fieldname) {
-                case "_id":
-                    r.set_id(reader.valueAsString());
+                case "id":
+                    r.setId(reader.valueAsString());
                     break;
                 case "index":
                     r.setIndex(reader.valueAsInt());
@@ -199,8 +199,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                 case NAME:
                     String fieldname = reader.nextName();
                     switch (fieldname) {
-                        case "_id":
-                            r.set_id(reader.nextString());
+                        case "id":
+                            r.setId(reader.nextString());
                             break;
                         case "index":
                             r.setIndex(reader.nextInt());
@@ -347,9 +347,9 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                 break;
             }
             switch (fieldname) {
-                case "_id":
+                case "id":
                     jParser.nextToken();
-                    r.set_id(jParser.getValueAsString());
+                    r.setId(jParser.getValueAsString());
                     break;
                 case "index":
                     jParser.nextToken();
@@ -483,8 +483,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         com.eclipsesource.json.JsonValue v;
         User u = new User();
 
-        if ((v = jso.get("_id")) != null) {
-            u.set_id(v.asString());
+        if ((v = jso.get("id")) != null) {
+            u.setId(v.asString());
         }
         if ((v = jso.get("index")) != null) {
             u.setIndex(v.asInt());
@@ -598,8 +598,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
         while (reader.hasNext()) {
             switch (reader.nextName()) {
-                case "_id":
-                    user.set_id(reader.nextString());
+                case "id":
+                    user.setId(reader.nextString());
                     break;
                 case "index":
                     user.setIndex(reader.nextInt());
@@ -729,8 +729,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
         Object v;
         User u = new User();
 
-        if ((v = jso.get("_id")) != null) {
-            u.set_id((String) v);
+        if ((v = jso.get("id")) != null) {
+            u.setId((String) v);
         }
         if ((v = jso.get("index")) != null) {
             u.setIndex(((Long) v).intValue());

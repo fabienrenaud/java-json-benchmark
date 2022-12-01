@@ -87,9 +87,9 @@ dependencies {
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // avaje-jsonb
-    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '1.0-RC4'
-    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '1.0-RC4'
-    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '1.0-RC4'
+    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '1.0'
+    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '1.0'
+    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '1.0'
     // qson
     implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
 

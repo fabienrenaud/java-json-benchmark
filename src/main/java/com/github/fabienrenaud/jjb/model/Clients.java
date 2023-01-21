@@ -22,7 +22,7 @@ public class Clients {
 
     @JsonField
     @jodd.json.meta.JSON
-    public List<Client> clients;
+    private List<Client> clients;
 
     @Override
     public boolean equals(Object o) {
@@ -48,56 +48,64 @@ public class Clients {
         return "Clients{" + "clients=" + clients + '}';
     }
 
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+
     @io.avaje.jsonb.Json
     @JsonObject
     public static final class Client {
 
         @JsonField
-        public long _id;
+        private long id;
         @JsonField
-        public int index;
+        private int index;
         @JsonField(typeConverter = LoganUUIDConverter.class)
-        public UUID guid;
+        private UUID guid;
         @JsonField
-        public boolean isActive;
+        private boolean isActive;
         @JsonField(typeConverter = LoganBigDecimalConverter.class)
-        public BigDecimal balance;
+        private BigDecimal balance;
         @JsonField
-        public String picture;
+        private String picture;
         @JsonField
-        public int age;
+        private int age;
         @JsonField(typeConverter = LoganEnumConverter.class)
-        public EyeColor eyeColor;
+        private EyeColor eyeColor;
         @JsonField
-        public String name;
+        private String name;
         @JsonField
-        public String gender;
+        private String gender;
         @JsonField
-        public String company;
-        @JsonField
-        @jodd.json.meta.JSON
-        public String[] emails;
+        private String company;
         @JsonField
         @jodd.json.meta.JSON
-        public long[] phones;
+        private String[] emails;
         @JsonField
-        public String address;
+        @jodd.json.meta.JSON
+        private long[] phones;
         @JsonField
-        public String about;
+        private String address;
+        @JsonField
+        private String about;
         @JsonField(typeConverter = LoganLocalDateConverter.class)
-        public LocalDate registered;
+        private LocalDate registered;
         @JsonField
-        public double latitude;
+        private double latitude;
         @JsonField
-        public double longitude;
-        @JsonField
-        @JsonAttribute(nullable = false)
-        @jodd.json.meta.JSON
-        public List<String> tags;
+        private double longitude;
         @JsonField
         @JsonAttribute(nullable = false)
         @jodd.json.meta.JSON
-        public List<Partner> partners;
+        private List<String> tags;
+        @JsonField
+        @JsonAttribute(nullable = false)
+        @jodd.json.meta.JSON
+        private List<Partner> partners;
 
         @Override
         public boolean equals(Object o) {
@@ -115,7 +123,7 @@ public class Clients {
                     age == client.age &&
                     Math.abs(Double.doubleToLongBits(client.latitude) - Double.doubleToLongBits(latitude)) < 3 &&
                     Math.abs(Double.doubleToLongBits(client.longitude) - Double.doubleToLongBits(longitude)) < 3 &&
-                    Objects.equals(_id, client._id) &&
+                    Objects.equals(id, client.id) &&
                     Objects.equals(guid, client.guid) &&
                     balance.compareTo(client.balance) == 0 &&
                     Objects.equals(picture, client.picture) &&
@@ -134,7 +142,7 @@ public class Clients {
 
         @Override
         public int hashCode() {
-            return Objects.hash(_id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company,
+            return Objects.hash(id, index, guid, isActive, balance, picture, age, eyeColor, name, gender, company,
                     Arrays.hashCode(emails), Arrays.hashCode(phones), address, about, registered, tags, partners);
         }
 
@@ -153,7 +161,167 @@ public class Clients {
 
         @Override
         public String toString() {
-            return "JsonDataObj{" + "_id=" + _id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + (emails != null ? Arrays.asList(emails) : null) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
+            return "JsonDataObj{" + "id=" + id + ", index=" + index + ", guid=" + guid + ", isActive=" + isActive + ", balance=" + balance + ", picture=" + picture + ", age=" + age + ", eyeColor=" + eyeColor + ", name=" + name + ", gender=" + gender + ", company=" + company + ", emails=" + (emails != null ? Arrays.asList(emails) : null) + ", phones=" + toStr(phones) + ", address=" + address + ", about=" + about + ", registered=" + registered + ", latitude=" + latitude + ", longitude=" + longitude + ", tags=" + tags + ", partners=" + partners + '}';
+        }
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        public UUID getGuid() {
+            return guid;
+        }
+
+        public void setGuid(UUID guid) {
+            this.guid = guid;
+        }
+
+        public boolean getIsActive() {
+            return isActive;
+        }
+
+        public void setIsActive(boolean isActive) {
+            this.isActive = isActive;
+        }
+
+        public BigDecimal getBalance() {
+            return balance;
+        }
+
+        public void setBalance(BigDecimal balance) {
+            this.balance = balance;
+        }
+
+        public String getPicture() {
+            return picture;
+        }
+
+        public void setPicture(String picture) {
+            this.picture = picture;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public EyeColor getEyeColor() {
+            return eyeColor;
+        }
+
+        public void setEyeColor(EyeColor eyeColor) {
+            this.eyeColor = eyeColor;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getGender() {
+            return gender;
+        }
+
+        public void setGender(String gender) {
+            this.gender = gender;
+        }
+
+        public String getCompany() {
+            return company;
+        }
+
+        public void setCompany(String company) {
+            this.company = company;
+        }
+
+        public String[] getEmails() {
+            return emails;
+        }
+
+        public void setEmails(String[] emails) {
+            this.emails = emails;
+        }
+
+        public long[] getPhones() {
+            return phones;
+        }
+
+        public void setPhones(long[] phones) {
+            this.phones = phones;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getAbout() {
+            return about;
+        }
+
+        public void setAbout(String about) {
+            this.about = about;
+        }
+
+        public LocalDate getRegistered() {
+            return registered;
+        }
+
+        public void setRegistered(LocalDate registered) {
+            this.registered = registered;
+        }
+
+        public double getLatitude() {
+            return latitude;
+        }
+
+        public void setLatitude(double latitude) {
+            this.latitude = latitude;
+        }
+
+        public double getLongitude() {
+            return longitude;
+        }
+
+        public void setLongitude(double longitude) {
+            this.longitude = longitude;
+        }
+
+        public List<String> getTags() {
+            return tags;
+        }
+
+        public void setTags(List<String> tags) {
+            this.tags = tags;
+        }
+
+        public List<Partner> getPartners() {
+            return partners;
+        }
+
+        public void setPartners(List<Partner> partners) {
+            this.partners = partners;
         }
     }
 
@@ -230,11 +398,11 @@ public class Clients {
     public static final class Partner {
 
         @JsonField
-        public long id;
+        private long id;
         @JsonField
-        public String name;
+        private String name;
         @JsonField(typeConverter = LoganODTConverter.class)
-        public OffsetDateTime since;
+        private OffsetDateTime since;
 
         public Partner() {
         }
@@ -273,6 +441,29 @@ public class Clients {
             return "Partner{" + "id=" + id + ", name=" + name + ", since=" + since + '}';
         }
 
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public OffsetDateTime getSince() {
+            return since;
+        }
+
+        public void setSince(OffsetDateTime since) {
+            this.since = since;
+        }
     }
 
 }

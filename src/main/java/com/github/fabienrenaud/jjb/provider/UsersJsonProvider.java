@@ -17,6 +17,7 @@ import flexjson.JSONDeserializer;
 import io.avaje.jsonb.JsonType;
 import io.avaje.jsonb.stream.JsonStream;
 import io.avaje.jsonb.jackson.JacksonAdapter;
+import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.core.JsonProviderImpl;
 import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
@@ -45,6 +46,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Users> moshi = new Moshi.Builder().build().adapter(Users.class);
+    private final QsonMapper qson = new QsonMapper();
 
     /*
      * DSL-json
@@ -66,7 +68,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
-            .setAccessModeName("field") // default is "strict-method" which doesn't work nicely with public attributes
             .build();
     }
 
@@ -169,6 +170,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = ThreadLocal.withInitial(flexjson.JSONSerializer::new);
+
+    @Override
+    public QsonMapper qson() {
+        return qson;
+    }
 
     private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = ThreadLocal.withInitial(jodd.json.JsonParser::new);
 

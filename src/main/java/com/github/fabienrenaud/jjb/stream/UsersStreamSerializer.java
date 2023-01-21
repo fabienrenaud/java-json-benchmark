@@ -24,9 +24,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public org.json.JSONObject orgjson(Users obj) throws JSONException {
         org.json.JSONObject jso = new org.json.JSONObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             org.json.JSONArray jsarr = new org.json.JSONArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jsarr.put(orgjson(u));
             }
             jso.put("users", jsarr);
@@ -36,72 +36,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.json.JSONObject orgjson(User u) throws JSONException {
         org.json.JSONObject jso = new org.json.JSONObject();
-        if (u._id != null) {
-            jso.put("_id", u._id);
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
-        jso.put("index", u.index);
-        if (u.guid != null) {
-            jso.put("guid", u.guid);
+        jso.put("index", u.getIndex());
+        if (u.getGuid() != null) {
+            jso.put("guid", u.getGuid());
         }
-        jso.put("isActive", u.isActive);
-        if (u.balance != null) {
-            jso.put("balance", u.balance);
+        jso.put("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            jso.put("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            jso.put("picture", u.picture);
+        if (u.getPicture() != null) {
+            jso.put("picture", u.getPicture());
         }
-        jso.put("age", u.age);
-        if (u.eyeColor != null) {
-            jso.put("eyeColor", u.eyeColor);
+        jso.put("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            jso.put("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            jso.put("name", u.name);
+        if (u.getName() != null) {
+            jso.put("name", u.getName());
         }
-        if (u.gender != null) {
-            jso.put("gender", u.gender);
+        if (u.getGender() != null) {
+            jso.put("gender", u.getGender());
         }
-        if (u.company != null) {
-            jso.put("company", u.company);
+        if (u.getCompany() != null) {
+            jso.put("company", u.getCompany());
         }
-        if (u.email != null) {
-            jso.put("email", u.email);
+        if (u.getEmail() != null) {
+            jso.put("email", u.getEmail());
         }
-        if (u.phone != null) {
-            jso.put("phone", u.phone);
+        if (u.getPhone() != null) {
+            jso.put("phone", u.getPhone());
         }
-        if (u.address != null) {
-            jso.put("address", u.address);
+        if (u.getAddress() != null) {
+            jso.put("address", u.getAddress());
         }
-        if (u.about != null) {
-            jso.put("about", u.about);
+        if (u.getAbout() != null) {
+            jso.put("about", u.getAbout());
         }
-        if (u.registered != null) {
-            jso.put("registered", u.registered);
+        if (u.getRegistered() != null) {
+            jso.put("registered", u.getRegistered());
         }
-        jso.put("latitude", u.latitude);
-        jso.put("longitude", u.longitude);
-        if (u.tags != null) {
+        jso.put("latitude", u.getLatitude());
+        jso.put("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             org.json.JSONArray jsarr = new org.json.JSONArray();
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 jsarr.put(t);
             }
             jso.put("tags", jsarr);
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             org.json.JSONArray jsarr = new org.json.JSONArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 org.json.JSONObject jso0 = new org.json.JSONObject();
-                jso0.put("id", f.id);
-                jso0.put("name", f.name);
+                jso0.put("id", f.getId());
+                jso0.put("name", f.getName());
                 jsarr.put(jso0);
             }
             jso.put("friends", jsarr);
         }
-        if (u.greeting != null) {
-            jso.put("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            jso.put("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            jso.put("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            jso.put("favoriteFruit", u.getFavoriteFruit());
         }
         return jso;
     }
@@ -109,9 +109,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void javaxjson(javax.json.stream.JsonGenerator generator, Users obj) throws IOException {
         generator.writeStartObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             generator.writeStartArray("users");
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 javaxjson(generator, u);
             }
             generator.writeEnd();
@@ -121,72 +121,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void javaxjson(javax.json.stream.JsonGenerator generator, User u) throws IOException {
         generator.writeStartObject();
-        if (u._id != null) {
-            generator.write("_id", u._id);
+        if (u.getId() != null) {
+            generator.write("id", u.getId());
         }
-        generator.write("index",u.index);
-        if (u.guid != null) {
-            generator.write("guid",u.guid);
+        generator.write("index", u.getIndex());
+        if (u.getGuid() != null) {
+            generator.write("guid", u.getGuid());
         }
-        generator.write("isActive",u.isActive);
-        if (u.balance != null) {
-            generator.write("balance",u.balance);
+        generator.write("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            generator.write("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            generator.write("picture",u.picture);
+        if (u.getPicture() != null) {
+            generator.write("picture", u.getPicture());
         }
-        generator.write("age",u.age);
-        if (u.eyeColor != null) {
-            generator.write("eyeColor",u.eyeColor);
+        generator.write("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            generator.write("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            generator.write("name",u.name);
+        if (u.getName() != null) {
+            generator.write("name", u.getName());
         }
-        if (u.gender != null) {
-            generator.write("gender",u.gender);
+        if (u.getGender() != null) {
+            generator.write("gender", u.getGender());
         }
-        if (u.company != null) {
-            generator.write("company",u.company);
+        if (u.getCompany() != null) {
+            generator.write("company", u.getCompany());
         }
-        if (u.email != null) {
-            generator.write("email",u.email);
+        if (u.getEmail() != null) {
+            generator.write("email", u.getEmail());
         }
-        if (u.phone != null) {
-            generator.write("phone",u.phone);
+        if (u.getPhone() != null) {
+            generator.write("phone", u.getPhone());
         }
-        if (u.address != null) {
-            generator.write("address",u.address);
+        if (u.getAddress() != null) {
+            generator.write("address", u.getAddress());
         }
-        if (u.about != null) {
-            generator.write("about",u.about);
+        if (u.getAbout() != null) {
+            generator.write("about", u.getAbout());
         }
-        if (u.registered != null) {
-            generator.write("registered",u.registered);
+        if (u.getRegistered() != null) {
+            generator.write("registered", u.getRegistered());
         }
-        generator.write("latitude",u.latitude);
-        generator.write("longitude",u.longitude);
-        if (u.tags != null) {
+        generator.write("latitude", u.getLatitude());
+        generator.write("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             generator.writeStartArray("tags");
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 generator.write(t);
             }
             generator.writeEnd();
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             generator.writeStartArray("friends");
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 generator.writeStartObject();
-                generator.write("id",f.id);
-                generator.write("name",f.name);
+                generator.write("id", f.getId());
+                generator.write("name", f.getName());
                 generator.writeEnd();
             }
             generator.writeEnd();
         }
-        if (u.greeting != null) {
-            generator.write("greeting",u.greeting);
+        if (u.getGreeting() != null) {
+            generator.write("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            generator.write("favoriteFruit",u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            generator.write("favoriteFruit", u.getFavoriteFruit());
         }
         generator.writeEnd();
     }
@@ -194,10 +194,10 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void genson(ObjectWriter j, Users obj) throws IOException {
         j.beginObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             j.writeName("users");
             j.beginArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 genson(j, u);
             }
             j.endArray();
@@ -207,74 +207,74 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void genson(ObjectWriter j, User u) throws IOException {
         j.beginObject();
-        if (u._id != null) {
-            j.writeString("_id", u._id);
+        if (u.getId() != null) {
+            j.writeString("id", u.getId());
         }
-        j.writeNumber("index", u.index);
-        if (u.guid != null) {
-            j.writeString("guid", u.guid);
+        j.writeNumber("index", u.getIndex());
+        if (u.getGuid() != null) {
+            j.writeString("guid", u.getGuid());
         }
-        j.writeBoolean("isActive", u.isActive);
-        if (u.balance != null) {
-            j.writeString("balance", u.balance);
+        j.writeBoolean("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            j.writeString("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            j.writeString("picture", u.picture);
+        if (u.getPicture() != null) {
+            j.writeString("picture", u.getPicture());
         }
-        j.writeNumber("age", u.age);
-        if (u.eyeColor != null) {
-            j.writeString("eyeColor", u.eyeColor);
+        j.writeNumber("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            j.writeString("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            j.writeString("name", u.name);
+        if (u.getName() != null) {
+            j.writeString("name", u.getName());
         }
-        if (u.gender != null) {
-            j.writeString("gender", u.gender);
+        if (u.getGender() != null) {
+            j.writeString("gender", u.getGender());
         }
-        if (u.company != null) {
-            j.writeString("company", u.company);
+        if (u.getCompany() != null) {
+            j.writeString("company", u.getCompany());
         }
-        if (u.email != null) {
-            j.writeString("email", u.email);
+        if (u.getEmail() != null) {
+            j.writeString("email", u.getEmail());
         }
-        if (u.phone != null) {
-            j.writeString("phone", u.phone);
+        if (u.getPhone() != null) {
+            j.writeString("phone", u.getPhone());
         }
-        if (u.address != null) {
-            j.writeString("address", u.address);
+        if (u.getAddress() != null) {
+            j.writeString("address", u.getAddress());
         }
-        if (u.about != null) {
-            j.writeString("about", u.about);
+        if (u.getAbout() != null) {
+            j.writeString("about", u.getAbout());
         }
-        if (u.registered != null) {
-            j.writeString("registered", u.registered);
+        if (u.getRegistered() != null) {
+            j.writeString("registered", u.getRegistered());
         }
-        j.writeNumber("latitude", u.latitude);
-        j.writeNumber("longitude", u.longitude);
-        if (u.tags != null) {
+        j.writeNumber("latitude", u.getLatitude());
+        j.writeNumber("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             j.writeName("tags");
             j.beginArray();
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 j.writeString(t);
             }
             j.endArray();
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             j.writeName("friends");
             j.beginArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 j.beginObject();
-                j.writeString("id", f.id);
-                j.writeString("name", f.name);
+                j.writeString("id", f.getId());
+                j.writeString("name", f.getName());
                 j.endObject();
             }
             j.endArray();
         }
-        if (u.greeting != null) {
-            j.writeString("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            j.writeString("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            j.writeString("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            j.writeString("favoriteFruit", u.getFavoriteFruit());
         }
         j.endObject();
     }
@@ -282,10 +282,10 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void gson(JsonWriter j, Users obj) throws IOException {
         j.beginObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             j.name("users");
             j.beginArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 gson(j, u);
             }
             j.endArray();
@@ -295,96 +295,96 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void gson(JsonWriter j, User u) throws IOException {
         j.beginObject();
-        if (u._id != null) {
-            j.name("_id");
-            j.value(u._id);
+        if (u.getId() != null) {
+            j.name("id");
+            j.value(u.getId());
         }
         j.name("index");
-        j.value(u.index);
-        if (u.guid != null) {
+        j.value(u.getIndex());
+        if (u.getGuid() != null) {
             j.name("guid");
-            j.value(u.guid);
+            j.value(u.getGuid());
         }
         j.name("isActive");
-        j.value(u.isActive);
-        if (u.balance != null) {
+        j.value(u.getIsActive());
+        if (u.getBalance() != null) {
             j.name("balance");
-            j.value(u.balance);
+            j.value(u.getBalance());
         }
-        if (u.picture != null) {
+        if (u.getPicture() != null) {
             j.name("picture");
-            j.value(u.picture);
+            j.value(u.getPicture());
         }
         j.name("age");
-        j.value(u.age);
-        if (u.eyeColor != null) {
+        j.value(u.getAge());
+        if (u.getEyeColor() != null) {
             j.name("eyeColor");
-            j.value(u.eyeColor);
+            j.value(u.getEyeColor());
         }
-        if (u.name != null) {
+        if (u.getName() != null) {
             j.name("name");
-            j.value(u.name);
+            j.value(u.getName());
         }
-        if (u.gender != null) {
+        if (u.getGender() != null) {
             j.name("gender");
-            j.value(u.gender);
+            j.value(u.getGender());
         }
-        if (u.company != null) {
+        if (u.getCompany() != null) {
             j.name("company");
-            j.value(u.company);
+            j.value(u.getCompany());
         }
-        if (u.email != null) {
+        if (u.getEmail() != null) {
             j.name("email");
-            j.value(u.email);
+            j.value(u.getEmail());
         }
-        if (u.phone != null) {
+        if (u.getPhone() != null) {
             j.name("phone");
-            j.value(u.phone);
+            j.value(u.getPhone());
         }
-        if (u.address != null) {
+        if (u.getAddress() != null) {
             j.name("address");
-            j.value(u.address);
+            j.value(u.getAddress());
         }
-        if (u.about != null) {
+        if (u.getAbout() != null) {
             j.name("about");
-            j.value(u.about);
+            j.value(u.getAbout());
         }
-        if (u.registered != null) {
+        if (u.getRegistered() != null) {
             j.name("registered");
-            j.value(u.registered);
+            j.value(u.getRegistered());
         }
         j.name("latitude");
-        j.value(u.latitude);
+        j.value(u.getLatitude());
         j.name("longitude");
-        j.value(u.longitude);
-        if (u.tags != null) {
+        j.value(u.getLongitude());
+        if (u.getTags() != null) {
             j.name("tags");
             j.beginArray();
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 j.value(t);
             }
             j.endArray();
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             j.name("friends");
             j.beginArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 j.beginObject();
                 j.name("id");
-                j.value(f.id);
+                j.value(f.getId());
                 j.name("name");
-                j.value(f.name);
+                j.value(f.getName());
                 j.endObject();
             }
             j.endArray();
         }
-        if (u.greeting != null) {
+        if (u.getGreeting() != null) {
             j.name("greeting");
-            j.value(u.greeting);
+            j.value(u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
+        if (u.getFavoriteFruit() != null) {
             j.name("favoriteFruit");
-            j.value(u.favoriteFruit);
+            j.value(u.getFavoriteFruit());
         }
         j.endObject();
     }
@@ -392,10 +392,10 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void jackson(JsonGenerator j, Users obj) throws IOException {
         j.writeStartObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             j.writeFieldName("users");
             j.writeStartArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jackson(j, u);
             }
             j.writeEndArray();
@@ -405,96 +405,96 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private void jackson(JsonGenerator j, User u) throws IOException {
         j.writeStartObject();
-        if (u._id != null) {
-            j.writeFieldName("_id");
-            j.writeString(u._id);
+        if (u.getId() != null) {
+            j.writeFieldName("id");
+            j.writeString(u.getId());
         }
         j.writeFieldName("index");
-        j.writeNumber(u.index);
-        if (u.guid != null) {
+        j.writeNumber(u.getIndex());
+        if (u.getGuid() != null) {
             j.writeFieldName("guid");
-            j.writeString(u.guid);
+            j.writeString(u.getGuid());
         }
         j.writeFieldName("isActive");
-        j.writeBoolean(u.isActive);
-        if (u.balance != null) {
+        j.writeBoolean(u.getIsActive());
+        if (u.getBalance() != null) {
             j.writeFieldName("balance");
-            j.writeString(u.balance);
+            j.writeString(u.getBalance());
         }
-        if (u.picture != null) {
+        if (u.getPicture() != null) {
             j.writeFieldName("picture");
-            j.writeString(u.picture);
+            j.writeString(u.getPicture());
         }
         j.writeFieldName("age");
-        j.writeNumber(u.age);
-        if (u.eyeColor != null) {
+        j.writeNumber(u.getAge());
+        if (u.getEyeColor() != null) {
             j.writeFieldName("eyeColor");
-            j.writeString(u.eyeColor);
+            j.writeString(u.getEyeColor());
         }
-        if (u.name != null) {
+        if (u.getName() != null) {
             j.writeFieldName("name");
-            j.writeString(u.name);
+            j.writeString(u.getName());
         }
-        if (u.gender != null) {
+        if (u.getGender() != null) {
             j.writeFieldName("gender");
-            j.writeString(u.gender);
+            j.writeString(u.getGender());
         }
-        if (u.company != null) {
+        if (u.getCompany() != null) {
             j.writeFieldName("company");
-            j.writeString(u.company);
+            j.writeString(u.getCompany());
         }
-        if (u.email != null) {
+        if (u.getEmail() != null) {
             j.writeFieldName("email");
-            j.writeString(u.email);
+            j.writeString(u.getEmail());
         }
-        if (u.phone != null) {
+        if (u.getPhone() != null) {
             j.writeFieldName("phone");
-            j.writeString(u.phone);
+            j.writeString(u.getPhone());
         }
-        if (u.address != null) {
+        if (u.getAddress() != null) {
             j.writeFieldName("address");
-            j.writeString(u.address);
+            j.writeString(u.getAddress());
         }
-        if (u.about != null) {
+        if (u.getAbout() != null) {
             j.writeFieldName("about");
-            j.writeString(u.about);
+            j.writeString(u.getAbout());
         }
-        if (u.registered != null) {
+        if (u.getRegistered() != null) {
             j.writeFieldName("registered");
-            j.writeString(u.registered);
+            j.writeString(u.getRegistered());
         }
         j.writeFieldName("latitude");
-        j.writeNumber(u.latitude);
+        j.writeNumber(u.getLatitude());
         j.writeFieldName("longitude");
-        j.writeNumber(u.longitude);
-        if (u.tags != null) {
+        j.writeNumber(u.getLongitude());
+        if (u.getTags() != null) {
             j.writeFieldName("tags");
             j.writeStartArray();
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 j.writeString(t);
             }
             j.writeEndArray();
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             j.writeFieldName("friends");
             j.writeStartArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 j.writeStartObject();
                 j.writeFieldName("id");
-                j.writeString(f.id);
+                j.writeString(f.getId());
                 j.writeFieldName("name");
-                j.writeString(f.name);
+                j.writeString(f.getName());
                 j.writeEndObject();
             }
             j.writeEndArray();
         }
-        if (u.greeting != null) {
+        if (u.getGreeting() != null) {
             j.writeFieldName("greeting");
-            j.writeString(u.greeting);
+            j.writeString(u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
+        if (u.getFavoriteFruit() != null) {
             j.writeFieldName("favoriteFruit");
-            j.writeString(u.favoriteFruit);
+            j.writeString(u.getFavoriteFruit());
         }
         j.writeEndObject();
     }
@@ -502,9 +502,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public org.json.simple.JSONObject jsonsimple(Users obj) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jsarr.add(jsonsimple(u));
             }
             jso.put("users", jsarr);
@@ -514,70 +514,70 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.json.simple.JSONObject jsonsimple(User u) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
-        if (u._id != null) {
-            jso.put("_id", u._id);
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
-        jso.put("index", u.index);
-        if (u.guid != null) {
-            jso.put("guid", u.guid);
+        jso.put("index", u.getIndex());
+        if (u.getGuid() != null) {
+            jso.put("guid", u.getGuid());
         }
-        jso.put("isActive", u.isActive);
-        if (u.balance != null) {
-            jso.put("balance", u.balance);
+        jso.put("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            jso.put("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            jso.put("picture", u.picture);
+        if (u.getPicture() != null) {
+            jso.put("picture", u.getPicture());
         }
-        jso.put("age", u.age);
-        if (u.eyeColor != null) {
-            jso.put("eyeColor", u.eyeColor);
+        jso.put("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            jso.put("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            jso.put("name", u.name);
+        if (u.getName() != null) {
+            jso.put("name", u.getName());
         }
-        if (u.gender != null) {
-            jso.put("gender", u.gender);
+        if (u.getGender() != null) {
+            jso.put("gender", u.getGender());
         }
-        if (u.company != null) {
-            jso.put("company", u.company);
+        if (u.getCompany() != null) {
+            jso.put("company", u.getCompany());
         }
-        if (u.email != null) {
-            jso.put("email", u.email);
+        if (u.getEmail() != null) {
+            jso.put("email", u.getEmail());
         }
-        if (u.phone != null) {
-            jso.put("phone", u.phone);
+        if (u.getPhone() != null) {
+            jso.put("phone", u.getPhone());
         }
-        if (u.address != null) {
-            jso.put("address", u.address);
+        if (u.getAddress() != null) {
+            jso.put("address", u.getAddress());
         }
-        if (u.about != null) {
-            jso.put("about", u.about);
+        if (u.getAbout() != null) {
+            jso.put("about", u.getAbout());
         }
-        if (u.registered != null) {
-            jso.put("registered", u.registered);
+        if (u.getRegistered() != null) {
+            jso.put("registered", u.getRegistered());
         }
-        jso.put("latitude", u.latitude);
-        jso.put("longitude", u.longitude);
-        if (u.tags != null) {
+        jso.put("latitude", u.getLatitude());
+        jso.put("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
-            jsarr.addAll(u.tags);
+            jsarr.addAll(u.getTags());
             jso.put("tags", jsarr);
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             org.json.simple.JSONArray jsarr = new org.json.simple.JSONArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 org.json.simple.JSONObject jso0 = new org.json.simple.JSONObject();
-                jso0.put("id", f.id);
-                jso0.put("name", f.name);
+                jso0.put("id", f.getId());
+                jso0.put("name", f.getName());
                 jsarr.add(jso0);
             }
             jso.put("friends", jsarr);
         }
-        if (u.greeting != null) {
-            jso.put("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            jso.put("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            jso.put("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            jso.put("favoriteFruit", u.getFavoriteFruit());
         }
         return jso;
     }
@@ -585,9 +585,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public void nanojson(JsonAppendableWriter w, Users obj) throws IOException {
         JsonAppendableWriter cw = w.object();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             cw.array("users");
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 cw = nanojson(cw, u);
             }
             cw.end();
@@ -597,72 +597,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private JsonAppendableWriter nanojson(JsonAppendableWriter w, User u) throws IOException {
         JsonAppendableWriter cw = w.object();
-        if (u._id != null) {
-            cw.value("_id", u._id);
+        if (u.getId() != null) {
+            cw.value("id", u.getId());
         }
-        cw.value("index", u.index);
-        if (u.guid != null) {
-            cw.value("guid", u.guid);
+        cw.value("index", u.getIndex());
+        if (u.getGuid() != null) {
+            cw.value("guid", u.getGuid());
         }
-        cw.value("isActive", u.isActive);
-        if (u.balance != null) {
-            cw.value("balance", u.balance);
+        cw.value("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            cw.value("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            cw.value("picture", u.picture);
+        if (u.getPicture() != null) {
+            cw.value("picture", u.getPicture());
         }
-        cw.value("age", u.age);
-        if (u.eyeColor != null) {
-            cw.value("eyeColor", u.eyeColor);
+        cw.value("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            cw.value("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            cw.value("name", u.name);
+        if (u.getName() != null) {
+            cw.value("name", u.getName());
         }
-        if (u.gender != null) {
-            cw.value("gender", u.gender);
+        if (u.getGender() != null) {
+            cw.value("gender", u.getGender());
         }
-        if (u.company != null) {
-            cw.value("company", u.company);
+        if (u.getCompany() != null) {
+            cw.value("company", u.getCompany());
         }
-        if (u.email != null) {
-            cw.value("email", u.email);
+        if (u.getEmail() != null) {
+            cw.value("email", u.getEmail());
         }
-        if (u.phone != null) {
-            cw.value("phone", u.phone);
+        if (u.getPhone() != null) {
+            cw.value("phone", u.getPhone());
         }
-        if (u.address != null) {
-            cw.value("address", u.address);
+        if (u.getAddress() != null) {
+            cw.value("address", u.getAddress());
         }
-        if (u.about != null) {
-            cw.value("about", u.about);
+        if (u.getAbout() != null) {
+            cw.value("about", u.getAbout());
         }
-        if (u.registered != null) {
-            cw.value("registered", u.registered);
+        if (u.getRegistered() != null) {
+            cw.value("registered", u.getRegistered());
         }
-        cw.value("latitude", u.latitude);
-        cw.value("longitude", u.longitude);
-        if (u.tags != null) {
+        cw.value("latitude", u.getLatitude());
+        cw.value("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             cw.array("tags");
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 cw.value(t);
             }
             cw.end();
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             cw.array("friends");
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 cw.object();
-                cw.value("id", f.id);
-                cw.value("name", f.name);
+                cw.value("id", f.getId());
+                cw.value("name", f.getName());
                 cw.end();
             }
             cw.end();
         }
-        if (u.greeting != null) {
-            cw.value("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            cw.value("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            cw.value("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            cw.value("favoriteFruit", u.getFavoriteFruit());
         }
         cw.end();
         return cw;
@@ -671,9 +671,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public org.apache.tapestry5.json.JSONObject tapestry(Users obj) throws IOException {
         org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jsarr.add(tapestry(u));
             }
             jso.put("users", jsarr);
@@ -683,70 +683,70 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private org.apache.tapestry5.json.JSONObject tapestry(User u) throws IOException {
         org.apache.tapestry5.json.JSONObject jso = new org.apache.tapestry5.json.JSONObject();
-        if (u._id != null) {
-            jso.put("_id", u._id);
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
-        jso.put("index", u.index);
-        if (u.guid != null) {
-            jso.put("guid", u.guid);
+        jso.put("index", u.getIndex());
+        if (u.getGuid() != null) {
+            jso.put("guid", u.getGuid());
         }
-        jso.put("isActive", u.isActive);
-        if (u.balance != null) {
-            jso.put("balance", u.balance);
+        jso.put("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            jso.put("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            jso.put("picture", u.picture);
+        if (u.getPicture() != null) {
+            jso.put("picture", u.getPicture());
         }
-        jso.put("age", u.age);
-        if (u.eyeColor != null) {
-            jso.put("eyeColor", u.eyeColor);
+        jso.put("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            jso.put("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            jso.put("name", u.name);
+        if (u.getName() != null) {
+            jso.put("name", u.getName());
         }
-        if (u.gender != null) {
-            jso.put("gender", u.gender);
+        if (u.getGender() != null) {
+            jso.put("gender", u.getGender());
         }
-        if (u.company != null) {
-            jso.put("company", u.company);
+        if (u.getCompany() != null) {
+            jso.put("company", u.getCompany());
         }
-        if (u.email != null) {
-            jso.put("email", u.email);
+        if (u.getEmail() != null) {
+            jso.put("email", u.getEmail());
         }
-        if (u.phone != null) {
-            jso.put("phone", u.phone);
+        if (u.getPhone() != null) {
+            jso.put("phone", u.getPhone());
         }
-        if (u.address != null) {
-            jso.put("address", u.address);
+        if (u.getAddress() != null) {
+            jso.put("address", u.getAddress());
         }
-        if (u.about != null) {
-            jso.put("about", u.about);
+        if (u.getAbout() != null) {
+            jso.put("about", u.getAbout());
         }
-        if (u.registered != null) {
-            jso.put("registered", u.registered);
+        if (u.getRegistered() != null) {
+            jso.put("registered", u.getRegistered());
         }
-        jso.put("latitude", u.latitude);
-        jso.put("longitude", u.longitude);
-        if (u.tags != null) {
+        jso.put("latitude", u.getLatitude());
+        jso.put("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
-            jsarr.addAll(u.tags);
+            jsarr.addAll(u.getTags());
             jso.put("tags", jsarr);
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             org.apache.tapestry5.json.JSONArray jsarr = new org.apache.tapestry5.json.JSONArray();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 org.apache.tapestry5.json.JSONObject jso0 = new org.apache.tapestry5.json.JSONObject();
-                jso0.put("id", f.id);
-                jso0.put("name", f.name);
+                jso0.put("id", f.getId());
+                jso0.put("name", f.getName());
                 jsarr.add(jso0);
             }
             jso.put("friends", jsarr);
         }
-        if (u.greeting != null) {
-            jso.put("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            jso.put("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            jso.put("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            jso.put("favoriteFruit", u.getFavoriteFruit());
         }
         return jso;
     }
@@ -754,9 +754,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public com.eclipsesource.json.JsonValue minimaljson(Users obj) throws IOException {
         com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jsarr.add(minimaljson(u));
             }
             jso.add("users", jsarr);
@@ -766,72 +766,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private com.eclipsesource.json.JsonValue minimaljson(User u) throws IOException {
         com.eclipsesource.json.JsonObject jso = com.eclipsesource.json.Json.object();
-        if (u._id != null) {
-            jso.add("_id", u._id);
+        if (u.getId() != null) {
+            jso.add("id", u.getId());
         }
-        jso.add("index", u.index);
-        if (u.guid != null) {
-            jso.add("guid", u.guid);
+        jso.add("index", u.getIndex());
+        if (u.getGuid() != null) {
+            jso.add("guid", u.getGuid());
         }
-        jso.add("isActive", u.isActive);
-        if (u.balance != null) {
-            jso.add("balance", u.balance);
+        jso.add("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            jso.add("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            jso.add("picture", u.picture);
+        if (u.getPicture() != null) {
+            jso.add("picture", u.getPicture());
         }
-        jso.add("age", u.age);
-        if (u.eyeColor != null) {
-            jso.add("eyeColor", u.eyeColor);
+        jso.add("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            jso.add("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            jso.add("name", u.name);
+        if (u.getName() != null) {
+            jso.add("name", u.getName());
         }
-        if (u.gender != null) {
-            jso.add("gender", u.gender);
+        if (u.getGender() != null) {
+            jso.add("gender", u.getGender());
         }
-        if (u.company != null) {
-            jso.add("company", u.company);
+        if (u.getCompany() != null) {
+            jso.add("company", u.getCompany());
         }
-        if (u.email != null) {
-            jso.add("email", u.email);
+        if (u.getEmail() != null) {
+            jso.add("email", u.getEmail());
         }
-        if (u.phone != null) {
-            jso.add("phone", u.phone);
+        if (u.getPhone() != null) {
+            jso.add("phone", u.getPhone());
         }
-        if (u.address != null) {
-            jso.add("address", u.address);
+        if (u.getAddress() != null) {
+            jso.add("address", u.getAddress());
         }
-        if (u.about != null) {
-            jso.add("about", u.about);
+        if (u.getAbout() != null) {
+            jso.add("about", u.getAbout());
         }
-        if (u.registered != null) {
-            jso.add("registered", u.registered);
+        if (u.getRegistered() != null) {
+            jso.add("registered", u.getRegistered());
         }
-        jso.add("latitude", u.latitude);
-        jso.add("longitude", u.longitude);
-        if (u.tags != null) {
+        jso.add("latitude", u.getLatitude());
+        jso.add("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
-            for (String t : u.tags) {
+            for (String t : u.getTags()) {
                 jsarr.add(t);
             }
             jso.add("tags", jsarr);
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             com.eclipsesource.json.JsonArray jsarr = com.eclipsesource.json.Json.array();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 com.eclipsesource.json.JsonObject jso0 = com.eclipsesource.json.Json.object();
-                jso0.add("id", f.id);
-                jso0.add("name", f.name);
+                jso0.add("id", f.getId());
+                jso0.add("name", f.getName());
                 jsarr.add(jso0);
             }
             jso.add("friends", jsarr);
         }
-        if (u.greeting != null) {
-            jso.add("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            jso.add("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            jso.add("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            jso.add("favoriteFruit", u.getFavoriteFruit());
         }
         return jso;
     }
@@ -840,10 +840,10 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     public void moshi(com.squareup.moshi.JsonWriter writer, Users obj) throws IOException {
         writer.beginObject();
 
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             writer.name("users");
             writer.beginArray();
-            for (User user : obj.users) {
+            for (User user : obj.getUsers()) {
                 moshiUser(writer, user);
             }
             writer.endArray();
@@ -855,113 +855,113 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private void moshiUser(com.squareup.moshi.JsonWriter writer, User user) throws IOException {
         writer.beginObject();
 
-        if (user._id != null) {
-            writer.name("_id");
-            writer.value(user._id);
+        if (user.getId() != null) {
+            writer.name("id");
+            writer.value(user.getId());
         }
 
         writer.name("index");
-        writer.value(user.index);
+        writer.value(user.getIndex());
 
 
-        if (user.guid != null) {
+        if (user.getGuid() != null) {
             writer.name("guid");
-            writer.value(user.guid);
+            writer.value(user.getGuid());
         }
 
         writer.name("isActive");
-        writer.value(user.isActive);
+        writer.value(user.getIsActive());
 
-        if (user.balance != null) {
+        if (user.getBalance() != null) {
             writer.name("balance");
-            writer.value(user.balance);
+            writer.value(user.getBalance());
         }
 
-        if (user.picture != null) {
+        if (user.getPicture() != null) {
             writer.name("picture");
-            writer.value(user.picture);
+            writer.value(user.getPicture());
         }
 
         writer.name("age");
-        writer.value(user.age);
+        writer.value(user.getAge());
 
-        if (user.eyeColor != null) {
+        if (user.getEyeColor() != null) {
             writer.name("eyeColor");
-            writer.value(user.eyeColor);
+            writer.value(user.getEyeColor());
         }
 
-        if (user.name != null) {
+        if (user.getName() != null) {
             writer.name("name");
-            writer.value(user.name);
+            writer.value(user.getName());
         }
 
-        if (user.gender != null) {
+        if (user.getGender() != null) {
             writer.name("gender");
-            writer.value(user.gender);
+            writer.value(user.getGender());
         }
 
-        if (user.company != null) {
+        if (user.getCompany() != null) {
             writer.name("company");
-            writer.value(user.company);
+            writer.value(user.getCompany());
         }
 
-        if (user.email != null) {
+        if (user.getEmail() != null) {
             writer.name("email");
-            writer.value(user.email);
+            writer.value(user.getEmail());
         }
 
-        if (user.phone != null) {
+        if (user.getPhone() != null) {
             writer.name("phone");
-            writer.value(user.phone);
+            writer.value(user.getPhone());
         }
 
-        if (user.address != null) {
+        if (user.getAddress() != null) {
             writer.name("address");
-            writer.value(user.address);
+            writer.value(user.getAddress());
         }
 
-        if (user.about != null) {
+        if (user.getAbout() != null) {
             writer.name("about");
-            writer.value(user.about);
+            writer.value(user.getAbout());
         }
 
-        if (user.registered != null) {
+        if (user.getRegistered() != null) {
             writer.name("registered");
-            writer.value(user.registered);
+            writer.value(user.getRegistered());
         }
 
         writer.name("latitude");
-        writer.value(user.latitude);
+        writer.value(user.getLatitude());
 
         writer.name("longitude");
-        writer.value(user.longitude);
+        writer.value(user.getLongitude());
 
-        if (user.tags != null) {
+        if (user.getTags() != null) {
             writer.name("tags");
             writer.beginArray();
-            for (String tag : user.tags) {
+            for (String tag : user.getTags()) {
                 writer.value(tag);
             }
             writer.endArray();
         }
 
-        if (user.friends != null) {
+        if (user.getFriends() != null) {
             writer.name("friends");
             writer.beginArray();
-            for (Friend friend : user.friends) {
+            for (Friend friend : user.getFriends()) {
                 moshiFriend(writer, friend);
             }
             writer.endArray();
         }
 
-        if (user.greeting != null) {
+        if (user.getGreeting() != null) {
             writer.name("greeting");
-            writer.value(user.greeting);
+            writer.value(user.getGreeting());
         }
 
-        if (user.favoriteFruit != null) {
+        if (user.getFavoriteFruit() != null) {
             writer.name("favoriteFruit");
-            writer.value(user.favoriteFruit);
+            writer.value(user.getFavoriteFruit());
         }
 
         writer.endObject();
@@ -970,14 +970,14 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private void moshiFriend(com.squareup.moshi.JsonWriter writer, Friend friend) throws IOException {
         writer.beginObject();
 
-        if (friend.id != null) {
+        if (friend.getId() != null) {
             writer.name("id");
-            writer.value(friend.id);
+            writer.value(friend.getId());
         }
 
-        if (friend.name != null) {
+        if (friend.getName() != null) {
             writer.name("name");
-            writer.value(friend.name);
+            writer.value(friend.getName());
         }
 
         writer.endObject();
@@ -986,9 +986,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public mjson.Json mjson(Users obj) throws IOException {
         mjson.Json usersJson = mjson.Json.object();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             mjson.Json usersArr = mjson.Json.array();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 usersArr.add(mjson(u));
             }
             usersJson.set("users", usersArr);
@@ -998,72 +998,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private mjson.Json mjson(User user) throws IOException {
         mjson.Json userJson = mjson.Json.object();
-        if (user._id != null) {
-            userJson.set("_id", user._id);
+        if (user.getId() != null) {
+            userJson.set("id", user.getId());
         }
-        userJson.set("index", user.index);
-        if (user.guid != null) {
-            userJson.set("guid", user.guid);
+        userJson.set("index", user.getIndex());
+        if (user.getGuid() != null) {
+            userJson.set("guid", user.getGuid());
         }
-        userJson.set("isActive", user.isActive);
-        if (user.balance != null) {
-            userJson.set("balance", user.balance);
+        userJson.set("isActive", user.getIsActive());
+        if (user.getBalance() != null) {
+            userJson.set("balance", user.getBalance());
         }
-        if (user.picture != null) {
-            userJson.set("picture", user.picture);
+        if (user.getPicture() != null) {
+            userJson.set("picture", user.getPicture());
         }
-        userJson.set("age", user.age);
-        if (user.eyeColor != null) {
-            userJson.set("eyeColor", user.eyeColor);
+        userJson.set("age", user.getAge());
+        if (user.getEyeColor() != null) {
+            userJson.set("eyeColor", user.getEyeColor());
         }
-        if (user.name != null) {
-            userJson.set("name", user.name);
+        if (user.getName() != null) {
+            userJson.set("name", user.getName());
         }
-        if (user.gender != null) {
-            userJson.set("gender", user.gender);
+        if (user.getGender() != null) {
+            userJson.set("gender", user.getGender());
         }
-        if (user.company != null) {
-            userJson.set("company", user.company);
+        if (user.getCompany() != null) {
+            userJson.set("company", user.getCompany());
         }
-        if (user.email != null) {
-            userJson.set("email", user.email);
+        if (user.getEmail() != null) {
+            userJson.set("email", user.getEmail());
         }
-        if (user.phone != null) {
-            userJson.set("phone", user.phone);
+        if (user.getPhone() != null) {
+            userJson.set("phone", user.getPhone());
         }
-        if (user.address != null) {
-            userJson.set("address", user.address);
+        if (user.getAddress() != null) {
+            userJson.set("address", user.getAddress());
         }
-        if (user.about != null) {
-            userJson.set("about", user.about);
+        if (user.getAbout() != null) {
+            userJson.set("about", user.getAbout());
         }
-        if (user.registered != null) {
-            userJson.set("registered", user.registered);
+        if (user.getRegistered() != null) {
+            userJson.set("registered", user.getRegistered());
         }
-        userJson.set("latitude", user.latitude);
-        userJson.set("longitude", user.longitude);
-        if (user.tags != null) {
+        userJson.set("latitude", user.getLatitude());
+        userJson.set("longitude", user.getLongitude());
+        if (user.getTags() != null) {
             mjson.Json tagsArr = mjson.Json.array();
-            for (String tag : user.tags) {
+            for (String tag : user.getTags()) {
                 tagsArr.add(tag);
             }
             userJson.set("tags", tagsArr);
         }
-        if (user.friends != null) {
+        if (user.getFriends() != null) {
             mjson.Json friendsArr = mjson.Json.array();
-            for (Friend friend : user.friends) {
+            for (Friend friend : user.getFriends()) {
                 mjson.Json friendJson = mjson.Json.object();
-                friendJson.set("id", friend.id);
-                friendJson.set("name", friend.name);
+                friendJson.set("id", friend.getId());
+                friendJson.set("name", friend.getName());
                 friendsArr.add(friendJson);
             }
             userJson.set("friends", friendsArr);
         }
-        if (user.greeting != null) {
-            userJson.set("greeting", user.greeting);
+        if (user.getGreeting() != null) {
+            userJson.set("greeting", user.getGreeting());
         }
-        if (user.favoriteFruit != null) {
-            userJson.set("favoriteFruit", user.favoriteFruit);
+        if (user.getFavoriteFruit() != null) {
+            userJson.set("favoriteFruit", user.getFavoriteFruit());
         }
         return userJson;
     }
@@ -1071,9 +1071,9 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     @Override
     public String underscore_java(Users obj) throws IOException {
         Map<String, Object> jso = new LinkedHashMap<>();
-        if (obj.users != null) {
+        if (obj.getUsers() != null) {
             List<Object> jsarr = new ArrayList<>();
-            for (User u : obj.users) {
+            for (User u : obj.getUsers()) {
                 jsarr.add(underscore_java(u));
             }
             jso.put("users", jsarr);
@@ -1083,79 +1083,79 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
 
     private Map<String, Object> underscore_java(User u) throws IOException {
         Map<String, Object> jso = new LinkedHashMap<>();
-        if (u._id != null) {
-            jso.put("_id", u._id);
+        if (u.getId() != null) {
+            jso.put("id", u.getId());
         }
-        jso.put("index", u.index);
-        if (u.guid != null) {
-            jso.put("guid", u.guid);
+        jso.put("index", u.getIndex());
+        if (u.getGuid() != null) {
+            jso.put("guid", u.getGuid());
         }
-        jso.put("isActive", u.isActive);
-        if (u.balance != null) {
-            jso.put("balance", u.balance);
+        jso.put("isActive", u.getIsActive());
+        if (u.getBalance() != null) {
+            jso.put("balance", u.getBalance());
         }
-        if (u.picture != null) {
-            jso.put("picture", u.picture);
+        if (u.getPicture() != null) {
+            jso.put("picture", u.getPicture());
         }
-        jso.put("age", u.age);
-        if (u.eyeColor != null) {
-            jso.put("eyeColor", u.eyeColor);
+        jso.put("age", u.getAge());
+        if (u.getEyeColor() != null) {
+            jso.put("eyeColor", u.getEyeColor());
         }
-        if (u.name != null) {
-            jso.put("name", u.name);
+        if (u.getName() != null) {
+            jso.put("name", u.getName());
         }
-        if (u.gender != null) {
-            jso.put("gender", u.gender);
+        if (u.getGender() != null) {
+            jso.put("gender", u.getGender());
         }
-        if (u.company != null) {
-            jso.put("company", u.company);
+        if (u.getCompany() != null) {
+            jso.put("company", u.getCompany());
         }
-        if (u.email != null) {
-            jso.put("email", u.email);
+        if (u.getEmail() != null) {
+            jso.put("email", u.getEmail());
         }
-        if (u.phone != null) {
-            jso.put("phone", u.phone);
+        if (u.getPhone() != null) {
+            jso.put("phone", u.getPhone());
         }
-        if (u.address != null) {
-            jso.put("address", u.address);
+        if (u.getAddress() != null) {
+            jso.put("address", u.getAddress());
         }
-        if (u.about != null) {
-            jso.put("about", u.about);
+        if (u.getAbout() != null) {
+            jso.put("about", u.getAbout());
         }
-        if (u.registered != null) {
-            jso.put("registered", u.registered);
+        if (u.getRegistered() != null) {
+            jso.put("registered", u.getRegistered());
         }
-        jso.put("latitude", u.latitude);
-        jso.put("longitude", u.longitude);
-        if (u.tags != null) {
+        jso.put("latitude", u.getLatitude());
+        jso.put("longitude", u.getLongitude());
+        if (u.getTags() != null) {
             List<Object> jsarr = new ArrayList<>();
-            jsarr.addAll(u.tags);
+            jsarr.addAll(u.getTags());
             jso.put("tags", jsarr);
         }
-        if (u.friends != null) {
+        if (u.getFriends() != null) {
             List<Object> jsarr = new ArrayList<>();
-            for (Friend f : u.friends) {
+            for (Friend f : u.getFriends()) {
                 Map<String, Object> jso0 = new LinkedHashMap<>();
-                jso0.put("id", f.id);
-                jso0.put("name", f.name);
+                jso0.put("id", f.getId());
+                jso0.put("name", f.getName());
                 jsarr.add(jso0);
             }
             jso.put("friends", jsarr);
         }
-        if (u.greeting != null) {
-            jso.put("greeting", u.greeting);
+        if (u.getGreeting() != null) {
+            jso.put("greeting", u.getGreeting());
         }
-        if (u.favoriteFruit != null) {
-            jso.put("favoriteFruit", u.favoriteFruit);
+        if (u.getFavoriteFruit() != null) {
+            jso.put("favoriteFruit", u.getFavoriteFruit());
         }
         return jso;
     }
 
     @Override
     public Value purejson(Users obj) {
-        Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.users.size());
-        List<Value> arr = new ArrayList<>(obj.users.size());
-        for (User u : obj.users) {
+        Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>(obj.getUsers().size());
+        List<Value> arr = new ArrayList<>(obj.getUsers().size());
+        for (User u : obj.getUsers()) {
             arr.add(purejson(u));
         }
         map.put(Value.string("users"), Value.arr(arr));
@@ -1165,72 +1165,72 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private Parser.Value purejson(User u) {
         Map<Parser.Value, Parser.Value> map = new LinkedHashMap<>();
 
-        if (u._id != null) {
-            map.put(Value.string("_id"), Value.string(u._id));
+        if (u.getId() != null) {
+            map.put(Value.string("id"), Value.string(u.getId()));
         }
-        map.put(Value.string("index"), Value.integer(u.index));
-        if (u.guid != null) {
-            map.put(Value.string("guid"), Value.string(u.guid));
+        map.put(Value.string("index"), Value.integer(u.getIndex()));
+        if (u.getGuid() != null) {
+            map.put(Value.string("guid"), Value.string(u.getGuid()));
         }
-        map.put(Value.string("isActive"), Value.bool(u.isActive));
-        if (u.balance != null) {
-            map.put(Value.string("balance"), Value.string(u.balance));
+        map.put(Value.string("isActive"), Value.bool(u.getIsActive()));
+        if (u.getBalance() != null) {
+            map.put(Value.string("balance"), Value.string(u.getBalance()));
         }
-        if (u.picture != null) {
-            map.put(Value.string("picture"), Value.string(u.picture));
+        if (u.getPicture() != null) {
+            map.put(Value.string("picture"), Value.string(u.getPicture()));
         }
-        map.put(Value.string("age"), Value.integer(u.age));
-        if (u.eyeColor != null) {
-            map.put(Value.string("eyeColor"), Value.string(u.eyeColor));
+        map.put(Value.string("age"), Value.integer(u.getAge()));
+        if (u.getEyeColor() != null) {
+            map.put(Value.string("eyeColor"), Value.string(u.getEyeColor()));
         }
-        if (u.name != null) {
-            map.put(Value.string("name"), Value.string(u.name));
+        if (u.getName() != null) {
+            map.put(Value.string("name"), Value.string(u.getName()));
         }
-        if (u.gender != null) {
-            map.put(Value.string("gender"), Value.string(u.gender));
+        if (u.getGender() != null) {
+            map.put(Value.string("gender"), Value.string(u.getGender()));
         }
-        if (u.company != null) {
-            map.put(Value.string("company"), Value.string(u.company));
+        if (u.getCompany() != null) {
+            map.put(Value.string("company"), Value.string(u.getCompany()));
         }
-        if (u.email != null) {
-            map.put(Value.string("email"), Value.string(u.email));
+        if (u.getEmail() != null) {
+            map.put(Value.string("email"), Value.string(u.getEmail()));
         }
-        if (u.phone != null) {
-            map.put(Value.string("phone"), Value.string(u.phone));
+        if (u.getPhone() != null) {
+            map.put(Value.string("phone"), Value.string(u.getPhone()));
         }
-        if (u.address != null) {
-            map.put(Value.string("address"), Value.string(u.address));
+        if (u.getAddress() != null) {
+            map.put(Value.string("address"), Value.string(u.getAddress()));
         }
-        if (u.about != null) {
-            map.put(Value.string("about"), Value.string(u.about));
+        if (u.getAbout() != null) {
+            map.put(Value.string("about"), Value.string(u.getAbout()));
         }
-        if (u.registered != null) {
-            map.put(Value.string("registered"), Value.string(u.registered));
+        if (u.getRegistered() != null) {
+            map.put(Value.string("registered"), Value.string(u.getRegistered()));
         }
-        map.put(Value.string("latitude"), Value.number(u.latitude));
-        map.put(Value.string("longitude"), Value.number(u.longitude));
-        if (u.tags != null) {
-            List<Parser.Value> jsarr = new ArrayList<>(u.tags.size());
-            for (String t : u.tags) {
+        map.put(Value.string("latitude"), Value.number(u.getLatitude()));
+        map.put(Value.string("longitude"), Value.number(u.getLongitude()));
+        if (u.getTags() != null) {
+            List<Parser.Value> jsarr = new ArrayList<>(u.getTags().size());
+            for (String t : u.getTags()) {
                 jsarr.add(Value.string(t));
             }
             map.put(Value.string("tags"), Value.arr(jsarr));
         }
-        if (u.friends != null) {
-            List<Value> jsarr = new ArrayList<>(u.friends.size());
-            for (Friend f : u.friends) {
+        if (u.getFriends() != null) {
+            List<Value> jsarr = new ArrayList<>(u.getFriends().size());
+            for (Friend f : u.getFriends()) {
                 Map<Value, Value> jso0 = new LinkedHashMap<>();
-                jso0.put(Value.string("id"), Value.string(f.id));
-                jso0.put(Value.string("name"), Value.string(f.name));
+                jso0.put(Value.string("id"), Value.string(f.getId()));
+                jso0.put(Value.string("name"), Value.string(f.getName()));
                 jsarr.add(Value.json(jso0));
             }
             map.put(Value.string("friends"), Value.arr(jsarr));
         }
-        if (u.greeting != null) {
-            map.put(Value.string("greeting"), Value.string(u.greeting));
+        if (u.getGreeting() != null) {
+            map.put(Value.string("greeting"), Value.string(u.getGreeting()));
         }
-        if (u.favoriteFruit != null) {
-            map.put(Value.string("favoriteFruit"), Value.string(u.favoriteFruit));
+        if (u.getFavoriteFruit() != null) {
+            map.put(Value.string("favoriteFruit"), Value.string(u.getFavoriteFruit()));
         }
         return Parser.Value.json(map);
     }

@@ -264,4 +264,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.PUREJSON, BENCH.purejson());
         }
     }
+
+    @Test
+    public void qson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.QSON, BENCH.qson());
+        }
+    }
 }

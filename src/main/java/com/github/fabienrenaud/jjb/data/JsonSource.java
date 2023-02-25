@@ -16,10 +16,6 @@ import java.io.Reader;
 
 public abstract class JsonSource<T> {
 
-    static {
-        JsonSourceInits.jsoniter();
-    }
-
     private final JsonProvider<T> provider;
 
     private final T[] jsonAsObject;

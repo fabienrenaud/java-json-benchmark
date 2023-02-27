@@ -75,6 +75,8 @@ dependencies {
     implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.14.0'
     // tapestry
     implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
+    // jsoniter
+    implementation group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
     implementation group: 'org.javassist', name: 'javassist', version: '3.29.2-GA'
     // minimal-json
     implementation group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'

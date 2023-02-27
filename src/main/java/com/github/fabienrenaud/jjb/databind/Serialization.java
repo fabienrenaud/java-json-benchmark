@@ -164,6 +164,14 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object jsoniter() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        com.jsoniter.output.JsonStream.serialize(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
+
+    @Benchmark
+    @Override
     public Object qson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         JSON_SOURCE().provider().qson().writeStream(JSON_SOURCE().nextPojo(), baos);

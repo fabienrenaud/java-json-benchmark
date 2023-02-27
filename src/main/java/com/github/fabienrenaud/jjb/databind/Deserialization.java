@@ -133,6 +133,12 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object jsoniter() throws Exception {
+        return com.jsoniter.JsonIterator.deserialize(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
+    }
+
+    @Benchmark
+    @Override
     public Object qson() throws Exception {
         return JSON_SOURCE().provider().qson().read(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
     }

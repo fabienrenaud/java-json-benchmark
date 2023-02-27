@@ -28,6 +28,7 @@ public enum Library {
     JODD,
     MOSHI,
     TAPESTRY,
+    JSONITER,
     MINIMALJSON,
     MJSON,
     QSON,

@@ -231,6 +231,13 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
+    public void jsoniter() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JSONITER, BENCH.jsoniter());
+        }
+    }
+
+    @Test
     public void minimaljson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.MINIMALJSON, BENCH.minimaljson());

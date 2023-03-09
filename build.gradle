@@ -6,11 +6,11 @@ plugins {
 }
 
 group = 'com.github.fabienrenaud'
-version = '7'
+version = '8'
 mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     mavenCentral()
@@ -87,9 +87,9 @@ dependencies {
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // avaje-jsonb
-    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '1.1'
-    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '1.1'
-    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '1.1'
+    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '1.3-RC4'
+    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '1.3-RC4'
+    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '1.3-RC4'
     // qson
     implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
 

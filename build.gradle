@@ -17,8 +17,9 @@ repositories {
 }
 
 ext {
-    jacksonVersion = '2.13.4'
-    dslJsonVersion = '1.9.9'
+    avajeJsonVersion = '1.4'
+    jacksonVersion = '2.14.2'
+    dslJsonVersion = '1.10.0'
     johnzonVersion = '1.2.19'
     jmhVersion = '1.35'
 }
@@ -30,14 +31,14 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
     // org.json
-    implementation group: 'org.json', name: 'json', version: '20220924'
+    implementation group: 'org.json', name: 'json', version: '20230227'
     // Jackson
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: "${jacksonVersion}"
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-blackbird', version: "${jacksonVersion}"
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonVersion}"
     // GSON
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
     // JSONP
     implementation group: 'javax.json', name: 'javax.json-api', version: '1.1.4'
     implementation group: 'org.glassfish', name: 'javax.json', version: '1.1.4'
@@ -58,7 +59,7 @@ dependencies {
     implementation group: 'org.apache.johnzon', name: 'johnzon-core', version: "${johnzonVersion}"
     implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', version: "${johnzonVersion}"
     // json-smart
-    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.8'
+    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.10'
     // DSL-json
     implementation group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     annotationProcessor group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
@@ -68,28 +69,25 @@ dependencies {
     // json-simple
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     // nanojson
-    implementation group: 'com.grack', name: 'nanojson', version: '1.7'
+    implementation group: 'com.grack', name: 'nanojson', version: '1.8'
     // jodd
     implementation group: 'org.jodd', name: 'jodd-json', version: '6.0.3'
     // moshi
     implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.14.0'
     // tapestry
     implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
-    // jsoniter
-    implementation group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
-    implementation group: 'org.javassist', name: 'javassist', version: '3.29.2-GA'
     // minimal-json
     implementation group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'
     // mjson
     implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.81'
+    implementation group: 'com.github.javadev', name: 'underscore', version: '1.88'
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // avaje-jsonb
-    implementation group: 'io.avaje', name: 'avaje-jsonb', version: '1.4'
-    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: '1.4'
-    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: '1.4'
+    implementation group: 'io.avaje', name: 'avaje-jsonb', version: "${avajeJsonVersion}"
+    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: "${avajeJsonVersion}"
+    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: "${avajeJsonVersion}"
     // qson
     implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
 

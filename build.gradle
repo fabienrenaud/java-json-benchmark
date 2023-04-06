@@ -50,7 +50,7 @@ dependencies {
     // FlexJson
     implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // FastJson
-    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.83'
+    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.26'
     // json-io
     implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.14.0'
     // boon
@@ -108,6 +108,7 @@ shadowJar {
 }
 
 test {
+    jvmArgs '--add-opens=java.base/java.time=ALL-UNNAMED'
     testLogging {
         exceptionFormat = 'full'
         showStandardStreams = true

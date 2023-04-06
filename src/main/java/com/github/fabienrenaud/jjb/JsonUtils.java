@@ -1,6 +1,6 @@
 package com.github.fabienrenaud.jjb;
 
-import javax.json.spi.JsonProvider;
+import jakarta.json.spi.JsonProvider;
 import java.io.ByteArrayOutputStream;
 
 /**
@@ -12,7 +12,7 @@ public final class JsonUtils {
     private JsonUtils() {
     }
 
-    public static void printJavaxJsonProvider() {
+    public static void printJakartaJsonProvider() {
         System.out.println("Jsonp Provider:" + JsonProvider.provider().getClass().getCanonicalName());
         System.out.println();
     }

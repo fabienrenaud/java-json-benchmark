@@ -40,11 +40,11 @@ dependencies {
     // GSON
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
     // JSONP
-    implementation group: 'javax.json', name: 'javax.json-api', version: '1.1.4'
-    implementation group: 'org.glassfish', name: 'javax.json', version: '1.1.4'
+    implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.1'
+    implementation group: 'org.glassfish', name: 'jakarta.json', version: '2.0.1'
     // JSONB
-    implementation group: 'javax.json.bind', name: 'javax.json.bind-api', version: '1.0'
-    implementation group: 'org.eclipse', name: 'yasson', version: '1.0.11'
+    implementation group: 'jakarta.json.bind', name: 'jakarta.json.bind-api', version: '3.0.0'
+    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
     // GENSON
     implementation group: 'com.owlike', name: 'genson', version: '1.6'
     // FlexJson
@@ -56,8 +56,8 @@ dependencies {
     // boon
     implementation group: 'io.fastjson', name: 'boon', version: '0.34'
     // johnzon
-    implementation group: 'org.apache.johnzon', name: 'johnzon-core', version: "${johnzonVersion}"
-    implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', version: "${johnzonVersion}"
+    implementation group: 'org.apache.johnzon', name: 'johnzon-core', classifier: 'jakarta', version: "${johnzonVersion}"
+    implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', classifier: 'jakarta', version: "${johnzonVersion}"
     // json-smart
     implementation group: 'net.minidev', name: 'json-smart', version: '2.4.10'
     // DSL-json

@@ -26,12 +26,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.json.bind.Jsonb;
+import jakarta.json.bind.Jsonb;
 
 public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();
-    private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
+    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory = jakarta.json.Json.createGeneratorFactory(null);
     private final ObjectMapper jackson = new ObjectMapper();
     private final ObjectMapper jacksonAfterburner = new ObjectMapper()
             .registerModule(new AfterburnerModule());
@@ -64,7 +64,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
         // set johnson JsonReader (default is `JsonProvider.provider()`)
-        javax.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
+        jakarta.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
@@ -97,8 +97,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
-    public javax.json.stream.JsonGeneratorFactory javaxjsonFactory() {
-        return javaxJsonFactory;
+    public jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory() {
+        return jakartaJsonFactory;
     }
 
     @Override

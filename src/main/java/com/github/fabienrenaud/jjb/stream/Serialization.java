@@ -35,10 +35,10 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object javaxjson() throws Exception {
+    public Object jakartajson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        try (javax.json.stream.JsonGenerator jGenerator = JSON_SOURCE().provider().javaxjsonFactory().createGenerator(baos)) {
-            JSON_SOURCE().streamSerializer().javaxjson(jGenerator, JSON_SOURCE().nextPojo());
+        try (jakarta.json.stream.JsonGenerator jGenerator = JSON_SOURCE().provider().jakartajsonFactory().createGenerator(baos)) {
+            JSON_SOURCE().streamSerializer().jakartajson(jGenerator, JSON_SOURCE().nextPojo());
         }
         return baos;
     }

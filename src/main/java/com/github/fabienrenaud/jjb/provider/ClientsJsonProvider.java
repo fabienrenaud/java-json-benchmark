@@ -36,7 +36,7 @@ import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
 
 import javax.annotation.Nullable;
-import javax.json.bind.Jsonb;
+import jakarta.json.bind.Jsonb;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -65,7 +65,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .registerModule(new BlackbirdModule())
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-    private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
+    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory = jakarta.json.Json.createGeneratorFactory(null);
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new GensonBuilder()
             .useDateAsTimestamp(false)
@@ -168,7 +168,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
         // set johnson JsonReader (default is `JsonProvider.provider()`)
-        javax.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
+        jakarta.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
             .setGeneratorFactory(johnzonProvider.createGeneratorFactory(Collections.emptyMap()))
@@ -207,8 +207,8 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     }
 
     @Override
-    public javax.json.stream.JsonGeneratorFactory javaxjsonFactory() {
-        return javaxJsonFactory;
+    public jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory() {
+        return jakartaJsonFactory;
     }
 
     @Override

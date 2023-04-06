@@ -1,0 +1,27 @@
+name: Build
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        java_version: [17]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java_version }}
+          distribution: 'zulu'
+          
+      - name: Build with Gradle
+        run: ./gradlew clean build shadowJar

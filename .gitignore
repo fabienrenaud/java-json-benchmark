@@ -21,3 +21,5 @@ out/
 *.json
 !ami.json
 *.log
+.project
+.settings/org.eclipse.buildship.core.prefs

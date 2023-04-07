@@ -48,8 +48,8 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object javaxjson() throws IOException {
-        return javax.json.Json.createReader(JSON_SOURCE().nextInputStream()).readObject();
+    public Object jakartajson() throws IOException {
+        return jakarta.json.Json.createReader(JSON_SOURCE().nextInputStream()).readObject();
     }
 
     @Benchmark

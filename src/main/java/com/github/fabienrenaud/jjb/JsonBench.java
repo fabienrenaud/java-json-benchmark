@@ -39,7 +39,7 @@ public abstract class JsonBench {
         return null;
     }
 
-    public Object javaxjson() throws Exception {
+    public Object jakartajson() throws Exception {
         return null;
     }
 

@@ -107,19 +107,19 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
-    public void javaxjson(javax.json.stream.JsonGenerator generator, Users obj) throws IOException {
+    public void jakartajson(jakarta.json.stream.JsonGenerator generator, Users obj) throws IOException {
         generator.writeStartObject();
         if (obj.getUsers() != null) {
             generator.writeStartArray("users");
             for (User u : obj.getUsers()) {
-                javaxjson(generator, u);
+                jakartajson(generator, u);
             }
             generator.writeEnd();
         }
         generator.writeEnd();
     }
 
-    private void javaxjson(javax.json.stream.JsonGenerator generator, User u) throws IOException {
+    private void jakartajson(jakarta.json.stream.JsonGenerator generator, User u) throws IOException {
         generator.writeStartObject();
         if (u.getId() != null) {
             generator.write("id", u.getId());

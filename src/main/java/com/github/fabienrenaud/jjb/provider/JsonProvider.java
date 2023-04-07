@@ -10,7 +10,7 @@ import flexjson.JSONSerializer;
 import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.mapper.Mapper;
 
-import javax.json.bind.Jsonb;
+import jakarta.json.bind.Jsonb;
 
 import java.util.Map;
 
@@ -26,7 +26,7 @@ public interface JsonProvider<T> {
 
     JsonFactory jacksonFactory();
 
-    javax.json.stream.JsonGeneratorFactory javaxjsonFactory();
+   jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory();
 
     Genson genson();
 

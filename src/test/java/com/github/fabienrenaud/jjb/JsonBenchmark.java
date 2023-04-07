@@ -112,9 +112,9 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
-    public void javaxjson() throws Exception {
+    public void jakartajson() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
-            test(Library.JAVAXJSON, BENCH.javaxjson());
+            test(Library.JAKARTAJSON, BENCH.jakartajson());
         }
     }
 

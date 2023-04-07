@@ -83,8 +83,8 @@ public final class Cli {
 
         @Override
         public void run() {
-            if (libraries == null || libraries.contains("javaxjson")) {
-                JsonUtils.printJavaxJsonProvider();
+            if (libraries == null || libraries.contains("jakartajson")) {
+                JsonUtils.printJakartaJsonProvider();
             }
 
             ChainedOptionsBuilder b = new OptionsBuilder()

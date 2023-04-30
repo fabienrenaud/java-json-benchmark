@@ -1,5 +1,65 @@
 Benchmark runs by date
 
+## 2023-04-30
+
+| Library      | Version  |
+|--------------|----------|
+| avaje-jsonb  | 1.4      |
+| boon         | 0.34     |
+| dsl-json     | 1.10.0   |
+| fastjson     | 2.0.27   |
+| flexjson     | 3.3      |
+| genson       | 1.6      |
+| gson         | 2.10.1   |
+| jackson      | 2.14.2   |
+| jodd json    | 6.0.3    |
+| johnzon      | 1.2.19   |
+| jakarta      | 2.1.1    |
+| json-io      | 4.14.0   |
+| simplejson   | 1.1.1    |
+| json-smart   | 2.4.10   |
+| logansquare  | 1.3.7    |
+| minimal-json | 0.9.5    |
+| mjson        | 1.4.1    |
+| moshi        | 1.14.0   |
+| nanojson     | 1.8      |
+| org.json     | 20230227 |
+| purejson     | 1.0.1    |
+| qson         | 1.1.1    |
+| tapestry     | 5.8.2    |
+| underscore   | 1.88     | 
+| yasson       | 3.0.2    |
+
+**`Users` model**
+
+![json deserialization performance for primitive types, String, List and simple POJOs][20230430-graph-users-deser]
+![json serialization performance for primitive types, String, List and simple POJOs][20230430-graph-users-ser]
+
+**`Clients` model**
+![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20230430-graph-clients-deser]
+![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20230430-graph-clients-ser]
+
+
+**JMH configuration and hardware**
+
+```
+# JMH version: 1.35
+# VM version: JDK 17.0.6, OpenJDK 64-Bit Server VM, 17.0.6+10-LTS
+# VM invoker: /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
+# VM options: -Xms2g -Xmx2g --add-opens=java.base/java.time=ALL-UNNAMED
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+```
+
+**Links**
+
+* [google spreadsheet][20230430-spreadsheet]
+* [raw-results-2023-04-30.md](/archive/raw-results-2023-04-30.md)
+
 ## 2021-11-27
 
 | Library      | Version  |
@@ -46,7 +106,7 @@ Same as below, JMH 1.33.
 **Links**
 
 * [google spreadsheet][20211127-spreadsheet]
-* [raw-results-2020-03-01.md](/archive/raw-results-2021-11-27.md)
+* [raw-results-2021-11-27.md](/archive/raw-results-2021-11-27.md)
 
 
 ## 2020-03-01
@@ -311,3 +371,9 @@ Same as below, JMH 1.15.
 [20211127-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=296776676&format=image
 [20211127-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=684555912&format=image
 [20211127-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJsmkX9LTVyohgO8R8tZjIxdRCZugLLNeW42TLwsqdZEeNnSo0sGpVVQ2X8G2Ws7Cw9JXN9J46WZGE/pubchart?oid=2004244401&format=image
+
+[20230430-spreadsheet]: https://docs.google.com/spreadsheets/d/1KB2V8kxtXIgudNO4SpfYqZKn3z5OnFBP6bZVB9K2RUE/edit?usp=sharing
+[20230430-graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=1217359585&format=image
+[20230430-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=296776676&format=image
+[20230430-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=684555912&format=image
+[20230430-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=2004244401&format=image

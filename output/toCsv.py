@@ -72,6 +72,6 @@ for filename, v in sheets.items():
         os.mkdir('csv')
     csvfilename = "csv/{}.csv".format(filename)
     with open(csvfilename, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(csvfile, delimiter='\t', fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)

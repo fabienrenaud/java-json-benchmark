@@ -11,7 +11,7 @@ for datatype in $datatypes; do
   echo "# *$datatype* data type"
   echo
 
-  for f in $(ls $datatype-*.txt); do
+  for f in $(ls $datatype-*.txt | sort -r); do
     fnoxt=${f/.txt/}
     cmd=$(echo $fnoxt | cut -d- -f2)
     n=$(echo $fnoxt | cut -d- -f3)

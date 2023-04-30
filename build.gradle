@@ -30,6 +30,9 @@ dependencies {
     implementation group: 'io.airlift', name: 'airline', version: '0.9'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
+    // JSON libraries
+    // In alphabetical order.
+
     // avaje-jsonb
     implementation group: 'io.avaje', name: 'avaje-jsonb', version: "${avajeJsonVersion}"
     implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: "${avajeJsonVersion}"
@@ -57,10 +60,8 @@ dependencies {
     // johnzon
     implementation group: 'org.apache.johnzon', name: 'johnzon-core', classifier: 'jakarta', version: "${johnzonVersion}"
     implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', classifier: 'jakarta', version: "${johnzonVersion}"
-    // JSONB
+    // Jakarta
     implementation group: 'jakarta.json.bind', name: 'jakarta.json.bind-api', version: '3.0.0'
-    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
-    // JSONP
     implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.1'
     implementation group: 'org.glassfish', name: 'jakarta.json', version: '2.0.1'
     // json-io
@@ -90,6 +91,8 @@ dependencies {
     implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
     // underscore-java
     implementation group: 'com.github.javadev', name: 'underscore', version: '1.88'
+    // yasson
+    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

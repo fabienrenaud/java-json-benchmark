@@ -125,6 +125,13 @@ JMH info:
 
 ## Run
 
+### Local run
+
+Prerequisites:
+
+  * JDK 17; and JAVA_HOME set.
+  * make
+
 By default, running `./run ser` (`./run deser` respectively) will run
 all -- stream and databind -- serialization (deserialization respectively)
 benchmarks with 1 KB payloads of _Users_.
@@ -142,6 +149,20 @@ commands.
 If you wish to run _all_ benchmarks used to generate the reports above,
 you can run `./run-everything`. This will take several hours to complete, so
 be patient.
+
+## Run on AWS
+
+Prerequisites:
+
+ * JDK 17; and JAVA_HOME set.
+ * make
+ * [packer](https://www.packer.io/)
+ * [awscli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and configured via `aws configure`
+
+Then, simply run:
+```
+make packer
+```
 
 ## Contribute
 

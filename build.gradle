@@ -43,7 +43,7 @@ dependencies {
     implementation group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     annotationProcessor group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     // FastJson
-    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.27'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.30'
     // FlexJson
     implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // GENSON

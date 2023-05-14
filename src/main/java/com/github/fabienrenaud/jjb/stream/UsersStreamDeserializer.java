@@ -810,4 +810,169 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
         return u;
     }
+
+    @Override
+    public Users antons(String reader) throws IOException {
+        sk.antons.json.parse.JsonScanner scanner = sk.antons.json.parse.JsonScanner.instance(reader);
+        Users uc = new Users();
+        sk.antons.json.parse.JsonScanner.Token token = scanner.next();
+        while ((token != null) && (token != sk.antons.json.parse.JsonScanner.Token.ARRAY_END)) {
+            if(token == sk.antons.json.parse.JsonScanner.Token.NAME) {
+                String fieldname = scanner.stringValue();
+                if ("users".equals(fieldname)) {
+                    token = scanner.next();
+                    if(token == sk.antons.json.parse.JsonScanner.Token.ARRAY_START) {
+                        uc.setUsers(new ArrayList<>());
+                        while (token != sk.antons.json.parse.JsonScanner.Token.ARRAY_END) {
+                            uc.getUsers().add(antonsUser(scanner));
+                            token = scanner.next();
+                        }
+                    }
+                }
+            }
+            token = scanner.next();
+        }
+        return uc;
+    }
+
+    private User antonsUser(sk.antons.json.parse.JsonScanner scanner) throws IOException {
+        User r = new User();
+        sk.antons.json.parse.JsonScanner.Token token = scanner.next();
+        while ((token != null) && (token != sk.antons.json.parse.JsonScanner.Token.OBJECT_END)) {
+            if(token == sk.antons.json.parse.JsonScanner.Token.NAME) {
+                String fieldname = scanner.stringValue();
+                if (fieldname == null) {
+                    break;
+                }
+                switch (fieldname) {
+                    case "id":
+                        scanner.next();
+                        r.setId(scanner.stringValue());
+                        break;
+                    case "index":
+                        scanner.next();
+                        r.setIndex((int)scanner.intValue());
+                        break;
+                    case "guid":
+                        scanner.next();
+                        r.setGuid(scanner.stringValue());
+                        break;
+                    case "isActive":
+                        scanner.next();
+                        r.setIsActive(scanner.booleanValue());
+                        break;
+                    case "balance":
+                        scanner.next();
+                        r.setBalance(scanner.stringValue());
+                        break;
+                    case "picture":
+                        scanner.next();
+                        r.setPicture(scanner.stringValue());
+                        break;
+                    case "age":
+                        scanner.next();
+                        r.setAge((int)scanner.intValue());
+                        break;
+                    case "eyeColor":
+                        scanner.next();
+                        r.setEyeColor(scanner.stringValue());
+                        break;
+                    case "name":
+                        scanner.next();
+                        r.setName(scanner.stringValue());
+                        break;
+                    case "gender":
+                        scanner.next();
+                        r.setGender(scanner.stringValue());
+                        break;
+                    case "company":
+                        scanner.next();
+                        r.setCompany(scanner.stringValue());
+                        break;
+                    case "email":
+                        scanner.next();
+                        r.setEmail(scanner.stringValue());
+                        break;
+                    case "phone":
+                        scanner.next();
+                        r.setPhone(scanner.stringValue());
+                        break;
+                    case "address":
+                        scanner.next();
+                        r.setAddress(scanner.stringValue());
+                        break;
+                    case "about":
+                        scanner.next();
+                        r.setAbout(scanner.stringValue());
+                        break;
+                    case "registered":
+                        scanner.next();
+                        r.setRegistered(scanner.stringValue());
+                        break;
+                    case "latitude":
+                        scanner.next();
+                        r.setLatitude(scanner.bdValue().doubleValue());
+                        break;
+                    case "longitude":
+                        scanner.next();
+                        r.setLongitude(scanner.bdValue().doubleValue());
+                        break;
+                    case "greeting":
+                        scanner.next();
+                        r.setGreeting(scanner.stringValue());
+                        break;
+                    case "favoriteFruit":
+                        scanner.next();
+                        r.setFavoriteFruit(scanner.stringValue());
+                        break;
+                    case "tags":
+                        token = scanner.next();
+                        r.setTags(new ArrayList<>());
+                        token = scanner.next();
+                        while ((token != null) && (token != sk.antons.json.parse.JsonScanner.Token.ARRAY_END)) {
+                            r.getTags().add(scanner.stringValue());
+                            token = scanner.next();
+                        }
+                        break;
+                    case "friends":
+                        scanner.next();
+                        r.setFriends(new ArrayList<>());
+                        token = scanner.next();
+                        while ((token != null) && (token != sk.antons.json.parse.JsonScanner.Token.ARRAY_END)) {
+                            Friend f = new Friend();
+                            while ((token != null) && (token != sk.antons.json.parse.JsonScanner.Token.OBJECT_END)) {
+                                if(token == sk.antons.json.parse.JsonScanner.Token.NAME) {
+                                    String fn = scanner.stringValue();
+                                    if (fn != null) {
+                                        switch (fn) {
+                                            case "id":
+                                                scanner.next();
+                                                f.setId(scanner.stringValue());
+                                                break;
+                                            case "name":
+                                                scanner.next();
+                                                f.setName(scanner.stringValue());
+                                                break;
+                                            default:
+                                                scanner.skipNext();
+                                                break;
+                                        }
+                                    }
+
+                                }
+                                token = scanner.next();
+                            }
+                            r.getFriends().add(f);
+                            token = scanner.next();
+                        }
+                        break;
+                    default:
+                        scanner.skipNext();
+                        break;
+                }
+            }
+            token = scanner.next();
+        }
+        return r;
+    }
 }

@@ -173,9 +173,8 @@ public class Serialization extends JsonBench {
         sk.antons.json.JsonValue jso = JSON_SOURCE().streamSerializer().antons(JSON_SOURCE().nextPojo());
 
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        Writer w = new BufferedWriter(new OutputStreamWriter(baos));
+        Writer w = new OutputStreamWriter(baos);
         jso.writeCompact(w);
-        w.flush();
         w.close();
         return baos;
     }

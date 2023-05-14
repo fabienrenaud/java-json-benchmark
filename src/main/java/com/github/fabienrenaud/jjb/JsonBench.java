@@ -126,4 +126,8 @@ public abstract class JsonBench {
     public Object qson() throws Exception {
         return null;
     }
+    
+    public Object antons() throws Exception {
+        return null;
+    }
 }

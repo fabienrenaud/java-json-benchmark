@@ -94,6 +94,8 @@ dependencies {
     implementation group: 'com.github.javadev', name: 'underscore', version: '1.88'
     // yasson
     implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
+    // antons
+    implementation group: 'io.github.antonsjava', name: 'json', version: '1.17'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

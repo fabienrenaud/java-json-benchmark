@@ -14,6 +14,7 @@ import io.github.senthilganeshs.parser.json.Parser.Value;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -1233,5 +1234,90 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             map.put(Value.string("favoriteFruit"), Value.string(u.getFavoriteFruit()));
         }
         return Parser.Value.json(map);
+    }
+
+    @Override
+    public sk.antons.json.JsonValue antons(Users obj) throws IOException {
+        sk.antons.json.JsonObject jso = sk.antons.json.JsonFactory.object();
+        if (obj.getUsers() != null) {
+            sk.antons.json.JsonArray jsarr = sk.antons.json.JsonFactory.array();
+            for (User u : obj.getUsers()) {
+                jsarr.add(antons(u));
+            }
+            jso.add("users", jsarr);
+        }
+        return jso;
+    }
+
+    private sk.antons.json.JsonValue antons(User u) throws IOException {
+        sk.antons.json.JsonObject jso = sk.antons.json.JsonFactory.object();
+        if (u.getId() != null) {
+            jso.add("id", sk.antons.json.JsonFactory.stringLiteral(u.getId()));
+        }
+        jso.add("index", sk.antons.json.JsonFactory.intLiteral(u.getIndex()));
+        if (u.getGuid() != null) {
+            jso.add("guid", sk.antons.json.JsonFactory.stringLiteral(u.getGuid()));
+        }
+        jso.add("isActive", sk.antons.json.JsonFactory.boolLiteral(u.getIsActive()));
+        if (u.getBalance() != null) {
+            jso.add("balance", sk.antons.json.JsonFactory.stringLiteral(u.getBalance()));
+        }
+        if (u.getPicture() != null) {
+            jso.add("picture", sk.antons.json.JsonFactory.stringLiteral(u.getPicture()));
+        }
+        jso.add("age", sk.antons.json.JsonFactory.intLiteral(u.getAge()));
+        if (u.getEyeColor() != null) {
+            jso.add("eyeColor", sk.antons.json.JsonFactory.stringLiteral(u.getEyeColor()));
+        }
+        if (u.getName() != null) {
+            jso.add("name", sk.antons.json.JsonFactory.stringLiteral(u.getName()));
+        }
+        if (u.getGender() != null) {
+            jso.add("gender", sk.antons.json.JsonFactory.stringLiteral(u.getGender()));
+        }
+        if (u.getCompany() != null) {
+            jso.add("company", sk.antons.json.JsonFactory.stringLiteral(u.getCompany()));
+        }
+        if (u.getEmail() != null) {
+            jso.add("email", sk.antons.json.JsonFactory.stringLiteral(u.getEmail()));
+        }
+        if (u.getPhone() != null) {
+            jso.add("phone", sk.antons.json.JsonFactory.stringLiteral(u.getPhone()));
+        }
+        if (u.getAddress() != null) {
+            jso.add("address", sk.antons.json.JsonFactory.stringLiteral(u.getAddress()));
+        }
+        if (u.getAbout() != null) {
+            jso.add("about", sk.antons.json.JsonFactory.stringLiteral(u.getAbout()));
+        }
+        if (u.getRegistered() != null) {
+            jso.add("registered", sk.antons.json.JsonFactory.stringLiteral(u.getRegistered()));
+        }
+        jso.add("latitude", sk.antons.json.JsonFactory.fracLiteral(BigDecimal.valueOf(u.getLatitude())));
+        jso.add("longitude", sk.antons.json.JsonFactory.fracLiteral(BigDecimal.valueOf(u.getLongitude())));
+        if (u.getTags() != null) {
+            sk.antons.json.JsonArray jsarr = sk.antons.json.JsonFactory.array();
+            for (String t : u.getTags()) {
+                jsarr.add(sk.antons.json.JsonFactory.stringLiteral(t));
+            }
+            jso.add("tags", jsarr);
+        }
+        if (u.getFriends() != null) {
+            sk.antons.json.JsonArray jsarr = sk.antons.json.JsonFactory.array();
+            for (Friend f : u.getFriends()) {
+                sk.antons.json.JsonObject jso0 = sk.antons.json.JsonFactory.object();
+                jso0.add("id", sk.antons.json.JsonFactory.stringLiteral(f.getId()));
+                jso0.add("name", sk.antons.json.JsonFactory.stringLiteral(f.getName()));
+                jsarr.add(jso0);
+            }
+            jso.add("friends", jsarr);
+        }
+        if (u.getGreeting() != null) {
+            jso.add("greeting", sk.antons.json.JsonFactory.stringLiteral(u.getGreeting()));
+        }
+        if (u.getFavoriteFruit() != null) {
+            jso.add("favoriteFruit", sk.antons.json.JsonFactory.stringLiteral(u.getFavoriteFruit()));
+        }
+        return jso;
     }
 }

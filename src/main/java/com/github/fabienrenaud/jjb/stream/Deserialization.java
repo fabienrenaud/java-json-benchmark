@@ -383,4 +383,113 @@ public class Deserialization extends JsonBench {
             return user;
         }
     }
+
+    @Benchmark
+    @Override
+    public Object antons() throws Exception {
+        return antons(sk.antons.json.parse.JsonParser.parse(JSON_SOURCE().nextString()));
+    }
+
+
+    public Users antons(sk.antons.json.JsonValue jv) throws IOException {
+        Users uc = new Users();
+        uc.setUsers(new ArrayList<>());
+        List<sk.antons.json.JsonValue> list = jv.find("users", "*").all();
+        for(sk.antons.json.JsonValue jvv : list) {
+            uc.getUsers().add(antonsUser(jvv));
+        }
+        return uc;
+    }
+
+    private User antonsUser(sk.antons.json.JsonValue jv) throws IOException {
+        User r = new User();
+        if(jv.isObject()) {
+            for(int i = 0; i < jv.asObject().size(); i++) {
+                sk.antons.json.JsonAttribute attr = jv.asObject().attr(i);
+                String fieldname = attr.name().stringValue();
+                if (fieldname == null) {
+                    break;
+                }
+                switch (fieldname) {
+                    case "id":
+                        r.setId(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "index":
+                        r.setIndex((int)attr.value().asIntLiteral().longValue());
+                        break;
+                    case "guid":
+                        r.setGuid(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "isActive":
+                        r.setIsActive(attr.value().asBoolLiteral().boolValue());
+                        break;
+                    case "balance":
+                        r.setBalance(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "picture":
+                        r.setPicture(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "age":
+                        r.setAge((int)attr.value().asIntLiteral().longValue());
+                        break;
+                    case "eyeColor":
+                        r.setEyeColor(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "name":
+                        r.setName(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "gender":
+                        r.setGender(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "company":
+                        r.setCompany(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "email":
+                        r.setEmail(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "phone":
+                        r.setPhone(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "address":
+                        r.setAddress(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "about":
+                        r.setAbout(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "registered":
+                        r.setRegistered(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "latitude":
+                        r.setLatitude(attr.value().asFracLiteral().bdValue().doubleValue());
+                        break;
+                    case "longitude":
+                        r.setLongitude(attr.value().asFracLiteral().bdValue().doubleValue());
+                        break;
+                    case "greeting":
+                        r.setGreeting(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "favoriteFruit":
+                        r.setFavoriteFruit(attr.value().asStringLiteral().stringValue());
+                        break;
+                    case "tags":
+                        r.setTags(attr.value().find("*").allLiterals());
+                        break;
+                    case "friends":
+                        r.setFriends(new ArrayList<>());
+                        List<sk.antons.json.JsonValue> ll = attr.value().find("*").all();
+                        for(sk.antons.json.JsonValue jsonValue : ll) {
+                            Friend f = new Friend();
+                            r.getFriends().add(f);
+                            f.setId(jsonValue.find("id").firstLiteral());
+                            f.setName(jsonValue.find("name").firstLiteral());
+                        }
+
+                        break;
+                }
+
+            }
+        }
+        return r;
+    }
+
 }

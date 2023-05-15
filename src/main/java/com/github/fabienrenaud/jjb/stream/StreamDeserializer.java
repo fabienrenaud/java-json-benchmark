@@ -20,4 +20,6 @@ public interface StreamDeserializer<T> {
     T moshi(com.squareup.moshi.JsonReader reader) throws IOException;
 
     T underscore_java(String reader) throws IOException;
+
+    T antons(String reader) throws IOException;
 }

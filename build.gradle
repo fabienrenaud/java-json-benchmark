@@ -33,6 +33,8 @@ dependencies {
     // JSON libraries
     // In alphabetical order.
 
+    // antons
+    implementation group: 'io.github.antonsjava', name: 'json', version: '1.17'
     // avaje-jsonb
     implementation group: 'io.avaje', name: 'avaje-jsonb', version: "${avajeJsonVersion}"
     implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: "${avajeJsonVersion}"

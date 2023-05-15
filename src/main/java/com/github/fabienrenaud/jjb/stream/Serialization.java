@@ -165,4 +165,16 @@ public class Serialization extends JsonBench {
         Value purejson = JSON_SOURCE().streamSerializer().purejson(JSON_SOURCE().nextPojo());
         return Generator.create().generate(purejson);
     }
+
+    @Benchmark
+    @Override
+    public Object antons() throws Exception {
+        sk.antons.json.JsonValue jso = JSON_SOURCE().streamSerializer().antons(JSON_SOURCE().nextPojo());
+
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Writer w = new OutputStreamWriter(baos);
+        jso.writeCompact(w);
+        w.close();
+        return baos;
+    }
 }

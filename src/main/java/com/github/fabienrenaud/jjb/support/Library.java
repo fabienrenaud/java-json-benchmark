@@ -11,7 +11,7 @@ public enum Library {
     JACKSON_BLACKBIRD,
     ORGJSON,
     YASSON,
-    GENSON, 
+    GENSON,
     JAKARTAJSON,
     FLEXJSON,
     FASTJSON,
@@ -33,7 +33,8 @@ public enum Library {
     MJSON,
     QSON,
     UNDERSCORE_JAVA,
-    PUREJSON;
+    PUREJSON,
+    ANTONS;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

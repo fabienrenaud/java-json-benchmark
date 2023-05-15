@@ -264,4 +264,11 @@ public abstract class JsonBenchmark<T> {
             test(Library.QSON, BENCH.qson());
         }
     }
+
+    @Test
+    public void antons() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.ANTONS, BENCH.antons());
+        }
+    }
 }

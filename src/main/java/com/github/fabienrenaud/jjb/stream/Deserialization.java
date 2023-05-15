@@ -383,4 +383,11 @@ public class Deserialization extends JsonBench {
             return user;
         }
     }
+
+    @Benchmark
+    @Override
+    public Object antons() throws Exception {
+        return JSON_SOURCE().streamDeserializer().antons(JSON_SOURCE().nextString());
+    }
+
 }

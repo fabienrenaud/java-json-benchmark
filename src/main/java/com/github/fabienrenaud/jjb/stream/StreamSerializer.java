@@ -38,4 +38,6 @@ public interface StreamSerializer<T> {
     Object underscore_java(T obj) throws IOException;
 
     Value purejson(T obj) throws IOException;
+
+    sk.antons.json.JsonValue antons(T obj) throws IOException;
 }

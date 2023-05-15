@@ -390,8 +390,4 @@ public class Deserialization extends JsonBench {
         return JSON_SOURCE().streamDeserializer().antons(JSON_SOURCE().nextString());
     }
 
-
-
-
-
 }

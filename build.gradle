@@ -93,7 +93,7 @@ dependencies {
     // tapestry
     implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.90'
+    implementation group: 'com.github.javadev', name: 'underscore', version: '1.92'
     // yasson
     implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
 

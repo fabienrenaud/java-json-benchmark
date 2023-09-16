@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fabienrenaud/java-json-benchmark.svg?branch=master)](https://travis-ci.org/fabienrenaud/java-json-benchmark)
+[![Java CI](https://github.com/fabienrenaud/java-json-benchmark/actions/workflows/gradle.yml/badge.svg)](https://github.com/fabienrenaud/java-json-benchmark/actions/workflows/gradle.yml)
 
 # Benchmark of Java JSON libraries
 

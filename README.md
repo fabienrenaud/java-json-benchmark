@@ -57,31 +57,31 @@ The results here-below were computed on April the 30th, 2023 with the following 
 
 | Library      | Version  |
 |--------------|----------|
-| avaje-jsonb  | 1.4      |
+| avaje-jsonb  | 1.9      |
 | boon         | 0.34     |
 | dsl-json     | 1.10.0   |
-| fastjson     | 2.0.27   |
+| fastjson     | 2.0.46   |
 | flexjson     | 3.3      |
 | genson       | 1.6      |
 | gson         | 2.10.1   |
-| jackson      | 2.14.2   |
+| jackson      | 2.16.0   |
 | jodd json    | 6.0.3    |
-| johnzon      | 1.2.19   |
-| jakarta      | 2.1.1    |
-| json-io      | 4.14.0   |
+| johnzon      | 1.2.21   |
+| jakarta      | 2.1.3    |
+| json-io      | 4.19.1   |
 | simplejson   | 1.1.1    |
-| json-smart   | 2.4.10   |
+| json-smart   | 2.4.11   |
 | logansquare  | 1.3.7    |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |
-| moshi        | 1.14.0   |
+| moshi        | 1.15.0   |
 | nanojson     | 1.8      |
-| org.json     | 20230227 |
+| org.json     | 20231013 |
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
-| tapestry     | 5.8.2    |
-| underscore   | 1.88     | 
-| yasson       | 3.0.2    |
+| tapestry     | 5.8.3    |
+| underscore   | 1.97     | 
+| yasson       | 3.0.3    |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 

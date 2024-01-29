@@ -17,10 +17,10 @@ repositories {
 }
 
 ext {
-    avajeJsonVersion = '1.8'
-    jacksonVersion = '2.14.2'
+    avajeJsonVersion = '1.9'
+    jacksonVersion = '2.16.0'
     dslJsonVersion = '1.10.0'
-    johnzonVersion = '1.2.19'
+    johnzonVersion = '1.2.21'
     jmhVersion = '1.35'
 }
 
@@ -45,8 +45,8 @@ dependencies {
     implementation group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     annotationProcessor group: 'com.dslplatform', name: 'dsl-json-java8', version: "${dslJsonVersion}"
     // FastJson
-    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.40'
-    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2-incubator-vector', version: '2.0.40'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.46'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2-incubator-vector', version: '2.0.46'
     // FlexJson
     implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // GENSON
@@ -65,14 +65,14 @@ dependencies {
     implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', classifier: 'jakarta', version: "${johnzonVersion}"
     // Jakarta
     implementation group: 'jakarta.json.bind', name: 'jakarta.json.bind-api', version: '3.0.0'
-    implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.1'
+    implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.3'
     implementation group: 'org.glassfish', name: 'jakarta.json', version: '2.0.1'
     // json-io
     implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.14.0'
     // json-simple
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     // json-smart
-    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.10'
+    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.11'
     // LoganSquare
     implementation group: 'com.bluelinelabs', name: 'logansquare', version: '1.3.7'
     annotationProcessor group: 'com.bluelinelabs', name: 'logansquare-compiler', version: '1.3.7'
@@ -81,21 +81,21 @@ dependencies {
     // mjson
     implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // moshi
-    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.14.0'
+    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.15.0'
     // nanojson
     implementation group: 'com.grack', name: 'nanojson', version: '1.8'
     // org.json
-    implementation group: 'org.json', name: 'json', version: '20230227'
+    implementation group: 'org.json', name: 'json', version: '20231013'
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // qson
     implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
     // tapestry
-    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.2'
+    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.3'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.92'
+    implementation group: 'com.github.javadev', name: 'underscore', version: '1.97'
     // yasson
-    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.2'
+    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.3'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

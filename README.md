@@ -68,7 +68,7 @@ The results here-below were computed on April the 30th, 2023 with the following 
 | jodd json    | 6.0.3    |
 | johnzon      | 1.2.21   |
 | jakarta      | 2.1.3    |
-| json-io      | 4.19.1   |
+| json-io      | 4.40.0   |
 | simplejson   | 1.1.1    |
 | json-smart   | 2.4.11   |
 | logansquare  | 1.3.7    |

@@ -1,5 +1,64 @@
 Benchmark runs by date
 
+## 2024-01-30
+
+| Library      | Version  |
+|--------------|----------|
+| avaje-jsonb  | 1.9      |
+| boon         | 0.34     |
+| dsl-json     | 1.10.0   |
+| fastjson     | 2.0.46   |
+| flexjson     | 3.3      |
+| genson       | 1.6      |
+| gson         | 2.10.1   |
+| jackson      | 2.16.0   |
+| jodd json    | 6.0.3    |
+| johnzon      | 1.2.21   |
+| jakarta      | 2.1.3    |
+| json-io      | 4.40.0   |
+| simplejson   | 1.1.1    |
+| json-smart   | 2.4.11   |
+| logansquare  | 1.3.7    |
+| minimal-json | 0.9.5    |
+| mjson        | 1.4.1    |
+| moshi        | 1.15.0   |
+| nanojson     | 1.8      |
+| org.json     | 20231013 |
+| purejson     | 1.0.1    |
+| qson         | 1.1.1    |
+| tapestry     | 5.8.3    |
+| underscore   | 1.97     | 
+| yasson       | 3.0.3    |
+
+**`Users` model**
+
+![json deserialization performance for primitive types, String, List and simple POJOs][20240130-graph-users-deser]
+![json serialization performance for primitive types, String, List and simple POJOs][20240130-graph-users-ser]
+
+**`Clients` model**
+![json deserialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20240130-graph-clients-deser]
+![json serialization performance for primitive types, String, List and simple POJOs, arrays, enum, UUID, LocalDate][20240130-graph-clients-ser]
+
+**JMH configuration and hardware**
+
+```
+# JMH version: 1.35
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-LTS
+# VM invoker: /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
+# VM options: -Xms2g -Xmx2g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 10 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 16 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+```
+
+**Links**
+
+* [google spreadsheet][20240130-spreadsheet]
+* [raw-results-2023-04-30.md](/archive/raw-results-2024-01-30.md)
+
 ## 2023-04-30
 
 | Library      | Version  |
@@ -377,3 +436,9 @@ Same as below, JMH 1.15.
 [20230430-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=296776676&format=image
 [20230430-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=684555912&format=image
 [20230430-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=2004244401&format=image
+
+[20240130-spreadsheet]: https://docs.google.com/spreadsheets/d/1a4kgv2R-IxANE_itV-qJwCnEBvc0HqHGh4bp4AXTFoY/edit?usp=sharing
+[20240130-graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=1217359585&format=image
+[20240130-graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=296776676&format=image
+[20240130-graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=684555912&format=image
+[20240130-graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=2004244401&format=image

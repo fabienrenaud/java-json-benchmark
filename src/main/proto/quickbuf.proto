@@ -1,4 +1,5 @@
-// Adapted from Google's javanano unit tests
+// protobuf schema file that rebuilds the schema using the proto3 json mapping
+// https://protobuf.dev/programming-guides/proto3/#json
 
 syntax = "proto2";
 package quickbuf_unittest;

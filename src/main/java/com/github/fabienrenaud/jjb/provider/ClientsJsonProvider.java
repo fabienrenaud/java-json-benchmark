@@ -39,7 +39,7 @@ import org.eclipse.yasson.JsonBindingProvider;
 import javax.annotation.Nullable;
 import jakarta.json.bind.Jsonb;
 import us.hebi.quickbuf.JsonSink;
-import us.hebi.quickbuf.MessageFactory;
+import us.hebi.quickbuf.ProtoMessage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -289,8 +289,8 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     }
 
     @Override
-    public MessageFactory<?> quickbufPojoFactory() {
-        return QuickbufSchema.Clients.getFactory();
+    public ProtoMessage<?> quickbufPojo() {
+        return QUICKBUF_MESSAGE.get();
     }
 
     @Override
@@ -298,6 +298,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
         return QUICKBUF_SINK.get();
     }
 
+    private static final ThreadLocal<QuickbufSchema.Clients> QUICKBUF_MESSAGE = ThreadLocal.withInitial(QuickbufSchema.Clients::newInstance);
     private static final ThreadLocal<JsonSink> QUICKBUF_SINK = ThreadLocal.withInitial(() -> JsonSink.newInstance()
             .setPrettyPrinting(false)
             .setPreserveProtoFieldNames(true)

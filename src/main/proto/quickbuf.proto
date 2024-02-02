@@ -5,7 +5,7 @@ syntax = "proto2";
 package quickbuf_unittest;
 
 // download package from https://github.com/HebiRobotics/QuickBuffers and generate with
-// * protoc-quickbuf --quickbuf_out=../java/ quickbuf.proto
+// * protoc-quickbuf --quickbuf_out=indent=4:../java/ quickbuf.proto
 option java_package = "com.github.fabienrenaud.jjb.model.quickbuf";
 option java_outer_classname = "QuickbufSchema";
 option java_multiple_files = false;

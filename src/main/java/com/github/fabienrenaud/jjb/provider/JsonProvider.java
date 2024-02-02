@@ -12,7 +12,7 @@ import org.apache.johnzon.mapper.Mapper;
 
 import jakarta.json.bind.Jsonb;
 import us.hebi.quickbuf.JsonSink;
-import us.hebi.quickbuf.MessageFactory;
+import us.hebi.quickbuf.ProtoMessage;
 
 import java.util.Map;
 
@@ -60,7 +60,7 @@ public interface JsonProvider<T> {
 
     QsonMapper qson();
 
-    MessageFactory<?> quickbufPojoFactory();
+    ProtoMessage<?> quickbufPojo();
 
     JsonSink quickbufSink();
 

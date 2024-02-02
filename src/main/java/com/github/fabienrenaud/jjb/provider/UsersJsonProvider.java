@@ -29,7 +29,7 @@ import java.util.Map;
 
 import jakarta.json.bind.Jsonb;
 import us.hebi.quickbuf.JsonSink;
-import us.hebi.quickbuf.MessageFactory;
+import us.hebi.quickbuf.ProtoMessage;
 
 public class UsersJsonProvider implements JsonProvider<Users> {
 
@@ -184,8 +184,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = ThreadLocal.withInitial(jodd.json.JsonSerializer::new);
 
     @Override
-    public MessageFactory<?> quickbufPojoFactory() {
-        return QuickbufSchema.Users.getFactory();
+    public ProtoMessage<?> quickbufPojo() {
+        return QUICKBUF_MESSAGE.get();
     }
 
     @Override
@@ -193,6 +193,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         return QUICKBUF_SINK.get();
     }
 
+    private static final ThreadLocal<QuickbufSchema.Users> QUICKBUF_MESSAGE = ThreadLocal.withInitial(QuickbufSchema.Users::newInstance);
     private static final ThreadLocal<JsonSink> QUICKBUF_SINK = ThreadLocal.withInitial(() -> JsonSink.newInstance()
             .setPrettyPrinting(false)
             .setPreserveProtoFieldNames(true)

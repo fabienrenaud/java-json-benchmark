@@ -2,7 +2,6 @@ package com.github.fabienrenaud.jjb.data;
 
 import com.github.fabienrenaud.jjb.RandomUtils;
 import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
-import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
 import com.github.fabienrenaud.jjb.stream.StreamDeserializer;
 import com.github.fabienrenaud.jjb.stream.StreamSerializer;
@@ -62,8 +61,8 @@ public abstract class JsonSource<T> {
                 String json = provider.jackson().writeValueAsString(obj);
                 jsonAsString[i] = json;
                 jsonAsBytes[i] = json.getBytes();
-                jsonAsQuickbufObject[i] = us.hebi.quickbuf.JsonSource.newInstance(jsonAsBytes[i])
-                        .parseMessage(provider().quickbufPojoFactory());
+                jsonAsQuickbufObject[i] = provider().quickbufPojo().clearQuick().clone().mergeFrom(
+                        us.hebi.quickbuf.JsonSource.newInstance(jsonAsBytes[i]).setIgnoreUnknownFields(false));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

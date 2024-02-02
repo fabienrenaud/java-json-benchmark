@@ -140,9 +140,8 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object quickbuf_json() throws Exception {
-        return us.hebi.quickbuf.JsonSource.newInstance(JSON_SOURCE().nextByteArray())
-                .setIgnoreUnknownFields(false)
-                .parseMessage(JSON_SOURCE().provider().quickbufPojoFactory());
+        return JSON_SOURCE().provider().quickbufPojo().clearQuick()
+                .mergeFrom(us.hebi.quickbuf.JsonSource.newInstance(JSON_SOURCE().nextByteArray()));
     }
 
 }

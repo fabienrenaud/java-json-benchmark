@@ -168,4 +168,11 @@ public class Serialization extends JsonBench {
         JSON_SOURCE().provider().qson().writeStream(JSON_SOURCE().nextPojo(), baos);
         return baos;
     }
+
+    @Benchmark
+    @Override
+    public Object quickbuf_json() throws Exception {
+        return JSON_SOURCE().provider().quickbufSink().clear().writeMessage(JSON_SOURCE().nextQuickbufPojo());
+    }
+
 }

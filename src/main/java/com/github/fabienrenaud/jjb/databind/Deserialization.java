@@ -136,4 +136,13 @@ public class Deserialization extends JsonBench {
     public Object qson() throws Exception {
         return JSON_SOURCE().provider().qson().read(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
     }
+
+    @Benchmark
+    @Override
+    public Object quickbuf_json() throws Exception {
+        return us.hebi.quickbuf.JsonSource.newInstance(JSON_SOURCE().nextByteArray())
+                .setIgnoreUnknownFields(false)
+                .parseMessage(JSON_SOURCE().provider().quickbufPojoFactory());
+    }
+
 }

@@ -1,0 +1,92 @@
+// Adapted from Google's javanano unit tests
+
+syntax = "proto2";
+package quickbuf_unittest;
+
+// download package from https://github.com/HebiRobotics/QuickBuffers and generate with
+// * protoc-quickbuf --quickbuf_out=../java/ quickbuf.proto
+option java_package = "com.github.fabienrenaud.jjb.model.quickbuf";
+option java_outer_classname = "QuickbufSchema";
+option java_multiple_files = false;
+
+message Users {
+
+  message User {
+
+    optional string id = 1;
+    optional uint32 index = 2;
+    optional string guid = 3;
+    optional bool isActive = 4;
+    optional string balance = 5;
+    optional string picture = 6;
+    optional uint32 age = 7;
+    optional string eyeColor = 8;
+    optional string name = 9;
+    optional string gender = 10;
+    optional string company = 11;
+    optional string email = 12;
+    optional string phone = 13;
+    optional string address = 14;
+    optional string about = 15;
+    optional string registered = 16;
+    optional double latitude = 17;
+    optional double longitude = 18;
+
+    repeated string tags = 19;
+
+    repeated Friend friends = 20;
+
+    optional string greeting = 21;
+    optional string favoriteFruit = 22;
+
+  }
+
+  message Friend {
+    required string id = 1;
+    required string name = 2;
+  }
+
+  repeated User users = 1;
+
+}
+
+message Clients {
+
+  enum EyeColor {
+    BROWN = 1;
+    BLUE = 2;
+    GREEN = 3;
+  }
+
+  message Client {
+    optional uint64 id = 1;
+    optional uint32 index = 2;
+    optional string guid = 3; // uuid type
+    optional bool isActive = 4;
+    optional double balance = 5; // BigDecimal
+    optional string picture = 6;
+    optional uint32 age = 7;
+    optional EyeColor eyeColor = 8; // enum
+    optional string name = 9;
+    optional string gender = 10;
+    optional string company = 11;
+    repeated string emails = 12;
+    repeated fixed64 phones = 13;
+    optional string address = 14;
+    optional string about = 15;
+    optional string registered = 16; // LocalDate
+    optional double latitude = 17;
+    optional double longitude = 18;
+    repeated string tags = 19;
+    repeated Partner partners = 20;
+  }
+
+  message Partner {
+    optional uint64 id = 1;
+    optional string name = 2;
+    optional string since = 3; // OffsetDateTime
+  }
+
+  repeated Client clients = 1;
+
+}

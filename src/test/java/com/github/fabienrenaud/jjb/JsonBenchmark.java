@@ -271,4 +271,12 @@ public abstract class JsonBenchmark<T> {
             test(Library.ANTONS, BENCH.antons());
         }
     }
+
+    @Test
+    public void quickbuf_json() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.QUICKBUFFERS_JSON, BENCH.quickbuf_json());
+        }
+    }
+
 }

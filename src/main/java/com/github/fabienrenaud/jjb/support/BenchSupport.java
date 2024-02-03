@@ -66,8 +66,7 @@ public enum BenchSupport {
             new Libapi(Library.TAPESTRY),
             new Libapi(Library.MINIMALJSON),
             new Libapi(Library.UNDERSCORE_JAVA),
-            new Libapi(Library.ANTONS),
-            new Libapi(Library.QUICKBUF_JSON, Api.DATABIND)
+            new Libapi(Library.ANTONS)
     );
 
     private final List<Libapi> libapis;

@@ -53,7 +53,7 @@ Not evaluated are: RAM utilization, compression, payloads > 1 MB.
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 17.
 
-The results here-below were computed on April the 30th, 2023 with the following libraries and versions:
+The results here-below were computed on January the 30th, 2024 with the following libraries and versions:
 
 | Library      | Version  |
 |--------------|----------|
@@ -117,9 +117,9 @@ JMH info:
 
 ```
 # JMH version: 1.35
-# VM version: JDK 17.0.6, OpenJDK 64-Bit Server VM, 17.0.6+10-LTS
+# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-LTS
 # VM invoker: /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
-# VM options: -Xms2g -Xmx2g --add-opens=java.base/java.time=ALL-UNNAMED
+# VM options: -Xms2g -Xmx2g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 10 iterations, 3 s each
@@ -187,9 +187,9 @@ find numerous examples in the commit history. For instance:
 Pull requests are welcome.
 
 
-[jmh-results]: /archive/raw-results-2023-04-30.md
-[spreadsheet]: https://docs.google.com/spreadsheets/d/1KB2V8kxtXIgudNO4SpfYqZKn3z5OnFBP6bZVB9K2RUE/edit?usp=sharing
-[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=1217359585&format=image
-[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=296776676&format=image
-[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=684555912&format=image
-[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQjiR_OOk6FXipfmKiZCil9yAdM4BSPViKIOh0lvAEHcD-gVy_lGiUX86VBhr_xrzcz4VsLSHIzq2qY/pubchart?oid=2004244401&format=image
+[jmh-results]: /archive/raw-results-2024-01-30.md
+[spreadsheet]: https://docs.google.com/spreadsheets/d/1a4kgv2R-IxANE_itV-qJwCnEBvc0HqHGh4bp4AXTFoY/edit?usp=sharing
+[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=1217359585&format=image
+[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=296776676&format=image
+[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=684555912&format=image
+[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=2004244401&format=image

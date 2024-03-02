@@ -11,6 +11,8 @@ import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.mapper.Mapper;
 
 import jakarta.json.bind.Jsonb;
+import us.hebi.quickbuf.JsonSink;
+import us.hebi.quickbuf.ProtoMessage;
 
 import java.util.Map;
 
@@ -57,4 +59,9 @@ public interface JsonProvider<T> {
     io.avaje.jsonb.JsonType<T> avajeJsonb_default();
 
     QsonMapper qson();
+
+    ProtoMessage<?> quickbufPojo();
+
+    JsonSink quickbufSink();
+
 }

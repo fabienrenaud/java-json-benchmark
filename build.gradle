@@ -96,6 +96,8 @@ dependencies {
     implementation group: 'com.github.javadev', name: 'underscore', version: '1.97'
     // yasson
     implementation group: 'org.eclipse', name: 'yasson', version: '3.0.3'
+    // QuickBuffers
+    implementation group: 'us.hebi.quickbuf', name: 'quickbuf-runtime', version: '1.4'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

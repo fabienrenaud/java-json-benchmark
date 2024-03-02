@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import com.squareup.moshi.Moshi;
@@ -27,6 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jakarta.json.bind.Jsonb;
+import us.hebi.quickbuf.JsonSink;
+import us.hebi.quickbuf.ProtoMessage;
 
 public class UsersJsonProvider implements JsonProvider<Users> {
 
@@ -179,4 +182,21 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private static final ThreadLocal<jodd.json.JsonParser> JODD_DESER = ThreadLocal.withInitial(jodd.json.JsonParser::new);
 
     private static final ThreadLocal<jodd.json.JsonSerializer> JODD_SER = ThreadLocal.withInitial(jodd.json.JsonSerializer::new);
+
+    @Override
+    public ProtoMessage<?> quickbufPojo() {
+        return QUICKBUF_MESSAGE.get();
+    }
+
+    @Override
+    public JsonSink quickbufSink() {
+        return QUICKBUF_SINK.get();
+    }
+
+    private static final ThreadLocal<QuickbufSchema.Users> QUICKBUF_MESSAGE = ThreadLocal.withInitial(QuickbufSchema.Users::newInstance);
+    private static final ThreadLocal<JsonSink> QUICKBUF_SINK = ThreadLocal.withInitial(() -> JsonSink.newInstance()
+            .setPrettyPrinting(false)
+            .setPreserveProtoFieldNames(true)
+            .setWriteEnumsAsInts(false));
+
 }

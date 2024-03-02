@@ -36,7 +36,8 @@ public enum BenchSupport {
         new Libapi(Library.UNDERSCORE_JAVA, Api.STREAM),
         new Libapi(Library.QSON, Api.DATABIND),
         new Libapi(Library.PUREJSON, Api.STREAM),
-        new Libapi(Library.ANTONS, Api.STREAM)
+        new Libapi(Library.ANTONS, Api.STREAM),
+        new Libapi(Library.QUICKBUF_JSON, Api.DATABIND)
     ),
     CLIENTS(
             new Libapi(Library.GSON, Api.DATABIND),

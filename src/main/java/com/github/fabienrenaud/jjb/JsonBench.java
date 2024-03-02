@@ -130,4 +130,9 @@ public abstract class JsonBench {
     public Object antons() throws Exception {
         return null;
     }
+
+    public Object quickbuf_json() throws Exception {
+        return null;
+    }
+
 }

@@ -8,6 +8,7 @@ import com.github.fabienrenaud.jjb.stream.StreamSerializer;
 import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
+import us.hebi.quickbuf.ProtoMessage;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ public abstract class JsonSource<T> {
     private final T[] jsonAsObject;
     private final String[] jsonAsString;
     private final byte[][] jsonAsBytes;
+    private final ProtoMessage<?>[] jsonAsQuickbufObject;
     private final ThreadLocal<ByteArrayInputStream[]> jsonAsByteArrayInputStream;
 
     private final DataGenerator<T> dataGenerator;
@@ -33,6 +35,7 @@ public abstract class JsonSource<T> {
         this.jsonAsObject = newPojoArray(quantity);
         this.jsonAsString = new String[quantity];
         this.jsonAsBytes = new byte[quantity][];
+        this.jsonAsQuickbufObject = new ProtoMessage<?>[quantity];
 
         this.dataGenerator = dataGenerator;
         this.streamSerializer = streamSerializer;
@@ -58,6 +61,8 @@ public abstract class JsonSource<T> {
                 String json = provider.jackson().writeValueAsString(obj);
                 jsonAsString[i] = json;
                 jsonAsBytes[i] = json.getBytes();
+                jsonAsQuickbufObject[i] = provider().quickbufPojo().clearQuick().clone().mergeFrom(
+                        us.hebi.quickbuf.JsonSource.newInstance(jsonAsBytes[i]).setIgnoreUnknownFields(false));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -98,6 +103,10 @@ public abstract class JsonSource<T> {
 
     public T nextPojo() {
         return jsonAsObject[index(jsonAsObject.length)];
+    }
+
+    public ProtoMessage<?> nextQuickbufPojo() {
+        return jsonAsQuickbufObject[index(jsonAsQuickbufObject.length)];
     }
 
     public StreamSerializer<T> streamSerializer() {

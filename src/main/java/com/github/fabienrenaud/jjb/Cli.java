@@ -55,8 +55,8 @@ public final class Cli {
         public int measurementIterations = 10;
         @Option(type = OptionType.GLOBAL, name = "-m", description = "JMH: measurement time in seconds. Defaults to 3.")
         public int measurementTime = 3;
-        @Option(type = OptionType.GLOBAL, name = "-t", description = "JMH: number of threads. Defaults to 16.")
-        public int threads = 16;
+        @Option(type = OptionType.GLOBAL, name = "-t", description = "JMH: number of threads. Defaults to number of cores-1.")
+        public int threads = Math.max(Runtime.getRuntime().availableProcessors() - 1, 1);
 
         /*
          * JSON options

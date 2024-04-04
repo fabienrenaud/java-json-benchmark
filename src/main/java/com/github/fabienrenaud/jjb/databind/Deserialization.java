@@ -144,4 +144,9 @@ public class Deserialization extends JsonBench {
                 .mergeFrom(us.hebi.quickbuf.JsonSource.newInstance(JSON_SOURCE().nextByteArray()));
     }
 
+    @Benchmark
+    @Override
+    public Object wast() throws Exception {
+        return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType());
+    }
 }

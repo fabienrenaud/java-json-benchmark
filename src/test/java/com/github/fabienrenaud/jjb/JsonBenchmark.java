@@ -279,4 +279,11 @@ public abstract class JsonBenchmark<T> {
         }
     }
 
+    @Test
+    public void wast_json() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.WAST, BENCH.wast());
+        }
+    }
+
 }

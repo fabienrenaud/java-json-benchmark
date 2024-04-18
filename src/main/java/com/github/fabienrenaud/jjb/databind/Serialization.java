@@ -175,4 +175,11 @@ public class Serialization extends JsonBench {
         return JSON_SOURCE().provider().quickbufSink().clear().writeMessage(JSON_SOURCE().nextQuickbufPojo());
     }
 
+    @Benchmark
+    @Override
+    public Object wast() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
 }

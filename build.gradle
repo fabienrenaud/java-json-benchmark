@@ -98,6 +98,8 @@ dependencies {
     implementation group: 'org.eclipse', name: 'yasson', version: '3.0.3'
     // QuickBuffers
     implementation group: 'us.hebi.quickbuf', name: 'quickbuf-runtime', version: '1.4'
+    // wast
+    implementation group: 'io.github.wycst', name: 'wast', version: '0.0.12.1'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

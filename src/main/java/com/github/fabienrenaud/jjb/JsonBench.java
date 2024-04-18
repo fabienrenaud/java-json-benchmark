@@ -135,4 +135,8 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object wast() throws Exception {
+        return null;
+    }
+
 }

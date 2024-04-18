@@ -5,6 +5,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.bluelinelabs.logansquare.typeconverters.StringBasedTypeConverter;
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
+import io.github.wycst.wast.json.annotations.JsonTypeSetting;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
+@JsonTypeSetting(enableJIT = true)
 public class Clients {
 
     @JsonField
@@ -58,6 +60,7 @@ public class Clients {
 
     @io.avaje.jsonb.Json
     @JsonObject
+    @JsonTypeSetting(enableJIT = true)
     public static final class Client {
 
         @JsonField
@@ -395,6 +398,7 @@ public class Clients {
 
     @io.avaje.jsonb.Json
     @JsonObject
+    @JsonTypeSetting(enableJIT = true)
     public static final class Partner {
 
         @JsonField

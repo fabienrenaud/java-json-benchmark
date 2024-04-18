@@ -4,6 +4,7 @@ import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
+import io.github.wycst.wast.json.annotations.JsonTypeSetting;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,7 @@ import java.util.Objects;
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
+@JsonTypeSetting(enableJIT = true)
 public class Users {
 
     @JsonField
@@ -53,6 +55,7 @@ public class Users {
     @io.avaje.jsonb.Json
     @JsonObject
     @CompiledJson
+    @JsonTypeSetting(enableJIT = true)
     public static final class User {
 
         @JsonField
@@ -329,6 +332,7 @@ public class Users {
     @io.avaje.jsonb.Json
     @JsonObject
     @CompiledJson
+    @JsonTypeSetting(enableJIT = true)
     public static final class Friend {
 
         @JsonField

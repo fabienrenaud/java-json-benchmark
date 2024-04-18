@@ -82,6 +82,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | tapestry     | 5.8.3    |
 | underscore   | 1.97     | 
 | yasson       | 3.0.3    |
+| wast         | 0.0.12.1 |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 

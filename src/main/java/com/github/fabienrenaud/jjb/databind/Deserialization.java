@@ -5,6 +5,7 @@ import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.data.JsonSource;
 import com.google.gson.JsonSyntaxException;
+import io.github.wycst.wast.json.options.ReadOption;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
@@ -147,6 +148,6 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object wast() throws Exception {
-        return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType());
+        return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType(), ReadOption.UseJDKDoubleParser);
     }
 }

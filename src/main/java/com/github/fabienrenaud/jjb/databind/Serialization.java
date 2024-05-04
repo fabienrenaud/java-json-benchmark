@@ -5,6 +5,7 @@ import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;
+import io.github.wycst.wast.json.options.WriteOption;
 import okio.BufferedSink;
 import okio.Okio;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -179,7 +180,7 @@ public class Serialization extends JsonBench {
     @Override
     public Object wast() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos);
+        io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos, WriteOption.WriteDecimalUseToString);
         return baos;
     }
 }

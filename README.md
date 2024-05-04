@@ -31,6 +31,7 @@ It covers the following libraries:
 * [qson](https://github.com/quarkusio/qson)
 * [tapestry](https://tapestry.apache.org/json.html)
 * [underscore-java](https://github.com/javadev/underscore-java)
+* [wast](https://github.com/wycst)
 
 When available, both databinding and 'stream' (custom packing and unpacking) implementations are tested.
 Two different kinds of [models](/src/main/java/com/github/fabienrenaud/jjb/model/) are evaluated with payloads of 1, 10,

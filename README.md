@@ -77,7 +77,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | mjson        | 1.4.1    |
 | moshi        | 1.15.1   |
 | nanojson     | 1.9      |
-| org.json     | 20231013 |
+| org.json     | 20240303 |
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
 | tapestry     | 5.8.3    |

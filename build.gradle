@@ -85,7 +85,7 @@ dependencies {
     // nanojson
     implementation group: 'com.grack', name: 'nanojson', version: '1.9'
     // org.json
-    implementation group: 'org.json', name: 'json', version: '20231013'
+    implementation group: 'org.json', name: 'json', version: '20240303'
     // purejson
     implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
     // qson

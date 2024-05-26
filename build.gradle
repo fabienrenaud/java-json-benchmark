@@ -81,7 +81,7 @@ dependencies {
     // mjson
     implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
     // moshi
-    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.15.0'
+    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.15.1'
     // nanojson
     implementation group: 'com.grack', name: 'nanojson', version: '1.8'
     // org.json

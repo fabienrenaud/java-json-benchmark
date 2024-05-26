@@ -75,7 +75,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | logansquare  | 1.3.7    |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |
-| moshi        | 1.15.0   |
+| moshi        | 1.15.1   |
 | nanojson     | 1.8      |
 | org.json     | 20231013 |
 | purejson     | 1.0.1    |

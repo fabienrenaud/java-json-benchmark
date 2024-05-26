@@ -66,7 +66,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
         jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
         jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
-        // set johnson JsonReader (default is `JsonProvider.provider()`)
+        // set johnzon JsonReader (default is `JsonProvider.provider()`)
         jakarta.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))

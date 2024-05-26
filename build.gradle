@@ -52,7 +52,7 @@ dependencies {
     // GENSON
     implementation group: 'com.owlike', name: 'genson', version: '1.6'
     // GSON
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.11.0'
     // Jackson
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: "${jacksonVersion}"

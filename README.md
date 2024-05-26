@@ -64,7 +64,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | fastjson     | 2.0.46   |
 | flexjson     | 3.3      |
 | genson       | 1.6      |
-| gson         | 2.10.1   |
+| gson         | 2.11.0   |
 | jackson      | 2.17.1   |
 | jodd json    | 6.0.3    |
 | johnzon      | 1.2.21   |

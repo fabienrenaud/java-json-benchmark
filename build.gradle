@@ -72,7 +72,7 @@ dependencies {
     // json-simple
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     // json-smart
-    implementation group: 'net.minidev', name: 'json-smart', version: '2.4.11'
+    implementation group: 'net.minidev', name: 'json-smart', version: '2.5.1'
     // LoganSquare
     implementation group: 'com.bluelinelabs', name: 'logansquare', version: '1.3.7'
     annotationProcessor group: 'com.bluelinelabs', name: 'logansquare-compiler', version: '1.3.7'

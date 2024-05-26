@@ -71,7 +71,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | jakarta      | 2.1.3    |
 | json-io      | 4.14.0   |
 | simplejson   | 1.1.1    |
-| json-smart   | 2.4.11   |
+| json-smart   | 2.5.1    |
 | logansquare  | 1.3.7    |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |

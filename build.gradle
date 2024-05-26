@@ -83,7 +83,7 @@ dependencies {
     // moshi
     implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.15.1'
     // nanojson
-    implementation group: 'com.grack', name: 'nanojson', version: '1.8'
+    implementation group: 'com.grack', name: 'nanojson', version: '1.9'
     // org.json
     implementation group: 'org.json', name: 'json', version: '20231013'
     // purejson

@@ -67,7 +67,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | gson         | 2.11.0   |
 | jackson      | 2.17.1   |
 | jodd json    | 6.0.3    |
-| johnzon      | 1.2.21   |
+| johnzon      | 2.0.1    |
 | jakarta      | 2.1.3    |
 | json-io      | 4.24.0   |
 | simplejson   | 1.1.1    |

@@ -91,7 +91,7 @@ dependencies {
     // qson
     implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
     // tapestry
-    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.3'
+    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.6'
     // underscore-java
     implementation group: 'com.github.javadev', name: 'underscore', version: '1.97'
     // yasson

@@ -80,7 +80,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | org.json     | 20240303 |
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
-| tapestry     | 5.8.3    |
+| tapestry     | 5.8.6    |
 | underscore   | 1.97     | 
 | yasson       | 3.0.3    |
 | wast         | 0.0.12.1 |

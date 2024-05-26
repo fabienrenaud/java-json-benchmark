@@ -1,7 +1,5 @@
 package com.github.fabienrenaud.jjb.provider;
 
-import com.cedarsoftware.util.io.JsonReader;
-import com.cedarsoftware.util.io.JsonWriter;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -46,8 +44,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public class ClientsJsonProvider implements JsonProvider<Clients> {
@@ -164,12 +160,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .builder()
             .adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
 
-    private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
-
     public ClientsJsonProvider() {
-
-        jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
-        jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
         // set johnzon JsonReader (default is `JsonProvider.provider()`)
         jakarta.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
@@ -241,11 +232,6 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public Mapper johnzon() {
         return johnzon;
-    }
-
-    @Override
-    public Map<String, Object> jsonioStreamOptions() {
-        return jsonioStreamOptions;
     }
 
     @Override

@@ -69,7 +69,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | jodd json    | 6.0.3    |
 | johnzon      | 1.2.21   |
 | jakarta      | 2.1.3    |
-| json-io      | 4.14.0   |
+| json-io      | 4.24.0   |
 | simplejson   | 1.1.1    |
 | json-smart   | 2.5.1    |
 | logansquare  | 1.3.7    |

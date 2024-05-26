@@ -1,5 +1,6 @@
 package com.github.fabienrenaud.jjb;
 
+import com.cedarsoftware.io.WriteOptionsBuilder;
 import com.github.fabienrenaud.jjb.model.Clients;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.support.Api;
@@ -34,8 +35,8 @@ public abstract class JsonBenchmark<T> {
 
         if (o instanceof Users || o instanceof Clients) {
             testPojo((T) o);
-        } else if (o instanceof com.cedarsoftware.util.io.JsonObject) {
-            String v = com.cedarsoftware.util.io.JsonWriter.objectToJson(o, BENCH.JSON_SOURCE().provider().jsonioStreamOptions());
+        } else if (o instanceof com.cedarsoftware.io.JsonObject) {
+            String v = com.cedarsoftware.io.JsonIo.toJson(o, new WriteOptionsBuilder().showTypeInfoNever().build());
             testString(v);
         } else if (o instanceof com.grack.nanojson.JsonObject) {
             String v = com.grack.nanojson.JsonWriter.string(o);

@@ -58,30 +58,30 @@ The results here-below were computed on January the 30th, 2024 with the followin
 
 | Library      | Version  |
 |--------------|----------|
-| avaje-jsonb  | 1.11     |
+| avaje-jsonb  | 1.9      |
 | boon         | 0.34     |
-| dsl-json     | 2.0.2    |
+| dsl-json     | 1.10.0   |
 | fastjson     | 2.0.46   |
 | flexjson     | 3.3      |
 | genson       | 1.6      |
-| gson         | 2.11.0   |
-| jackson      | 2.17.1   |
+| gson         | 2.10.1   |
+| jackson      | 2.16.0   |
 | jodd json    | 6.0.3    |
-| johnzon      | 2.0.1    |
+| johnzon      | 1.2.21   |
 | jakarta      | 2.1.3    |
 | json-io      | 4.24.0   |
 | simplejson   | 1.1.1    |
-| json-smart   | 2.5.1    |
+| json-smart   | 2.4.11   |
 | logansquare  | 1.3.7    |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |
-| moshi        | 1.15.1   |
-| nanojson     | 1.9      |
-| org.json     | 20240303 |
+| moshi        | 1.15.0   |
+| nanojson     | 1.8      |
+| org.json     | 20231013 |
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
-| tapestry     | 5.8.6    |
-| underscore   | 1.101    | 
+| tapestry     | 5.8.3    |
+| underscore   | 1.97     | 
 | yasson       | 3.0.3    |
 | wast         | 0.0.12.1 |
 

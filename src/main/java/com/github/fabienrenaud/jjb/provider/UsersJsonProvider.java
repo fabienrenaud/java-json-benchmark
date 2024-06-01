@@ -1,7 +1,5 @@
 package com.github.fabienrenaud.jjb.provider;
 
-import com.cedarsoftware.util.io.JsonReader;
-import com.cedarsoftware.util.io.JsonWriter;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -24,8 +22,6 @@ import org.apache.johnzon.mapper.Mapper;
 import org.eclipse.yasson.JsonBindingProvider;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import jakarta.json.bind.Jsonb;
 import us.hebi.quickbuf.JsonSink;
@@ -57,16 +53,12 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final DslJson<Object> dsljson = new DslJson<>(Settings.withRuntime().includeServiceLoader());
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
-    private final Map<String, Object> jsonioStreamOptions = new HashMap<>();
-
-    private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
-    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.newBuilder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.builder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
     public UsersJsonProvider() {
-        jsonioStreamOptions.put(JsonReader.USE_MAPS, true);
-        jsonioStreamOptions.put(JsonWriter.TYPE, false);
 
-        // set johnson JsonReader (default is `JsonProvider.provider()`)
+        // set johnzon JsonReader (default is `JsonProvider.provider()`)
         jakarta.json.spi.JsonProvider johnzonProvider = new JsonProviderImpl();
         johnzon = new org.apache.johnzon.mapper.MapperBuilder()
             .setReaderFactory(johnzonProvider.createReaderFactory(Collections.emptyMap()))
@@ -130,11 +122,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public Mapper johnzon() {
         return johnzon;
-    }
-
-    @Override
-    public Map<String, Object> jsonioStreamOptions() {
-        return jsonioStreamOptions;
     }
 
     @Override

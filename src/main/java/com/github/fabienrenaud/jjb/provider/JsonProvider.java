@@ -14,8 +14,6 @@ import jakarta.json.bind.Jsonb;
 import us.hebi.quickbuf.JsonSink;
 import us.hebi.quickbuf.ProtoMessage;
 
-import java.util.Map;
-
 public interface JsonProvider<T> {
 
     Gson gson();
@@ -41,8 +39,6 @@ public interface JsonProvider<T> {
     org.boon.json.ObjectMapper boon();
 
     Mapper johnzon();
-
-    Map<String, Object> jsonioStreamOptions();
 
     DslJson<Object> dsljson();
 

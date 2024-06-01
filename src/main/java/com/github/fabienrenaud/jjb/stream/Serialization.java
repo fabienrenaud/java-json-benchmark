@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
+import com.cedarsoftware.io.JsonIo;
+import com.cedarsoftware.io.WriteOptionsBuilder;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -93,8 +95,10 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object jsonio() throws Exception {
-        return com.cedarsoftware.util.io.JsonWriter.objectToJson(JSON_SOURCE().nextPojo(), JSON_SOURCE().provider().jsonioStreamOptions());
+    public Object jsonio() {
+
+        // showTypeInfoNever maps to old TYPE=false behavior see {@link JsonIo#getWriteOptionsBuilder(java.util.Map)}
+        return JsonIo.toJson(JSON_SOURCE().nextPojo(), new WriteOptionsBuilder().showTypeInfoNever().build());
     }
 
     @Benchmark

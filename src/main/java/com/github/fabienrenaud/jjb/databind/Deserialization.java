@@ -1,6 +1,8 @@
 package com.github.fabienrenaud.jjb.databind;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.reader.ObjectReaderProvider;
 import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.data.JsonSource;
@@ -15,6 +17,16 @@ import java.io.IOException;
  * @author Fabien Renaud
  */
 public class Deserialization extends JsonBench {
+    static final ObjectReaderProvider featuresProvider = new ObjectReaderProvider();
+    static final JSONReader.Context featuresContext;
+    static {
+        featuresProvider.setDisableArrayMapping(true);
+        featuresProvider.setDisableAutoType(true);
+        featuresProvider.setDisableJSONB(true);
+        featuresProvider.setDisableReferenceDetect(true);
+        featuresProvider.setDisableSmartMatch(true);
+        featuresContext = new JSONReader.Context(featuresProvider);
+    }
 
     public JsonSource JSON_SOURCE() {
         return CLI_JSON_SOURCE;
@@ -60,6 +72,12 @@ public class Deserialization extends JsonBench {
     @Override
     public Object fastjson() {
         return JSON.parseObject(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
+    }
+
+    @Benchmark
+    @Override
+    public Object fastjson_features() {
+        return JSON.parseObject(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType(), featuresContext);
     }
 
     @Benchmark

@@ -61,7 +61,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 | avaje-jsonb  | 1.9      |
 | boon         | 0.34     |
 | dsl-json     | 1.10.0   |
-| fastjson     | 2.0.51   |
+| fastjson     | 2.0.46   |
 | flexjson     | 3.3      |
 | genson       | 1.6      |
 | gson         | 2.10.1   |

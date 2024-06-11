@@ -51,6 +51,10 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object fastjson_features() throws Exception {
+        return null;
+    }
+
     public Object jsonio() throws Exception {
         return null;
     }

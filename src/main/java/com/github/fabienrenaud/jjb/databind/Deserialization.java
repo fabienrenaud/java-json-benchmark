@@ -15,7 +15,6 @@ import java.io.IOException;
  * @author Fabien Renaud
  */
 public class Deserialization extends JsonBench {
-
     public JsonSource JSON_SOURCE() {
         return CLI_JSON_SOURCE;
     }
@@ -60,6 +59,12 @@ public class Deserialization extends JsonBench {
     @Override
     public Object fastjson() {
         return JSON.parseObject(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
+    }
+
+    @Benchmark
+    @Override
+    public Object fastjson_features() {
+        return JSON.parseObject(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType(), JSON_SOURCE().fastjsonFeatures().readerContext());
     }
 
     @Benchmark

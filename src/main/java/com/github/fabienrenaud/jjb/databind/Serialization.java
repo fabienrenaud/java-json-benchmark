@@ -1,9 +1,6 @@
 package com.github.fabienrenaud.jjb.databind;
 
 import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONFactory;
-import com.alibaba.fastjson2.JSONWriter;
-import com.alibaba.fastjson2.writer.ObjectWriterProvider;
 import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
@@ -16,16 +13,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 import java.io.ByteArrayOutputStream;
 
 public class Serialization extends JsonBench {
-    static final ObjectWriterProvider featuresProvider = new ObjectWriterProvider();
-    static final JSONWriter.Context featuresContext;
-    static {
-        featuresProvider.setDisableAutoType(true);
-        featuresProvider.setDisableArrayMapping(true);
-        featuresProvider.setDisableJSONB(true);
-        featuresProvider.setDisableReferenceDetect(true);
-        featuresContext = JSONFactory.createWriteContext(featuresProvider);
-    }
-
     public JsonSource JSON_SOURCE() {
         return CLI_JSON_SOURCE;
     }
@@ -90,7 +77,7 @@ public class Serialization extends JsonBench {
     @Override
     public Object fastjson_features() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        JSON.writeTo(baos, JSON_SOURCE().nextPojo(), featuresContext);
+        JSON.writeTo(baos, JSON_SOURCE().nextPojo(), JSON_SOURCE().fastjsonFeatures().writerContext());
         return baos;
     }
 

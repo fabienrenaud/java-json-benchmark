@@ -13,7 +13,6 @@ import org.openjdk.jmh.annotations.Benchmark;
 import java.io.ByteArrayOutputStream;
 
 public class Serialization extends JsonBench {
-
     public JsonSource JSON_SOURCE() {
         return CLI_JSON_SOURCE;
     }
@@ -71,6 +70,14 @@ public class Serialization extends JsonBench {
     public Object fastjson() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         JSON.writeTo(baos, JSON_SOURCE().nextPojo());
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object fastjson_features() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON.writeTo(baos, JSON_SOURCE().nextPojo(), JSON_SOURCE().fastjsonFeatures().writerContext());
         return baos;
     }
 

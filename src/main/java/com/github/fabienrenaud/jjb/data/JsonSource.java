@@ -1,5 +1,10 @@
 package com.github.fabienrenaud.jjb.data;
 
+import com.alibaba.fastjson2.JSONFactory;
+import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.reader.ObjectReaderProvider;
+import com.alibaba.fastjson2.writer.ObjectWriterProvider;
 import com.github.fabienrenaud.jjb.RandomUtils;
 import com.github.fabienrenaud.jjb.data.gen.DataGenerator;
 import com.github.fabienrenaud.jjb.provider.JsonProvider;
@@ -29,6 +34,8 @@ public abstract class JsonSource<T> {
     private final StreamSerializer<T> streamSerializer;
     private final StreamDeserializer<T> streamDeserializer;
 
+    private final FastjsonProvider fastjsonFeatures;
+
     JsonSource(int quantity, int individualSize, JsonProvider provider, DataGenerator<T> dataGenerator, StreamSerializer<T> streamSerializer, StreamDeserializer<T> streamDeserializer) {
         this.provider = provider;
 
@@ -49,6 +56,24 @@ public abstract class JsonSource<T> {
             }
             return arr;
         });
+
+        ObjectWriterProvider featuresWriterProvider = new ObjectWriterProvider();
+        featuresWriterProvider.setDisableAutoType(true);
+        featuresWriterProvider.setDisableArrayMapping(true);
+        featuresWriterProvider.setDisableJSONB(true);
+        featuresWriterProvider.setDisableReferenceDetect(true);
+        JSONFactory.createWriteContext(featuresWriterProvider);
+
+        ObjectReaderProvider featuresReaderProvider = new ObjectReaderProvider();
+        featuresReaderProvider.setDisableArrayMapping(true);
+        featuresReaderProvider.setDisableAutoType(true);
+        featuresReaderProvider.setDisableJSONB(true);
+        featuresReaderProvider.setDisableReferenceDetect(true);
+        featuresReaderProvider.setDisableSmartMatch(true);
+
+        fastjsonFeatures = new FastjsonProvider(
+                JSONFactory.createReadContext(featuresReaderProvider),
+                JSONFactory.createWriteContext(featuresWriterProvider));
     }
 
     private void populateFields(int quantity, int individualSize) {
@@ -124,4 +149,10 @@ public abstract class JsonSource<T> {
     private int index(int bound) {
         return bound == 1 ? 0 : RandomUtils.nextInt(bound);
     }
+
+    public FastjsonProvider fastjsonFeatures() {
+        return fastjsonFeatures;
+    }
+
+    public record FastjsonProvider (JSONReader.Context readerContext, JSONWriter.Context writerContext) {}
 }

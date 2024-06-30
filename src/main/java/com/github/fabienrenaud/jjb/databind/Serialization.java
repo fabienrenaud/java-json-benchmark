@@ -187,7 +187,7 @@ public class Serialization extends JsonBench {
     @Override
     public Object wast() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
-        io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos, WriteOption.WriteDecimalUseToString);
+        io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos/*, WriteOption.WriteDecimalUseToString*/);
         return baos;
     }
 }

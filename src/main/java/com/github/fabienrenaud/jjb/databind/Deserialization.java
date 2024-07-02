@@ -153,6 +153,6 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object wast() throws Exception {
-        return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType(), ReadOption.UseJDKDoubleParser);
+        return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType());
     }
 }

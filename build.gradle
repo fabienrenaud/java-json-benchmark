@@ -45,8 +45,8 @@ dependencies {
     implementation group: 'com.dslplatform', name: 'dsl-json', version: "${dslJsonVersion}"
     annotationProcessor group: 'com.dslplatform', name: 'dsl-json', version: "${dslJsonVersion}"
     // FastJson
-    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.51'
-    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2-incubator-vector', version: '2.0.51'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.54'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2-incubator-vector', version: '2.0.54'
     // FlexJson
     implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
     // GENSON

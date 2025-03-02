@@ -2,6 +2,7 @@ package com.github.fabienrenaud.jjb;
 
 import com.github.fabienrenaud.jjb.data.JsonSource;
 import com.github.fabienrenaud.jjb.data.JsonSourceFactory;
+import io.github.wycst.wast.json.JSONVmOptions;
 
 /**
  * @author Fabien Renaud
@@ -10,6 +11,11 @@ public abstract class JsonBench {
 
     protected static final JsonSource CLI_JSON_SOURCE = JsonSourceFactory.create();
     public abstract JsonSource JSON_SOURCE();
+
+    public JsonBench() {
+        JSONVmOptions.disableIntrinsicCandidate();
+        JSONVmOptions.disableIncubatorVector();
+    }
 
     public Object gson() throws Exception {
         return null;

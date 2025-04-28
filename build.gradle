@@ -98,7 +98,7 @@ dependencies {
     // QuickBuffers
     implementation group: 'us.hebi.quickbuf', name: 'quickbuf-runtime', version: '1.4'
     // wast
-    implementation group: 'io.github.wycst', name: 'wast', version: '0.0.25'
+    implementation group: 'io.github.wycst', name: 'wast', version: '0.0.26'
 
     // Test
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'

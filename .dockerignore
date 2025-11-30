@@ -1,4 +1,6 @@
 .git
-bin
-build
+.github
 .gradle
+bin
+target
+build

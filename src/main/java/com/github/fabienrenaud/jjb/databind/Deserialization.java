@@ -155,4 +155,10 @@ public class Deserialization extends JsonBench {
     public Object wast() throws Exception {
         return io.github.wycst.wast.json.JSON.parseObject(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType());
     }
+
+    @Benchmark
+    @Override
+    public Object djomo() throws Exception {
+        return JSON_SOURCE().provider().djomo().fromString(JSON_SOURCE().nextString(), JSON_SOURCE().pojoType());
+    }
 }

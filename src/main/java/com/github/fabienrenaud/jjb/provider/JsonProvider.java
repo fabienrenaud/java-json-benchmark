@@ -60,4 +60,6 @@ public interface JsonProvider<T> {
 
     JsonSink quickbufSink();
 
+    com.bigcloud.djomo.Json djomo();
+
 }

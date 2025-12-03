@@ -160,6 +160,8 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .builder()
             .adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
 
+    private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
+
     public ClientsJsonProvider() {
 
         // set johnzon JsonReader (default is `JsonProvider.provider()`)
@@ -282,6 +284,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public JsonSink quickbufSink() {
         return QUICKBUF_SINK.get();
+    }
+
+    @Override
+    public com.bigcloud.djomo.Json djomo() {
+        return djomo;
     }
 
     private static final ThreadLocal<QuickbufSchema.Clients> QUICKBUF_MESSAGE = ThreadLocal.withInitial(QuickbufSchema.Clients::newInstance);

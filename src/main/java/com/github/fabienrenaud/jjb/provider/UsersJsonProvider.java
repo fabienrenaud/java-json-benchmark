@@ -56,6 +56,8 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.builder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
     private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
 
+    private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
+
     public UsersJsonProvider() {
 
         // set johnzon JsonReader (default is `JsonProvider.provider()`)
@@ -178,6 +180,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public JsonSink quickbufSink() {
         return QUICKBUF_SINK.get();
+    }
+
+    @Override
+    public com.bigcloud.djomo.Json djomo() {
+        return djomo;
     }
 
     private static final ThreadLocal<QuickbufSchema.Users> QUICKBUF_MESSAGE = ThreadLocal.withInitial(QuickbufSchema.Users::newInstance);

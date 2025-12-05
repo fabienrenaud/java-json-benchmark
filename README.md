@@ -157,6 +157,20 @@ If you wish to run _all_ benchmarks used to generate the reports above,
 you can run `./run-everything`. This will take several hours to complete, so
 be patient.
 
+## Run on Docker
+
+You can use Docker if you wish to reproduce the consistent environment
+or to run benchmarks in a separate safe environment.
+
+Prerequisites:
+
+* Docker
+
+Build and run:
+
+    docker build -t java-json-benchmark:latest .
+    docker run --rm -it java-json-benchmark:latest ./run deser
+
 ## Run on AWS
 
 Prerequisites:

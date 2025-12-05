@@ -36,7 +36,8 @@ public enum Library {
     PUREJSON,
     ANTONS,
     QUICKBUF_JSON,
-    WAST;
+    WAST,
+    DJOMO;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

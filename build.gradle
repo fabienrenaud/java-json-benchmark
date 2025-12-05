@@ -106,6 +106,8 @@ dependencies {
     implementation 'us.hebi.quickbuf:quickbuf-runtime:1.4'
     // wast
     implementation 'io.github.wycst:wast:0.0.26'
+    // djomo
+    implementation 'com.bigcloud.djomo:djomo:0.9.4'
 
     // Test
     testImplementation 'junit:junit:4.13.2'

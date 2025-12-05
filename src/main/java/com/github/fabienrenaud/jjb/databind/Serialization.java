@@ -190,4 +190,12 @@ public class Serialization extends JsonBench {
         io.github.wycst.wast.json.JSON.writeJsonTo(JSON_SOURCE().nextPojo(), baos);
         return baos;
     }
+
+    @Benchmark
+    @Override
+    public Object djomo() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().djomo().write(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
 }

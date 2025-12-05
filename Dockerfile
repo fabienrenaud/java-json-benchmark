@@ -21,7 +21,7 @@ RUN ./gradlew --version --no-daemon
 COPY --chown=appuser:appuser ./build.gradle ./settings.gradle /app/
 RUN ./gradlew dependencies --no-daemon
 
-# Build projcet
+# Build project
 COPY --chown=appuser:appuser . /app/
 RUN ./gradlew build shadowJar --no-daemon
 

@@ -1,16 +1,23 @@
 plugins {
     id 'java'
     id 'application'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'com.gradleup.shadow' version '9.2.2'
     id 'com.github.ben-manes.versions' version '0.49.0'
 }
 
 group = 'com.github.fabienrenaud'
 version = '8'
-mainClassName = 'com.github.fabienrenaud.jjb.Cli'
 
-sourceCompatibility = 17
-targetCompatibility = 17
+application {
+    mainClass = 'com.github.fabienrenaud.jjb.Cli'
+}
+
+java {
+    toolchain {
+        sourceCompatibility = 17
+        targetCompatibility = 17
+    }
+}
 
 repositories {
     mavenCentral()
@@ -27,86 +34,88 @@ ext {
 dependencies {
 
     // CLI and misc
-    implementation group: 'io.airlift', name: 'airline', version: '0.9'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation 'io.airlift:airline:0.9'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 
     // JSON libraries
     // In alphabetical order.
 
     // antons
-    implementation group: 'io.github.antonsjava', name: 'json', version: '1.17'
+    implementation 'io.github.antonsjava:json:1.17'
     // avaje-jsonb
-    implementation group: 'io.avaje', name: 'avaje-jsonb', version: "${avajeJsonVersion}"
-    implementation group: 'io.avaje', name: 'avaje-jsonb-jackson', version: "${avajeJsonVersion}"
-    annotationProcessor group: 'io.avaje', name: 'avaje-jsonb-generator', version: "${avajeJsonVersion}"   
+    implementation "io.avaje:avaje-jsonb:${avajeJsonVersion}"
+    implementation "io.avaje:avaje-jsonb-jackson:${avajeJsonVersion}"
+    annotationProcessor "io.avaje:avaje-jsonb-generator:${avajeJsonVersion}"   
     // boon
-    implementation group: 'io.fastjson', name: 'boon', version: '0.34'
+    implementation 'io.fastjson:boon:0.34'
     // DSL-json
-    implementation group: 'com.dslplatform', name: 'dsl-json', version: "${dslJsonVersion}"
-    annotationProcessor group: 'com.dslplatform', name: 'dsl-json', version: "${dslJsonVersion}"
+    implementation "com.dslplatform:dsl-json:${dslJsonVersion}"
+    annotationProcessor "com.dslplatform:dsl-json:${dslJsonVersion}"
     // FastJson
-    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.57'
+    implementation 'com.alibaba.fastjson2:fastjson2:2.0.57'
     // FlexJson
-    implementation group: 'net.sf.flexjson', name: 'flexjson', version: '3.3'
+    implementation 'net.sf.flexjson:flexjson:3.3'
     // GENSON
-    implementation group: 'com.owlike', name: 'genson', version: '1.6'
+    implementation 'com.owlike:genson:1.6'
     // GSON
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.11.0'
+    implementation 'com.google.code.gson:gson:2.11.0'
     // Jackson
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
-    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: "${jacksonVersion}"
-    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-blackbird', version: "${jacksonVersion}"
-    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.module:jackson-module-afterburner:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.module:jackson-module-blackbird:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
     // jodd
-    implementation group: 'org.jodd', name: 'jodd-json', version: '6.0.3'
+    implementation 'org.jodd:jodd-json:6.0.3'
     // johnzon
-    implementation group: 'org.apache.johnzon', name: 'johnzon-core', version: "${johnzonVersion}"
-    implementation group: 'org.apache.johnzon', name: 'johnzon-mapper', version: "${johnzonVersion}"
+    implementation "org.apache.johnzon:johnzon-core:${johnzonVersion}"
+    implementation "org.apache.johnzon:johnzon-mapper:${johnzonVersion}"
     // Jakarta
-    implementation group: 'jakarta.json.bind', name: 'jakarta.json.bind-api', version: '3.0.1'
-    implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.3'
-    implementation group: 'org.glassfish', name: 'jakarta.json', version: '2.0.1'
+    implementation 'jakarta.json.bind:jakarta.json.bind-api:3.0.1'
+    implementation 'jakarta.json:jakarta.json-api:2.1.3'
+    implementation 'org.glassfish:jakarta.json:2.0.1'
     // json-io
-    implementation group: 'com.cedarsoftware', name: 'json-io', version: '4.24.0'
+    implementation 'com.cedarsoftware:json-io:4.24.0'
     // json-simple
-    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     // json-smart
-    implementation group: 'net.minidev', name: 'json-smart', version: '2.5.1'
+    implementation 'net.minidev:json-smart:2.5.1'
     // LoganSquare
-    implementation group: 'com.bluelinelabs', name: 'logansquare', version: '1.3.7'
-    annotationProcessor group: 'com.bluelinelabs', name: 'logansquare-compiler', version: '1.3.7'
+    implementation 'com.bluelinelabs:logansquare:1.3.7'
+    annotationProcessor 'com.bluelinelabs:logansquare-compiler:1.3.7'
     // minimal-json
-    implementation group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.5'
+    implementation 'com.eclipsesource.minimal-json:minimal-json:0.9.5'
     // mjson
-    implementation group: 'org.sharegov', name: 'mjson', version: '1.4.1'
+    implementation 'org.sharegov:mjson:1.4.1'
     // moshi
-    implementation group: 'com.squareup.moshi', name: 'moshi', version: '1.15.1'
+    implementation 'com.squareup.moshi:moshi:1.15.1'
     // nanojson
-    implementation group: 'com.grack', name: 'nanojson', version: '1.9'
+    implementation 'com.grack:nanojson:1.9'
     // org.json
-    implementation group: 'org.json', name: 'json', version: '20240303'
+    implementation 'org.json:json:20240303'
     // purejson
-    implementation group: 'io.github.senthilganeshs', name: 'purejson', version: '1.0.1'
+    implementation 'io.github.senthilganeshs:purejson:1.0.1'
     // qson
-    implementation group: 'io.quarkus.qson', name: 'qson-generator', version: '1.1.1.Final'
+    implementation 'io.quarkus.qson:qson-generator:1.1.1.Final'
     // tapestry
-    implementation group: 'org.apache.tapestry', name: 'tapestry-json', version: '5.8.6'
+    implementation 'org.apache.tapestry:tapestry-json:5.8.6'
     // underscore-java
-    implementation group: 'com.github.javadev', name: 'underscore', version: '1.101'
+    implementation 'com.github.javadev:underscore:1.101'
     // yasson
-    implementation group: 'org.eclipse', name: 'yasson', version: '3.0.3'
+    implementation 'org.eclipse:yasson:3.0.3'
     // QuickBuffers
-    implementation group: 'us.hebi.quickbuf', name: 'quickbuf-runtime', version: '1.4'
+    implementation 'us.hebi.quickbuf:quickbuf-runtime:1.4'
     // wast
-    implementation group: 'io.github.wycst', name: 'wast', version: '0.0.26'
+    implementation 'io.github.wycst:wast:0.0.26'
+    // djomo
+    implementation 'com.bigcloud.djomo:djomo:0.9.4'
 
     // Test
-    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    testImplementation 'junit:junit:4.13.2'
 
     // IMPORTANT: Leave JMH at the end!
     // JMH
-    implementation group: 'org.openjdk.jmh', name: 'jmh-core', version: "${jmhVersion}"
-    annotationProcessor group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: "${jmhVersion}"
+    implementation "org.openjdk.jmh:jmh-core:${jmhVersion}"
+    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:${jmhVersion}"
 }
 
 shadowJar {

@@ -1,0 +1,6 @@
+.git
+.github
+.gradle
+bin
+target
+build

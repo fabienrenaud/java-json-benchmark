@@ -149,4 +149,7 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object djomo() throws Exception {
+        return null;
+    }
 }

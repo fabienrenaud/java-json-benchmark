@@ -10,6 +10,7 @@ It covers the following libraries:
 
 * [avaje-jsonb](https://github.com/avaje/avaje-jsonb)
 * [boon](https://github.com/boonproject/boon)
+* [djomo](https://github.com/alexvigdor/djomo-core)
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [fastjson](https://github.com/alibaba/fastjson)
 * [flexjson](http://flexjson.sourceforge.net/)
@@ -60,6 +61,7 @@ The results here-below were computed on January the 30th, 2024 with the followin
 |--------------|----------|
 | avaje-jsonb  | 1.9      |
 | boon         | 0.34     |
+| djomo        | 0.9.4    |
 | dsl-json     | 1.10.0   |
 | fastjson     | 2.0.46   |
 | flexjson     | 3.3      |
@@ -156,6 +158,20 @@ commands.
 If you wish to run _all_ benchmarks used to generate the reports above,
 you can run `./run-everything`. This will take several hours to complete, so
 be patient.
+
+## Run on Docker
+
+You can use Docker if you wish to reproduce the consistent environment
+or to run benchmarks in a separate safe environment.
+
+Prerequisites:
+
+* Docker
+
+Build and run:
+
+    docker build -t java-json-benchmark:latest .
+    docker run --rm -it java-json-benchmark:latest ./run deser
 
 ## Run on AWS
 

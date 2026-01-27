@@ -74,7 +74,7 @@ dependencies {
     implementation 'jakarta.json:jakarta.json-api:2.1.3'
     implementation 'org.glassfish:jakarta.json:2.0.1'
     // json-io
-    implementation 'com.cedarsoftware:json-io:4.87.0'
+    implementation 'com.cedarsoftware:json-io:4.88.0'
     // json-simple
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     // json-smart

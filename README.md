@@ -55,37 +55,37 @@ Not evaluated are: RAM utilization, compression, payloads > 1 MB.
 
 The benchmarks are written with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) and for Java 17.
 
-The results here-below were computed on January the 30th, 2024 with the following libraries and versions:
+The results here-below were computed on February the 28th, 2026 with the following libraries and versions:
 
 | Library      | Version  |
 |--------------|----------|
-| avaje-jsonb  | 1.9      |
+| avaje-jsonb  | 1.11     |
 | boon         | 0.34     |
 | djomo        | 0.9.4    |
-| dsl-json     | 1.10.0   |
-| fastjson     | 2.0.46   |
+| dsl-json     | 2.0.2    |
+| fastjson     | 2.0.57   |
 | flexjson     | 3.3      |
 | genson       | 1.6      |
-| gson         | 2.10.1   |
-| jackson      | 2.16.0   |
+| gson         | 2.11.1   |
+| jackson      | 2.17.1   |
 | jodd json    | 6.0.3    |
-| johnzon      | 1.2.21   |
+| johnzon      | 2.0.1    |
 | jakarta      | 2.1.3    |
-| json-io      | 4.24.0   |
+| json-io      | 4.88.0   |
 | simplejson   | 1.1.1    |
-| json-smart   | 2.4.11   |
+| json-smart   | 2.5.1    |
 | logansquare  | 1.3.7    |
 | minimal-json | 0.9.5    |
 | mjson        | 1.4.1    |
-| moshi        | 1.15.0   |
-| nanojson     | 1.8      |
-| org.json     | 20231013 |
+| moshi        | 1.15.1   |
+| nanojson     | 1.9      |
+| org.json     | 20240303 |
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
-| tapestry     | 5.8.3    |
-| underscore   | 1.97     | 
+| tapestry     | 5.8.6    |
+| underscore   | 1.101     | 
 | yasson       | 3.0.3    |
-| wast         | 0.0.13.2 |
+| wast         | 0.0.29.1 |
 
 [All graphs and sheets are available in this google doc.][spreadsheet]
 
@@ -115,20 +115,20 @@ Note: fewer libraries are tested with this model due to lack of support for some
 
 ### Benchmark configuration
 
-Tests were run on an [Amazon EC2 c5.xlarge](https://aws.amazon.com/ec2/instance-types/c5/) (4 vCPU, 8 GiB RAM)
+Tests were run on an [Amazon EC2 c8g.xlarge](https://aws.amazon.com/ec2/instance-types/c8g/) (4 vCPU, 8 GiB RAM)
 
 JMH info:
 
 ```
 # JMH version: 1.35
-# VM version: JDK 17.0.10, OpenJDK 64-Bit Server VM, 17.0.10+7-LTS
-# VM invoker: /usr/lib/jvm/java-17-amazon-corretto.x86_64/bin/java
+# VM version: JDK 25.0.2, OpenJDK 64-Bit Server VM, 25.0.2+10-LTS
+# VM invoker: /usr/lib/jvm/java-25-amazon-corretto.aarch64/bin/java
 # VM options: -Xms2g -Xmx2g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 5 iterations, 10 s each
 # Measurement: 10 iterations, 3 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 3 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 ```
 
@@ -205,9 +205,9 @@ find numerous examples in the commit history. For instance:
 Pull requests are welcome.
 
 
-[jmh-results]: /archive/raw-results-2024-01-30.md
-[spreadsheet]: https://docs.google.com/spreadsheets/d/1a4kgv2R-IxANE_itV-qJwCnEBvc0HqHGh4bp4AXTFoY/edit?usp=sharing
-[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=1217359585&format=image
-[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=296776676&format=image
-[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=684555912&format=image
-[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vQDBLUYgQ9BhFL_yxZidD1dRG-VYn2aFjMAwc2p6pl_J72XME4lopY8LcyHzTdC5QhISqIrSdkL-Vyt/pubchart?oid=2004244401&format=image
+[jmh-results]: /archive/raw-results-2026-02-28.md
+[spreadsheet]: https://docs.google.com/spreadsheets/d/1yVqx9Wvcrr9pdB0j70AcEJQSOPrztUKXI_pi-29NBOo/edit?usp=sharing
+[graph-users-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSUD5_YT6-RXIvkwRiwFDMfGmEiYkYYs2fBY5p1p2iVQU01v71JQwMqPDlLAiLf2uL9STEzpOXTp0Us/pubchart?oid=1217359585&format=image
+[graph-users-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSUD5_YT6-RXIvkwRiwFDMfGmEiYkYYs2fBY5p1p2iVQU01v71JQwMqPDlLAiLf2uL9STEzpOXTp0Us/pubchart?oid=296776676&format=image
+[graph-clients-deser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSUD5_YT6-RXIvkwRiwFDMfGmEiYkYYs2fBY5p1p2iVQU01v71JQwMqPDlLAiLf2uL9STEzpOXTp0Us/pubchart?oid=684555912&format=image
+[graph-clients-ser]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSUD5_YT6-RXIvkwRiwFDMfGmEiYkYYs2fBY5p1p2iVQU01v71JQwMqPDlLAiLf2uL9STEzpOXTp0Us/pubchart?oid=2004244401&format=image

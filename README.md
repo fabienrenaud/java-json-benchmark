@@ -83,7 +83,7 @@ The results here-below were computed on February the 28th, 2026 with the followi
 | purejson     | 1.0.1    |
 | qson         | 1.1.1    |
 | tapestry     | 5.8.6    |
-| underscore   | 1.101     | 
+| underscore   | 1.101    |
 | yasson       | 3.0.3    |
 | wast         | 0.0.29.1 |
 

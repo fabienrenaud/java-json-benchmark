@@ -1,5 +1,6 @@
 package com.github.fabienrenaud.jjb.stream;
 
+import com.cedarsoftware.io.JsonTokenizer;
 import com.fasterxml.jackson.core.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.owlike.genson.stream.ObjectReader;
@@ -14,6 +15,8 @@ public interface StreamDeserializer<T> {
     T gson(JsonReader reader) throws IOException;
 
     T jackson(JsonParser jParser) throws IOException;
+
+    T jsonio(JsonTokenizer tokenizer) throws IOException;
 
     T minimaljson(Reader reader) throws IOException;
 

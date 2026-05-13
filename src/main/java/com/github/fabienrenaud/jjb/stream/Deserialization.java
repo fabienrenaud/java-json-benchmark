@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 import com.cedarsoftware.io.JsonIo;
-import com.cedarsoftware.io.JsonObject;
+import com.cedarsoftware.io.JsonTokenizer;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -92,15 +92,17 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object jsonio() {
-        // toMaps() returns the JsonObject (Map) graph directly via MapResolver,
-        // skipping the second-pass POJO field injection that toJava() does.
-        // ~45% faster on JsonPerformanceTest. The API handles Maps-mode option
-        // configuration internally via its own cache, so no options needed here.
-        // Explicit JsonObject target keeps the result as the native lite Map
-        // representation (the round-trip test in JsonBenchmark.test detects
-        // JsonObject and re-serializes it for verification).
-        return JsonIo.toMaps(JSON_SOURCE().nextInputStream()).asClass(JsonObject.class);
+    public Object jsonio() throws IOException {
+        // Hand-rolled token-walking stream deserializer using json-io's public
+        // JsonTokenizer cursor API (4.103.0+). Matches the structural shape of
+        // the jackson() entry above so this is an apples-to-apples comparison
+        // of token-streaming throughput. Previously this slot called
+        // JsonIo.toMaps(...) — a tree-builder, not a stream deserializer; those
+        // historical jsonio numbers in the stream surface are NOT comparable
+        // to other stream entries.
+        try (JsonTokenizer t = JsonIo.createTokenizer(JSON_SOURCE().nextInputStream())) {
+            return JSON_SOURCE().streamDeserializer().jsonio(t);
+        }
     }
 
     @Benchmark

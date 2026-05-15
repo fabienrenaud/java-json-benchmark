@@ -501,6 +501,119 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     }
 
     @Override
+    public void jsonio(com.cedarsoftware.io.JsonGenerator g, Users obj) throws IOException {
+        // Hand-rolled streaming serializer using json-io's Jackson-aligned JsonGenerator API.
+        // Method-for-method port of jackson(JsonGenerator,Users) above — the two surfaces are
+        // intentionally identical so this body is the same shape with a different generator type.
+        g.writeStartObject();
+        if (obj.getUsers() != null) {
+            g.writeFieldName("users");
+            g.writeStartArray();
+            for (User u : obj.getUsers()) {
+                jsonio(g, u);
+            }
+            g.writeEndArray();
+        }
+        g.writeEndObject();
+    }
+
+    private void jsonio(com.cedarsoftware.io.JsonGenerator g, User u) throws IOException {
+        g.writeStartObject();
+        if (u.getId() != null) {
+            g.writeFieldName("id");
+            g.writeString(u.getId());
+        }
+        g.writeFieldName("index");
+        g.writeNumber(u.getIndex());
+        if (u.getGuid() != null) {
+            g.writeFieldName("guid");
+            g.writeString(u.getGuid());
+        }
+        g.writeFieldName("isActive");
+        g.writeBoolean(u.getIsActive());
+        if (u.getBalance() != null) {
+            g.writeFieldName("balance");
+            g.writeString(u.getBalance());
+        }
+        if (u.getPicture() != null) {
+            g.writeFieldName("picture");
+            g.writeString(u.getPicture());
+        }
+        g.writeFieldName("age");
+        g.writeNumber(u.getAge());
+        if (u.getEyeColor() != null) {
+            g.writeFieldName("eyeColor");
+            g.writeString(u.getEyeColor());
+        }
+        if (u.getName() != null) {
+            g.writeFieldName("name");
+            g.writeString(u.getName());
+        }
+        if (u.getGender() != null) {
+            g.writeFieldName("gender");
+            g.writeString(u.getGender());
+        }
+        if (u.getCompany() != null) {
+            g.writeFieldName("company");
+            g.writeString(u.getCompany());
+        }
+        if (u.getEmail() != null) {
+            g.writeFieldName("email");
+            g.writeString(u.getEmail());
+        }
+        if (u.getPhone() != null) {
+            g.writeFieldName("phone");
+            g.writeString(u.getPhone());
+        }
+        if (u.getAddress() != null) {
+            g.writeFieldName("address");
+            g.writeString(u.getAddress());
+        }
+        if (u.getAbout() != null) {
+            g.writeFieldName("about");
+            g.writeString(u.getAbout());
+        }
+        if (u.getRegistered() != null) {
+            g.writeFieldName("registered");
+            g.writeString(u.getRegistered());
+        }
+        g.writeFieldName("latitude");
+        g.writeNumber(u.getLatitude());
+        g.writeFieldName("longitude");
+        g.writeNumber(u.getLongitude());
+        if (u.getTags() != null) {
+            g.writeFieldName("tags");
+            g.writeStartArray();
+            for (String t : u.getTags()) {
+                g.writeString(t);
+            }
+            g.writeEndArray();
+        }
+        if (u.getFriends() != null) {
+            g.writeFieldName("friends");
+            g.writeStartArray();
+            for (Friend f : u.getFriends()) {
+                g.writeStartObject();
+                g.writeFieldName("id");
+                g.writeString(f.getId());
+                g.writeFieldName("name");
+                g.writeString(f.getName());
+                g.writeEndObject();
+            }
+            g.writeEndArray();
+        }
+        if (u.getGreeting() != null) {
+            g.writeFieldName("greeting");
+            g.writeString(u.getGreeting());
+        }
+        if (u.getFavoriteFruit() != null) {
+            g.writeFieldName("favoriteFruit");
+            g.writeString(u.getFavoriteFruit());
+        }
+        g.writeEndObject();
+    }
+
+    @Override
     public org.json.simple.JSONObject jsonsimple(Users obj) throws IOException {
         org.json.simple.JSONObject jso = new org.json.simple.JSONObject();
         if (obj.getUsers() != null) {

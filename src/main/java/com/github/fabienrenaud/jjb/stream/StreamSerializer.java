@@ -23,6 +23,8 @@ public interface StreamSerializer<T> {
 
     void jackson(JsonGenerator j, T obj) throws IOException;
 
+    void jsonio(com.cedarsoftware.io.JsonGenerator g, T obj) throws IOException;
+
     org.json.simple.JSONObject jsonsimple(T obj) throws IOException;
 
     void nanojson(JsonAppendableWriter writer, T obj) throws IOException;

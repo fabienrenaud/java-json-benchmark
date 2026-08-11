@@ -102,6 +102,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .use(LocalDate.class, (objectBinder, o, type, aClass) -> LocalDate.parse((String) o))
             .use(OffsetDateTime.class, (objectBinder, o, type, aClass) -> OffsetDateTime.parse((String) o));
 
+    private final org.apache.fory.json.ForyJson foryJson = org.apache.fory.json.ForyJson.builder().build();
 	private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Clients> moshi =
@@ -231,6 +232,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
 
     public JSONSerializer flexjsonSer() {
         return FLEXJSON_SER.get();
+    }
+
+    @Override
+    public org.apache.fory.json.ForyJson foryJson() {
+        return foryJson;
     }
 
     @Override

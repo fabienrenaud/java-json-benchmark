@@ -134,6 +134,13 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
+    public void foryjson() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.FORYJSON, BENCH.foryjson());
+        }
+    }
+
+    @Test
     public void jsonio() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JSONIO, BENCH.jsonio());

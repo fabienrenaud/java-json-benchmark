@@ -15,6 +15,7 @@ public enum Library {
     JAKARTAJSON,
     FLEXJSON,
     FASTJSON,
+    FORYJSON,
     JSONIO,
     BOON,
     JOHNZON,

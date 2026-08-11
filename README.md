@@ -14,6 +14,7 @@ It covers the following libraries:
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [fastjson](https://github.com/alibaba/fastjson)
 * [flexjson](http://flexjson.sourceforge.net/)
+* [fory-json](https://fory.apache.org/docs/json/)
 * [genson](https://owlike.github.io/genson/)
 * [gson](https://github.com/google/gson)
 * [jackson](https://github.com/FasterXML/jackson)

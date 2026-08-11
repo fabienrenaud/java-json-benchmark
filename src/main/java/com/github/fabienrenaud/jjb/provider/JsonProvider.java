@@ -37,6 +37,8 @@ public interface JsonProvider<T> {
 
     JSONSerializer flexjsonSer();
 
+    org.apache.fory.json.ForyJson foryJson();
+
     org.boon.json.ObjectMapper boon();
 
     Mapper johnzon();

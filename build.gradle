@@ -56,6 +56,8 @@ dependencies {
     implementation 'com.alibaba.fastjson2:fastjson2:2.0.57'
     // FlexJson
     implementation 'net.sf.flexjson:flexjson:3.3'
+    // Fory JSON
+    implementation 'org.apache.fory:fory-json:1.6.0'
     // GENSON
     implementation 'com.owlike:genson:1.6'
     // GSON

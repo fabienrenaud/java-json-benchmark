@@ -53,6 +53,10 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object foryjson() throws Exception {
+        return null;
+    }
+
     public Object fastjson() throws Exception {
         return null;
     }

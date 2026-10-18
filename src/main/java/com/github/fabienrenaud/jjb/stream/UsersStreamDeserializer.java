@@ -486,6 +486,9 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                     uc.setUsers(new ArrayList<>());
                     while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_ARRAY) {
                         uc.getUsers().add(jsonioUser(t));
+                        if (t.isClosed()) {
+                            throw new IOException("parser closed");
+                        }
                     }
                 }
             }

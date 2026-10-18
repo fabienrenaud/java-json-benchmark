@@ -99,7 +99,7 @@ public class Serialization extends JsonBench {
         // UsersStreamSerializer through json-io's Jackson-aligned JsonGenerator API.
         // This is the apples-to-apples streaming counterpart to jackson() / gson() etc.
         // (Tree-mode JsonIo.toJson(...) lives in the databind Serialization benchmark.)
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         try (com.cedarsoftware.io.JsonGenerator g =
                      JsonIo.createGenerator(baos, JSON_SOURCE().provider().jsonioWriteOptions())) {
             JSON_SOURCE().streamSerializer().jsonio(g, JSON_SOURCE().nextPojo());

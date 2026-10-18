@@ -100,7 +100,7 @@ public class Deserialization extends JsonBench {
         // JsonIo.toMaps(...) — a tree-builder, not a stream deserializer; those
         // historical jsonio numbers in the stream surface are NOT comparable
         // to other stream entries.
-        try (JsonTokenizer t = JsonIo.createTokenizer(JSON_SOURCE().nextInputStream())) {
+        try (JsonTokenizer t = JsonIo.createTokenizer(JSON_SOURCE().nextString())) {
             return JSON_SOURCE().streamDeserializer().jsonio(t);
         }
     }

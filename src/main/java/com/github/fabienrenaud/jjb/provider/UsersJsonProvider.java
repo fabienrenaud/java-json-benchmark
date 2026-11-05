@@ -16,7 +16,7 @@ import com.squareup.moshi.Moshi;
 
 import flexjson.JSONDeserializer;
 import io.avaje.jsonb.JsonType;
-import io.avaje.jsonb.stream.JsonStream;
+import io.avaje.json.stream.JsonStream;
 import io.avaje.jsonb.jackson.JacksonAdapter;
 import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.core.JsonProviderImpl;
@@ -57,7 +57,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.builder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
-    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(JsonStream.builder().serializeNulls(true).serializeEmpty(true).failOnUnknown(false).build()).build().type(Users.class);
 
     private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
 

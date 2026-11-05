@@ -28,7 +28,7 @@ import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import flexjson.transformer.AbstractTransformer;
 import io.avaje.jsonb.jackson.JacksonAdapter;
-import io.avaje.jsonb.stream.JsonStream;
+import io.avaje.json.stream.JsonStream;
 import io.quarkus.qson.generator.QsonMapper;
 import jodd.json.TypeJsonSerializer;
 import jodd.typeconverter.TypeConverterManager;
@@ -161,7 +161,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
     private final io.avaje.jsonb.JsonType<Clients> avajeJsonb_default = io.avaje.jsonb.Jsonb
             .builder()
-            .adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Clients.class);
+            .adapter(JsonStream.builder().serializeNulls(true).serializeEmpty(true).failOnUnknown(false).build()).build().type(Clients.class);
 
     private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
 

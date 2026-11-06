@@ -26,7 +26,7 @@ repositories {
 
 ext {
     avajeJsonVersion = '3.16'
-    jacksonVersion = '2.22.4'
+    jacksonVersion = '3.2.4'
     dslJsonVersion = '2.0.2'
     johnzonVersion = '2.2.0'
     jmhVersion = '1.37'
@@ -68,10 +68,11 @@ dependencies {
     // GSON
     implementation 'com.google.code.gson:gson:2.15.0'
     // Jackson
-    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    implementation "com.fasterxml.jackson.module:jackson-module-afterburner:${jacksonVersion}"
-    implementation "com.fasterxml.jackson.module:jackson-module-blackbird:${jacksonVersion}"
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
+    implementation "tools.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "tools.jackson.module:jackson-module-afterburner:${jacksonVersion}"
+    implementation "tools.jackson.module:jackson-module-blackbird:${jacksonVersion}"
+    // avaje-jsonb-jackson and logansquare are built on Jackson 2's jackson-core (com.fasterxml.jackson)
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.22.4'
     // jodd
     implementation 'org.jodd:jodd-json:6.0.3'
     // johnzon

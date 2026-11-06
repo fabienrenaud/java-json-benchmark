@@ -1,7 +1,7 @@
 package com.github.fabienrenaud.jjb.stream;
 
 import com.cedarsoftware.io.JsonTokenizer;
-import com.fasterxml.jackson.core.JsonParser;
+import tools.jackson.core.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.owlike.genson.stream.ObjectReader;
 

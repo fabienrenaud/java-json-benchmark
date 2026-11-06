@@ -4,12 +4,13 @@ import com.cedarsoftware.io.WriteOptions;
 import com.cedarsoftware.io.WriteOptionsBuilder;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
-import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
+import tools.jackson.core.json.JsonFactory;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.cfg.DateTimeFeature;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.module.afterburner.AfterburnerModule;
+import tools.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.model.Clients;
 import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
@@ -57,17 +58,22 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .registerTypeAdapter(OffsetDateTime.class, (JsonDeserializer<OffsetDateTime>) (json, type, jsonDeserializationContext) -> OffsetDateTime.parse(json.getAsString()))
             .registerTypeAdapter(OffsetDateTime.class, (JsonSerializer<OffsetDateTime>) (value, typeOfSrc, context) -> new JsonPrimitive(value.toString()))
             .create();
-    private final ObjectMapper jackson = new ObjectMapper()
-            .registerModule(new JavaTimeModule())
-            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-    private final ObjectMapper jacksonAfterburner = new ObjectMapper()
-            .registerModule(new AfterburnerModule())
-            .registerModule(new JavaTimeModule())
-            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-    private final ObjectMapper jacksonBlackbird = new ObjectMapper()
-            .registerModule(new BlackbirdModule())
-            .registerModule(new JavaTimeModule())
-            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    // Jackson 3 sorts properties alphabetically by default. The payloads are generated with jackson(), so keep
+    // Jackson 2's order; otherwise every SEED would generate differently ordered payloads.
+    private final ObjectMapper jackson = JsonMapper.builder()
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .build();
+    private final ObjectMapper jacksonAfterburner = JsonMapper.builder()
+            .addModule(new AfterburnerModule())
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .build();
+    private final ObjectMapper jacksonBlackbird = JsonMapper.builder()
+            .addModule(new BlackbirdModule())
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .build();
     private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory =
             JsonUtils.JAKARTA_JSON_PROVIDER.createGeneratorFactory(null);
     private final jakarta.json.JsonReaderFactory jakartaJsonReaderFactory =

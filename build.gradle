@@ -47,8 +47,6 @@ dependencies {
     implementation "io.avaje:avaje-jsonb:${avajeJsonVersion}"
     implementation "io.avaje:avaje-jsonb-jackson:${avajeJsonVersion}"
     annotationProcessor "io.avaje:avaje-jsonb-generator:${avajeJsonVersion}"   
-    // boon
-    implementation 'io.fastjson:boon:0.34'
     // DSL-json
     implementation "com.dslplatform:dsl-json:${dslJsonVersion}"
     annotationProcessor "com.dslplatform:dsl-json:${dslJsonVersion}"

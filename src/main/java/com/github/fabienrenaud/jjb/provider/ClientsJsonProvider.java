@@ -103,7 +103,6 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .use(OffsetDateTime.class, (objectBinder, o, type, aClass) -> OffsetDateTime.parse((String) o));
 
     private final org.apache.fory.json.ForyJson foryJson = org.apache.fory.json.ForyJson.builder().build();
-	private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Clients> moshi =
             new Moshi.Builder().add(UUID.class, new JsonAdapter<UUID>() {
@@ -237,11 +236,6 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public org.apache.fory.json.ForyJson foryJson() {
         return foryJson;
-    }
-
-    @Override
-    public org.boon.json.ObjectMapper boon() {
-        return boon;
     }
 
     @Override

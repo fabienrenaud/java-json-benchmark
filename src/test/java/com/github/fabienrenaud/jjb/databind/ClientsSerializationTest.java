@@ -23,11 +23,6 @@ public class ClientsSerializationTest extends JsonBenchmarkClientsTest {
     }
 
     @Override
-    public void boon() throws Exception {
-        // FIXME: null collection
-    }
-
-    @Override
     public void genson() throws Exception {
         // FIXME: does not support BigDecimal correctly
     }

@@ -36,7 +36,14 @@ dependencies {
 
     // CLI and misc
     implementation 'io.airlift:airline:0.9'
-    implementation 'org.apache.commons:commons-lang3:3.21.0'
+    // Do not upgrade commons-lang3: payloads are generated with RandomStringUtils and a seeded Random,
+    // and 3.14.0 is the latest release that draws from that Random as 3.12.0 does, so a given SEED
+    // still generates the same payloads as in earlier runs. Since 3.15.0 (apache/commons-lang#1235)
+    // it draws random bits in bulk and rejects out-of-range values, so every SEED generates different
+    // payloads (3.15.0 to 3.21.0 agree with each other). Upgrade only if the payloads for a SEED stay
+    // byte-identical. A scanner may flag CVE-2025-48924 (fixed in 3.18.0): it is in ClassUtils.getClass,
+    // which this project does not call.
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
 
     // JSON libraries
     // In alphabetical order.

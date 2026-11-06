@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
+import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.model.Clients;
 import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
 import com.google.gson.Gson;
@@ -67,7 +68,10 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .registerModule(new BlackbirdModule())
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory = jakarta.json.Json.createGeneratorFactory(null);
+    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createGeneratorFactory(null);
+    private final jakarta.json.JsonReaderFactory jakartaJsonReaderFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createReaderFactory(null);
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new GensonBuilder()
             .useDateAsTimestamp(false)
@@ -89,7 +93,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             }, OffsetDateTime.class)
             .create();
     private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new org.glassfish.json.JsonProviderImpl())
+            .withProvider(JsonUtils.JAKARTA_JSON_PROVIDER)
             .build();
 	private static final AbstractTransformer FLEX_IDENTITY = new AbstractTransformer() {
 		@Override
@@ -213,6 +217,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory() {
         return jakartaJsonFactory;
+    }
+
+    @Override
+    public jakarta.json.JsonReaderFactory jakartajsonReaderFactory() {
+        return jakartaJsonReaderFactory;
     }
 
     @Override

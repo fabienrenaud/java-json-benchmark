@@ -9,11 +9,18 @@ import java.io.ByteArrayOutputStream;
  */
 public final class JsonUtils {
 
+    /**
+     * The JSON-P implementation behind the jakartajson and yasson entries. It is named here rather than
+     * found with {@link JsonProvider#provider()}, which returns whichever implementation the classpath lists
+     * first (johnzon's, in the shaded jar).
+     */
+    public static final JsonProvider JAKARTA_JSON_PROVIDER = new org.eclipse.parsson.JsonProviderImpl();
+
     private JsonUtils() {
     }
 
     public static void printJakartaJsonProvider() {
-        System.out.println("Jsonp Provider:" + JsonProvider.provider().getClass().getCanonicalName());
+        System.out.println("Jsonp Provider:" + JAKARTA_JSON_PROVIDER.getClass().getCanonicalName());
         System.out.println();
     }
 

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
+import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
 import com.google.gson.Gson;
@@ -32,7 +33,10 @@ import us.hebi.quickbuf.ProtoMessage;
 public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();
-    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory = jakarta.json.Json.createGeneratorFactory(null);
+    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createGeneratorFactory(null);
+    private final jakarta.json.JsonReaderFactory jakartaJsonReaderFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createReaderFactory(null);
     private final ObjectMapper jackson = new ObjectMapper();
     private final ObjectMapper jacksonAfterburner = new ObjectMapper()
             .registerModule(new AfterburnerModule());
@@ -41,7 +45,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
     private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new org.glassfish.json.JsonProviderImpl())
+            .withProvider(JsonUtils.JAKARTA_JSON_PROVIDER)
             .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.apache.fory.json.ForyJson foryJson = org.apache.fory.json.ForyJson.builder().build();
@@ -103,6 +107,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory() {
         return jakartaJsonFactory;
+    }
+
+    @Override
+    public jakarta.json.JsonReaderFactory jakartajsonReaderFactory() {
+        return jakartaJsonReaderFactory;
     }
 
     @Override

@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import com.fasterxml.jackson.core.JsonParser;
+import tools.jackson.core.JsonParser;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.data.JsonSource;
 import com.github.fabienrenaud.jjb.model.Clients;
@@ -51,7 +51,8 @@ public class Deserialization extends JsonBench {
     @Benchmark
     @Override
     public Object jakartajson() throws IOException {
-        return jakarta.json.Json.createReader(JSON_SOURCE().nextInputStream()).readObject();
+        return JSON_SOURCE().provider().jakartajsonReaderFactory()
+                .createReader(JSON_SOURCE().nextInputStream()).readObject();
     }
 
     @Benchmark

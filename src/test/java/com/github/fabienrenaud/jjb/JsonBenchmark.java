@@ -7,8 +7,7 @@ import com.github.fabienrenaud.jjb.support.Api;
 import com.github.fabienrenaud.jjb.support.BenchSupport;
 import com.github.fabienrenaud.jjb.support.Library;
 import org.junit.Test;
-
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
@@ -49,7 +48,7 @@ public abstract class JsonBenchmark<T> {
     private void testString(String v) {
         try {
             testPojo(BENCH.JSON_SOURCE().provider().jackson().readValue(v, pojoType()));
-        } catch (IOException ex) {
+        } catch (JacksonException ex) {
             fail(ex.getMessage());
         }
     }
@@ -144,13 +143,6 @@ public abstract class JsonBenchmark<T> {
     public void jsonio() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JSONIO, BENCH.jsonio());
-        }
-    }
-
-    @Test
-    public void boon() throws Exception {
-        for (int i = 0; i < ITERATIONS; i++) {
-            test(Library.BOON, BENCH.boon());
         }
     }
 

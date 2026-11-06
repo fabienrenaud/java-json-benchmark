@@ -4,10 +4,13 @@ import com.cedarsoftware.io.WriteOptions;
 import com.cedarsoftware.io.WriteOptionsBuilder;
 import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
-import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
+import tools.jackson.core.json.JsonFactory;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.module.afterburner.AfterburnerModule;
+import tools.jackson.module.blackbird.BlackbirdModule;
+import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.quickbuf.QuickbufSchema;
 import com.google.gson.Gson;
@@ -16,7 +19,7 @@ import com.squareup.moshi.Moshi;
 
 import flexjson.JSONDeserializer;
 import io.avaje.jsonb.JsonType;
-import io.avaje.jsonb.stream.JsonStream;
+import io.avaje.json.stream.JsonStream;
 import io.avaje.jsonb.jackson.JacksonAdapter;
 import io.quarkus.qson.generator.QsonMapper;
 import org.apache.johnzon.core.JsonProviderImpl;
@@ -32,20 +35,30 @@ import us.hebi.quickbuf.ProtoMessage;
 public class UsersJsonProvider implements JsonProvider<Users> {
 
     private final Gson gson = new Gson();
-    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory = jakarta.json.Json.createGeneratorFactory(null);
-    private final ObjectMapper jackson = new ObjectMapper();
-    private final ObjectMapper jacksonAfterburner = new ObjectMapper()
-            .registerModule(new AfterburnerModule());
-    private final ObjectMapper jacksonBlackbird = new ObjectMapper()
-            .registerModule(new BlackbirdModule());
+    private final jakarta.json.stream.JsonGeneratorFactory jakartaJsonFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createGeneratorFactory(null);
+    private final jakarta.json.JsonReaderFactory jakartaJsonReaderFactory =
+            JsonUtils.JAKARTA_JSON_PROVIDER.createReaderFactory(null);
+    // Jackson 3 sorts properties alphabetically by default. The payloads are generated with jackson(), so keep
+    // Jackson 2's order; otherwise every SEED would generate differently ordered payloads.
+    private final ObjectMapper jackson = JsonMapper.builder()
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .build();
+    private final ObjectMapper jacksonAfterburner = JsonMapper.builder()
+            .addModule(new AfterburnerModule())
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .build();
+    private final ObjectMapper jacksonBlackbird = JsonMapper.builder()
+            .addModule(new BlackbirdModule())
+            .disable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY)
+            .build();
     private final JsonFactory jacksonFactory = new JsonFactory();
     private final Genson genson = new Genson();
     private final Jsonb yasson = new JsonBindingProvider().create()
-            .withProvider(new org.glassfish.json.JsonProviderImpl())
+            .withProvider(JsonUtils.JAKARTA_JSON_PROVIDER)
             .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.apache.fory.json.ForyJson foryJson = org.apache.fory.json.ForyJson.builder().build();
-    private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Users> moshi = new Moshi.Builder().build().adapter(Users.class);
     private final QsonMapper qson = new QsonMapper();
@@ -57,7 +70,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final DslJson<Object> dsljson_reflection = new DslJson<>(Settings.withRuntime());//don't include generated classes
 
     private final JsonType<Users> avajeJsonb_jackson = io.avaje.jsonb.Jsonb.builder().adapter(new JacksonAdapter(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
-    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(new JsonStream(/* serializeNulls */ true, /* serializeEmpty */ true, /* failOnUnknown */ false)).build().type(Users.class);
+    private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(JsonStream.builder().serializeNulls(true).serializeEmpty(true).failOnUnknown(false).build()).build().type(Users.class);
 
     private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
 
@@ -107,6 +120,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     }
 
     @Override
+    public jakarta.json.JsonReaderFactory jakartajsonReaderFactory() {
+        return jakartaJsonReaderFactory;
+    }
+
+    @Override
     public Genson genson() {
         return genson;
     }
@@ -127,11 +145,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public org.apache.fory.json.ForyJson foryJson() {
         return foryJson;
-    }
-
-    @Override
-    public org.boon.json.ObjectMapper boon() {
-        return boon;
     }
 
     @Override

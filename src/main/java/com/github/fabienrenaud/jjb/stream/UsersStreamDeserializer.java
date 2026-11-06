@@ -1,7 +1,7 @@
 package com.github.fabienrenaud.jjb.stream;
 
 import com.cedarsoftware.io.JsonTokenizer;
-import com.fasterxml.jackson.core.JsonParser;
+import tools.jackson.core.JsonParser;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
 import com.github.fabienrenaud.jjb.model.Users.User;
@@ -323,12 +323,12 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
     @Override
     public Users jackson(JsonParser jParser) throws IOException {
         Users uc = new Users();
-        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-            String fieldname = jParser.getCurrentName();
+        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+            String fieldname = jParser.currentName();
             if ("users".equals(fieldname)) {
-                if (jParser.nextToken() == com.fasterxml.jackson.core.JsonToken.START_ARRAY) {
+                if (jParser.nextToken() == tools.jackson.core.JsonToken.START_ARRAY) {
                     uc.setUsers(new ArrayList<>());
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         uc.getUsers().add(jacksonUser(jParser));
                         if (jParser.isClosed()) {
                             throw new IOException("parser closed");
@@ -342,8 +342,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
     private User jacksonUser(JsonParser jParser) throws IOException {
         User r = new User();
-        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-            String fieldname = jParser.getCurrentName();
+        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+            String fieldname = jParser.currentName();
             if (fieldname == null) {
                 break;
             }
@@ -431,17 +431,17 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                 case "tags":
                     r.setTags(new ArrayList<>());
                     jParser.nextToken();
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         r.getTags().add(jParser.getValueAsString());
                     }
                     break;
                 case "friends":
                     r.setFriends(new ArrayList<>());
                     jParser.nextToken(); // current token is "[", move next.
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         Friend f = new Friend();
-                        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-                            String fn = jParser.getCurrentName();
+                        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+                            String fn = jParser.currentName();
                             if (fn == null) {
                                 continue;
                             }

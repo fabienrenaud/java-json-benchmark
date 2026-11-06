@@ -7,7 +7,7 @@ import java.io.Writer;
 import com.cedarsoftware.io.JsonIo;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import com.fasterxml.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;

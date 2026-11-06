@@ -1,9 +1,9 @@
 package com.github.fabienrenaud.jjb;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.io.IOException;
 
 public final class Config {
 
@@ -16,7 +16,7 @@ public final class Config {
         File f = new File(COMMAND_FILE);
         try {
             new ObjectMapper().writeValue(f, cmd);
-        } catch (IOException ex) {
+        } catch (JacksonException ex) {
             throw new RuntimeException(ex);
         }
         return f;
@@ -26,7 +26,7 @@ public final class Config {
         File f = new File(COMMAND_FILE);
         try {
             return new ObjectMapper().readValue(f, Cli.AbstractCommand.class);
-        } catch (IOException ex) {
+        } catch (JacksonException ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
         }

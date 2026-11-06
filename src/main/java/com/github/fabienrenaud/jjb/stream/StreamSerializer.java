@@ -1,6 +1,6 @@
 package com.github.fabienrenaud.jjb.stream;
 
-import com.fasterxml.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonGenerator;
 import com.google.gson.stream.JsonWriter;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;

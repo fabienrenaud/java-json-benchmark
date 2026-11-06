@@ -1,6 +1,6 @@
 package com.github.fabienrenaud.jjb.data.gen;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import com.github.fabienrenaud.jjb.model.Users;
 import org.junit.Test;
 

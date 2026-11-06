@@ -39,8 +39,6 @@ public interface JsonProvider<T> {
 
     org.apache.fory.json.ForyJson foryJson();
 
-    org.boon.json.ObjectMapper boon();
-
     Mapper johnzon();
 
     DslJson<Object> dsljson();

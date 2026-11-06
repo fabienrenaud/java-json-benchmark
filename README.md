@@ -9,7 +9,6 @@ using [JMH](http://openjdk.java.net/projects/code-tools/jmh/).
 It covers the following libraries:
 
 * [avaje-jsonb](https://github.com/avaje/avaje-jsonb)
-* [boon](https://github.com/boonproject/boon)
 * [djomo](https://github.com/alexvigdor/djomo-core)
 * [dsl-json](https://github.com/ngs-doo/dsl-json)
 * [fastjson](https://github.com/alibaba/fastjson)

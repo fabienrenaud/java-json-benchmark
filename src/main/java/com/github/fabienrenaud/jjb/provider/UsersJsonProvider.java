@@ -45,7 +45,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
             .build();
     private final JSONDeserializer<Users> flexjsonDeser = new JSONDeserializer<>();
     private final org.apache.fory.json.ForyJson foryJson = org.apache.fory.json.ForyJson.builder().build();
-    private final org.boon.json.ObjectMapper boon = org.boon.json.JsonFactory.create();
     private final org.apache.johnzon.mapper.Mapper johnzon;
     private final com.squareup.moshi.JsonAdapter<Users> moshi = new Moshi.Builder().build().adapter(Users.class);
     private final QsonMapper qson = new QsonMapper();
@@ -127,11 +126,6 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public org.apache.fory.json.ForyJson foryJson() {
         return foryJson;
-    }
-
-    @Override
-    public org.boon.json.ObjectMapper boon() {
-        return boon;
     }
 
     @Override

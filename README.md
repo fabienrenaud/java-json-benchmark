@@ -17,7 +17,7 @@ It covers the following libraries:
 * [genson](https://owlike.github.io/genson/)
 * [gson](https://github.com/google/gson)
 * [jackson](https://github.com/FasterXML/jackson)
-* [jakarta-json](https://jsonp.java.net/) (from Oracle)
+* [jakarta-json](https://github.com/eclipse-ee4j/parsson) (Eclipse Parsson)
 * [johnzon](http://johnzon.apache.org/)
 * [json-io](https://github.com/jdereg/json-io)
 * [json-simple](https://code.google.com/archive/p/json-simple/)

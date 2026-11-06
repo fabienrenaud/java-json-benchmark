@@ -29,6 +29,8 @@ public interface JsonProvider<T> {
 
    jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory();
 
+    jakarta.json.JsonReaderFactory jakartajsonReaderFactory();
+
     Genson genson();
 
     Jsonb yasson();

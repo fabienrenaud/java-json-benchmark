@@ -114,7 +114,7 @@ dependencies {
     // QuickBuffers
     implementation 'us.hebi.quickbuf:quickbuf-runtime:1.4'
     // wast
-    implementation 'io.github.wycst:wast:0.0.29.1'
+    implementation 'io.github.wycst:wast:0.0.30'
     // djomo
     implementation 'com.bigcloud.djomo:djomo:0.9.5'
 

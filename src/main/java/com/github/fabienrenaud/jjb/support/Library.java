@@ -38,7 +38,11 @@ public enum Library {
     ANTONS,
     QUICKBUF_JSON,
     WAST,
-    DJOMO;
+    DJOMO,
+    SJF4J,
+    FASTJSON_SJF4J,
+    JACKSON_SJF4J,
+    GSON_SJF4J;
 
     public static Set<Library> fromCsv(String str) {
         if (str == null || str.trim().isEmpty()) {

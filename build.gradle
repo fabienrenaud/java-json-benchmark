@@ -20,8 +20,21 @@ java {
 }
 
 repositories {
+    maven {
+        name = "Central Portal Snapshots"
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
     mavenLocal()
     mavenCentral()
+}
+
+configurations.all {
+    resolutionStrategy {
+        cacheChangingModulesFor(0, "seconds")
+    }
 }
 
 ext {
@@ -111,6 +124,13 @@ dependencies {
     implementation 'io.github.wycst:wast:0.0.29.1'
     // djomo
     implementation 'com.bigcloud.djomo:djomo:0.9.4'
+    // sjf4j
+    implementation 'org.sjf4j:sjf4j-core:1.5.1'
+    annotationProcessor 'org.sjf4j:sjf4j-processor:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-jackson2:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-fastjson2:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-gson:1.5.1'
+
 
     // Test
     testImplementation 'junit:junit:4.13.2'

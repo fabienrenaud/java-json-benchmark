@@ -5,8 +5,10 @@ import com.bluelinelabs.logansquare.LoganSquare;
 import com.cedarsoftware.io.JsonIo;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.data.JsonSource;
+import com.github.fabienrenaud.jjb.model.Clients;
+import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.provider.Sjf4jBinders;
 import com.google.gson.JsonSyntaxException;
-import io.github.wycst.wast.json.options.ReadOption;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
@@ -175,4 +177,54 @@ public class Deserialization extends JsonBench {
         // Default ReadOptions; json-io infers field types from the target Class.
         return JsonIo.toJava(JSON_SOURCE().nextString(), null).asClass(JSON_SOURCE().pojoType());
     }
+
+
+    @Benchmark
+    @Override
+    public Object sjf4j_simple() throws Exception {
+        Class<?> clazz = JSON_SOURCE().pojoType();
+        if (clazz == Users.class) {
+            return Sjf4jBinders.SIMPLE.readUsers(JSON_SOURCE().nextByteArray());
+        } else if (clazz == Clients.class) {
+            return Sjf4jBinders.SIMPLE.readClients(JSON_SOURCE().nextByteArray());
+        }
+        return null;
+    }
+
+    @Benchmark
+    @Override
+    public Object jackson_sjf4j() throws Exception {
+        Class<?> clazz = JSON_SOURCE().pojoType();
+        if (clazz == Users.class) {
+            return Sjf4jBinders.JACKSON2.readUsers(JSON_SOURCE().nextByteArray());
+        } else if (clazz == Clients.class) {
+            return Sjf4jBinders.JACKSON2.readClients(JSON_SOURCE().nextByteArray());
+        }
+        return null;
+    }
+
+    @Benchmark
+    @Override
+    public Object fastjson_sjf4j() throws Exception {
+        Class<?> clazz = JSON_SOURCE().pojoType();
+        if (clazz == Users.class) {
+            return Sjf4jBinders.FASTJSON2.readUsers(JSON_SOURCE().nextByteArray());
+        } else if (clazz == Clients.class) {
+            return Sjf4jBinders.FASTJSON2.readClients(JSON_SOURCE().nextByteArray());
+        }
+        return null;
+    }
+
+    @Benchmark
+    @Override
+    public Object gson_sjf4j() throws Exception {
+        Class<?> clazz = JSON_SOURCE().pojoType();
+        if (clazz == Users.class) {
+            return Sjf4jBinders.GSON.readUsers(JSON_SOURCE().nextReader());
+        } else if (clazz == Clients.class) {
+            return Sjf4jBinders.GSON.readClients(JSON_SOURCE().nextReader());
+        }
+        return null;
+    }
+
 }

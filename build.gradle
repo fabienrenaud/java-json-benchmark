@@ -53,7 +53,7 @@ dependencies {
     // avaje-jsonb
     implementation "io.avaje:avaje-jsonb:${avajeJsonVersion}"
     implementation "io.avaje:avaje-jsonb-jackson:${avajeJsonVersion}"
-    annotationProcessor "io.avaje:avaje-jsonb-generator:${avajeJsonVersion}"   
+    annotationProcessor "io.avaje:avaje-jsonb-generator:${avajeJsonVersion}"
     // DSL-json
     implementation "com.dslplatform:dsl-json:${dslJsonVersion}"
     annotationProcessor "com.dslplatform:dsl-json:${dslJsonVersion}"
@@ -117,6 +117,13 @@ dependencies {
     implementation 'io.github.wycst:wast:0.0.30'
     // djomo
     implementation 'com.bigcloud.djomo:djomo:0.9.5'
+    // sjf4j
+    implementation 'org.sjf4j:sjf4j-core:1.5.1'
+    annotationProcessor 'org.sjf4j:sjf4j-processor:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-jackson3:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-fastjson2:1.5.1'
+    implementation 'org.sjf4j:sjf4j-backend-gson:1.5.1'
+
 
     // Test
     testImplementation 'junit:junit:4.13.2'

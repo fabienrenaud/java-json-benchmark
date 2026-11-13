@@ -152,4 +152,20 @@ public abstract class JsonBench {
     public Object djomo() throws Exception {
         return null;
     }
+
+    public Object sjf4j_simple() throws Exception {
+        return null;
+    }
+
+    public Object fastjson_sjf4j() throws Exception {
+        return null;
+    }
+
+    public Object jackson_sjf4j() throws Exception {
+        return null;
+    }
+
+    public Object gson_sjf4j() throws Exception {
+        return null;
+    }
 }

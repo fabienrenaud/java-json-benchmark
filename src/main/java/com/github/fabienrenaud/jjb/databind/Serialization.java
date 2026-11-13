@@ -6,6 +6,9 @@ import com.cedarsoftware.io.JsonIo;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;
+import com.github.fabienrenaud.jjb.model.Clients;
+import com.github.fabienrenaud.jjb.model.Users;
+import com.github.fabienrenaud.jjb.provider.Sjf4jBinders;
 import io.github.wycst.wast.json.options.WriteOption;
 import okio.BufferedSink;
 import okio.Okio;
@@ -208,4 +211,59 @@ public class Serialization extends JsonBench {
         // Cached on the provider to match how Jackson/Gson/etc. cache their mappers.
         return JsonIo.toJson(JSON_SOURCE().nextPojo(), JSON_SOURCE().provider().jsonioWriteOptions());
     }
+
+
+    @Benchmark
+    @Override
+    public Object sjf4j_simple() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Object pojo = JSON_SOURCE().nextPojo();
+        if (pojo instanceof Users users) {
+            Sjf4jBinders.SIMPLE.writeUsers(users, baos);
+        } else if (pojo instanceof Clients clients) {
+            Sjf4jBinders.SIMPLE.writeClients(clients, baos);
+        }
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object jackson_sjf4j() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Object pojo = JSON_SOURCE().nextPojo();
+        if (pojo instanceof Users users) {
+            Sjf4jBinders.JACKSON3.writeUsers(users, baos);
+        } else if (pojo instanceof Clients clients) {
+            Sjf4jBinders.JACKSON3.writeClients(clients, baos);
+        }
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object fastjson_sjf4j() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        Object pojo = JSON_SOURCE().nextPojo();
+        if (pojo instanceof Users users) {
+            Sjf4jBinders.FASTJSON2.writeUsers(users, baos);
+        } else if (pojo instanceof Clients clients) {
+            Sjf4jBinders.FASTJSON2.writeClients(clients, baos);
+        }
+        return baos;
+    }
+
+
+    @Benchmark
+    @Override
+    public Object gson_sjf4j() throws Exception {
+        StringBuilder b = JsonUtils.stringBuilder();
+        Object pojo = JSON_SOURCE().nextPojo();
+        if (pojo instanceof Users users) {
+            b.append(Sjf4jBinders.GSON.writeUsers(users));
+        } else if (pojo instanceof Clients clients) {
+            b.append(Sjf4jBinders.GSON.writeClients(clients));
+        }
+        return b;
+    }
+
 }

@@ -30,7 +30,7 @@ public interface Sjf4jBinders {
         void writeClients(Clients clients, OutputStream out) throws IOException;
     }
 
-    // Jackson2
+    // Jackson3
     Jackson3Binder JACKSON3 = CompiledInstances.create(Jackson3Binder.class);
 
     @CompiledBinder(backend = Backend.JACKSON3)

@@ -294,14 +294,14 @@ public abstract class JsonBenchmark<T> {
     }
 
     @Test
-    public void fastjson2_sjf4j() throws Exception {
+    public void fastjson_sjf4j() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.FASTJSON_SJF4J, BENCH.fastjson_sjf4j());
         }
     }
 
     @Test
-    public void jackson2_sjf4j() throws Exception {
+    public void jackson_sjf4j() throws Exception {
         for (int i = 0; i < ITERATIONS; i++) {
             test(Library.JACKSON_SJF4J, BENCH.jackson_sjf4j());
         }

@@ -17,7 +17,6 @@ public enum Library {
     FASTJSON,
     FORYJSON,
     JSONIO,
-    BOON,
     JOHNZON,
     JSONSMART,
     DSLJSON,

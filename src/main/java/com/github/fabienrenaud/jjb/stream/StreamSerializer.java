@@ -1,6 +1,6 @@
 package com.github.fabienrenaud.jjb.stream;
 
-import com.fasterxml.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonGenerator;
 import com.google.gson.stream.JsonWriter;
 import com.grack.nanojson.JsonAppendableWriter;
 import com.owlike.genson.stream.ObjectWriter;
@@ -22,6 +22,8 @@ public interface StreamSerializer<T> {
     void gson(JsonWriter j, T obj) throws IOException;
 
     void jackson(JsonGenerator j, T obj) throws IOException;
+
+    void jsonio(com.cedarsoftware.io.JsonGenerator g, T obj) throws IOException;
 
     org.json.simple.JSONObject jsonsimple(T obj) throws IOException;
 

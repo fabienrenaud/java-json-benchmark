@@ -2,8 +2,8 @@ package com.github.fabienrenaud.jjb.provider;
 
 import com.cedarsoftware.io.WriteOptions;
 import com.dslplatform.json.DslJson;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.json.JsonFactory;
+import tools.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
 import flexjson.JSONDeserializer;
@@ -29,6 +29,8 @@ public interface JsonProvider<T> {
 
    jakarta.json.stream.JsonGeneratorFactory jakartajsonFactory();
 
+    jakarta.json.JsonReaderFactory jakartajsonReaderFactory();
+
     Genson genson();
 
     Jsonb yasson();
@@ -38,8 +40,6 @@ public interface JsonProvider<T> {
     JSONSerializer flexjsonSer();
 
     org.apache.fory.json.ForyJson foryJson();
-
-    org.boon.json.ObjectMapper boon();
 
     Mapper johnzon();
 

@@ -7,7 +7,7 @@ import java.io.Writer;
 import com.cedarsoftware.io.JsonIo;
 import org.openjdk.jmh.annotations.Benchmark;
 
-import com.fasterxml.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;
@@ -94,10 +94,17 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object jsonio() {
-        // standardJson() produces Jackson-compatible JSON: suppresses @type, @id/@ref,
-        // root type info; stringifies non-String map keys; emits ISO-8601 dates.
-        return JsonIo.toJson(JSON_SOURCE().nextPojo(), JSON_SOURCE().provider().jsonioWriteOptions());
+    public Object jsonio() throws Exception {
+        // Streaming-write path: drives the hand-rolled jsonio() method on
+        // UsersStreamSerializer through json-io's Jackson-aligned JsonGenerator API.
+        // This is the apples-to-apples streaming counterpart to jackson() / gson() etc.
+        // (Tree-mode JsonIo.toJson(...) lives in the databind Serialization benchmark.)
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        try (com.cedarsoftware.io.JsonGenerator g =
+                     JsonIo.createGenerator(baos, JSON_SOURCE().provider().jsonioWriteOptions())) {
+            JSON_SOURCE().streamSerializer().jsonio(g, JSON_SOURCE().nextPojo());
+        }
+        return baos;
     }
 
     @Benchmark

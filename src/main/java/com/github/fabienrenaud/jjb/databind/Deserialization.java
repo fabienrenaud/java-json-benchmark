@@ -84,12 +84,6 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
-    public Object boon() throws Exception {
-        return JSON_SOURCE().provider().boon().readValue(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
-    }
-
-    @Benchmark
-    @Override
     public Object johnzon() throws Exception {
         return JSON_SOURCE().provider().johnzon().readObject(JSON_SOURCE().nextInputStream(), JSON_SOURCE().pojoType());
     }

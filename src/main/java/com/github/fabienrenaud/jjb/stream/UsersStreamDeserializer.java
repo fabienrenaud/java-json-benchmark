@@ -1,6 +1,7 @@
 package com.github.fabienrenaud.jjb.stream;
 
-import com.fasterxml.jackson.core.JsonParser;
+import com.cedarsoftware.io.JsonTokenizer;
+import tools.jackson.core.JsonParser;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
 import com.github.fabienrenaud.jjb.model.Users.User;
@@ -322,12 +323,12 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
     @Override
     public Users jackson(JsonParser jParser) throws IOException {
         Users uc = new Users();
-        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-            String fieldname = jParser.getCurrentName();
+        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+            String fieldname = jParser.currentName();
             if ("users".equals(fieldname)) {
-                if (jParser.nextToken() == com.fasterxml.jackson.core.JsonToken.START_ARRAY) {
+                if (jParser.nextToken() == tools.jackson.core.JsonToken.START_ARRAY) {
                     uc.setUsers(new ArrayList<>());
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         uc.getUsers().add(jacksonUser(jParser));
                         if (jParser.isClosed()) {
                             throw new IOException("parser closed");
@@ -341,8 +342,8 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
 
     private User jacksonUser(JsonParser jParser) throws IOException {
         User r = new User();
-        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-            String fieldname = jParser.getCurrentName();
+        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+            String fieldname = jParser.currentName();
             if (fieldname == null) {
                 break;
             }
@@ -430,17 +431,17 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                 case "tags":
                     r.setTags(new ArrayList<>());
                     jParser.nextToken();
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         r.getTags().add(jParser.getValueAsString());
                     }
                     break;
                 case "friends":
                     r.setFriends(new ArrayList<>());
                     jParser.nextToken(); // current token is "[", move next.
-                    while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_ARRAY) {
+                    while (jParser.nextToken() != tools.jackson.core.JsonToken.END_ARRAY) {
                         Friend f = new Friend();
-                        while (jParser.nextToken() != com.fasterxml.jackson.core.JsonToken.END_OBJECT) {
-                            String fn = jParser.getCurrentName();
+                        while (jParser.nextToken() != tools.jackson.core.JsonToken.END_OBJECT) {
+                            String fn = jParser.currentName();
                             if (fn == null) {
                                 continue;
                             }
@@ -452,6 +453,162 @@ public class UsersStreamDeserializer implements StreamDeserializer<Users> {
                                 case "name":
                                     jParser.nextToken();
                                     f.setName(jParser.getValueAsString());
+                                    break;
+                            }
+                        }
+                        r.getFriends().add(f);
+                    }
+                    break;
+            }
+        }
+        return r;
+    }
+
+    // ------------------------------------------------------------------
+    // json-io cursor-API stream deserializer. Structurally a line-for-line
+    // port of the Jackson implementation above; methods/signatures swap to
+    // json-io's Jackson-aligned tokenizer API:
+    //   jParser.nextToken()        -> tokenizer.nextToken()
+    //   jParser.getCurrentName()   -> tokenizer.currentName()
+    //   jParser.getValueAsString() -> tokenizer.getText()
+    //   jParser.getIntValue()/getBooleanValue()/getDoubleValue() unchanged.
+    // Kept structurally identical so benchmark comparisons reflect the
+    // tokenizer cost itself, not deserializer-shape differences.
+    // ------------------------------------------------------------------
+
+    @Override
+    public Users jsonio(JsonTokenizer t) throws IOException {
+        Users uc = new Users();
+        while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_OBJECT) {
+            String fieldname = t.currentName();
+            if ("users".equals(fieldname)) {
+                if (t.nextToken() == com.cedarsoftware.io.JsonToken.START_ARRAY) {
+                    uc.setUsers(new ArrayList<>());
+                    while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_ARRAY) {
+                        uc.getUsers().add(jsonioUser(t));
+                        if (t.isClosed()) {
+                            throw new IOException("parser closed");
+                        }
+                    }
+                }
+            }
+        }
+        return uc;
+    }
+
+    private User jsonioUser(JsonTokenizer t) throws IOException {
+        User r = new User();
+        while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_OBJECT) {
+            String fieldname = t.currentName();
+            if (fieldname == null) {
+                break;
+            }
+            switch (fieldname) {
+                case "id":
+                    t.nextToken();
+                    r.setId(t.getText());
+                    break;
+                case "index":
+                    t.nextToken();
+                    r.setIndex(t.getIntValue());
+                    break;
+                case "guid":
+                    t.nextToken();
+                    r.setGuid(t.getText());
+                    break;
+                case "isActive":
+                    t.nextToken();
+                    r.setIsActive(t.getBooleanValue());
+                    break;
+                case "balance":
+                    t.nextToken();
+                    r.setBalance(t.getText());
+                    break;
+                case "picture":
+                    t.nextToken();
+                    r.setPicture(t.getText());
+                    break;
+                case "age":
+                    t.nextToken();
+                    r.setAge(t.getIntValue());
+                    break;
+                case "eyeColor":
+                    t.nextToken();
+                    r.setEyeColor(t.getText());
+                    break;
+                case "name":
+                    t.nextToken();
+                    r.setName(t.getText());
+                    break;
+                case "gender":
+                    t.nextToken();
+                    r.setGender(t.getText());
+                    break;
+                case "company":
+                    t.nextToken();
+                    r.setCompany(t.getText());
+                    break;
+                case "email":
+                    t.nextToken();
+                    r.setEmail(t.getText());
+                    break;
+                case "phone":
+                    t.nextToken();
+                    r.setPhone(t.getText());
+                    break;
+                case "address":
+                    t.nextToken();
+                    r.setAddress(t.getText());
+                    break;
+                case "about":
+                    t.nextToken();
+                    r.setAbout(t.getText());
+                    break;
+                case "registered":
+                    t.nextToken();
+                    r.setRegistered(t.getText());
+                    break;
+                case "latitude":
+                    t.nextToken();
+                    r.setLatitude(t.getDoubleValue());
+                    break;
+                case "longitude":
+                    t.nextToken();
+                    r.setLongitude(t.getDoubleValue());
+                    break;
+                case "greeting":
+                    t.nextToken();
+                    r.setGreeting(t.getText());
+                    break;
+                case "favoriteFruit":
+                    t.nextToken();
+                    r.setFavoriteFruit(t.getText());
+                    break;
+                case "tags":
+                    r.setTags(new ArrayList<>());
+                    t.nextToken(); // current token is "[", move next.
+                    while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_ARRAY) {
+                        r.getTags().add(t.getText());
+                    }
+                    break;
+                case "friends":
+                    r.setFriends(new ArrayList<>());
+                    t.nextToken(); // current token is "[", move next.
+                    while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_ARRAY) {
+                        Friend f = new Friend();
+                        while (t.nextToken() != com.cedarsoftware.io.JsonToken.END_OBJECT) {
+                            String fn = t.currentName();
+                            if (fn == null) {
+                                continue;
+                            }
+                            switch (fn) {
+                                case "id":
+                                    t.nextToken();
+                                    f.setId(t.getText());
+                                    break;
+                                case "name":
+                                    t.nextToken();
+                                    f.setName(t.getText());
                                     break;
                             }
                         }

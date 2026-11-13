@@ -1,6 +1,6 @@
 package com.github.fabienrenaud.jjb.stream;
 
-import com.fasterxml.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonGenerator;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.github.fabienrenaud.jjb.model.Users.Friend;
 import com.github.fabienrenaud.jjb.model.Users.User;
@@ -394,7 +394,7 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     public void jackson(JsonGenerator j, Users obj) throws IOException {
         j.writeStartObject();
         if (obj.getUsers() != null) {
-            j.writeFieldName("users");
+            j.writeName("users");
             j.writeStartArray();
             for (User u : obj.getUsers()) {
                 jackson(j, u);
@@ -407,69 +407,69 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
     private void jackson(JsonGenerator j, User u) throws IOException {
         j.writeStartObject();
         if (u.getId() != null) {
-            j.writeFieldName("id");
+            j.writeName("id");
             j.writeString(u.getId());
         }
-        j.writeFieldName("index");
+        j.writeName("index");
         j.writeNumber(u.getIndex());
         if (u.getGuid() != null) {
-            j.writeFieldName("guid");
+            j.writeName("guid");
             j.writeString(u.getGuid());
         }
-        j.writeFieldName("isActive");
+        j.writeName("isActive");
         j.writeBoolean(u.getIsActive());
         if (u.getBalance() != null) {
-            j.writeFieldName("balance");
+            j.writeName("balance");
             j.writeString(u.getBalance());
         }
         if (u.getPicture() != null) {
-            j.writeFieldName("picture");
+            j.writeName("picture");
             j.writeString(u.getPicture());
         }
-        j.writeFieldName("age");
+        j.writeName("age");
         j.writeNumber(u.getAge());
         if (u.getEyeColor() != null) {
-            j.writeFieldName("eyeColor");
+            j.writeName("eyeColor");
             j.writeString(u.getEyeColor());
         }
         if (u.getName() != null) {
-            j.writeFieldName("name");
+            j.writeName("name");
             j.writeString(u.getName());
         }
         if (u.getGender() != null) {
-            j.writeFieldName("gender");
+            j.writeName("gender");
             j.writeString(u.getGender());
         }
         if (u.getCompany() != null) {
-            j.writeFieldName("company");
+            j.writeName("company");
             j.writeString(u.getCompany());
         }
         if (u.getEmail() != null) {
-            j.writeFieldName("email");
+            j.writeName("email");
             j.writeString(u.getEmail());
         }
         if (u.getPhone() != null) {
-            j.writeFieldName("phone");
+            j.writeName("phone");
             j.writeString(u.getPhone());
         }
         if (u.getAddress() != null) {
-            j.writeFieldName("address");
+            j.writeName("address");
             j.writeString(u.getAddress());
         }
         if (u.getAbout() != null) {
-            j.writeFieldName("about");
+            j.writeName("about");
             j.writeString(u.getAbout());
         }
         if (u.getRegistered() != null) {
-            j.writeFieldName("registered");
+            j.writeName("registered");
             j.writeString(u.getRegistered());
         }
-        j.writeFieldName("latitude");
+        j.writeName("latitude");
         j.writeNumber(u.getLatitude());
-        j.writeFieldName("longitude");
+        j.writeName("longitude");
         j.writeNumber(u.getLongitude());
         if (u.getTags() != null) {
-            j.writeFieldName("tags");
+            j.writeName("tags");
             j.writeStartArray();
             for (String t : u.getTags()) {
                 j.writeString(t);
@@ -477,27 +477,140 @@ public class UsersStreamSerializer implements StreamSerializer<Users> {
             j.writeEndArray();
         }
         if (u.getFriends() != null) {
-            j.writeFieldName("friends");
+            j.writeName("friends");
             j.writeStartArray();
             for (Friend f : u.getFriends()) {
                 j.writeStartObject();
-                j.writeFieldName("id");
+                j.writeName("id");
                 j.writeString(f.getId());
-                j.writeFieldName("name");
+                j.writeName("name");
                 j.writeString(f.getName());
                 j.writeEndObject();
             }
             j.writeEndArray();
         }
         if (u.getGreeting() != null) {
-            j.writeFieldName("greeting");
+            j.writeName("greeting");
             j.writeString(u.getGreeting());
         }
         if (u.getFavoriteFruit() != null) {
-            j.writeFieldName("favoriteFruit");
+            j.writeName("favoriteFruit");
             j.writeString(u.getFavoriteFruit());
         }
         j.writeEndObject();
+    }
+
+    @Override
+    public void jsonio(com.cedarsoftware.io.JsonGenerator g, Users obj) throws IOException {
+        // Hand-rolled streaming serializer using json-io's Jackson-aligned JsonGenerator API.
+        // Method-for-method port of jackson(JsonGenerator,Users) above — the two surfaces are
+        // intentionally identical so this body is the same shape with a different generator type.
+        g.writeStartObject();
+        if (obj.getUsers() != null) {
+            g.writeFieldName("users");
+            g.writeStartArray();
+            for (User u : obj.getUsers()) {
+                jsonio(g, u);
+            }
+            g.writeEndArray();
+        }
+        g.writeEndObject();
+    }
+
+    private void jsonio(com.cedarsoftware.io.JsonGenerator g, User u) throws IOException {
+        g.writeStartObject();
+        if (u.getId() != null) {
+            g.writeFieldName("id");
+            g.writeString(u.getId());
+        }
+        g.writeFieldName("index");
+        g.writeNumber(u.getIndex());
+        if (u.getGuid() != null) {
+            g.writeFieldName("guid");
+            g.writeString(u.getGuid());
+        }
+        g.writeFieldName("isActive");
+        g.writeBoolean(u.getIsActive());
+        if (u.getBalance() != null) {
+            g.writeFieldName("balance");
+            g.writeString(u.getBalance());
+        }
+        if (u.getPicture() != null) {
+            g.writeFieldName("picture");
+            g.writeString(u.getPicture());
+        }
+        g.writeFieldName("age");
+        g.writeNumber(u.getAge());
+        if (u.getEyeColor() != null) {
+            g.writeFieldName("eyeColor");
+            g.writeString(u.getEyeColor());
+        }
+        if (u.getName() != null) {
+            g.writeFieldName("name");
+            g.writeString(u.getName());
+        }
+        if (u.getGender() != null) {
+            g.writeFieldName("gender");
+            g.writeString(u.getGender());
+        }
+        if (u.getCompany() != null) {
+            g.writeFieldName("company");
+            g.writeString(u.getCompany());
+        }
+        if (u.getEmail() != null) {
+            g.writeFieldName("email");
+            g.writeString(u.getEmail());
+        }
+        if (u.getPhone() != null) {
+            g.writeFieldName("phone");
+            g.writeString(u.getPhone());
+        }
+        if (u.getAddress() != null) {
+            g.writeFieldName("address");
+            g.writeString(u.getAddress());
+        }
+        if (u.getAbout() != null) {
+            g.writeFieldName("about");
+            g.writeString(u.getAbout());
+        }
+        if (u.getRegistered() != null) {
+            g.writeFieldName("registered");
+            g.writeString(u.getRegistered());
+        }
+        g.writeFieldName("latitude");
+        g.writeNumber(u.getLatitude());
+        g.writeFieldName("longitude");
+        g.writeNumber(u.getLongitude());
+        if (u.getTags() != null) {
+            g.writeFieldName("tags");
+            g.writeStartArray();
+            for (String t : u.getTags()) {
+                g.writeString(t);
+            }
+            g.writeEndArray();
+        }
+        if (u.getFriends() != null) {
+            g.writeFieldName("friends");
+            g.writeStartArray();
+            for (Friend f : u.getFriends()) {
+                g.writeStartObject();
+                g.writeFieldName("id");
+                g.writeString(f.getId());
+                g.writeFieldName("name");
+                g.writeString(f.getName());
+                g.writeEndObject();
+            }
+            g.writeEndArray();
+        }
+        if (u.getGreeting() != null) {
+            g.writeFieldName("greeting");
+            g.writeString(u.getGreeting());
+        }
+        if (u.getFavoriteFruit() != null) {
+            g.writeFieldName("favoriteFruit");
+            g.writeString(u.getFavoriteFruit());
+        }
+        g.writeEndObject();
     }
 
     @Override

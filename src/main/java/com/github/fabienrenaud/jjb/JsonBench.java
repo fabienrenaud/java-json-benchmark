@@ -69,10 +69,6 @@ public abstract class JsonBench {
         return null;
     }
 
-    public Object boon() throws Exception {
-        return null;
-    }
-
     public Object johnzon() throws Exception {
         return null;
     }

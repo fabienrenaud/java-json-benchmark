@@ -190,9 +190,9 @@ public class Deserialization extends JsonBench {
     public Object jackson_sjf4j() throws Exception {
         Class<?> clazz = JSON_SOURCE().pojoType();
         if (clazz == Users.class) {
-            return Sjf4jBinders.JACKSON2.readUsers(JSON_SOURCE().nextByteArray());
+            return Sjf4jBinders.JACKSON3.readUsers(JSON_SOURCE().nextByteArray());
         } else if (clazz == Clients.class) {
-            return Sjf4jBinders.JACKSON2.readClients(JSON_SOURCE().nextByteArray());
+            return Sjf4jBinders.JACKSON3.readClients(JSON_SOURCE().nextByteArray());
         }
         return null;
     }

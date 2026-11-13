@@ -232,9 +232,9 @@ public class Serialization extends JsonBench {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         Object pojo = JSON_SOURCE().nextPojo();
         if (pojo instanceof Users users) {
-            Sjf4jBinders.JACKSON2.writeUsers(users, baos);
+            Sjf4jBinders.JACKSON3.writeUsers(users, baos);
         } else if (pojo instanceof Clients clients) {
-            Sjf4jBinders.JACKSON2.writeClients(clients, baos);
+            Sjf4jBinders.JACKSON3.writeClients(clients, baos);
         }
         return baos;
     }

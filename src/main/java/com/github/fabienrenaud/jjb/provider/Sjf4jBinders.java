@@ -31,10 +31,10 @@ public interface Sjf4jBinders {
     }
 
     // Jackson2
-    Jackson2Binder JACKSON2 = CompiledInstances.create(Jackson2Binder.class);
+    Jackson3Binder JACKSON3 = CompiledInstances.create(Jackson3Binder.class);
 
-    @CompiledBinder(backend = Backend.JACKSON2)
-    interface Jackson2Binder {
+    @CompiledBinder(backend = Backend.JACKSON3)
+    interface Jackson3Binder {
         @Read
         Users readUsers(byte[] bytes) throws IOException;
         @Write

@@ -65,6 +65,8 @@ public interface JsonProvider<T> {
 
     com.bigcloud.djomo.Json djomo();
 
+    io.helidon.json.binding.JsonBinding helidon();
+
     WriteOptions jsonioWriteOptions();
 
 }

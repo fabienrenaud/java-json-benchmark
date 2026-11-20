@@ -165,6 +165,12 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object helidon() throws Exception {
+        return JSON_SOURCE().provider().helidon().deserialize(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
+    }
+
+    @Benchmark
+    @Override
     public Object jsonio() {
         // Default ReadOptions; json-io infers field types from the target Class.
         return JsonIo.toJava(JSON_SOURCE().nextString(), null).asClass(JSON_SOURCE().pojoType());

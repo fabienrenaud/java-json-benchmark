@@ -152,4 +152,8 @@ public abstract class JsonBench {
     public Object djomo() throws Exception {
         return null;
     }
+
+    public Object helidon() throws Exception {
+        return null;
+    }
 }

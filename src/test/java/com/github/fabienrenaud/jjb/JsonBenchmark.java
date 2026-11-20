@@ -286,4 +286,11 @@ public abstract class JsonBenchmark<T> {
         }
     }
 
+    @Test
+    public void helidon() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.HELIDON, BENCH.helidon());
+        }
+    }
+
 }

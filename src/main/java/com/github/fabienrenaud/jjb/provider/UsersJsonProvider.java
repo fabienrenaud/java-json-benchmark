@@ -73,6 +73,7 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final JsonType<Users> avajeJsonb_default = io.avaje.jsonb.Jsonb.builder().adapter(JsonStream.builder().serializeNulls(true).serializeEmpty(true).failOnUnknown(false).build()).build().type(Users.class);
 
     private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
+    private final io.helidon.json.binding.JsonBinding helidon = io.helidon.json.binding.JsonBinding.create();
 
     // json-io WriteOptions is immutable+thread-safe once built; cache one instance per provider
     // to match how every other library here caches its mapper/parser/serializer. Read-side uses
@@ -211,6 +212,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public com.bigcloud.djomo.Json djomo() {
         return djomo;
+    }
+
+    @Override
+    public io.helidon.json.binding.JsonBinding helidon() {
+        return helidon;
     }
 
     @Override

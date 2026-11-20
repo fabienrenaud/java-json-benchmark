@@ -202,6 +202,14 @@ public class Serialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object helidon() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().helidon().serialize(baos, JSON_SOURCE().nextPojo(), JSON_SOURCE().pojoType());
+        return baos;
+    }
+
+    @Benchmark
+    @Override
     public Object jsonio() {
         // standardJson() produces Jackson-compatible JSON: suppresses @type, @id/@ref,
         // root type info; stringifies non-String map keys; emits ISO-8601 dates.

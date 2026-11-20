@@ -16,6 +16,7 @@ It covers the following libraries:
 * [fory-json](https://fory.apache.org/docs/json/)
 * [genson](https://owlike.github.io/genson/)
 * [gson](https://github.com/google/gson)
+* [helidon-json](https://github.com/helidon-io/helidon/tree/main/json)
 * [jackson](https://github.com/FasterXML/jackson)
 * [jakarta-json](https://github.com/eclipse-ee4j/parsson) (Eclipse Parsson)
 * [johnzon](http://johnzon.apache.org/)

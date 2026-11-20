@@ -173,6 +173,7 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
             .adapter(JsonStream.builder().serializeNulls(true).serializeEmpty(true).failOnUnknown(false).build()).build().type(Clients.class);
 
     private final com.bigcloud.djomo.Json djomo = new com.bigcloud.djomo.Json();
+    private final io.helidon.json.binding.JsonBinding helidon = io.helidon.json.binding.JsonBinding.create();
 
     // json-io WriteOptions is immutable+thread-safe once built; cache one instance per provider
     // to match how every other library here caches its mapper/parser/serializer. Read-side uses
@@ -311,6 +312,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public com.bigcloud.djomo.Json djomo() {
         return djomo;
+    }
+
+    @Override
+    public io.helidon.json.binding.JsonBinding helidon() {
+        return helidon;
     }
 
     @Override

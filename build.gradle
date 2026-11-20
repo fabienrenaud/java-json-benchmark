@@ -25,9 +25,10 @@ repositories {
 }
 
 ext {
-    avajeJsonVersion = '3.16'
+    avajeJsonVersion = '3.17-RC3'
     jacksonVersion = '3.2.4'
     dslJsonVersion = '2.0.2'
+    helidonVersion = '4.5.7'
     johnzonVersion = '2.2.0'
     jmhVersion = '1.37'
 }
@@ -67,6 +68,11 @@ dependencies {
     implementation 'com.owlike:genson:1.6'
     // GSON
     implementation 'com.google.code.gson:gson:2.15.0'
+    // Helidon JSON
+    implementation "io.helidon.json:helidon-json-binding:${helidonVersion}"
+    annotationProcessor "io.helidon.codegen:helidon-codegen-apt:${helidonVersion}"
+    annotationProcessor "io.helidon.json:helidon-json-codegen:${helidonVersion}"
+    annotationProcessor "io.helidon.service:helidon-service-codegen:${helidonVersion}"
     // Jackson
     implementation "tools.jackson.core:jackson-databind:${jacksonVersion}"
     implementation "tools.jackson.module:jackson-module-afterburner:${jacksonVersion}"

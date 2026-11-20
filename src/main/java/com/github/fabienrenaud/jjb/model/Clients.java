@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @io.avaje.jsonb.Json
+@io.helidon.json.binding.Json.Entity
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
@@ -59,6 +60,7 @@ public class Clients {
     }
 
     @io.avaje.jsonb.Json
+    @io.helidon.json.binding.Json.Entity
     @JsonObject
     @JsonTypeSetting(enableJIT = true)
     public static final class Client {
@@ -191,6 +193,7 @@ public class Clients {
             this.guid = guid;
         }
 
+        @io.helidon.json.binding.Json.Property("isActive")
         public boolean getIsActive() {
             return isActive;
         }
@@ -397,6 +400,7 @@ public class Clients {
     }
 
     @io.avaje.jsonb.Json
+    @io.helidon.json.binding.Json.Entity
     @JsonObject
     @JsonTypeSetting(enableJIT = true)
     public static final class Partner {

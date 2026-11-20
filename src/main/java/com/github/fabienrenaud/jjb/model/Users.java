@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @io.avaje.jsonb.Json
+@io.helidon.json.binding.Json.Entity
 @JsonObject
 @CompiledJson
 @jodd.json.meta.JSON
@@ -53,6 +54,7 @@ public class Users {
     }
 
     @io.avaje.jsonb.Json
+    @io.helidon.json.binding.Json.Entity
     @JsonObject
     @CompiledJson
     @JsonTypeSetting(enableJIT = true)
@@ -176,6 +178,7 @@ public class Users {
             this.guid = guid;
         }
 
+        @io.helidon.json.binding.Json.Property("isActive")
         public boolean getIsActive() {
             return isActive;
         }
@@ -330,6 +333,7 @@ public class Users {
     }
 
     @io.avaje.jsonb.Json
+    @io.helidon.json.binding.Json.Entity
     @JsonObject
     @CompiledJson
     @JsonTypeSetting(enableJIT = true)
